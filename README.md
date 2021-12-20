@@ -1,1 +1,1 @@
-# fubaisen-.github.io
+# fubaisen.github.io
