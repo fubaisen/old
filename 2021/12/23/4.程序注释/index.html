@@ -6,7 +6,7 @@
     <meta name="referrer" content="origin">
     <meta http-equiv="Cache-Control" content="no-transform">
     <meta http-equiv="Cache-Control" content="no-siteapp">
-    <title>友情链接</title>
+    <title>4.程序注释</title>
     <link rel="shortcut icon" href="#"/>
 
     <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/LongCang.css">
@@ -18,12 +18,13 @@
     <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Rosario.css">
     <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/UbuntuMono.css">
 
-    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/page.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/post.css">
     
         <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/normal.css">
     
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/jquery-3.4.1.min.js"></script>
+
 <meta name="generator" content="Hexo 5.4.0"></head>
 <body>
     <a id="cover"></a>
@@ -31,10 +32,21 @@
     <div class="header">
         <div class="vertical">
             <div class="inner">
-                <h1 class="header-subtitle">友情链接</h1>
+                <h1 class="header-subtitle">4.程序注释</h1>
                 <div class="header-subinfo">
-                    <p class="article-info-text Chinese"></p>
-                    <p class="article-info-text English"></p>                  
+                    <p class="article-info-text">
+                        <span>
+                            <i class="iconfont icon-time"></i> 发表时间：2021-12-23
+                        </span>
+                        
+                            <span id="/2021/12/23/4.程序注释/" class="leancloud_visitors" data-flag-title="4.程序注释">
+                                <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                            </span>
+                        
+                        <span>
+                            <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2021/12/23/4.程序注释/"></span>
+                        </span>  
+                    </p>                 
                 </div>
             </div>
         </div>
@@ -44,105 +56,147 @@
     <div id="container">
     <div id="content">
         <div id="article">
-            <div class="article-body">
-                
-<style type="text/css">
-    .friends .friend-content .friend-card:hover .friend-left .avatar {
-        box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 0.1), 0 4px 8px 0px rgba(0, 0, 0, 0.1), 0 8px 16px 0px rgba(0, 0, 0, 0.1);
-        transform: scale(1.2) rotate(12deg)
-    }
-</style>
+    <div class="toc"></div>
+    <div class="article-body">
+        <h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><p>注释的作用 </p>
+<blockquote>
+<p>使用用自己熟悉的语言，在程序中对某些代码进行标注说明，增强程序的可读性</p>
+</blockquote>
+<h5 id="单行注释（行注释）"><a href="#单行注释（行注释）" class="headerlink" title="单行注释（行注释）"></a>单行注释（行注释）</h5><ul>
+<li><p>以#开头，#右边的所有的东西都被当作说明文字，而不是真正要执行的程序，只起到辅助说明左右</p>
+</li>
+<li><p>例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 这是第一个当行注释</span><br><span class="line">print (&quot;hello,python&quot;)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<blockquote>
+<p>pycharm会检查代码格式</p>
+<p>若格式有误则会出现如下虚线<img src="https://gitee.com/lichaikui/picture/raw/master/tupian/image-20211209193021336.png" alt="image-20211209193021336"></p>
+<p>python官方建议在<code>#</code>后面加  空格  会使代码格式更加整齐</p>
+<p>一键在#后添加 空格 （重新格式化文件）：<img src="https://gitee.com/lichaikui/picture/raw/master/tupian/image-20211209194654148.png" alt="image-20211209194654148"></p>
+</blockquote>
+<p>python解释器认为 # 后 为说明性文字，会越过这一行代码直接开始下一行</p>
+<p>在代码后面增加的当行注释</p>
+<blockquote>
+<p>代码很短，注释也很短</p>
+</blockquote>
+<ul>
+<li><p>在程序开发时，同时可以使用#在代码的后面（旁边）增加说明性文字</p>
+</li>
+<li><p>注意 为保证代码可读性，<strong>注释和代码之间至少要有 两个空格</strong></p>
+</li>
+<li><p>例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(&quot;hello python&quot;)  # 输出 &#x27;hello python&#x27;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h5 id="多行注释（块注释）"><a href="#多行注释（块注释）" class="headerlink" title="多行注释（块注释）"></a>多行注释（块注释）</h5><ul>
+<li><p>如果希望编写的 注释信息很多，一行无法显示 就可以使用多行注释</p>
+</li>
+<li><p>要在python程序中使用多行注释，可以用 一堆 连续的 三个 引号（单引号和双引号都可以）</p>
+</li>
+<li><p>例子：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&quot;&quot;&quot;</span><br><span class="line">这是一个多行注释</span><br><span class="line">在多行注释之间，可以写很多很多内容......</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">print(&quot;hello python&quot;)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">  1. 输入用户年龄</span><br><span class="line">  2. 判断是否满 18 岁 （**&gt;=**）</span><br><span class="line">  3. 如果满 18 岁，允许进网吧嗨皮</span><br><span class="line">  4. 如果未满 18 岁，提示回家写作业</span><br><span class="line">  想要注释以上内容</span><br><span class="line">  全选  按 Ctrl+/     则会如此</span><br><span class="line">#1. 输入用户年龄</span><br><span class="line"># 2. 判断是否满 18 岁 （**&gt;=**）</span><br><span class="line"># 3. 如果满 18 岁，允许进网吧嗨皮</span><br><span class="line"># 4. 如果未满 18 岁，提示回家写作业</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h5 id="什么时候使用注释？"><a href="#什么时候使用注释？" class="headerlink" title="什么时候使用注释？"></a>什么时候使用注释？</h5><ol>
+<li>一部了然的代码不需要添加注释</li>
+<li><strong>对于复杂的操作</strong>，应该在操作开始前写上若干行注释</li>
+<li>对于 <strong>不是一目了然的代码</strong>，应该在其行尾添加注释（为了提高可读性，注释应该只很少离开代码两个空格）</li>
+<li>绝不要描述代码，假设阅读代码的人比你跟懂python，他只是不知道你的代码做什么</li>
+</ol>
+<blockquote>
+<p>在一些正规的开发团队，通常会有  代码审核 的惯例，就是一个团队中彼此阅读对方的代码</p>
+</blockquote>
+<h5 id="关于代码规范"><a href="#关于代码规范" class="headerlink" title="关于代码规范"></a>关于代码规范</h5><ul>
+<li>python官方提供一系列 PEP(python Enhancement Proposals)文档</li>
+<li>其中第八章文档专门针对 <strong>python的代码格式</strong> 个除了建议，也就是俗称的PEP S</li>
+<li>文档地址：<ul>
+<li><a target="_blank" rel="noopener" href="https://www.python.org/dev/peps/pep-0008/">https://www.python.org/dev/peps/pep-0008/</a></li>
+<li>谷歌中对应中文文档<a target="_blank" rel="noopener" href="https://zh-google-styleguide.readthedocs.io/en/latest/google-python-styleguide/python_style_rules/">https://zh-google-styleguide.readthedocs.io/en/latest/google-python-styleguide/python_style_rules/</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="算数运算符"><a href="#算数运算符" class="headerlink" title="算数运算符"></a>算数运算符</h2><p>计算机，顾名思义就是负责进行数学计算 并且 储存计算结果 的电子设备</p>
+<p>01.算数运算符</p>
+<ul>
+<li>算术运算符是 运算符的一种</li>
+<li>是完成基本的算术运算的符号，用来处理四则运算</li>
+</ul>
+<p><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/image-20211209213434302.png" alt="image-20211209213434302"></p>
+<ul>
+<li>在python中 <code>*</code>运算符还可以用于字符串，计算接股票就是字符串重复指定次数的结果</li>
+</ul>
+<p><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/image-20211209215025187.png" alt="image-20211209215025187"></p>
+<img src="https://gitee.com/lichaikui/picture/raw/master/tupian/image-20211209215048860.png" alt="image-20211209215048860" style="zoom:150%;" />
 
+<h5 id="算数运算符的优先级"><a href="#算数运算符的优先级" class="headerlink" title="算数运算符的优先级"></a>算数运算符的优先级</h5><ul>
+<li><p>和数学中的运算符的优先级一直，在python中进行数学计算时同样也是：</p>
+<ol>
+<li>先乘除后加减</li>
+<li>统计运算符是 <strong>从左至右</strong> 计算</li>
+<li>可以使用 <code>（）</code>调整计算的优先级</li>
+</ol>
+<p><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/image-20211209215635672.png" alt="image-20211209215635672"></p>
+</li>
+</ul>
 
-    <div class="friends">
+        <p class="suffix-end">__END__</p>
+        <div class="suffix-box">
+            <div class="suffix-box-left">
+                <img src="https://gitee.com/lichaikui/picture/raw/master/tupian/20211222195800.png" alt="hero">
+            </div>
+            <div class="suffix-box-right">
+                <span class="suffix-box-title">文章作者</span>：hero
+                <br>
+                <span class="suffix-box-title">文章出处</span>：<a href="/2021/12/23/4.%E7%A8%8B%E5%BA%8F%E6%B3%A8%E9%87%8A/" target="_blank">4.程序注释</a>
+                <br>
+                <span class="suffix-box-title">作者签名</span>：简单地活着, 肆意又精彩.
+                <br>
+                <span class="suffix-box-title">关于主题</span>：<a href="https://github.com/first19326/Hexo-LiveForCode" target="_blank">Hexo - Live For Code</a>
+                <br>
+                <span class="suffix-box-title">版权声明</span>：文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" title="BY-NC-SA" target="_blank">BY-NC-SA</a> 许可协议，转载请注明出处
+                <br>
+            </div>
+            <div style="clear: both;"></div>
+        </div>
+    </div>
+    <div class="article-footer">
         
-            <div class="friend-head">
-                <span>特别鸣谢</span>
+            <div class="category">
+                分类：
+                
+                    <a href="/category/python%E5%AD%A6%E4%B9%A0/">python学习</a>
+                
             </div>
         
         
-        <div class="friend-content">
+            <div class="tag">
+                标签：
+                
+                    <a href="/tag/4-%E7%A8%8B%E5%BA%8F%E6%B3%A8%E9%87%8A/">4.程序注释</a>
+                
+            </div>
+        
+        <div class="article-prev-next">
             
-                <a class="friend-card" target="_blank" href="https://hexo.io/zh-cn/">
-                    <div class="friend-left">
-                        <img class="avatar" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/image/website/lazyload.svg" data-original="/image/hexo.png"> 
-                    </div>
-                    <div class="friend-right">
-                        <p class="friend-name">Hexo</p>
-                        <div class="friend-about">
-                            <p>简洁、高效的博客框架</p>
-                        </div>
-                    </div>
-                </a>
+                <a href="/2021/12/23/5.%E7%AE%97%E6%95%B0%E8%BF%90%E7%AE%97%E7%AC%A6/" class="prev-prefix">« </a> 上一篇：    <a href="/2021/12/23/5.%E7%AE%97%E6%95%B0%E8%BF%90%E7%AE%97%E7%AC%A6/" title="发布于 2021-12-23 08:04">5.算数运算符</a>
+                <br>
             
-                <a class="friend-card" target="_blank" href="https://blog.dbnuo.com/">
-                    <div class="friend-left">
-                        <img class="avatar" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/image/website/lazyload.svg" data-original="/image/bndong.gif"> 
-                    </div>
-                    <div class="friend-right">
-                        <p class="friend-name">BNDong</p>
-                        <div class="friend-about">
-                            <p>SimpleMemory 作者</p>
-                        </div>
-                    </div>
-                </a>
             
-                <a class="friend-card" target="_blank" href="https://notes.iissnan.com/">
-                    <div class="friend-left">
-                        <img class="avatar" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/image/website/lazyload.svg" data-original="/image/iissnan.jpg"> 
-                    </div>
-                    <div class="friend-right">
-                        <p class="friend-name">IIssNan</p>
-                        <div class="friend-about">
-                            <p>Hexo-NexT 作者</p>
-                        </div>
-                    </div>
-                </a>
-            
-                <a class="friend-card" target="_blank" href="https://volantis.js.org/">
-                    <div class="friend-left">
-                        <img class="avatar" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/image/website/lazyload.svg" data-original="/image/volantis.png"> 
-                    </div>
-                    <div class="friend-right">
-                        <p class="friend-name">Volantis</p>
-                        <div class="friend-about">
-                            <p>Hexo-Volantis 主题</p>
-                        </div>
-                    </div>
-                </a>
+                <a href="/2021/12/23/3.%E5%A4%9A%E6%96%87%E4%BB%B6%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%BC%94%E7%BB%83/" class="next-prefix">» </a> 下一篇：    <a href="/2021/12/23/3.%E5%A4%9A%E6%96%87%E4%BB%B6%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%BC%94%E7%BB%83/" title="发布于 2021-12-23 08:02">3.多文件项目的演练</a>
             
         </div>
     </div>
-
-    <div class="friends">
-        
-            <div class="friend-head">
-                <span>友情链接</span>
-            </div>
-        
-        
-        <div class="friend-content">
-            
-                <a class="friend-card" target="_blank" href="https://notes.worstone.cn">
-                    <div class="friend-left">
-                        <img class="avatar" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/image/website/lazyload.svg" data-original="https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/image/sidebar/avatar.jpg"> 
-                    </div>
-                    <div class="friend-right">
-                        <p class="friend-name">WorstOne</p>
-                        <div class="friend-about">
-                            <p>Live For Code 作者</p>
-                        </div>
-                    </div>
-                </a>
-            
+    
+    <div class="article-comments">
+        <div class="comments-title">
+            评论列表
+        </div>
+        <div class="comments-content">
         </div>
     </div>
 
-                
-            </div>
-                    
-        </div>
+</div>
+
     </div>
 </div>
     <div id="footer"></div>

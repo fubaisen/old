@@ -6,7 +6,7 @@
     <meta name="referrer" content="origin">
     <meta http-equiv="Cache-Control" content="no-transform">
     <meta http-equiv="Cache-Control" content="no-siteapp">
-    <title>友情链接</title>
+    <title>8.变量的命名</title>
     <link rel="shortcut icon" href="#"/>
 
     <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/LongCang.css">
@@ -18,12 +18,13 @@
     <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Rosario.css">
     <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/UbuntuMono.css">
 
-    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/page.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/post.css">
     
         <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/normal.css">
     
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/jquery-3.4.1.min.js"></script>
+
 <meta name="generator" content="Hexo 5.4.0"></head>
 <body>
     <a id="cover"></a>
@@ -31,10 +32,21 @@
     <div class="header">
         <div class="vertical">
             <div class="inner">
-                <h1 class="header-subtitle">友情链接</h1>
+                <h1 class="header-subtitle">8.变量的命名</h1>
                 <div class="header-subinfo">
-                    <p class="article-info-text Chinese"></p>
-                    <p class="article-info-text English"></p>                  
+                    <p class="article-info-text">
+                        <span>
+                            <i class="iconfont icon-time"></i> 发表时间：2021-12-23
+                        </span>
+                        
+                            <span id="/2021/12/23/09_变量的命名/" class="leancloud_visitors" data-flag-title="8.变量的命名">
+                                <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                            </span>
+                        
+                        <span>
+                            <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2021/12/23/09_变量的命名/"></span>
+                        </span>  
+                    </p>                 
                 </div>
             </div>
         </div>
@@ -44,105 +56,131 @@
     <div id="container">
     <div id="content">
         <div id="article">
-            <div class="article-body">
-                
-<style type="text/css">
-    .friends .friend-content .friend-card:hover .friend-left .avatar {
-        box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 0.1), 0 4px 8px 0px rgba(0, 0, 0, 0.1), 0 8px 16px 0px rgba(0, 0, 0, 0.1);
-        transform: scale(1.2) rotate(12deg)
-    }
-</style>
+    <div class="toc"></div>
+    <div class="article-body">
+        <h1 id="变量的命名"><a href="#变量的命名" class="headerlink" title="变量的命名"></a>变量的命名</h1><h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ul>
+<li>标识符和关键字</li>
+<li>变量的命名规则</li>
+</ul>
+<h2 id="0-1-标识符和关键字"><a href="#0-1-标识符和关键字" class="headerlink" title="0.1 标识符和关键字"></a>0.1 标识符和关键字</h2><h3 id="1-1-标识符"><a href="#1-1-标识符" class="headerlink" title="1.1 标识符"></a>1.1 标识符</h3><blockquote>
+<p>标示符就是程序员定义的 <strong>变量名</strong>、<strong>函数名</strong></p>
+<p><strong>名字</strong> 需要有 <strong>见名知义</strong> 的效果，见下图：</p>
+</blockquote>
+<p><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/001_%E4%B8%AD%E5%9B%BD%E5%B1%B1%E4%B8%9C%E6%89%BE%E8%93%9D%E7%BF%94.jpg" alt="001_中国山东找蓝翔"></p>
+<ul>
+<li>标示符可以由 <strong>字母</strong>、<strong>下划线</strong> 和 <strong>数字</strong> 组成</li>
+<li><strong>不能以数字开头</strong></li>
+<li><strong>不能与关键字重名</strong></li>
+</ul>
+<p>思考：下面的标示符哪些是正确的，哪些不正确为什么？</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">fromNo12</span><br><span class="line">from#12      错误有#</span><br><span class="line">my_Boolean</span><br><span class="line">my-Boolean   错误有-</span><br><span class="line">Obj2</span><br><span class="line">2ndObj       错误是数字开头</span><br><span class="line">myInt</span><br><span class="line">My_tExt</span><br><span class="line">_test</span><br><span class="line">test!32      错误有！</span><br><span class="line">haha(da)tt   错误有（）</span><br><span class="line">jack_rose</span><br><span class="line">jack&amp;rose    错误有&amp;</span><br><span class="line">GUI</span><br><span class="line">G.U.I        错误有.</span><br></pre></td></tr></table></figure>
 
+<h3 id="1-2-关键字"><a href="#1-2-关键字" class="headerlink" title="1.2 关键字"></a>1.2 关键字</h3><ul>
+<li><strong>关键字</strong> 就是在 <code>Python</code> 内部已经使用的标识符</li>
+<li><strong>关键字</strong> 具有特殊的功能和含义</li>
+<li>开发者 <strong>不允许定义和关键字相同的名字的标示符</strong></li>
+</ul>
+<p>通过以下命令可以查看 <code>ipython</code> 中的关键字</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">1</span>]: <span class="keyword">import</span> keyword</span><br><span class="line">In [<span class="number">2</span>]: <span class="built_in">print</span>(keyword.kwlist)</span><br></pre></td></tr></table></figure>
 
+<blockquote>
+<p>提示：<strong>关键字的学习及使用</strong>，会在后面的课程中不断介绍</p>
+<ul>
+<li><p><code>import</code> <strong>关键字</strong> 可以导入一个 <strong>“工具包”</strong></p>
+</li>
+<li><p>在 <code>Python</code> 中不同的工具包，提供有不同的工具</p>
+</li>
+</ul>
+</blockquote>
+<h2 id="02-变量的命名规则"><a href="#02-变量的命名规则" class="headerlink" title="02. 变量的命名规则"></a>02. 变量的命名规则</h2><blockquote>
+<p><strong>命名规则</strong> 可以被视为一种 <strong>惯例</strong>，并无绝对与强制<br>目的是为了 <strong>增加代码的识别和可读性</strong></p>
+</blockquote>
+<p><strong>注意</strong> <code>Python</code> 中的 <strong>标识符</strong> 是 <strong>区分大小写的</strong></p>
+<p><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/002_%E6%A0%87%E8%AF%86%E7%AC%A6%E5%8C%BA%E5%88%86%E5%A4%A7%E5%B0%8F%E5%86%99.jpg" alt="002_标识符区分大小写"></p>
+<ol>
+<li>在定义变量时，为了保证代码格式，<code>=</code> 的左右应该各保留一个空格</li>
+<li>在 <code>Python</code> 中，如果 <strong>变量名</strong> 需要由 <strong>二个</strong> 或 <strong>多个单词</strong> 组成时，可以按照以下方式命名<ol>
+<li>每个单词都使用小写字母</li>
+<li>单词与单词之间使用 <strong><code>_</code>下划线</strong> 连接</li>
+</ol>
+<ul>
+<li>例如：<code>first_name</code>、<code>last_name</code>、<code>qq_number</code>、<code>qq_password</code></li>
+</ul>
+</li>
+</ol>
+<h3 id="驼峰命名法（其他语言常用到）"><a href="#驼峰命名法（其他语言常用到）" class="headerlink" title="驼峰命名法（其他语言常用到）"></a>驼峰命名法（其他语言常用到）</h3><ul>
+<li>当 <strong>变量名</strong> 是由二个或多个单词组成时，还可以利用驼峰命名法来命名</li>
+<li><strong>小驼峰式命名法</strong><ul>
+<li>第一个单词以小写字母开始，后续单词的首字母大写</li>
+<li>例如：<code>firstName</code>、<code>lastName</code></li>
+</ul>
+</li>
+<li><strong>大驼峰式命名法</strong><ul>
+<li>每一个单词的首字母都采用大写字母</li>
+<li>例如：<code>FirstName</code>、<code>LastName</code>、<code>CamelCase</code> </li>
+</ul>
+</li>
+</ul>
+<p><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/003_%E9%A9%BC%E5%B3%B0%E5%91%BD%E5%90%8D%E6%B3%95.jpg" alt="003_驼峰命名法"></p>
 
-    <div class="friends">
+        <p class="suffix-end">__END__</p>
+        <div class="suffix-box">
+            <div class="suffix-box-left">
+                <img src="https://gitee.com/lichaikui/picture/raw/master/tupian/20211222195800.png" alt="hero">
+            </div>
+            <div class="suffix-box-right">
+                <span class="suffix-box-title">文章作者</span>：hero
+                <br>
+                <span class="suffix-box-title">文章出处</span>：<a href="/2021/12/23/09_%E5%8F%98%E9%87%8F%E7%9A%84%E5%91%BD%E5%90%8D/" target="_blank">8.变量的命名</a>
+                <br>
+                <span class="suffix-box-title">作者签名</span>：简单地活着, 肆意又精彩.
+                <br>
+                <span class="suffix-box-title">关于主题</span>：<a href="https://github.com/first19326/Hexo-LiveForCode" target="_blank">Hexo - Live For Code</a>
+                <br>
+                <span class="suffix-box-title">版权声明</span>：文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" title="BY-NC-SA" target="_blank">BY-NC-SA</a> 许可协议，转载请注明出处
+                <br>
+            </div>
+            <div style="clear: both;"></div>
+        </div>
+    </div>
+    <div class="article-footer">
         
-            <div class="friend-head">
-                <span>特别鸣谢</span>
+            <div class="category">
+                分类：
+                
+                    <a href="/category/python%E5%AD%A6%E4%B9%A0/">python学习</a>
+                
             </div>
         
         
-        <div class="friend-content">
+            <div class="tag">
+                标签：
+                
+                    <a href="/tag/8-%E5%8F%98%E9%87%8F%E7%9A%84%E5%91%BD%E5%90%8D/">8.变量的命名</a>
+                
+            </div>
+        
+        <div class="article-prev-next">
             
-                <a class="friend-card" target="_blank" href="https://hexo.io/zh-cn/">
-                    <div class="friend-left">
-                        <img class="avatar" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/image/website/lazyload.svg" data-original="/image/hexo.png"> 
-                    </div>
-                    <div class="friend-right">
-                        <p class="friend-name">Hexo</p>
-                        <div class="friend-about">
-                            <p>简洁、高效的博客框架</p>
-                        </div>
-                    </div>
-                </a>
+                <a href="/2021/12/23/10_%E5%88%A4%E6%96%AD%EF%BC%88if%EF%BC%89%E8%AF%AD%E5%8F%A5/" class="prev-prefix">« </a> 上一篇：    <a href="/2021/12/23/10_%E5%88%A4%E6%96%AD%EF%BC%88if%EF%BC%89%E8%AF%AD%E5%8F%A5/" title="发布于 2021-12-23 08:10">9.判断（if）语句</a>
+                <br>
             
-                <a class="friend-card" target="_blank" href="https://blog.dbnuo.com/">
-                    <div class="friend-left">
-                        <img class="avatar" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/image/website/lazyload.svg" data-original="/image/bndong.gif"> 
-                    </div>
-                    <div class="friend-right">
-                        <p class="friend-name">BNDong</p>
-                        <div class="friend-about">
-                            <p>SimpleMemory 作者</p>
-                        </div>
-                    </div>
-                </a>
             
-                <a class="friend-card" target="_blank" href="https://notes.iissnan.com/">
-                    <div class="friend-left">
-                        <img class="avatar" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/image/website/lazyload.svg" data-original="/image/iissnan.jpg"> 
-                    </div>
-                    <div class="friend-right">
-                        <p class="friend-name">IIssNan</p>
-                        <div class="friend-about">
-                            <p>Hexo-NexT 作者</p>
-                        </div>
-                    </div>
-                </a>
-            
-                <a class="friend-card" target="_blank" href="https://volantis.js.org/">
-                    <div class="friend-left">
-                        <img class="avatar" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/image/website/lazyload.svg" data-original="/image/volantis.png"> 
-                    </div>
-                    <div class="friend-right">
-                        <p class="friend-name">Volantis</p>
-                        <div class="friend-about">
-                            <p>Hexo-Volantis 主题</p>
-                        </div>
-                    </div>
-                </a>
+                <a href="/2021/12/23/7.%E5%8F%98%E9%87%8F%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="next-prefix">» </a> 下一篇：    <a href="/2021/12/23/7.%E5%8F%98%E9%87%8F%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" title="发布于 2021-12-23 08:07">7.变量的基本使用</a>
             
         </div>
     </div>
-
-    <div class="friends">
-        
-            <div class="friend-head">
-                <span>友情链接</span>
-            </div>
-        
-        
-        <div class="friend-content">
-            
-                <a class="friend-card" target="_blank" href="https://notes.worstone.cn">
-                    <div class="friend-left">
-                        <img class="avatar" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/image/website/lazyload.svg" data-original="https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/image/sidebar/avatar.jpg"> 
-                    </div>
-                    <div class="friend-right">
-                        <p class="friend-name">WorstOne</p>
-                        <div class="friend-about">
-                            <p>Live For Code 作者</p>
-                        </div>
-                    </div>
-                </a>
-            
+    
+    <div class="article-comments">
+        <div class="comments-title">
+            评论列表
+        </div>
+        <div class="comments-content">
         </div>
     </div>
 
-                
-            </div>
-                    
-        </div>
+</div>
+
     </div>
 </div>
     <div id="footer"></div>
