@@ -6,7 +6,7 @@
     <meta name="referrer" content="origin">
     <meta http-equiv="Cache-Control" content="no-transform">
     <meta http-equiv="Cache-Control" content="no-siteapp">
-    <title>6.程序执行原理（科普）</title>
+    <title>4.程序注释</title>
     <link rel="shortcut icon" href="#"/>
 
     <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/LongCang.css">
@@ -32,19 +32,19 @@
     <div class="header">
         <div class="vertical">
             <div class="inner">
-                <h1 class="header-subtitle">6.程序执行原理（科普）</h1>
+                <h1 class="header-subtitle">4.程序注释</h1>
                 <div class="header-subinfo">
                     <p class="article-info-text">
                         <span>
                             <i class="iconfont icon-time"></i> 发表时间：2022-01-06
                         </span>
                         
-                            <span id="/2022/01/06/1/6.程序执行原理（科普）/" class="leancloud_visitors" data-flag-title="6.程序执行原理（科普）">
+                            <span id="/2022/01/06/4.程序注释/" class="leancloud_visitors" data-flag-title="4.程序注释">
                                 <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
                             </span>
                         
                         <span>
-                            <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2022/01/06/1/6.程序执行原理（科普）/"></span>
+                            <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2022/01/06/4.程序注释/"></span>
                         </span>  
                     </p>                 
                 </div>
@@ -58,143 +58,86 @@
         <div id="article">
     <div class="toc"></div>
     <div class="article-body">
-        <h1 id="程序执行原理（科普）"><a href="#程序执行原理（科普）" class="headerlink" title="程序执行原理（科普）"></a>程序执行原理（科普）</h1><h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ul>
-<li>计算机中的 <strong>三大件</strong></li>
-<li>程序执行的原理</li>
-<li>程序的作用</li>
-</ul>
-<h2 id="01-计算机中的三大件"><a href="#01-计算机中的三大件" class="headerlink" title="01. 计算机中的三大件"></a>01. 计算机中的三大件</h2><p>计算机中包含有较多的硬件，但是一个程序要运行，有 <strong>三个</strong> 核心的硬件，分别是：</p>
-<ol>
-<li><strong>CPU</strong> <ul>
-<li>中央处理器，是一块超大规模的集成电路</li>
-<li>负责 <strong>处理数据</strong>／<strong>计算</strong></li>
-</ul>
-</li>
-<li><strong>内存</strong><ul>
-<li><strong>临时</strong> 存储数据（断电之后，数据会消失）</li>
-<li>速度快</li>
-<li>空间小（单位价格高）</li>
-</ul>
-</li>
-<li><strong>硬盘</strong> <ul>
-<li><strong>永久</strong> 存储数据</li>
-<li>速度慢</li>
-<li>空间大（单位价格低）</li>
-</ul>
-</li>
-</ol>
-<table>
-<thead>
-<tr>
-<th align="center">CPU</th>
-<th align="center">内存</th>
-<th align="center">硬盘</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/CPU.jpg" alt="CPU-w200"></td>
-<td align="center"><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/%E5%86%85%E5%AD%98%E6%9D%A1.png" alt="内存条-w200"></td>
-<td align="center"><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/%E7%A1%AC%E7%9B%98.jpg" alt="硬盘-w200"></td>
-</tr>
-</tbody></table>
-<h3 id="思考题"><a href="#思考题" class="headerlink" title="思考题"></a>思考题</h3><ol>
-<li>计算机中哪一个硬件设备负责执行程序？<ul>
-<li><strong>CPU</strong></li>
-</ul>
-</li>
-<li><strong>内存</strong> 的速度快还是 <strong>硬盘</strong> 的速度快？<ul>
-<li><strong>内存</strong></li>
-</ul>
-</li>
-<li>我们的程序是安装在内存中的，还是安装在硬盘中的？<ul>
-<li>硬盘</li>
-</ul>
-</li>
-<li><strong>我买了一个内存条，有 500G 的空间！！！</strong>，这句话对吗？<ul>
-<li>不对，内存条通常只有 <code>4G</code> / <code>8G</code> / <code>16G</code> / <code>32G</code></li>
-</ul>
-</li>
-<li><strong>计算机关机之后，内存中的数据都会消失</strong>，这句话对吗？<ul>
-<li>正确 </li>
-</ul>
-</li>
-</ol>
-<h2 id="02-程序执行的原理"><a href="#02-程序执行的原理" class="headerlink" title="02. 程序执行的原理"></a>02. 程序执行的原理</h2><p><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/001_%E7%A8%8B%E5%BA%8F%E6%89%A7%E8%A1%8C%E7%A4%BA%E6%84%8F%E5%9B%BE.png" alt="001_程序执行示意图-w"></p>
-<ol>
-<li>程序 <strong>运行之前</strong>，程序是 <strong>保存在硬盘</strong> 中的</li>
-<li>当要运行一个程序时<ul>
-<li>操作系统会首先让 <strong>CPU</strong> 把程序复制到 <strong>内存</strong> 中</li>
-<li><strong>CPU</strong> 执行 <strong>内存</strong> 中的 <strong>程序代码</strong></li>
-</ul>
-</li>
-</ol>
+        <h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><p>注释的作用 </p>
 <blockquote>
-<p><strong>程序要执行，首先要被加载到内存</strong></p>
+<p>使用用自己熟悉的语言，在程序中对某些代码进行标注说明，增强程序的可读性</p>
 </blockquote>
-<h3 id="2-1-Python-程序执行原理"><a href="#2-1-Python-程序执行原理" class="headerlink" title="2.1 Python 程序执行原理"></a>2.1 Python 程序执行原理</h3><p><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/003_Python%E7%A8%8B%E5%BA%8F%E6%89%A7%E8%A1%8C%E7%A4%BA%E6%84%8F%E5%9B%BE.png" alt="003_Python程序执行示意图"></p>
-<ol>
-<li>操作系统会首先让 <strong>CPU</strong> 把 <strong>Python 解释器</strong> 的程序复制到 <strong>内存</strong> 中</li>
-<li><strong>Python 解释器</strong> 根据语法规则，<strong>从上向下</strong> 让 <strong>CPU</strong> 翻译 <strong>Python 程序中的代码</strong></li>
-<li><strong>CPU</strong> 负责执行翻译完成的代码</li>
-</ol>
-<h4 id="Python-的解释器有多大？"><a href="#Python-的解释器有多大？" class="headerlink" title="Python 的解释器有多大？"></a>Python 的解释器有多大？</h4><ul>
-<li>执行以下终端命令可以查看 Python 解释器的大小</li>
+<h5 id="单行注释（行注释）"><a href="#单行注释（行注释）" class="headerlink" title="单行注释（行注释）"></a>单行注释（行注释）</h5><ul>
+<li><p>以#开头，#右边的所有的东西都被当作说明文字，而不是真正要执行的程序，只起到辅助说明左右</p>
+</li>
+<li><p>例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 这是第一个当行注释</span><br><span class="line">print (&quot;hello,python&quot;)</span><br></pre></td></tr></table></figure></li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 确认解释器所在位置</span></span><br><span class="line">$ <span class="built_in">which</span> python</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 查看 python 文件大小(只是一个软链接)</span></span><br><span class="line">$ ls -lh /usr/bin/python</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 查看具体文件大小</span></span><br><span class="line">$ ls -lh /usr/bin/python2.7</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>pycharm会检查代码格式</p>
+<p>若格式有误则会出现如下虚线<img src="https://gitee.com/lichaikui/picture/raw/master/tupian/image-20211209193021336.png" alt="image-20211209193021336"></p>
+<p>python官方建议在<code>#</code>后面加  空格  会使代码格式更加整齐</p>
+<p>一键在#后添加 空格 （重新格式化文件）：<img src="https://gitee.com/lichaikui/picture/raw/master/tupian/image-20211209194654148.png" alt="image-20211209194654148"></p>
+</blockquote>
+<p>python解释器认为 # 后 为说明性文字，会越过这一行代码直接开始下一行</p>
+<p>在代码后面增加的当行注释</p>
+<blockquote>
+<p>代码很短，注释也很短</p>
+</blockquote>
+<ul>
+<li><p>在程序开发时，同时可以使用#在代码的后面（旁边）增加说明性文字</p>
+</li>
+<li><p>注意 为保证代码可读性，<strong>注释和代码之间至少要有 两个空格</strong></p>
+</li>
+<li><p>例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(&quot;hello python&quot;)  # 输出 &#x27;hello python&#x27;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h5 id="多行注释（块注释）"><a href="#多行注释（块注释）" class="headerlink" title="多行注释（块注释）"></a>多行注释（块注释）</h5><ul>
+<li><p>如果希望编写的 注释信息很多，一行无法显示 就可以使用多行注释</p>
+</li>
+<li><p>要在python程序中使用多行注释，可以用 一堆 连续的 三个 引号（单引号和双引号都可以）</p>
+</li>
+<li><p>例子：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&quot;&quot;&quot;</span><br><span class="line">这是一个多行注释</span><br><span class="line">在多行注释之间，可以写很多很多内容......</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">print(&quot;hello python&quot;)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<blockquote>
-<p>提示：建立 <strong>软链接</strong> 的目的，是为了方便使用者不用记住使用的解释器是 <strong>哪一个具体版本</strong></p>
-</blockquote>
-<h2 id="03-程序的作用"><a href="#03-程序的作用" class="headerlink" title="03. 程序的作用"></a>03. 程序的作用</h2><blockquote>
-<p>程序就是 <strong>用来处理数据</strong> 的！</p>
-</blockquote>
-<ul>
-<li><strong>新闻软件</strong> 提供的 <strong>新闻内容、评论……</strong> 是数据</li>
-<li><strong>电商软件</strong> 提供的 <strong>商品信息、配送信息……</strong> 是数据</li>
-<li><strong>运动类软件</strong> 提供的 <strong>运动数据……</strong> 是数据</li>
-<li><strong>地图类软件</strong> 提供的 <strong>地图信息、定位信息、车辆信息……</strong> 是数据</li>
-<li><strong>即时通讯软件</strong> 提供的 <strong>聊天信息、好友信息……</strong> 是数据</li>
-<li>……</li>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">  1. 输入用户年龄</span><br><span class="line">  2. 判断是否满 18 岁 （**&gt;=**）</span><br><span class="line">  3. 如果满 18 岁，允许进网吧嗨皮</span><br><span class="line">  4. 如果未满 18 岁，提示回家写作业</span><br><span class="line">  想要注释以上内容</span><br><span class="line">  全选  按 Ctrl+/     则会如此</span><br><span class="line">#1. 输入用户年龄</span><br><span class="line"># 2. 判断是否满 18 岁 （**&gt;=**）</span><br><span class="line"># 3. 如果满 18 岁，允许进网吧嗨皮</span><br><span class="line"># 4. 如果未满 18 岁，提示回家写作业</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h3 id="3-1-思考-QQ-程序的启动过程"><a href="#3-1-思考-QQ-程序的启动过程" class="headerlink" title="3.1 思考 QQ 程序的启动过程"></a>3.1 思考 QQ 程序的启动过程</h3><ol>
-<li>QQ 在<strong>运行之前</strong>，是保存在 <strong>硬盘</strong> 中的</li>
-<li><strong>运行之后</strong>，QQ 程序就会被加载到 <strong>内存</strong> 中了</li>
+<h5 id="什么时候使用注释？"><a href="#什么时候使用注释？" class="headerlink" title="什么时候使用注释？"></a>什么时候使用注释？</h5><ol>
+<li>一部了然的代码不需要添加注释</li>
+<li><strong>对于复杂的操作</strong>，应该在操作开始前写上若干行注释</li>
+<li>对于 <strong>不是一目了然的代码</strong>，应该在其行尾添加注释（为了提高可读性，注释应该只很少离开代码两个空格）</li>
+<li>绝不要描述代码，假设阅读代码的人比你跟懂python，他只是不知道你的代码做什么</li>
 </ol>
-<p><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/003_QQ%E7%99%BB%E9%99%86%E7%95%8C%E9%9D%A2.png" alt="003_QQ登陆界面-w248"></p>
-<h3 id="3-2-思考-QQ-程序的-登录-过程"><a href="#3-2-思考-QQ-程序的-登录-过程" class="headerlink" title="3.2 思考 QQ 程序的 登录 过程"></a>3.2 思考 QQ 程序的 <strong>登录</strong> 过程</h3><ol>
-<li>读取用户输入的 <strong>QQ 号码</strong></li>
-<li>读取用户输入的 <strong>QQ 密码</strong></li>
-<li>将 <strong>QQ 号码</strong> 和 <strong>QQ 密码</strong> 发送给腾讯的服务器，等待服务器确认用户信息</li>
-</ol>
-<h4 id="思考-1"><a href="#思考-1" class="headerlink" title="思考 1"></a>思考 1</h4><blockquote>
-<p>在 QQ 这个程序将 <strong>QQ 号码</strong> 和 <strong>QQ 密码</strong> 发送给服务器之前，<strong>是否需要先存储一下 QQ 号码 和 密码?</strong></p>
+<blockquote>
+<p>在一些正规的开发团队，通常会有  代码审核 的惯例，就是一个团队中彼此阅读对方的代码</p>
 </blockquote>
-<p><strong>答案</strong></p>
-<p>肯定需要！—— 否则 QQ 这个程序就不知道把什么内容发送给服务器了！</p>
-<h4 id="思考-2"><a href="#思考-2" class="headerlink" title="思考 2"></a>思考 2</h4><blockquote>
-<p>QQ 这个程序把 <strong>QQ 号码</strong> 和 <strong>QQ 密码</strong> 保存在哪里？</p>
-</blockquote>
-<p><strong>答案</strong></p>
-<p>保存在 <strong>内存</strong> 中，因为 QQ 程序自己就在内存中</p>
-<h4 id="思考-3"><a href="#思考-3" class="headerlink" title="思考 3"></a>思考 3</h4><blockquote>
-<p>QQ 这个程序是怎么保存用户的 <strong>QQ 号码</strong> 和 <strong>QQ 密码</strong> 的？</p>
-</blockquote>
-<p><strong>答案</strong></p>
-<ol>
-<li>在内存中为 <strong>QQ 号码</strong> 和 <strong>QQ 密码</strong> 各自分配一块空间<ul>
-<li>在 QQ 程序结束之前，这两块空间是由 QQ 程序负责管理的，其他任何程序都不允许使用</li>
-<li>在 QQ 自己使用完成之前，这两块空间始终都只负责保存 <strong>QQ 号码</strong> 和 <strong>QQ 密码</strong></li>
+<h5 id="关于代码规范"><a href="#关于代码规范" class="headerlink" title="关于代码规范"></a>关于代码规范</h5><ul>
+<li>python官方提供一系列 PEP(python Enhancement Proposals)文档</li>
+<li>其中第八章文档专门针对 <strong>python的代码格式</strong> 个除了建议，也就是俗称的PEP S</li>
+<li>文档地址：<ul>
+<li><a target="_blank" rel="noopener" href="https://www.python.org/dev/peps/pep-0008/">https://www.python.org/dev/peps/pep-0008/</a></li>
+<li>谷歌中对应中文文档<a target="_blank" rel="noopener" href="https://zh-google-styleguide.readthedocs.io/en/latest/google-python-styleguide/python_style_rules/">https://zh-google-styleguide.readthedocs.io/en/latest/google-python-styleguide/python_style_rules/</a></li>
 </ul>
 </li>
-<li>使用一个 <strong>别名</strong> 标记 <strong>QQ 号码</strong> 和 <strong>QQ 密码</strong> 在内存中的位置</li>
-</ol>
-<p><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/004_QQ%E5%8F%B7%E7%A0%81%E5%92%8C%E5%AF%86%E7%A0%81%E5%86%85%E5%AD%98%E7%A4%BA%E6%84%8F%E5%9B%BE.png" alt="004_QQ号码和密码内存示意图"></p>
-<blockquote>
-<ul>
-<li>在程序内部，为 <strong>QQ 号码</strong> 和 <strong>QQ 密码</strong> 在内存中分配的空间就叫做 <strong>变量</strong></li>
-<li><h1 id="程序就是用来处理数据的，而变量就是用来存储数据的"><a href="#程序就是用来处理数据的，而变量就是用来存储数据的" class="headerlink" title="程序就是用来处理数据的，而变量就是用来存储数据的"></a><strong>程序就是用来处理数据的，而变量就是用来存储数据的</strong></h1></li>
 </ul>
-</blockquote>
+<h2 id="算数运算符"><a href="#算数运算符" class="headerlink" title="算数运算符"></a>算数运算符</h2><p>计算机，顾名思义就是负责进行数学计算 并且 储存计算结果 的电子设备</p>
+<p>01.算数运算符</p>
+<ul>
+<li>算术运算符是 运算符的一种</li>
+<li>是完成基本的算术运算的符号，用来处理四则运算</li>
+</ul>
+<p><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/image-20211209213434302.png" alt="image-20211209213434302"></p>
+<ul>
+<li>在python中 <code>*</code>运算符还可以用于字符串，计算接股票就是字符串重复指定次数的结果</li>
+</ul>
+<p><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/image-20211209215025187.png" alt="image-20211209215025187"></p>
+<img src="https://gitee.com/lichaikui/picture/raw/master/tupian/image-20211209215048860.png" alt="image-20211209215048860" style="zoom:150%;" />
+
+<h5 id="算数运算符的优先级"><a href="#算数运算符的优先级" class="headerlink" title="算数运算符的优先级"></a>算数运算符的优先级</h5><ul>
+<li><p>和数学中的运算符的优先级一直，在python中进行数学计算时同样也是：</p>
+<ol>
+<li>先乘除后加减</li>
+<li>统计运算符是 <strong>从左至右</strong> 计算</li>
+<li>可以使用 <code>（）</code>调整计算的优先级</li>
+</ol>
+<p><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/image-20211209215635672.png" alt="image-20211209215635672"></p>
+</li>
+</ul>
 
         <p class="suffix-end">__END__</p>
         <div class="suffix-box">
@@ -204,7 +147,7 @@
             <div class="suffix-box-right">
                 <span class="suffix-box-title">文章作者</span>：hero
                 <br>
-                <span class="suffix-box-title">文章出处</span>：<a href="/2022/01/06/1/6.%E7%A8%8B%E5%BA%8F%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86%EF%BC%88%E7%A7%91%E6%99%AE%EF%BC%89/" target="_blank">6.程序执行原理（科普）</a>
+                <span class="suffix-box-title">文章出处</span>：<a href="/2022/01/06/4.%E7%A8%8B%E5%BA%8F%E6%B3%A8%E9%87%8A/" target="_blank">4.程序注释</a>
                 <br>
                 <span class="suffix-box-title">作者签名</span>：简单地活着, 肆意又精彩.
                 <br>
@@ -221,11 +164,11 @@
         
         <div class="article-prev-next">
             
-                <a href="/2022/01/06/1/7.%E5%8F%98%E9%87%8F%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="prev-prefix">« </a> 上一篇：    <a href="/2022/01/06/1/7.%E5%8F%98%E9%87%8F%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" title="发布于 2022-01-06 09:44">7.变量的基本使用</a>
+                <a href="/2022/01/06/5.%E7%AE%97%E6%95%B0%E8%BF%90%E7%AE%97%E7%AC%A6/" class="prev-prefix">« </a> 上一篇：    <a href="/2022/01/06/5.%E7%AE%97%E6%95%B0%E8%BF%90%E7%AE%97%E7%AC%A6/" title="发布于 2022-01-06 09:44">5.算数运算符</a>
                 <br>
             
             
-                <a href="/2022/01/06/1/5.%E7%AE%97%E6%95%B0%E8%BF%90%E7%AE%97%E7%AC%A6/" class="next-prefix">» </a> 下一篇：    <a href="/2022/01/06/1/5.%E7%AE%97%E6%95%B0%E8%BF%90%E7%AE%97%E7%AC%A6/" title="发布于 2022-01-06 09:44">5.算数运算符</a>
+                <a href="/2022/01/06/3.%E5%A4%9A%E6%96%87%E4%BB%B6%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%BC%94%E7%BB%83/" class="next-prefix">» </a> 下一篇：    <a href="/2022/01/06/3.%E5%A4%9A%E6%96%87%E4%BB%B6%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%BC%94%E7%BB%83/" title="发布于 2022-01-06 09:44">3.多文件项目的演练</a>
             
         </div>
     </div>

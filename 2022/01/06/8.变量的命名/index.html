@@ -6,7 +6,7 @@
     <meta name="referrer" content="origin">
     <meta http-equiv="Cache-Control" content="no-transform">
     <meta http-equiv="Cache-Control" content="no-siteapp">
-    <title>4.程序注释</title>
+    <title>8.变量的命名</title>
     <link rel="shortcut icon" href="#"/>
 
     <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/LongCang.css">
@@ -32,19 +32,19 @@
     <div class="header">
         <div class="vertical">
             <div class="inner">
-                <h1 class="header-subtitle">4.程序注释</h1>
+                <h1 class="header-subtitle">8.变量的命名</h1>
                 <div class="header-subinfo">
                     <p class="article-info-text">
                         <span>
                             <i class="iconfont icon-time"></i> 发表时间：2022-01-06
                         </span>
                         
-                            <span id="/2022/01/06/1/4.程序注释/" class="leancloud_visitors" data-flag-title="4.程序注释">
+                            <span id="/2022/01/06/8.变量的命名/" class="leancloud_visitors" data-flag-title="8.变量的命名">
                                 <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
                             </span>
                         
                         <span>
-                            <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2022/01/06/1/4.程序注释/"></span>
+                            <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2022/01/06/8.变量的命名/"></span>
                         </span>  
                     </p>                 
                 </div>
@@ -58,86 +58,70 @@
         <div id="article">
     <div class="toc"></div>
     <div class="article-body">
-        <h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><p>注释的作用 </p>
-<blockquote>
-<p>使用用自己熟悉的语言，在程序中对某些代码进行标注说明，增强程序的可读性</p>
-</blockquote>
-<h5 id="单行注释（行注释）"><a href="#单行注释（行注释）" class="headerlink" title="单行注释（行注释）"></a>单行注释（行注释）</h5><ul>
-<li><p>以#开头，#右边的所有的东西都被当作说明文字，而不是真正要执行的程序，只起到辅助说明左右</p>
-</li>
-<li><p>例：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 这是第一个当行注释</span><br><span class="line">print (&quot;hello,python&quot;)</span><br></pre></td></tr></table></figure></li>
+        <h1 id="变量的命名"><a href="#变量的命名" class="headerlink" title="变量的命名"></a>变量的命名</h1><h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ul>
+<li>标识符和关键字</li>
+<li>变量的命名规则</li>
 </ul>
-<blockquote>
-<p>pycharm会检查代码格式</p>
-<p>若格式有误则会出现如下虚线<img src="https://gitee.com/lichaikui/picture/raw/master/tupian/image-20211209193021336.png" alt="image-20211209193021336"></p>
-<p>python官方建议在<code>#</code>后面加  空格  会使代码格式更加整齐</p>
-<p>一键在#后添加 空格 （重新格式化文件）：<img src="https://gitee.com/lichaikui/picture/raw/master/tupian/image-20211209194654148.png" alt="image-20211209194654148"></p>
+<h2 id="0-1-标识符和关键字"><a href="#0-1-标识符和关键字" class="headerlink" title="0.1 标识符和关键字"></a>0.1 标识符和关键字</h2><h3 id="1-1-标识符"><a href="#1-1-标识符" class="headerlink" title="1.1 标识符"></a>1.1 标识符</h3><blockquote>
+<p>标示符就是程序员定义的 <strong>变量名</strong>、<strong>函数名</strong></p>
+<p><strong>名字</strong> 需要有 <strong>见名知义</strong> 的效果，见下图：</p>
 </blockquote>
-<p>python解释器认为 # 后 为说明性文字，会越过这一行代码直接开始下一行</p>
-<p>在代码后面增加的当行注释</p>
-<blockquote>
-<p>代码很短，注释也很短</p>
-</blockquote>
+<p><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/001_%E4%B8%AD%E5%9B%BD%E5%B1%B1%E4%B8%9C%E6%89%BE%E8%93%9D%E7%BF%94.jpg" alt="001_中国山东找蓝翔"></p>
 <ul>
-<li><p>在程序开发时，同时可以使用#在代码的后面（旁边）增加说明性文字</p>
-</li>
-<li><p>注意 为保证代码可读性，<strong>注释和代码之间至少要有 两个空格</strong></p>
-</li>
-<li><p>例：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(&quot;hello python&quot;)  # 输出 &#x27;hello python&#x27;</span><br></pre></td></tr></table></figure></li>
+<li>标示符可以由 <strong>字母</strong>、<strong>下划线</strong> 和 <strong>数字</strong> 组成</li>
+<li><strong>不能以数字开头</strong></li>
+<li><strong>不能与关键字重名</strong></li>
 </ul>
-<h5 id="多行注释（块注释）"><a href="#多行注释（块注释）" class="headerlink" title="多行注释（块注释）"></a>多行注释（块注释）</h5><ul>
-<li><p>如果希望编写的 注释信息很多，一行无法显示 就可以使用多行注释</p>
-</li>
-<li><p>要在python程序中使用多行注释，可以用 一堆 连续的 三个 引号（单引号和双引号都可以）</p>
-</li>
-<li><p>例子：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&quot;&quot;&quot;</span><br><span class="line">这是一个多行注释</span><br><span class="line">在多行注释之间，可以写很多很多内容......</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">print(&quot;hello python&quot;)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>思考：下面的标示符哪些是正确的，哪些不正确为什么？</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">fromNo12</span><br><span class="line">from#12      错误有#</span><br><span class="line">my_Boolean</span><br><span class="line">my-Boolean   错误有-</span><br><span class="line">Obj2</span><br><span class="line">2ndObj       错误是数字开头</span><br><span class="line">myInt</span><br><span class="line">My_tExt</span><br><span class="line">_test</span><br><span class="line">test!32      错误有！</span><br><span class="line">haha(da)tt   错误有（）</span><br><span class="line">jack_rose</span><br><span class="line">jack&amp;rose    错误有&amp;</span><br><span class="line">GUI</span><br><span class="line">G.U.I        错误有.</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">  1. 输入用户年龄</span><br><span class="line">  2. 判断是否满 18 岁 （**&gt;=**）</span><br><span class="line">  3. 如果满 18 岁，允许进网吧嗨皮</span><br><span class="line">  4. 如果未满 18 岁，提示回家写作业</span><br><span class="line">  想要注释以上内容</span><br><span class="line">  全选  按 Ctrl+/     则会如此</span><br><span class="line">#1. 输入用户年龄</span><br><span class="line"># 2. 判断是否满 18 岁 （**&gt;=**）</span><br><span class="line"># 3. 如果满 18 岁，允许进网吧嗨皮</span><br><span class="line"># 4. 如果未满 18 岁，提示回家写作业</span><br></pre></td></tr></table></figure></li>
+<h3 id="1-2-关键字"><a href="#1-2-关键字" class="headerlink" title="1.2 关键字"></a>1.2 关键字</h3><ul>
+<li><strong>关键字</strong> 就是在 <code>Python</code> 内部已经使用的标识符</li>
+<li><strong>关键字</strong> 具有特殊的功能和含义</li>
+<li>开发者 <strong>不允许定义和关键字相同的名字的标示符</strong></li>
 </ul>
-<h5 id="什么时候使用注释？"><a href="#什么时候使用注释？" class="headerlink" title="什么时候使用注释？"></a>什么时候使用注释？</h5><ol>
-<li>一部了然的代码不需要添加注释</li>
-<li><strong>对于复杂的操作</strong>，应该在操作开始前写上若干行注释</li>
-<li>对于 <strong>不是一目了然的代码</strong>，应该在其行尾添加注释（为了提高可读性，注释应该只很少离开代码两个空格）</li>
-<li>绝不要描述代码，假设阅读代码的人比你跟懂python，他只是不知道你的代码做什么</li>
-</ol>
+<p>通过以下命令可以查看 <code>ipython</code> 中的关键字</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">1</span>]: <span class="keyword">import</span> keyword</span><br><span class="line">In [<span class="number">2</span>]: <span class="built_in">print</span>(keyword.kwlist)</span><br></pre></td></tr></table></figure>
+
 <blockquote>
-<p>在一些正规的开发团队，通常会有  代码审核 的惯例，就是一个团队中彼此阅读对方的代码</p>
-</blockquote>
-<h5 id="关于代码规范"><a href="#关于代码规范" class="headerlink" title="关于代码规范"></a>关于代码规范</h5><ul>
-<li>python官方提供一系列 PEP(python Enhancement Proposals)文档</li>
-<li>其中第八章文档专门针对 <strong>python的代码格式</strong> 个除了建议，也就是俗称的PEP S</li>
-<li>文档地址：<ul>
-<li><a target="_blank" rel="noopener" href="https://www.python.org/dev/peps/pep-0008/">https://www.python.org/dev/peps/pep-0008/</a></li>
-<li>谷歌中对应中文文档<a target="_blank" rel="noopener" href="https://zh-google-styleguide.readthedocs.io/en/latest/google-python-styleguide/python_style_rules/">https://zh-google-styleguide.readthedocs.io/en/latest/google-python-styleguide/python_style_rules/</a></li>
-</ul>
+<p>提示：<strong>关键字的学习及使用</strong>，会在后面的课程中不断介绍</p>
+<ul>
+<li><p><code>import</code> <strong>关键字</strong> 可以导入一个 <strong>“工具包”</strong></p>
+</li>
+<li><p>在 <code>Python</code> 中不同的工具包，提供有不同的工具</p>
 </li>
 </ul>
-<h2 id="算数运算符"><a href="#算数运算符" class="headerlink" title="算数运算符"></a>算数运算符</h2><p>计算机，顾名思义就是负责进行数学计算 并且 储存计算结果 的电子设备</p>
-<p>01.算数运算符</p>
-<ul>
-<li>算术运算符是 运算符的一种</li>
-<li>是完成基本的算术运算的符号，用来处理四则运算</li>
-</ul>
-<p><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/image-20211209213434302.png" alt="image-20211209213434302"></p>
-<ul>
-<li>在python中 <code>*</code>运算符还可以用于字符串，计算接股票就是字符串重复指定次数的结果</li>
-</ul>
-<p><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/image-20211209215025187.png" alt="image-20211209215025187"></p>
-<img src="https://gitee.com/lichaikui/picture/raw/master/tupian/image-20211209215048860.png" alt="image-20211209215048860" style="zoom:150%;" />
-
-<h5 id="算数运算符的优先级"><a href="#算数运算符的优先级" class="headerlink" title="算数运算符的优先级"></a>算数运算符的优先级</h5><ul>
-<li><p>和数学中的运算符的优先级一直，在python中进行数学计算时同样也是：</p>
+</blockquote>
+<h2 id="02-变量的命名规则"><a href="#02-变量的命名规则" class="headerlink" title="02. 变量的命名规则"></a>02. 变量的命名规则</h2><blockquote>
+<p><strong>命名规则</strong> 可以被视为一种 <strong>惯例</strong>，并无绝对与强制<br>目的是为了 <strong>增加代码的识别和可读性</strong></p>
+</blockquote>
+<p><strong>注意</strong> <code>Python</code> 中的 <strong>标识符</strong> 是 <strong>区分大小写的</strong></p>
+<p><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/002_%E6%A0%87%E8%AF%86%E7%AC%A6%E5%8C%BA%E5%88%86%E5%A4%A7%E5%B0%8F%E5%86%99.jpg" alt="002_标识符区分大小写"></p>
 <ol>
-<li>先乘除后加减</li>
-<li>统计运算符是 <strong>从左至右</strong> 计算</li>
-<li>可以使用 <code>（）</code>调整计算的优先级</li>
+<li>在定义变量时，为了保证代码格式，<code>=</code> 的左右应该各保留一个空格</li>
+<li>在 <code>Python</code> 中，如果 <strong>变量名</strong> 需要由 <strong>二个</strong> 或 <strong>多个单词</strong> 组成时，可以按照以下方式命名<ol>
+<li>每个单词都使用小写字母</li>
+<li>单词与单词之间使用 <strong><code>_</code>下划线</strong> 连接</li>
 </ol>
-<p><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/image-20211209215635672.png" alt="image-20211209215635672"></p>
+<ul>
+<li>例如：<code>first_name</code>、<code>last_name</code>、<code>qq_number</code>、<code>qq_password</code></li>
+</ul>
+</li>
+</ol>
+<h3 id="驼峰命名法（其他语言常用到）"><a href="#驼峰命名法（其他语言常用到）" class="headerlink" title="驼峰命名法（其他语言常用到）"></a>驼峰命名法（其他语言常用到）</h3><ul>
+<li>当 <strong>变量名</strong> 是由二个或多个单词组成时，还可以利用驼峰命名法来命名</li>
+<li><strong>小驼峰式命名法</strong><ul>
+<li>第一个单词以小写字母开始，后续单词的首字母大写</li>
+<li>例如：<code>firstName</code>、<code>lastName</code></li>
+</ul>
+</li>
+<li><strong>大驼峰式命名法</strong><ul>
+<li>每一个单词的首字母都采用大写字母</li>
+<li>例如：<code>FirstName</code>、<code>LastName</code>、<code>CamelCase</code> </li>
+</ul>
 </li>
 </ul>
+<p><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/003_%E9%A9%BC%E5%B3%B0%E5%91%BD%E5%90%8D%E6%B3%95.jpg" alt="003_驼峰命名法"></p>
 
         <p class="suffix-end">__END__</p>
         <div class="suffix-box">
@@ -147,7 +131,7 @@
             <div class="suffix-box-right">
                 <span class="suffix-box-title">文章作者</span>：hero
                 <br>
-                <span class="suffix-box-title">文章出处</span>：<a href="/2022/01/06/1/4.%E7%A8%8B%E5%BA%8F%E6%B3%A8%E9%87%8A/" target="_blank">4.程序注释</a>
+                <span class="suffix-box-title">文章出处</span>：<a href="/2022/01/06/8.%E5%8F%98%E9%87%8F%E7%9A%84%E5%91%BD%E5%90%8D/" target="_blank">8.变量的命名</a>
                 <br>
                 <span class="suffix-box-title">作者签名</span>：简单地活着, 肆意又精彩.
                 <br>
@@ -164,11 +148,11 @@
         
         <div class="article-prev-next">
             
-                <a href="/2022/01/06/1/5.%E7%AE%97%E6%95%B0%E8%BF%90%E7%AE%97%E7%AC%A6/" class="prev-prefix">« </a> 上一篇：    <a href="/2022/01/06/1/5.%E7%AE%97%E6%95%B0%E8%BF%90%E7%AE%97%E7%AC%A6/" title="发布于 2022-01-06 09:44">5.算数运算符</a>
+                <a href="/2022/01/06/9.%E5%88%A4%E6%96%AD%EF%BC%88if%EF%BC%89%E8%AF%AD%E5%8F%A5/" class="prev-prefix">« </a> 上一篇：    <a href="/2022/01/06/9.%E5%88%A4%E6%96%AD%EF%BC%88if%EF%BC%89%E8%AF%AD%E5%8F%A5/" title="发布于 2022-01-06 09:44">9.判断（if）语句</a>
                 <br>
             
             
-                <a href="/2022/01/06/1/3.%E5%A4%9A%E6%96%87%E4%BB%B6%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%BC%94%E7%BB%83/" class="next-prefix">» </a> 下一篇：    <a href="/2022/01/06/1/3.%E5%A4%9A%E6%96%87%E4%BB%B6%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%BC%94%E7%BB%83/" title="发布于 2022-01-06 09:44">3.多文件项目的演练</a>
+                <a href="/2022/01/06/7.%E5%8F%98%E9%87%8F%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="next-prefix">» </a> 下一篇：    <a href="/2022/01/06/7.%E5%8F%98%E9%87%8F%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" title="发布于 2022-01-06 09:44">7.变量的基本使用</a>
             
         </div>
     </div>

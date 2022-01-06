@@ -6,7 +6,7 @@
     <meta name="referrer" content="origin">
     <meta http-equiv="Cache-Control" content="no-transform">
     <meta http-equiv="Cache-Control" content="no-siteapp">
-    <title>1.python简介</title>
+    <title>6.程序执行原理（科普）</title>
     <link rel="shortcut icon" href="#"/>
 
     <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/LongCang.css">
@@ -32,19 +32,19 @@
     <div class="header">
         <div class="vertical">
             <div class="inner">
-                <h1 class="header-subtitle">1.python简介</h1>
+                <h1 class="header-subtitle">6.程序执行原理（科普）</h1>
                 <div class="header-subinfo">
                     <p class="article-info-text">
                         <span>
                             <i class="iconfont icon-time"></i> 发表时间：2022-01-06
                         </span>
                         
-                            <span id="/2022/01/06/1/1.python简介/" class="leancloud_visitors" data-flag-title="1.python简介">
+                            <span id="/2022/01/06/6.程序执行原理（科普）/" class="leancloud_visitors" data-flag-title="6.程序执行原理（科普）">
                                 <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
                             </span>
                         
                         <span>
-                            <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2022/01/06/1/1.python简介/"></span>
+                            <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2022/01/06/6.程序执行原理（科普）/"></span>
                         </span>  
                     </p>                 
                 </div>
@@ -58,96 +58,143 @@
         <div id="article">
     <div class="toc"></div>
     <div class="article-body">
-        <h2 id="一、Python"><a href="#一、Python" class="headerlink" title="一、Python"></a>一、Python</h2><p><strong>编译器对源代码翻译方式</strong></p>
-<p>计算机不能直接理解任何除机器语言外的语言，所以必须把程序员所写的程序语言翻译成计算机语言，计算机才能正常执行。其他语言翻译成计算机语言的工具，被称为          <strong>编辑器</strong></p>
-<p>1）、编译器            使用编译器编译的语言——编译型语言</p>
-<p>   编译型语言  代表：c++</p>
-<blockquote>
-<p>c ++程序猿在自己的开发环境内编写代码，程序开发完成之后，程序员把开发完成的源代码统一交给编译器，编译器把源代码翻译成机器语言，并生成独立的可执行文件，需要执行时windows双击可执行文件图标，把文件交给CPU去执行</p>
-<p><strong>统一编译 一次性执行     ：   编译型语言特点</strong></p>
-</blockquote>
-<p>2）、解释器             使用解释器解释的语言——解释型语言</p>
-<p>​    解释型语言代表  ：   Python</p>
-<blockquote>
-<p>程序员仍然是在自己的开发环境内来编写代码，假设我们现在写了3行代码那这三行代码怎么运行呢？要想运行解释性语言我们呢就把这个原程序丢给解释器  解释器拿到原程序之后，会按照从上向下的方式逐一读取代码  注意解释器是一行一行来翻译的，解释器首先读出第一行代码 读出之后就立刻翻译成机器码，翻译完成之后呢就丢给 cpu 去执行，cpu 在执行的过程中，解释器再读取第二行代码进行翻译翻译完成之后再交给 cpu 去执行然后依次类推，从上到下依次读取每行代码读取一行 </p>
-<p><strong>一行一行代码进行翻译   翻译一行  执行一行      ：   解释性语言特点</strong></p>
-</blockquote>
-<ul>
-<li>两种语言执行速度对比：   编译型语言快   </li>
+        <h1 id="程序执行原理（科普）"><a href="#程序执行原理（科普）" class="headerlink" title="程序执行原理（科普）"></a>程序执行原理（科普）</h1><h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ul>
+<li>计算机中的 <strong>三大件</strong></li>
+<li>程序执行的原理</li>
+<li>程序的作用</li>
 </ul>
-<blockquote>
-<p>因为最终生成的可执行文件中 就是硬件识别的汲取言 在执行这个文件的时候  </p>
-<p>没有任何翻译的动作cpu 可以很快的执行，不需要任何的介入</p>
-<p>而解释性语言不同，解释性语言在执行的时候，必须是翻译一行，执行一行  </p>
-</blockquote>
-<ul>
-<li>两种语言跨平台(一次编写，在任何一个平台上都能运行)能力对比：  解释型语言强</li>
-</ul>
-<blockquote>
-<p>果我们使用了某一个操作系统的编译器，那么这个编译器最终，生成的可执行文件，就只能在这个操作系统上运行</p>
-<p>解释性语言 程序员按照习惯的方式来编写代码，程序编写完成之后， 想要执行  在不同的操作系统上 安装不同的解释器</p>
-</blockquote>
-<h5 id="Python的设计目标"><a href="#Python的设计目标" class="headerlink" title="Python的设计目标"></a><strong>Python的设计目标</strong></h5><ul>
-<li>一门简单直观的语言</li>
-<li>开源</li>
-<li>代码像纯英语那样容易理解</li>
-<li>适用于短期开发的日常任务</li>
-</ul>
-<h5 id="Python的设计哲学"><a href="#Python的设计哲学" class="headerlink" title="Python的设计哲学"></a><strong>Python的设计哲学</strong></h5><ol>
-<li>优雅</li>
-<li>明确</li>
-<li>简单</li>
-</ol>
-<ul>
-<li>Python开发者的哲学是：用一种方法，最好只用一种方法来做一件事</li>
-<li>如果面临多种选择，Python开发者一般会拒绝花俏的语法，选择明确没有或者很少有歧义的语法</li>
-</ul>
-<p>仁慈的独裁者——吉多</p>
-<h2 id="二、为什么选择Python"><a href="#二、为什么选择Python" class="headerlink" title="二、为什么选择Python"></a>二、为什么选择Python</h2><ul>
-<li>代码量少</li>
-</ul>
-<p>​       ————     <strong>人生苦短，我用Python</strong></p>
-<h2 id="三、Python特点"><a href="#三、Python特点" class="headerlink" title="三、Python特点"></a><strong>三、Python特点</strong></h2><blockquote>
-<p>结决问题的两种方式：</p>
+<h2 id="01-计算机中的三大件"><a href="#01-计算机中的三大件" class="headerlink" title="01. 计算机中的三大件"></a>01. 计算机中的三大件</h2><p>计算机中包含有较多的硬件，但是一个程序要运行，有 <strong>三个</strong> 核心的硬件，分别是：</p>
 <ol>
-<li>亲力亲为</li>
-<li>面向对象</li>
+<li><strong>CPU</strong> <ul>
+<li>中央处理器，是一块超大规模的集成电路</li>
+<li>负责 <strong>处理数据</strong>／<strong>计算</strong></li>
+</ul>
+</li>
+<li><strong>内存</strong><ul>
+<li><strong>临时</strong> 存储数据（断电之后，数据会消失）</li>
+<li>速度快</li>
+<li>空间小（单位价格高）</li>
+</ul>
+</li>
+<li><strong>硬盘</strong> <ul>
+<li><strong>永久</strong> 存储数据</li>
+<li>速度慢</li>
+<li>空间大（单位价格低）</li>
+</ul>
+</li>
 </ol>
-<p>对象：   “谁”   ——找一个”谁”来替我们做这件事情（”谁”具有做这件事情的能力）</p>
-<img src="https://gitee.com/lichaikui/picture/raw/master/tupian/image-20211113164718918.png" alt="image-20211113164718918" style="zoom:80%;" />
+<table>
+<thead>
+<tr>
+<th align="center">CPU</th>
+<th align="center">内存</th>
+<th align="center">硬盘</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/CPU.jpg" alt="CPU-w200"></td>
+<td align="center"><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/%E5%86%85%E5%AD%98%E6%9D%A1.png" alt="内存条-w200"></td>
+<td align="center"><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/%E7%A1%AC%E7%9B%98.jpg" alt="硬盘-w200"></td>
+</tr>
+</tbody></table>
+<h3 id="思考题"><a href="#思考题" class="headerlink" title="思考题"></a>思考题</h3><ol>
+<li>计算机中哪一个硬件设备负责执行程序？<ul>
+<li><strong>CPU</strong></li>
+</ul>
+</li>
+<li><strong>内存</strong> 的速度快还是 <strong>硬盘</strong> 的速度快？<ul>
+<li><strong>内存</strong></li>
+</ul>
+</li>
+<li>我们的程序是安装在内存中的，还是安装在硬盘中的？<ul>
+<li>硬盘</li>
+</ul>
+</li>
+<li><strong>我买了一个内存条，有 500G 的空间！！！</strong>，这句话对吗？<ul>
+<li>不对，内存条通常只有 <code>4G</code> / <code>8G</code> / <code>16G</code> / <code>32G</code></li>
+</ul>
+</li>
+<li><strong>计算机关机之后，内存中的数据都会消失</strong>，这句话对吗？<ul>
+<li>正确 </li>
+</ul>
+</li>
+</ol>
+<h2 id="02-程序执行的原理"><a href="#02-程序执行的原理" class="headerlink" title="02. 程序执行的原理"></a>02. 程序执行的原理</h2><p><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/001_%E7%A8%8B%E5%BA%8F%E6%89%A7%E8%A1%8C%E7%A4%BA%E6%84%8F%E5%9B%BE.png" alt="001_程序执行示意图-w"></p>
+<ol>
+<li>程序 <strong>运行之前</strong>，程序是 <strong>保存在硬盘</strong> 中的</li>
+<li>当要运行一个程序时<ul>
+<li>操作系统会首先让 <strong>CPU</strong> 把程序复制到 <strong>内存</strong> 中</li>
+<li><strong>CPU</strong> 执行 <strong>内存</strong> 中的 <strong>程序代码</strong></li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p><strong>程序要执行，首先要被加载到内存</strong></p>
+</blockquote>
+<h3 id="2-1-Python-程序执行原理"><a href="#2-1-Python-程序执行原理" class="headerlink" title="2.1 Python 程序执行原理"></a>2.1 Python 程序执行原理</h3><p><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/003_Python%E7%A8%8B%E5%BA%8F%E6%89%A7%E8%A1%8C%E7%A4%BA%E6%84%8F%E5%9B%BE.png" alt="003_Python程序执行示意图"></p>
+<ol>
+<li>操作系统会首先让 <strong>CPU</strong> 把 <strong>Python 解释器</strong> 的程序复制到 <strong>内存</strong> 中</li>
+<li><strong>Python 解释器</strong> 根据语法规则，<strong>从上向下</strong> 让 <strong>CPU</strong> 翻译 <strong>Python 程序中的代码</strong></li>
+<li><strong>CPU</strong> 负责执行翻译完成的代码</li>
+</ol>
+<h4 id="Python-的解释器有多大？"><a href="#Python-的解释器有多大？" class="headerlink" title="Python 的解释器有多大？"></a>Python 的解释器有多大？</h4><ul>
+<li>执行以下终端命令可以查看 Python 解释器的大小</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 确认解释器所在位置</span></span><br><span class="line">$ <span class="built_in">which</span> python</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 查看 python 文件大小(只是一个软链接)</span></span><br><span class="line">$ ls -lh /usr/bin/python</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 查看具体文件大小</span></span><br><span class="line">$ ls -lh /usr/bin/python2.7</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>提示：建立 <strong>软链接</strong> 的目的，是为了方便使用者不用记住使用的解释器是 <strong>哪一个具体版本</strong></p>
+</blockquote>
+<h2 id="03-程序的作用"><a href="#03-程序的作用" class="headerlink" title="03. 程序的作用"></a>03. 程序的作用</h2><blockquote>
+<p>程序就是 <strong>用来处理数据</strong> 的！</p>
 </blockquote>
 <ul>
-<li><p>python是完全面向对象的语言</p>
-</li>
-<li><p>python拥有一个强大的标准库<img src="https://gitee.com/lichaikui/picture/raw/master/tupian/image-20211113163934424.png" alt="image-20211113163934424"></p>
-</li>
-<li><p>python社区提供了大量第三方模块，使用方式与标准库类似，他们的功能覆盖  <strong>科学计算、人工智能、机器学习、web开发</strong></p>
-</li>
+<li><strong>新闻软件</strong> 提供的 <strong>新闻内容、评论……</strong> 是数据</li>
+<li><strong>电商软件</strong> 提供的 <strong>商品信息、配送信息……</strong> 是数据</li>
+<li><strong>运动类软件</strong> 提供的 <strong>运动数据……</strong> 是数据</li>
+<li><strong>地图类软件</strong> 提供的 <strong>地图信息、定位信息、车辆信息……</strong> 是数据</li>
+<li><strong>即时通讯软件</strong> 提供的 <strong>聊天信息、好友信息……</strong> 是数据</li>
+<li>……</li>
 </ul>
-<h2 id="四、Python的优缺点"><a href="#四、Python的优缺点" class="headerlink" title="四、Python的优缺点"></a>四、Python的优缺点</h2><ol>
-<li><p>优点</p>
-<ul>
-<li><p>简单易学</p>
-</li>
-<li><p>免费、开放</p>
-</li>
-<li><p>……….</p>
-</li>
-<li><p>可扩展性</p>
-<ul>
-<li>如果需要一段关键代码运行得更快或者希望某些算法不公开，可以把这部分程序用c或者c++编写，然后再Python程序中运行他们</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>缺点</p>
-<ul>
-<li>运行速度慢（解释型语言）</li>
-<li>国内市场较小</li>
-<li>追踪问资源库发</li>
-</ul>
-</li>
+<h3 id="3-1-思考-QQ-程序的启动过程"><a href="#3-1-思考-QQ-程序的启动过程" class="headerlink" title="3.1 思考 QQ 程序的启动过程"></a>3.1 思考 QQ 程序的启动过程</h3><ol>
+<li>QQ 在<strong>运行之前</strong>，是保存在 <strong>硬盘</strong> 中的</li>
+<li><strong>运行之后</strong>，QQ 程序就会被加载到 <strong>内存</strong> 中了</li>
 </ol>
+<p><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/003_QQ%E7%99%BB%E9%99%86%E7%95%8C%E9%9D%A2.png" alt="003_QQ登陆界面-w248"></p>
+<h3 id="3-2-思考-QQ-程序的-登录-过程"><a href="#3-2-思考-QQ-程序的-登录-过程" class="headerlink" title="3.2 思考 QQ 程序的 登录 过程"></a>3.2 思考 QQ 程序的 <strong>登录</strong> 过程</h3><ol>
+<li>读取用户输入的 <strong>QQ 号码</strong></li>
+<li>读取用户输入的 <strong>QQ 密码</strong></li>
+<li>将 <strong>QQ 号码</strong> 和 <strong>QQ 密码</strong> 发送给腾讯的服务器，等待服务器确认用户信息</li>
+</ol>
+<h4 id="思考-1"><a href="#思考-1" class="headerlink" title="思考 1"></a>思考 1</h4><blockquote>
+<p>在 QQ 这个程序将 <strong>QQ 号码</strong> 和 <strong>QQ 密码</strong> 发送给服务器之前，<strong>是否需要先存储一下 QQ 号码 和 密码?</strong></p>
+</blockquote>
+<p><strong>答案</strong></p>
+<p>肯定需要！—— 否则 QQ 这个程序就不知道把什么内容发送给服务器了！</p>
+<h4 id="思考-2"><a href="#思考-2" class="headerlink" title="思考 2"></a>思考 2</h4><blockquote>
+<p>QQ 这个程序把 <strong>QQ 号码</strong> 和 <strong>QQ 密码</strong> 保存在哪里？</p>
+</blockquote>
+<p><strong>答案</strong></p>
+<p>保存在 <strong>内存</strong> 中，因为 QQ 程序自己就在内存中</p>
+<h4 id="思考-3"><a href="#思考-3" class="headerlink" title="思考 3"></a>思考 3</h4><blockquote>
+<p>QQ 这个程序是怎么保存用户的 <strong>QQ 号码</strong> 和 <strong>QQ 密码</strong> 的？</p>
+</blockquote>
+<p><strong>答案</strong></p>
+<ol>
+<li>在内存中为 <strong>QQ 号码</strong> 和 <strong>QQ 密码</strong> 各自分配一块空间<ul>
+<li>在 QQ 程序结束之前，这两块空间是由 QQ 程序负责管理的，其他任何程序都不允许使用</li>
+<li>在 QQ 自己使用完成之前，这两块空间始终都只负责保存 <strong>QQ 号码</strong> 和 <strong>QQ 密码</strong></li>
+</ul>
+</li>
+<li>使用一个 <strong>别名</strong> 标记 <strong>QQ 号码</strong> 和 <strong>QQ 密码</strong> 在内存中的位置</li>
+</ol>
+<p><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/004_QQ%E5%8F%B7%E7%A0%81%E5%92%8C%E5%AF%86%E7%A0%81%E5%86%85%E5%AD%98%E7%A4%BA%E6%84%8F%E5%9B%BE.png" alt="004_QQ号码和密码内存示意图"></p>
+<blockquote>
+<ul>
+<li>在程序内部，为 <strong>QQ 号码</strong> 和 <strong>QQ 密码</strong> 在内存中分配的空间就叫做 <strong>变量</strong></li>
+<li><h1 id="程序就是用来处理数据的，而变量就是用来存储数据的"><a href="#程序就是用来处理数据的，而变量就是用来存储数据的" class="headerlink" title="程序就是用来处理数据的，而变量就是用来存储数据的"></a><strong>程序就是用来处理数据的，而变量就是用来存储数据的</strong></h1></li>
+</ul>
+</blockquote>
 
         <p class="suffix-end">__END__</p>
         <div class="suffix-box">
@@ -157,7 +204,7 @@
             <div class="suffix-box-right">
                 <span class="suffix-box-title">文章作者</span>：hero
                 <br>
-                <span class="suffix-box-title">文章出处</span>：<a href="/2022/01/06/1/1.python%E7%AE%80%E4%BB%8B/" target="_blank">1.python简介</a>
+                <span class="suffix-box-title">文章出处</span>：<a href="/2022/01/06/6.%E7%A8%8B%E5%BA%8F%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86%EF%BC%88%E7%A7%91%E6%99%AE%EF%BC%89/" target="_blank">6.程序执行原理（科普）</a>
                 <br>
                 <span class="suffix-box-title">作者签名</span>：简单地活着, 肆意又精彩.
                 <br>
@@ -174,11 +221,11 @@
         
         <div class="article-prev-next">
             
-                <a href="/2022/01/06/1/2.Python%E7%A8%8B%E5%BA%8Fno.1/" class="prev-prefix">« </a> 上一篇：    <a href="/2022/01/06/1/2.Python%E7%A8%8B%E5%BA%8Fno.1/" title="发布于 2022-01-06 09:44">2.Python程序no.1</a>
+                <a href="/2022/01/06/7.%E5%8F%98%E9%87%8F%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="prev-prefix">« </a> 上一篇：    <a href="/2022/01/06/7.%E5%8F%98%E9%87%8F%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" title="发布于 2022-01-06 09:44">7.变量的基本使用</a>
                 <br>
             
             
-                <a href="/2022/01/06/1/0.python%E5%AD%A6%E4%B9%A0/" class="next-prefix">» </a> 下一篇：    <a href="/2022/01/06/1/0.python%E5%AD%A6%E4%B9%A0/" title="发布于 2022-01-06 09:44">0.python学习</a>
+                <a href="/2022/01/06/5.%E7%AE%97%E6%95%B0%E8%BF%90%E7%AE%97%E7%AC%A6/" class="next-prefix">» </a> 下一篇：    <a href="/2022/01/06/5.%E7%AE%97%E6%95%B0%E8%BF%90%E7%AE%97%E7%AC%A6/" title="发布于 2022-01-06 09:44">5.算数运算符</a>
             
         </div>
     </div>

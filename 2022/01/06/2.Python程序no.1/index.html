@@ -6,7 +6,7 @@
     <meta name="referrer" content="origin">
     <meta http-equiv="Cache-Control" content="no-transform">
     <meta http-equiv="Cache-Control" content="no-siteapp">
-    <title>8.变量的命名</title>
+    <title>2.Python程序no.1</title>
     <link rel="shortcut icon" href="#"/>
 
     <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/LongCang.css">
@@ -32,19 +32,19 @@
     <div class="header">
         <div class="vertical">
             <div class="inner">
-                <h1 class="header-subtitle">8.变量的命名</h1>
+                <h1 class="header-subtitle">2.Python程序no.1</h1>
                 <div class="header-subinfo">
                     <p class="article-info-text">
                         <span>
                             <i class="iconfont icon-time"></i> 发表时间：2022-01-06
                         </span>
                         
-                            <span id="/2022/01/06/1/8.变量的命名/" class="leancloud_visitors" data-flag-title="8.变量的命名">
+                            <span id="/2022/01/06/2.Python程序no.1/" class="leancloud_visitors" data-flag-title="2.Python程序no.1">
                                 <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
                             </span>
                         
                         <span>
-                            <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2022/01/06/1/8.变量的命名/"></span>
+                            <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2022/01/06/2.Python程序no.1/"></span>
                         </span>  
                     </p>                 
                 </div>
@@ -58,70 +58,82 @@
         <div id="article">
     <div class="toc"></div>
     <div class="article-body">
-        <h1 id="变量的命名"><a href="#变量的命名" class="headerlink" title="变量的命名"></a>变量的命名</h1><h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ul>
-<li>标识符和关键字</li>
-<li>变量的命名规则</li>
-</ul>
-<h2 id="0-1-标识符和关键字"><a href="#0-1-标识符和关键字" class="headerlink" title="0.1 标识符和关键字"></a>0.1 标识符和关键字</h2><h3 id="1-1-标识符"><a href="#1-1-标识符" class="headerlink" title="1.1 标识符"></a>1.1 标识符</h3><blockquote>
-<p>标示符就是程序员定义的 <strong>变量名</strong>、<strong>函数名</strong></p>
-<p><strong>名字</strong> 需要有 <strong>见名知义</strong> 的效果，见下图：</p>
-</blockquote>
-<p><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/001_%E4%B8%AD%E5%9B%BD%E5%B1%B1%E4%B8%9C%E6%89%BE%E8%93%9D%E7%BF%94.jpg" alt="001_中国山东找蓝翔"></p>
+        <p><code>mkdir 创建目录</code> <code>touch创建文件</code></p>
+<p>No.1 Python程序</p>
+<p>1.1python源程序的基本概念</p>
+<ol>
+<li>python源程序是一个  特殊格式的文本文件，可以使用任意文本编辑软件做Python的开发</li>
+<li>python程序的文件扩展名通常是  .py</li>
+</ol>
+<p>1.2演练步骤</p>
 <ul>
-<li>标示符可以由 <strong>字母</strong>、<strong>下划线</strong> 和 <strong>数字</strong> 组成</li>
-<li><strong>不能以数字开头</strong></li>
-<li><strong>不能与关键字重名</strong></li>
+<li>在桌面新建 认识python  目录</li>
+<li>在 <code>认识python</code>目录下新建<code>01-HelloPython.py</code> 文件</li>
+<li>使用gedit编辑<code>01-HelloPython.py</code> 并且输入以下内容</li>
 </ul>
-<p>思考：下面的标示符哪些是正确的，哪些不正确为什么？</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">fromNo12</span><br><span class="line">from#12      错误有#</span><br><span class="line">my_Boolean</span><br><span class="line">my-Boolean   错误有-</span><br><span class="line">Obj2</span><br><span class="line">2ndObj       错误是数字开头</span><br><span class="line">myInt</span><br><span class="line">My_tExt</span><br><span class="line">_test</span><br><span class="line">test!32      错误有！</span><br><span class="line">haha(da)tt   错误有（）</span><br><span class="line">jack_rose</span><br><span class="line">jack&amp;rose    错误有&amp;</span><br><span class="line">GUI</span><br><span class="line">G.U.I        错误有.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(&quot;hello,python&quot;)</span><br><span class="line">print(&quot;hello,world&quot;)</span><br></pre></td></tr></table></figure>
 
-<h3 id="1-2-关键字"><a href="#1-2-关键字" class="headerlink" title="1.2 关键字"></a>1.2 关键字</h3><ul>
-<li><strong>关键字</strong> 就是在 <code>Python</code> 内部已经使用的标识符</li>
-<li><strong>关键字</strong> 具有特殊的功能和含义</li>
-<li>开发者 <strong>不允许定义和关键字相同的名字的标示符</strong></li>
+<ul>
+<li>在终端输入以下命令执行<code>01-HelloPython.py</code> </li>
 </ul>
-<p>通过以下命令可以查看 <code>ipython</code> 中的关键字</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">1</span>]: <span class="keyword">import</span> keyword</span><br><span class="line">In [<span class="number">2</span>]: <span class="built_in">print</span>(keyword.kwlist)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python 01-HelloPython.py</span><br></pre></td></tr></table></figure>
 
 <blockquote>
-<p>提示：<strong>关键字的学习及使用</strong>，会在后面的课程中不断介绍</p>
+<p>print是python中我们学习的第一个函数</p>
+<p>print函数的作用，可以把””内部的内容，输出到屏幕上</p>
+</blockquote>
+<p>1.3演练扩展——认识错误（bug）</p>
+<p>关于错误</p>
 <ul>
-<li><p><code>import</code> <strong>关键字</strong> 可以导入一个 <strong>“工具包”</strong></p>
+<li>编写的程序不能正常执行，或者执行的结果不是期望的</li>
+<li>所称bug是程序员在开发时非常常见的，初学者常见的错误原因包括：<ul>
+<li>手误</li>
+<li>对已经学习过的知识理解还存在不足</li>
+<li>对语言还有需要学习和提升的内容</li>
+</ul>
 </li>
-<li><p>在 <code>Python</code> 中不同的工具包，提供有不同的工具</p>
+<li>在学习语言时，不经要学会语言的语法，而且还要学会如何认识错误和解决错误的方法</li>
+</ul>
+<p>第一个程序演练中的常见错误</p>
+<ul>
+<li><p>使用print(“Hello world”)</p>
+<p><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/image-20211209165337617.png" alt="image-20211209165337617"></p>
 </li>
+<li><p>将多条print写在一行</p>
+<p><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/image-20211209165436920.png" alt="image-20211209165436920">每行代码负责完成一个动作</p>
+</li>
+<li><p>缩进错误</p>
+<p><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/image-20211209165809159.png" alt="image-20211209165809159"></p>
+<p><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/image-20211209165728804.png" alt="image-20211209165728804"></p>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>python是一个格式非常严格的程序设计语言</li>
+<li>目前而言，每行代码前面不要增加空格</li>
 </ul>
 </blockquote>
-<h2 id="02-变量的命名规则"><a href="#02-变量的命名规则" class="headerlink" title="02. 变量的命名规则"></a>02. 变量的命名规则</h2><blockquote>
-<p><strong>命名规则</strong> 可以被视为一种 <strong>惯例</strong>，并无绝对与强制<br>目的是为了 <strong>增加代码的识别和可读性</strong></p>
-</blockquote>
-<p><strong>注意</strong> <code>Python</code> 中的 <strong>标识符</strong> 是 <strong>区分大小写的</strong></p>
-<p><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/002_%E6%A0%87%E8%AF%86%E7%AC%A6%E5%8C%BA%E5%88%86%E5%A4%A7%E5%B0%8F%E5%86%99.jpg" alt="002_标识符区分大小写"></p>
-<ol>
-<li>在定义变量时，为了保证代码格式，<code>=</code> 的左右应该各保留一个空格</li>
-<li>在 <code>Python</code> 中，如果 <strong>变量名</strong> 需要由 <strong>二个</strong> 或 <strong>多个单词</strong> 组成时，可以按照以下方式命名<ol>
-<li>每个单词都使用小写字母</li>
-<li>单词与单词之间使用 <strong><code>_</code>下划线</strong> 连接</li>
-</ol>
 <ul>
-<li>例如：<code>first_name</code>、<code>last_name</code>、<code>qq_number</code>、<code>qq_password</code></li>
+<li>python 2.×牧人不支持中文</li>
+</ul>
+<p>目前市场上有两个python的版本并存着，分别是python 2.×和python 3.×</p>
+<ul>
+<li>python 2.×的解释器器名称时python<ul>
+<li>不支持中文</li>
+<li><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/image-20211209170622255.png" alt="image-20211209170622255"></li>
 </ul>
 </li>
-</ol>
-<h3 id="驼峰命名法（其他语言常用到）"><a href="#驼峰命名法（其他语言常用到）" class="headerlink" title="驼峰命名法（其他语言常用到）"></a>驼峰命名法（其他语言常用到）</h3><ul>
-<li>当 <strong>变量名</strong> 是由二个或多个单词组成时，还可以利用驼峰命名法来命名</li>
-<li><strong>小驼峰式命名法</strong><ul>
-<li>第一个单词以小写字母开始，后续单词的首字母大写</li>
-<li>例如：<code>firstName</code>、<code>lastName</code></li>
-</ul>
-</li>
-<li><strong>大驼峰式命名法</strong><ul>
-<li>每一个单词的首字母都采用大写字母</li>
-<li>例如：<code>FirstName</code>、<code>LastName</code>、<code>CamelCase</code> </li>
+<li>python 3.×的解释器器名称时python3<ul>
+<li>支持中文</li>
+<li><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/image-20211209170649832.png" alt="image-20211209170649832"></li>
 </ul>
 </li>
 </ul>
-<p><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/003_%E9%A9%BC%E5%B3%B0%E5%91%BD%E5%90%8D%E6%B3%95.jpg" alt="003_驼峰命名法"></p>
+<p><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/image-20211209170235446.png" alt="image-20211209170235446"></p>
+<blockquote>
+<p>ASCII字符只包含256个字符不支持中文</p>
+</blockquote>
+<p><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/image-20211209170716948.png" alt="image-20211209170716948"></p>
 
         <p class="suffix-end">__END__</p>
         <div class="suffix-box">
@@ -131,7 +143,7 @@
             <div class="suffix-box-right">
                 <span class="suffix-box-title">文章作者</span>：hero
                 <br>
-                <span class="suffix-box-title">文章出处</span>：<a href="/2022/01/06/1/8.%E5%8F%98%E9%87%8F%E7%9A%84%E5%91%BD%E5%90%8D/" target="_blank">8.变量的命名</a>
+                <span class="suffix-box-title">文章出处</span>：<a href="/2022/01/06/2.Python%E7%A8%8B%E5%BA%8Fno.1/" target="_blank">2.Python程序no.1</a>
                 <br>
                 <span class="suffix-box-title">作者签名</span>：简单地活着, 肆意又精彩.
                 <br>
@@ -148,11 +160,8 @@
         
         <div class="article-prev-next">
             
-                <a href="/2022/01/06/1/9.%E5%88%A4%E6%96%AD%EF%BC%88if%EF%BC%89%E8%AF%AD%E5%8F%A5/" class="prev-prefix">« </a> 上一篇：    <a href="/2022/01/06/1/9.%E5%88%A4%E6%96%AD%EF%BC%88if%EF%BC%89%E8%AF%AD%E5%8F%A5/" title="发布于 2022-01-06 09:44">9.判断（if）语句</a>
-                <br>
             
-            
-                <a href="/2022/01/06/1/7.%E5%8F%98%E9%87%8F%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="next-prefix">» </a> 下一篇：    <a href="/2022/01/06/1/7.%E5%8F%98%E9%87%8F%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" title="发布于 2022-01-06 09:44">7.变量的基本使用</a>
+                <a href="/2022/01/06/1.python%E7%AE%80%E4%BB%8B/" class="next-prefix">» </a> 下一篇：    <a href="/2022/01/06/1.python%E7%AE%80%E4%BB%8B/" title="发布于 2022-01-06 09:44">1.python简介</a>
             
         </div>
     </div>
