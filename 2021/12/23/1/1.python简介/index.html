@@ -6,7 +6,7 @@
     <meta name="referrer" content="origin">
     <meta http-equiv="Cache-Control" content="no-transform">
     <meta http-equiv="Cache-Control" content="no-siteapp">
-    <title>Hello World</title>
+    <title>1.python简介</title>
     <link rel="shortcut icon" href="#"/>
 
     <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/LongCang.css">
@@ -32,19 +32,19 @@
     <div class="header">
         <div class="vertical">
             <div class="inner">
-                <h1 class="header-subtitle">Hello World</h1>
+                <h1 class="header-subtitle">1.python简介</h1>
                 <div class="header-subinfo">
                     <p class="article-info-text">
                         <span>
-                            <i class="iconfont icon-time"></i> 发表时间：2021-12-22
+                            <i class="iconfont icon-time"></i> 发表时间：2021-12-23
                         </span>
                         
-                            <span id="/2021/12/22/hello-world/" class="leancloud_visitors" data-flag-title="Hello World">
+                            <span id="/2021/12/23/1/1.python简介/" class="leancloud_visitors" data-flag-title="1.python简介">
                                 <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
                             </span>
                         
                         <span>
-                            <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2021/12/22/hello-world/"></span>
+                            <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2021/12/23/1/1.python简介/"></span>
                         </span>  
                     </p>                 
                 </div>
@@ -58,19 +58,96 @@
         <div id="article">
     <div class="toc"></div>
     <div class="article-body">
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+        <h2 id="一、Python"><a href="#一、Python" class="headerlink" title="一、Python"></a>一、Python</h2><p><strong>编译器对源代码翻译方式</strong></p>
+<p>计算机不能直接理解任何除机器语言外的语言，所以必须把程序员所写的程序语言翻译成计算机语言，计算机才能正常执行。其他语言翻译成计算机语言的工具，被称为          <strong>编辑器</strong></p>
+<p>1）、编译器            使用编译器编译的语言——编译型语言</p>
+<p>   编译型语言  代表：c++</p>
+<blockquote>
+<p>c ++程序猿在自己的开发环境内编写代码，程序开发完成之后，程序员把开发完成的源代码统一交给编译器，编译器把源代码翻译成机器语言，并生成独立的可执行文件，需要执行时windows双击可执行文件图标，把文件交给CPU去执行</p>
+<p><strong>统一编译 一次性执行     ：   编译型语言特点</strong></p>
+</blockquote>
+<p>2）、解释器             使用解释器解释的语言——解释型语言</p>
+<p>​    解释型语言代表  ：   Python</p>
+<blockquote>
+<p>程序员仍然是在自己的开发环境内来编写代码，假设我们现在写了3行代码那这三行代码怎么运行呢？要想运行解释性语言我们呢就把这个原程序丢给解释器  解释器拿到原程序之后，会按照从上向下的方式逐一读取代码  注意解释器是一行一行来翻译的，解释器首先读出第一行代码 读出之后就立刻翻译成机器码，翻译完成之后呢就丢给 cpu 去执行，cpu 在执行的过程中，解释器再读取第二行代码进行翻译翻译完成之后再交给 cpu 去执行然后依次类推，从上到下依次读取每行代码读取一行 </p>
+<p><strong>一行一行代码进行翻译   翻译一行  执行一行      ：   解释性语言特点</strong></p>
+</blockquote>
+<ul>
+<li>两种语言执行速度对比：   编译型语言快   </li>
+</ul>
+<blockquote>
+<p>因为最终生成的可执行文件中 就是硬件识别的汲取言 在执行这个文件的时候  </p>
+<p>没有任何翻译的动作cpu 可以很快的执行，不需要任何的介入</p>
+<p>而解释性语言不同，解释性语言在执行的时候，必须是翻译一行，执行一行  </p>
+</blockquote>
+<ul>
+<li>两种语言跨平台(一次编写，在任何一个平台上都能运行)能力对比：  解释型语言强</li>
+</ul>
+<blockquote>
+<p>果我们使用了某一个操作系统的编译器，那么这个编译器最终，生成的可执行文件，就只能在这个操作系统上运行</p>
+<p>解释性语言 程序员按照习惯的方式来编写代码，程序编写完成之后， 想要执行  在不同的操作系统上 安装不同的解释器</p>
+</blockquote>
+<h5 id="Python的设计目标"><a href="#Python的设计目标" class="headerlink" title="Python的设计目标"></a><strong>Python的设计目标</strong></h5><ul>
+<li>一门简单直观的语言</li>
+<li>开源</li>
+<li>代码像纯英语那样容易理解</li>
+<li>适用于短期开发的日常任务</li>
+</ul>
+<h5 id="Python的设计哲学"><a href="#Python的设计哲学" class="headerlink" title="Python的设计哲学"></a><strong>Python的设计哲学</strong></h5><ol>
+<li>优雅</li>
+<li>明确</li>
+<li>简单</li>
+</ol>
+<ul>
+<li>Python开发者的哲学是：用一种方法，最好只用一种方法来做一件事</li>
+<li>如果面临多种选择，Python开发者一般会拒绝花俏的语法，选择明确没有或者很少有歧义的语法</li>
+</ul>
+<p>仁慈的独裁者——吉多</p>
+<h2 id="二、为什么选择Python"><a href="#二、为什么选择Python" class="headerlink" title="二、为什么选择Python"></a>二、为什么选择Python</h2><ul>
+<li>代码量少</li>
+</ul>
+<p>​       ————     <strong>人生苦短，我用Python</strong></p>
+<h2 id="三、Python特点"><a href="#三、Python特点" class="headerlink" title="三、Python特点"></a><strong>三、Python特点</strong></h2><blockquote>
+<p>结决问题的两种方式：</p>
+<ol>
+<li>亲力亲为</li>
+<li>面向对象</li>
+</ol>
+<p>对象：   “谁”   ——找一个”谁”来替我们做这件事情（”谁”具有做这件事情的能力）</p>
+<img src="https://gitee.com/lichaikui/picture/raw/master/tupian/image-20211113164718918.png" alt="image-20211113164718918" style="zoom:80%;" />
+</blockquote>
+<ul>
+<li><p>python是完全面向对象的语言</p>
+</li>
+<li><p>python拥有一个强大的标准库<img src="https://gitee.com/lichaikui/picture/raw/master/tupian/image-20211113163934424.png" alt="image-20211113163934424"></p>
+</li>
+<li><p>python社区提供了大量第三方模块，使用方式与标准库类似，他们的功能覆盖  <strong>科学计算、人工智能、机器学习、web开发</strong></p>
+</li>
+</ul>
+<h2 id="四、Python的优缺点"><a href="#四、Python的优缺点" class="headerlink" title="四、Python的优缺点"></a>四、Python的优缺点</h2><ol>
+<li><p>优点</p>
+<ul>
+<li><p>简单易学</p>
+</li>
+<li><p>免费、开放</p>
+</li>
+<li><p>……….</p>
+</li>
+<li><p>可扩展性</p>
+<ul>
+<li>如果需要一段关键代码运行得更快或者希望某些算法不公开，可以把这部分程序用c或者c++编写，然后再Python程序中运行他们</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>缺点</p>
+<ul>
+<li>运行速度慢（解释型语言）</li>
+<li>国内市场较小</li>
+<li>追踪问资源库发</li>
+</ul>
+</li>
+</ol>
 
         <p class="suffix-end">__END__</p>
         <div class="suffix-box">
@@ -80,7 +157,7 @@
             <div class="suffix-box-right">
                 <span class="suffix-box-title">文章作者</span>：hero
                 <br>
-                <span class="suffix-box-title">文章出处</span>：<a href="/2021/12/22/hello-world/" target="_blank">Hello World</a>
+                <span class="suffix-box-title">文章出处</span>：<a href="/2021/12/23/1/1.python%E7%AE%80%E4%BB%8B/" target="_blank">1.python简介</a>
                 <br>
                 <span class="suffix-box-title">作者签名</span>：简单地活着, 肆意又精彩.
                 <br>
@@ -94,14 +171,28 @@
     </div>
     <div class="article-footer">
         
+            <div class="category">
+                分类：
+                
+                    <a href="/category/python%E5%AD%A6%E4%B9%A0/">python学习</a>
+                
+            </div>
+        
+        
+            <div class="tag">
+                标签：
+                
+                    <a href="/tag/1-python%E7%AE%80%E4%BB%8B/">1.python简介</a>
+                
+            </div>
         
         <div class="article-prev-next">
             
-                <a href="/2021/12/23/1.python%E7%AE%80%E4%BB%8B/" class="prev-prefix">« </a> 上一篇：    <a href="/2021/12/23/1.python%E7%AE%80%E4%BB%8B/" title="发布于 2021-12-23 08:00">1.python简介</a>
+                <a href="/2021/12/23/1/2.Python%E7%A8%8B%E5%BA%8Fno.1/" class="prev-prefix">« </a> 上一篇：    <a href="/2021/12/23/1/2.Python%E7%A8%8B%E5%BA%8Fno.1/" title="发布于 2021-12-23 08:01">2.Python程序no.1</a>
                 <br>
             
             
-                <a href="/2021/12/22/python%E5%AD%A6%E4%B9%A0/" class="next-prefix">» </a> 下一篇：    <a href="/2021/12/22/python%E5%AD%A6%E4%B9%A0/" title="发布于 2021-12-22 08:11">python学习</a>
+                <a href="/2021/12/22/1/hello-world/" class="next-prefix">» </a> 下一篇：    <a href="/2021/12/22/1/hello-world/" title="发布于 2021-12-22 11:46">Hello World</a>
             
         </div>
     </div>

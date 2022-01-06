@@ -6,7 +6,7 @@
     <meta name="referrer" content="origin">
     <meta http-equiv="Cache-Control" content="no-transform">
     <meta http-equiv="Cache-Control" content="no-siteapp">
-    <title>10.运算符</title>
+    <title>2.Python程序no.1</title>
     <link rel="shortcut icon" href="#"/>
 
     <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/LongCang.css">
@@ -32,19 +32,19 @@
     <div class="header">
         <div class="vertical">
             <div class="inner">
-                <h1 class="header-subtitle">10.运算符</h1>
+                <h1 class="header-subtitle">2.Python程序no.1</h1>
                 <div class="header-subinfo">
                     <p class="article-info-text">
                         <span>
                             <i class="iconfont icon-time"></i> 发表时间：2021-12-23
                         </span>
                         
-                            <span id="/2021/12/23/11_运算符/" class="leancloud_visitors" data-flag-title="10.运算符">
+                            <span id="/2021/12/23/1/2.Python程序no.1/" class="leancloud_visitors" data-flag-title="2.Python程序no.1">
                                 <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
                             </span>
                         
                         <span>
-                            <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2021/12/23/11_运算符/"></span>
+                            <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2021/12/23/1/2.Python程序no.1/"></span>
                         </span>  
                     </p>                 
                 </div>
@@ -58,219 +58,82 @@
         <div id="article">
     <div class="toc"></div>
     <div class="article-body">
-        <h1 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h1><h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ul>
-<li>算数运算符</li>
-<li>比较（关系）运算符</li>
-<li>逻辑运算符</li>
-<li>赋值运算符</li>
-<li>运算符的优先级</li>
-</ul>
-<p>数学符号表链接：<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%95%B0%E5%AD%A6%E7%AC%A6%E5%8F%B7%E8%A1%A8">https://zh.wikipedia.org/wiki/数学符号表</a></p>
-<h2 id="01-算数运算符"><a href="#01-算数运算符" class="headerlink" title="01. 算数运算符"></a>01. 算数运算符</h2><ul>
-<li>是完成基本的算术运算使用的符号，用来处理四则运算</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th align="center">运算符</th>
-<th align="center">描述</th>
-<th>实例</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">+</td>
-<td align="center">加</td>
-<td>10 + 20 = 30</td>
-</tr>
-<tr>
-<td align="center">-</td>
-<td align="center">减</td>
-<td>10 - 20 = -10</td>
-</tr>
-<tr>
-<td align="center">*</td>
-<td align="center">乘</td>
-<td>10 * 20 = 200</td>
-</tr>
-<tr>
-<td align="center">/</td>
-<td align="center">除</td>
-<td>10 / 20 = 0.5</td>
-</tr>
-<tr>
-<td align="center">//</td>
-<td align="center">取整除</td>
-<td>返回除法的整数部分（商） 9 // 2 输出结果 4</td>
-</tr>
-<tr>
-<td align="center">%</td>
-<td align="center">取余数</td>
-<td>返回除法的余数 9 % 2 = 1</td>
-</tr>
-<tr>
-<td align="center">**</td>
-<td align="center">幂</td>
-<td>又称次方、乘方，2 ** 3 = 8</td>
-</tr>
-</tbody></table>
+        <p><code>mkdir 创建目录</code> <code>touch创建文件</code></p>
+<p>No.1 Python程序</p>
+<p>1.1python源程序的基本概念</p>
+<ol>
+<li>python源程序是一个  特殊格式的文本文件，可以使用任意文本编辑软件做Python的开发</li>
+<li>python程序的文件扩展名通常是  .py</li>
+</ol>
+<p>1.2演练步骤</p>
 <ul>
-<li>在 Python 中 <code>*</code> 运算符还可以用于字符串，计算结果就是字符串重复指定次数的结果</li>
+<li>在桌面新建 认识python  目录</li>
+<li>在 <code>认识python</code>目录下新建<code>01-HelloPython.py</code> 文件</li>
+<li>使用gedit编辑<code>01-HelloPython.py</code> 并且输入以下内容</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">1</span>]: <span class="string">&quot;-&quot;</span> * <span class="number">50</span></span><br><span class="line">Out[<span class="number">1</span>]: <span class="string">&#x27;----------------------------------------&#x27;</span> </span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(&quot;hello,python&quot;)</span><br><span class="line">print(&quot;hello,world&quot;)</span><br></pre></td></tr></table></figure>
 
-<h2 id="02-比较（关系）运算符"><a href="#02-比较（关系）运算符" class="headerlink" title="02. 比较（关系）运算符"></a>02. 比较（关系）运算符</h2><table>
-<thead>
-<tr>
-<th>运算符</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>==</td>
-<td>检查两个操作数的值是否 <strong>相等</strong>，如果是，则条件成立，返回 True</td>
-</tr>
-<tr>
-<td>!=</td>
-<td>检查两个操作数的值是否 <strong>不相等</strong>，如果是，则条件成立，返回 True</td>
-</tr>
-<tr>
-<td>&gt;</td>
-<td>检查左操作数的值是否 <strong>大于</strong> 右操作数的值，如果是，则条件成立，返回 True</td>
-</tr>
-<tr>
-<td>&lt;</td>
-<td>检查左操作数的值是否 <strong>小于</strong> 右操作数的值，如果是，则条件成立，返回 True</td>
-</tr>
-<tr>
-<td>&gt;=</td>
-<td>检查左操作数的值是否 <strong>大于或等于</strong> 右操作数的值，如果是，则条件成立，返回 True</td>
-</tr>
-<tr>
-<td>&lt;=</td>
-<td>检查左操作数的值是否 <strong>小于或等于</strong> 右操作数的值，如果是，则条件成立，返回 True</td>
-</tr>
-</tbody></table>
+<ul>
+<li>在终端输入以下命令执行<code>01-HelloPython.py</code> </li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python 01-HelloPython.py</span><br></pre></td></tr></table></figure>
+
 <blockquote>
-<p>Python 2.x 中判断 <strong>不等于</strong> 还可以使用 <code>&lt;&gt;</code> 运算符</p>
-<p><code>!=</code> 在 Python 2.x 中同样可以用来判断 <strong>不等于</strong></p>
+<p>print是python中我们学习的第一个函数</p>
+<p>print函数的作用，可以把””内部的内容，输出到屏幕上</p>
 </blockquote>
-<h2 id="03-逻辑运算符"><a href="#03-逻辑运算符" class="headerlink" title="03. 逻辑运算符"></a>03. 逻辑运算符</h2><table>
-<thead>
-<tr>
-<th>运算符</th>
-<th>逻辑表达式</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>and</td>
-<td>x and y</td>
-<td>只有 x 和 y 的值都为 True，才会返回 True<br />否则只要 x 或者 y 有一个值为 False，就返回 False</td>
-</tr>
-<tr>
-<td>or</td>
-<td>x or y</td>
-<td>只要 x 或者 y 有一个值为 True，就返回 True<br />只有 x 和 y 的值都为 False，才会返回 False</td>
-</tr>
-<tr>
-<td>not</td>
-<td>not x</td>
-<td>如果 x 为 True，返回 False<br />如果 x 为 False，返回 True</td>
-</tr>
-</tbody></table>
-<h2 id="04-赋值运算符"><a href="#04-赋值运算符" class="headerlink" title="04. 赋值运算符"></a>04. 赋值运算符</h2><ul>
-<li>在 Python 中，使用 <code>=</code> 可以给变量赋值</li>
-<li>在算术运算时，为了简化代码的编写，<code>Python</code> 还提供了一系列的 与 <strong>算术运算符</strong> 对应的 <strong>赋值运算符</strong></li>
-<li>注意：<strong>赋值运算符中间不能使用空格</strong></li>
+<p>1.3演练扩展——认识错误（bug）</p>
+<p>关于错误</p>
+<ul>
+<li>编写的程序不能正常执行，或者执行的结果不是期望的</li>
+<li>所称bug是程序员在开发时非常常见的，初学者常见的错误原因包括：<ul>
+<li>手误</li>
+<li>对已经学习过的知识理解还存在不足</li>
+<li>对语言还有需要学习和提升的内容</li>
 </ul>
-<table>
-<thead>
-<tr>
-<th>运算符</th>
-<th>描述</th>
-<th>实例</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>=</td>
-<td>简单的赋值运算符</td>
-<td>c = a + b 将 a + b 的运算结果赋值为 c</td>
-</tr>
-<tr>
-<td>+=</td>
-<td>加法赋值运算符</td>
-<td>c += a 等效于 c = c + a</td>
-</tr>
-<tr>
-<td>-=</td>
-<td>减法赋值运算符</td>
-<td>c -= a 等效于 c = c - a</td>
-</tr>
-<tr>
-<td>*=</td>
-<td>乘法赋值运算符</td>
-<td>c *= a 等效于 c = c * a</td>
-</tr>
-<tr>
-<td>/=</td>
-<td>除法赋值运算符</td>
-<td>c /= a 等效于 c = c / a</td>
-</tr>
-<tr>
-<td>//=</td>
-<td>取整除赋值运算符</td>
-<td>c //= a 等效于 c = c // a</td>
-</tr>
-<tr>
-<td>%=</td>
-<td>取 <strong>模</strong> (余数)赋值运算符</td>
-<td>c %= a 等效于 c = c % a</td>
-</tr>
-<tr>
-<td>**=</td>
-<td>幂赋值运算符</td>
-<td>c **= a 等效于 c = c ** a</td>
-</tr>
-</tbody></table>
-<h2 id="05-运算符的优先级"><a href="#05-运算符的优先级" class="headerlink" title="05. 运算符的优先级"></a>05. 运算符的优先级</h2><ul>
-<li>以下表格的算数优先级由高到最低顺序排列</li>
+</li>
+<li>在学习语言时，不经要学会语言的语法，而且还要学会如何认识错误和解决错误的方法</li>
 </ul>
-<table>
-<thead>
-<tr>
-<th>运算符</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>**</td>
-<td>幂 (最高优先级)</td>
-</tr>
-<tr>
-<td>* / % //</td>
-<td>乘、除、取余数、取整除</td>
-</tr>
-<tr>
-<td>+ -</td>
-<td>加法、减法</td>
-</tr>
-<tr>
-<td>&lt;= &lt; &gt; &gt;=</td>
-<td>比较运算符</td>
-</tr>
-<tr>
-<td>== !=</td>
-<td>等于运算符</td>
-</tr>
-<tr>
-<td>= %= /= //= -= += *= **=</td>
-<td>赋值运算符</td>
-</tr>
-<tr>
-<td>not or and</td>
-<td>逻辑运算符</td>
-</tr>
-</tbody></table>
+<p>第一个程序演练中的常见错误</p>
+<ul>
+<li><p>使用print(“Hello world”)</p>
+<p><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/image-20211209165337617.png" alt="image-20211209165337617"></p>
+</li>
+<li><p>将多条print写在一行</p>
+<p><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/image-20211209165436920.png" alt="image-20211209165436920">每行代码负责完成一个动作</p>
+</li>
+<li><p>缩进错误</p>
+<p><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/image-20211209165809159.png" alt="image-20211209165809159"></p>
+<p><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/image-20211209165728804.png" alt="image-20211209165728804"></p>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>python是一个格式非常严格的程序设计语言</li>
+<li>目前而言，每行代码前面不要增加空格</li>
+</ul>
+</blockquote>
+<ul>
+<li>python 2.×牧人不支持中文</li>
+</ul>
+<p>目前市场上有两个python的版本并存着，分别是python 2.×和python 3.×</p>
+<ul>
+<li>python 2.×的解释器器名称时python<ul>
+<li>不支持中文</li>
+<li><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/image-20211209170622255.png" alt="image-20211209170622255"></li>
+</ul>
+</li>
+<li>python 3.×的解释器器名称时python3<ul>
+<li>支持中文</li>
+<li><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/image-20211209170649832.png" alt="image-20211209170649832"></li>
+</ul>
+</li>
+</ul>
+<p><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/image-20211209170235446.png" alt="image-20211209170235446"></p>
+<blockquote>
+<p>ASCII字符只包含256个字符不支持中文</p>
+</blockquote>
+<p><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/image-20211209170716948.png" alt="image-20211209170716948"></p>
 
         <p class="suffix-end">__END__</p>
         <div class="suffix-box">
@@ -280,7 +143,7 @@
             <div class="suffix-box-right">
                 <span class="suffix-box-title">文章作者</span>：hero
                 <br>
-                <span class="suffix-box-title">文章出处</span>：<a href="/2021/12/23/11_%E8%BF%90%E7%AE%97%E7%AC%A6/" target="_blank">10.运算符</a>
+                <span class="suffix-box-title">文章出处</span>：<a href="/2021/12/23/1/2.Python%E7%A8%8B%E5%BA%8Fno.1/" target="_blank">2.Python程序no.1</a>
                 <br>
                 <span class="suffix-box-title">作者签名</span>：简单地活着, 肆意又精彩.
                 <br>
@@ -305,17 +168,17 @@
             <div class="tag">
                 标签：
                 
-                    <a href="/tag/10-%E8%BF%90%E7%AE%97%E7%AC%A6/">10.运算符</a>
+                    <a href="/tag/2-Python%E7%A8%8B%E5%BA%8Fno-1/">2.Python程序no.1</a>
                 
             </div>
         
         <div class="article-prev-next">
             
-                <a href="/2021/12/23/12_%E5%BE%AA%E7%8E%AF/" class="prev-prefix">« </a> 上一篇：    <a href="/2021/12/23/12_%E5%BE%AA%E7%8E%AF/" title="发布于 2021-12-23 08:12">11.循环</a>
+                <a href="/2021/12/23/1/3.%E5%A4%9A%E6%96%87%E4%BB%B6%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%BC%94%E7%BB%83/" class="prev-prefix">« </a> 上一篇：    <a href="/2021/12/23/1/3.%E5%A4%9A%E6%96%87%E4%BB%B6%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%BC%94%E7%BB%83/" title="发布于 2021-12-23 08:02">3.多文件项目的演练</a>
                 <br>
             
             
-                <a href="/2021/12/23/10_%E5%88%A4%E6%96%AD%EF%BC%88if%EF%BC%89%E8%AF%AD%E5%8F%A5/" class="next-prefix">» </a> 下一篇：    <a href="/2021/12/23/10_%E5%88%A4%E6%96%AD%EF%BC%88if%EF%BC%89%E8%AF%AD%E5%8F%A5/" title="发布于 2021-12-23 08:10">9.判断（if）语句</a>
+                <a href="/2021/12/23/1/1.python%E7%AE%80%E4%BB%8B/" class="next-prefix">» </a> 下一篇：    <a href="/2021/12/23/1/1.python%E7%AE%80%E4%BB%8B/" title="发布于 2021-12-23 08:00">1.python简介</a>
             
         </div>
     </div>

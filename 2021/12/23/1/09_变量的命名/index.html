@@ -6,7 +6,7 @@
     <meta name="referrer" content="origin">
     <meta http-equiv="Cache-Control" content="no-transform">
     <meta http-equiv="Cache-Control" content="no-siteapp">
-    <title>5.算数运算符</title>
+    <title>8.变量的命名</title>
     <link rel="shortcut icon" href="#"/>
 
     <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/LongCang.css">
@@ -32,19 +32,19 @@
     <div class="header">
         <div class="vertical">
             <div class="inner">
-                <h1 class="header-subtitle">5.算数运算符</h1>
+                <h1 class="header-subtitle">8.变量的命名</h1>
                 <div class="header-subinfo">
                     <p class="article-info-text">
                         <span>
                             <i class="iconfont icon-time"></i> 发表时间：2021-12-23
                         </span>
                         
-                            <span id="/2021/12/23/5.算数运算符/" class="leancloud_visitors" data-flag-title="5.算数运算符">
+                            <span id="/2021/12/23/1/09_变量的命名/" class="leancloud_visitors" data-flag-title="8.变量的命名">
                                 <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
                             </span>
                         
                         <span>
-                            <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2021/12/23/5.算数运算符/"></span>
+                            <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2021/12/23/1/09_变量的命名/"></span>
                         </span>  
                     </p>                 
                 </div>
@@ -58,103 +58,70 @@
         <div id="article">
     <div class="toc"></div>
     <div class="article-body">
-        <h1 id="算数运算符"><a href="#算数运算符" class="headerlink" title="算数运算符"></a>算数运算符</h1><p><strong>计算机</strong>，顾名思义就是负责进行 <strong>数学计算</strong> 并且 <strong>存储计算结果</strong> 的电子设备</p>
-<h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ul>
-<li>算术运算符的基本使用</li>
+        <h1 id="变量的命名"><a href="#变量的命名" class="headerlink" title="变量的命名"></a>变量的命名</h1><h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ul>
+<li>标识符和关键字</li>
+<li>变量的命名规则</li>
 </ul>
-<h2 id="01-算数运算符"><a href="#01-算数运算符" class="headerlink" title="01. 算数运算符"></a>01. 算数运算符</h2><ul>
-<li>算数运算符是 <strong>运算符的一种</strong></li>
-<li>是完成基本的算术运算使用的符号，用来处理四则运算</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th align="center">运算符</th>
-<th align="center">描述</th>
-<th>实例</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">+</td>
-<td align="center">加</td>
-<td>10 + 20 = 30</td>
-</tr>
-<tr>
-<td align="center">-</td>
-<td align="center">减</td>
-<td>10 - 20 = -10</td>
-</tr>
-<tr>
-<td align="center">*</td>
-<td align="center">乘</td>
-<td>10 * 20 = 200</td>
-</tr>
-<tr>
-<td align="center">/</td>
-<td align="center">除</td>
-<td>10 / 20 = 0.5</td>
-</tr>
-<tr>
-<td align="center">//</td>
-<td align="center">取整除</td>
-<td>返回除法的整数部分（商） 9 // 2 输出结果 4</td>
-</tr>
-<tr>
-<td align="center">%</td>
-<td align="center">取余数</td>
-<td>返回除法的余数 9 % 2 = 1</td>
-</tr>
-<tr>
-<td align="center">**</td>
-<td align="center">幂</td>
-<td>又称次方、乘方，2 ** 3 = 8</td>
-</tr>
-</tbody></table>
+<h2 id="0-1-标识符和关键字"><a href="#0-1-标识符和关键字" class="headerlink" title="0.1 标识符和关键字"></a>0.1 标识符和关键字</h2><h3 id="1-1-标识符"><a href="#1-1-标识符" class="headerlink" title="1.1 标识符"></a>1.1 标识符</h3><blockquote>
+<p>标示符就是程序员定义的 <strong>变量名</strong>、<strong>函数名</strong></p>
+<p><strong>名字</strong> 需要有 <strong>见名知义</strong> 的效果，见下图：</p>
+</blockquote>
+<p><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/001_%E4%B8%AD%E5%9B%BD%E5%B1%B1%E4%B8%9C%E6%89%BE%E8%93%9D%E7%BF%94.jpg" alt="001_中国山东找蓝翔"></p>
 <ul>
-<li>在 Python 中 <code>*</code> 运算符还可以用于字符串，计算结果就是字符串重复指定次数的结果</li>
+<li>标示符可以由 <strong>字母</strong>、<strong>下划线</strong> 和 <strong>数字</strong> 组成</li>
+<li><strong>不能以数字开头</strong></li>
+<li><strong>不能与关键字重名</strong></li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">1</span>]: <span class="string">&quot;-&quot;</span> * <span class="number">50</span></span><br><span class="line">Out[<span class="number">1</span>]: <span class="string">&#x27;----------------------------------------&#x27;</span> </span><br></pre></td></tr></table></figure>
+<p>思考：下面的标示符哪些是正确的，哪些不正确为什么？</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">fromNo12</span><br><span class="line">from#12      错误有#</span><br><span class="line">my_Boolean</span><br><span class="line">my-Boolean   错误有-</span><br><span class="line">Obj2</span><br><span class="line">2ndObj       错误是数字开头</span><br><span class="line">myInt</span><br><span class="line">My_tExt</span><br><span class="line">_test</span><br><span class="line">test!32      错误有！</span><br><span class="line">haha(da)tt   错误有（）</span><br><span class="line">jack_rose</span><br><span class="line">jack&amp;rose    错误有&amp;</span><br><span class="line">GUI</span><br><span class="line">G.U.I        错误有.</span><br></pre></td></tr></table></figure>
 
-<h2 id="02-算数运算符的优先级"><a href="#02-算数运算符的优先级" class="headerlink" title="02. 算数运算符的优先级"></a>02. 算数运算符的优先级</h2><ul>
-<li><p>和数学中的运算符的优先级一致，在 Python 中进行数学计算时，同样也是：</p>
+<h3 id="1-2-关键字"><a href="#1-2-关键字" class="headerlink" title="1.2 关键字"></a>1.2 关键字</h3><ul>
+<li><strong>关键字</strong> 就是在 <code>Python</code> 内部已经使用的标识符</li>
+<li><strong>关键字</strong> 具有特殊的功能和含义</li>
+<li>开发者 <strong>不允许定义和关键字相同的名字的标示符</strong></li>
+</ul>
+<p>通过以下命令可以查看 <code>ipython</code> 中的关键字</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">1</span>]: <span class="keyword">import</span> keyword</span><br><span class="line">In [<span class="number">2</span>]: <span class="built_in">print</span>(keyword.kwlist)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>提示：<strong>关键字的学习及使用</strong>，会在后面的课程中不断介绍</p>
 <ul>
-<li><strong>先乘除后加减</strong></li>
-<li>同级运算符是 <strong>从左至右</strong> 计算</li>
-<li>可以使用 <code>()</code> 调整计算的优先级</li>
-</ul>
+<li><p><code>import</code> <strong>关键字</strong> 可以导入一个 <strong>“工具包”</strong></p>
 </li>
-<li><p>以下表格的算数优先级由高到最低顺序排列</p>
+<li><p>在 <code>Python</code> 中不同的工具包，提供有不同的工具</p>
 </li>
 </ul>
-<table>
-<thead>
-<tr>
-<th>运算符</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>**</td>
-<td>幂 (最高优先级)</td>
-</tr>
-<tr>
-<td>* / % //</td>
-<td>乘、除、取余数、取整除</td>
-</tr>
-<tr>
-<td>+ -</td>
-<td>加法、减法</td>
-</tr>
-</tbody></table>
+</blockquote>
+<h2 id="02-变量的命名规则"><a href="#02-变量的命名规则" class="headerlink" title="02. 变量的命名规则"></a>02. 变量的命名规则</h2><blockquote>
+<p><strong>命名规则</strong> 可以被视为一种 <strong>惯例</strong>，并无绝对与强制<br>目的是为了 <strong>增加代码的识别和可读性</strong></p>
+</blockquote>
+<p><strong>注意</strong> <code>Python</code> 中的 <strong>标识符</strong> 是 <strong>区分大小写的</strong></p>
+<p><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/002_%E6%A0%87%E8%AF%86%E7%AC%A6%E5%8C%BA%E5%88%86%E5%A4%A7%E5%B0%8F%E5%86%99.jpg" alt="002_标识符区分大小写"></p>
+<ol>
+<li>在定义变量时，为了保证代码格式，<code>=</code> 的左右应该各保留一个空格</li>
+<li>在 <code>Python</code> 中，如果 <strong>变量名</strong> 需要由 <strong>二个</strong> 或 <strong>多个单词</strong> 组成时，可以按照以下方式命名<ol>
+<li>每个单词都使用小写字母</li>
+<li>单词与单词之间使用 <strong><code>_</code>下划线</strong> 连接</li>
+</ol>
 <ul>
-<li>例如：<ul>
-<li><code>2 + 3 * 5 = 17</code></li>
-<li><code>(2 + 3) * 5 = 25</code></li>
-<li><code>2 * 3 + 5 = 11</code></li>
-<li><code>2 * (3 + 5) = 16</code></li>
+<li>例如：<code>first_name</code>、<code>last_name</code>、<code>qq_number</code>、<code>qq_password</code></li>
+</ul>
+</li>
+</ol>
+<h3 id="驼峰命名法（其他语言常用到）"><a href="#驼峰命名法（其他语言常用到）" class="headerlink" title="驼峰命名法（其他语言常用到）"></a>驼峰命名法（其他语言常用到）</h3><ul>
+<li>当 <strong>变量名</strong> 是由二个或多个单词组成时，还可以利用驼峰命名法来命名</li>
+<li><strong>小驼峰式命名法</strong><ul>
+<li>第一个单词以小写字母开始，后续单词的首字母大写</li>
+<li>例如：<code>firstName</code>、<code>lastName</code></li>
+</ul>
+</li>
+<li><strong>大驼峰式命名法</strong><ul>
+<li>每一个单词的首字母都采用大写字母</li>
+<li>例如：<code>FirstName</code>、<code>LastName</code>、<code>CamelCase</code> </li>
 </ul>
 </li>
 </ul>
+<p><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/003_%E9%A9%BC%E5%B3%B0%E5%91%BD%E5%90%8D%E6%B3%95.jpg" alt="003_驼峰命名法"></p>
 
         <p class="suffix-end">__END__</p>
         <div class="suffix-box">
@@ -164,7 +131,7 @@
             <div class="suffix-box-right">
                 <span class="suffix-box-title">文章作者</span>：hero
                 <br>
-                <span class="suffix-box-title">文章出处</span>：<a href="/2021/12/23/5.%E7%AE%97%E6%95%B0%E8%BF%90%E7%AE%97%E7%AC%A6/" target="_blank">5.算数运算符</a>
+                <span class="suffix-box-title">文章出处</span>：<a href="/2021/12/23/1/09_%E5%8F%98%E9%87%8F%E7%9A%84%E5%91%BD%E5%90%8D/" target="_blank">8.变量的命名</a>
                 <br>
                 <span class="suffix-box-title">作者签名</span>：简单地活着, 肆意又精彩.
                 <br>
@@ -189,17 +156,17 @@
             <div class="tag">
                 标签：
                 
-                    <a href="/tag/5-%E7%AE%97%E6%95%B0%E8%BF%90%E7%AE%97%E7%AC%A6/">5.算数运算符</a>
+                    <a href="/tag/8-%E5%8F%98%E9%87%8F%E7%9A%84%E5%91%BD%E5%90%8D/">8.变量的命名</a>
                 
             </div>
         
         <div class="article-prev-next">
             
-                <a href="/2021/12/23/6.%E7%A8%8B%E5%BA%8F%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86%EF%BC%88%E7%A7%91%E6%99%AE%EF%BC%89/" class="prev-prefix">« </a> 上一篇：    <a href="/2021/12/23/6.%E7%A8%8B%E5%BA%8F%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86%EF%BC%88%E7%A7%91%E6%99%AE%EF%BC%89/" title="发布于 2021-12-23 08:05">6.程序执行原理（科普）</a>
+                <a href="/2021/12/23/1/10_%E5%88%A4%E6%96%AD%EF%BC%88if%EF%BC%89%E8%AF%AD%E5%8F%A5/" class="prev-prefix">« </a> 上一篇：    <a href="/2021/12/23/1/10_%E5%88%A4%E6%96%AD%EF%BC%88if%EF%BC%89%E8%AF%AD%E5%8F%A5/" title="发布于 2021-12-23 08:10">9.判断（if）语句</a>
                 <br>
             
             
-                <a href="/2021/12/23/4.%E7%A8%8B%E5%BA%8F%E6%B3%A8%E9%87%8A/" class="next-prefix">» </a> 下一篇：    <a href="/2021/12/23/4.%E7%A8%8B%E5%BA%8F%E6%B3%A8%E9%87%8A/" title="发布于 2021-12-23 08:03">4.程序注释</a>
+                <a href="/2021/12/23/1/7.%E5%8F%98%E9%87%8F%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="next-prefix">» </a> 下一篇：    <a href="/2021/12/23/1/7.%E5%8F%98%E9%87%8F%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" title="发布于 2021-12-23 08:07">7.变量的基本使用</a>
             
         </div>
     </div>
