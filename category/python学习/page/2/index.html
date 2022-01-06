@@ -6,7 +6,7 @@
     <meta name="referrer" content="origin">
     <meta http-equiv="Cache-Control" content="no-transform">
     <meta http-equiv="Cache-Control" content="no-siteapp">
-    <title>2.Python程序no.1</title>
+    <title>分类 - python学习</title>
     <link rel="shortcut icon" href="#"/>
 
     <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/LongCang.css">
@@ -18,162 +18,144 @@
     <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Rosario.css">
     <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/UbuntuMono.css">
 
-    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/post.css">
-    
-        <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/normal.css">
-    
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/index.css">
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/jquery-3.4.1.min.js"></script>
-
 <meta name="generator" content="Hexo 5.4.0"></head>
 <body>
     <a id="cover"></a>
     <div id="header">
-    <div class="header">
+    <div class="header" >
         <div class="vertical">
             <div class="inner">
-                <h1 class="header-subtitle">2.Python程序no.1</h1>
-                <div class="header-subinfo">
-                    <p class="article-info-text">
-                        <span>
-                            <i class="iconfont icon-time"></i> 发表时间：2022-01-06
-                        </span>
-                        
-                            <span id="/2022/01/06/2.Python程序no.1/" class="leancloud_visitors" data-flag-title="2.Python程序no.1">
-                                <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
-                            </span>
-                        
-                        <span>
-                            <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2022/01/06/2.Python程序no.1/"></span>
-                        </span>  
-                    </p>                 
-                </div>
+                <h1 class="header-title"></h1>
+                <h2 class="header-description" id="hitokoto"></h2>
+                <h3 class="header-info" id="hitokotoAuthor"></h3>
+                <!--
+                <h1 class="header-subtitle"></h1>
+                <p class="header-subinfo"></p>
+                -->
             </div>
         </div>
-        <canvas id="articleHeaderCanvas"></canvas>
+        <a class="scroll-down" href="javascript:;" target="_self" data-offset="-45">
+            <span class="hidden">Scroll Down</span>
+            <i class="scroll-down-icon iconfont icon-return"></i>
+        </a>
     </div>
 </div>
     <div id="container">
     <div id="content">
-        <div id="article">
-    <div class="toc"></div>
-    <div class="article-body">
-        <p><code>mkdir 创建目录</code> <code>touch创建文件</code></p>
-<p>No.1 Python程序</p>
-<p>1.1python源程序的基本概念</p>
-<ol>
-<li>python源程序是一个  特殊格式的文本文件，可以使用任意文本编辑软件做Python的开发</li>
-<li>python程序的文件扩展名通常是  .py</li>
-</ol>
-<p>1.2演练步骤</p>
-<ul>
-<li>在桌面新建 认识python  目录</li>
-<li>在 <code>认识python</code>目录下新建<code>01-HelloPython.py</code> 文件</li>
-<li>使用gedit编辑<code>01-HelloPython.py</code> 并且输入以下内容</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(&quot;hello,python&quot;)</span><br><span class="line">print(&quot;hello,world&quot;)</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>在终端输入以下命令执行<code>01-HelloPython.py</code> </li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python 01-HelloPython.py</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>print是python中我们学习的第一个函数</p>
-<p>print函数的作用，可以把””内部的内容，输出到屏幕上</p>
-</blockquote>
-<p>1.3演练扩展——认识错误（bug）</p>
-<p>关于错误</p>
-<ul>
-<li>编写的程序不能正常执行，或者执行的结果不是期望的</li>
-<li>所称bug是程序员在开发时非常常见的，初学者常见的错误原因包括：<ul>
-<li>手误</li>
-<li>对已经学习过的知识理解还存在不足</li>
-<li>对语言还有需要学习和提升的内容</li>
-</ul>
-</li>
-<li>在学习语言时，不经要学会语言的语法，而且还要学会如何认识错误和解决错误的方法</li>
-</ul>
-<p>第一个程序演练中的常见错误</p>
-<ul>
-<li><p>使用print(“Hello world”)</p>
-<p><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/image-20211209165337617.png" alt="image-20211209165337617"></p>
-</li>
-<li><p>将多条print写在一行</p>
-<p><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/image-20211209165436920.png" alt="image-20211209165436920">每行代码负责完成一个动作</p>
-</li>
-<li><p>缩进错误</p>
-<p><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/image-20211209165809159.png" alt="image-20211209165809159"></p>
-<p><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/image-20211209165728804.png" alt="image-20211209165728804"></p>
-</li>
-</ul>
-<blockquote>
-<ul>
-<li>python是一个格式非常严格的程序设计语言</li>
-<li>目前而言，每行代码前面不要增加空格</li>
-</ul>
-</blockquote>
-<ul>
-<li>python 2.×牧人不支持中文</li>
-</ul>
-<p>目前市场上有两个python的版本并存着，分别是python 2.×和python 3.×</p>
-<ul>
-<li>python 2.×的解释器器名称时python<ul>
-<li>不支持中文</li>
-<li><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/image-20211209170622255.png" alt="image-20211209170622255"></li>
-</ul>
-</li>
-<li>python 3.×的解释器器名称时python3<ul>
-<li>支持中文</li>
-<li><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/image-20211209170649832.png" alt="image-20211209170649832"></li>
-</ul>
-</li>
-</ul>
-<p><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/image-20211209170235446.png" alt="image-20211209170235446"></p>
-<blockquote>
-<p>ASCII字符只包含256个字符不支持中文</p>
-</blockquote>
-<p><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/image-20211209170716948.png" alt="image-20211209170716948"></p>
-
-        <p class="suffix-end">__END__</p>
-        <div class="suffix-box">
-            <div class="suffix-box-left">
-                <img src="https://gitee.com/lichaikui/picture/raw/master/tupian/20211222195800.png" alt="hero">
-            </div>
-            <div class="suffix-box-right">
-                <span class="suffix-box-title">文章作者</span>：hero
-                <br>
-                <span class="suffix-box-title">文章出处</span>：<a href="/2022/01/06/2.Python%E7%A8%8B%E5%BA%8Fno.1/" target="_blank">2.Python程序no.1</a>
-                <br>
-                <span class="suffix-box-title">作者签名</span>：简单地活着, 肆意又精彩.
-                <br>
-                <span class="suffix-box-title">关于主题</span>：<a href="https://github.com/first19326/Hexo-LiveForCode" target="_blank">Hexo - Live For Code</a>
-                <br>
-                <span class="suffix-box-title">版权声明</span>：文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" title="BY-NC-SA" target="_blank">BY-NC-SA</a> 许可协议，转载请注明出处
-                <br>
-            </div>
-            <div style="clear: both;"></div>
-        </div>
-    </div>
-    <div class="article-footer">
-        
-        
-        <div class="article-prev-next">
-            
-            
-                <a href="/2022/01/06/1.python%E7%AE%80%E4%BB%8B/" class="next-prefix">» </a> 下一篇：    <a href="/2022/01/06/1.python%E7%AE%80%E4%BB%8B/" title="发布于 2022-01-06 09:44">1.python简介</a>
-            
-        </div>
-    </div>
+        <div class="articles">
     
-    <div class="article-comments">
-        <div class="comments-title">
-            评论列表
+        <div class="article">
+            <div class="article-title">
+                <a href="/2021/12/22/3.%E5%A4%9A%E6%96%87%E4%BB%B6%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%BC%94%E7%BB%83/">3.多文件项目的演练</a>
+                
+            </div>
+            <div class="article-abstract">
+                
+            </div>
+            <div class="clear"></div>
+            <div class="article-info">
+                <span>
+                    <i class="iconfont icon-time"></i> 发表时间：2021-12-22
+                </span>
+                
+                    <span id="/2021/12/22/3.多文件项目的演练/" class="leancloud_visitors" data-flag-title="3.多文件项目的演练">
+                        <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                    </span>
+                
+                <span>
+                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2021/12/22/3.多文件项目的演练/"></span>
+                </span>
+            </div>
+            <div class="clear"></div>     
         </div>
-        <div class="comments-content">
+    
+        <div class="article">
+            <div class="article-title">
+                <a href="/2021/12/22/2.Python%E7%A8%8B%E5%BA%8Fno.1/">2.Python程序no.1</a>
+                
+            </div>
+            <div class="article-abstract">
+                
+            </div>
+            <div class="clear"></div>
+            <div class="article-info">
+                <span>
+                    <i class="iconfont icon-time"></i> 发表时间：2021-12-22
+                </span>
+                
+                    <span id="/2021/12/22/2.Python程序no.1/" class="leancloud_visitors" data-flag-title="2.Python程序no.1">
+                        <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                    </span>
+                
+                <span>
+                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2021/12/22/2.Python程序no.1/"></span>
+                </span>
+            </div>
+            <div class="clear"></div>     
         </div>
-    </div>
-
+    
+        <div class="article">
+            <div class="article-title">
+                <a href="/2021/12/22/1.python%E7%AE%80%E4%BB%8B/">1.python简介</a>
+                
+            </div>
+            <div class="article-abstract">
+                
+            </div>
+            <div class="clear"></div>
+            <div class="article-info">
+                <span>
+                    <i class="iconfont icon-time"></i> 发表时间：2021-12-22
+                </span>
+                
+                    <span id="/2021/12/22/1.python简介/" class="leancloud_visitors" data-flag-title="1.python简介">
+                        <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                    </span>
+                
+                <span>
+                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2021/12/22/1.python简介/"></span>
+                </span>
+            </div>
+            <div class="clear"></div>     
+        </div>
+    
+        <div class="article">
+            <div class="article-title">
+                <a href="/2021/12/22/0.python%E5%AD%A6%E4%B9%A0/">python学习</a>
+                
+            </div>
+            <div class="article-abstract">
+                
+            </div>
+            <div class="clear"></div>
+            <div class="article-info">
+                <span>
+                    <i class="iconfont icon-time"></i> 发表时间：2021-12-22
+                </span>
+                
+                    <span id="/2021/12/22/0.python学习/" class="leancloud_visitors" data-flag-title="python学习">
+                        <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                    </span>
+                
+                <span>
+                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2021/12/22/0.python学习/"></span>
+                </span>
+            </div>
+            <div class="clear"></div>     
+        </div>
+    
+    
+        <div class="pagination-bottom">
+            <div class="pagination">
+                
+                    <a class="extend prev" rel="prev" href="/category/python%E5%AD%A6%E4%B9%A0/">上一页</a><a class="page-number" href="/category/python%E5%AD%A6%E4%B9%A0/">1</a><span class="page-number current">2</span>
+                
+            </div>
+        </div>
+    
 </div>
 
     </div>
