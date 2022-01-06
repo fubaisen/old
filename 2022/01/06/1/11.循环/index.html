@@ -6,7 +6,7 @@
     <meta name="referrer" content="origin">
     <meta http-equiv="Cache-Control" content="no-transform">
     <meta http-equiv="Cache-Control" content="no-siteapp">
-    <title>11.循环</title>
+    <title></title>
     <link rel="shortcut icon" href="#"/>
 
     <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/LongCang.css">
@@ -32,19 +32,19 @@
     <div class="header">
         <div class="vertical">
             <div class="inner">
-                <h1 class="header-subtitle">11.循环</h1>
+                <h1 class="header-subtitle"></h1>
                 <div class="header-subinfo">
                     <p class="article-info-text">
                         <span>
-                            <i class="iconfont icon-time"></i> 发表时间：2021-12-23
+                            <i class="iconfont icon-time"></i> 发表时间：2022-01-06
                         </span>
                         
-                            <span id="/2021/12/23/1/12_循环/" class="leancloud_visitors" data-flag-title="11.循环">
+                            <span id="/2022/01/06/1/11.循环/" class="leancloud_visitors" data-flag-title="">
                                 <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
                             </span>
                         
                         <span>
-                            <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2021/12/23/1/12_循环/"></span>
+                            <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2022/01/06/1/11.循环/"></span>
                         </span>  
                     </p>                 
                 </div>
@@ -209,7 +209,7 @@
 <li><strong>在循环过程中</strong>，如果 <strong>某一个条件满足后</strong>，<strong>不</strong> 希望 <strong>执行循环代码，但是又不希望退出循环</strong>，可以使用 <code>continue</code></li>
 <li>也就是：在整个循环中，<strong>只有某些条件</strong>，不需要执行循环代码，而其他条件都需要执行</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">i = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> i &lt; <span class="number">10</span>:</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 当 i == 7 时，不希望执行需要重复执行的代码</span></span><br><span class="line">    <span class="keyword">if</span> i == <span class="number">7</span>:</span><br><span class="line">        <span class="comment"># 在使用 continue 之前，同样应该修改计数器</span></span><br><span class="line">        <span class="comment"># 否则会出现死循环</span></span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 重复执行的代码</span></span><br><span class="line">    <span class="built_in">print</span>(i)</span><br><span class="line"></span><br><span class="line">    i += <span class="number">1</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">i = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> i &lt; <span class="number">10</span>:</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 当 i == 7 时，不希望执行需要重复执行的代码</span></span><br><span class="line">    <span class="keyword">if</span> i == <span class="number">7</span>:</span><br><span class="line">        <span class="comment"># 在使用 continue 之前，同样应该修改计数器</span></span><br><span class="line">        <span class="comment"># 否则会出现死循环</span></span><br><span class="line">        i += <span class="number">1</span>   （ 更改此处 i += <span class="number">2</span> 则可跳过输出 <span class="number">8</span>   ==》跳过一段循环 ）</span><br><span class="line"></span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 重复执行的代码</span></span><br><span class="line">    <span class="built_in">print</span>(i)</span><br><span class="line"></span><br><span class="line">    i += <span class="number">1</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>需要注意：使用 <code>continue</code> 时，<strong>条件处理部分的代码，需要特别注意</strong>，不小心会出现 <strong>死循环</strong></li>
@@ -217,6 +217,8 @@
 <blockquote>
 <p><code>continue</code> 只针对当前所在循环有效</p>
 </blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">非break = continue</span><br></pre></td></tr></table></figure>
+
 <h2 id="04-while-循环嵌套"><a href="#04-while-循环嵌套" class="headerlink" title="04. while 循环嵌套"></a>04. <code>while</code> 循环嵌套</h2><h3 id="4-1-循环嵌套"><a href="#4-1-循环嵌套" class="headerlink" title="4.1 循环嵌套"></a>4.1 循环嵌套</h3><ul>
 <li><code>while</code> 嵌套就是：<code>while</code> 里面还有 <code>while</code></li>
 </ul>
@@ -327,6 +329,9 @@
 <td>回车</td>
 </tr>
 </tbody></table>
+<p>​    <img src="https://gitee.com/lichaikui/picture/raw/master/tupian/image-20211231093938346.png" alt="image-20211231093938346"></p>
+<p><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/image-20211231094046832.png" alt="image-20211231094046832"></p>
+<p><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/image-20211231094945065.png" alt="image-20211231094945065"></p>
 
         <p class="suffix-end">__END__</p>
         <div class="suffix-box">
@@ -336,7 +341,7 @@
             <div class="suffix-box-right">
                 <span class="suffix-box-title">文章作者</span>：hero
                 <br>
-                <span class="suffix-box-title">文章出处</span>：<a href="/2021/12/23/1/12_%E5%BE%AA%E7%8E%AF/" target="_blank">11.循环</a>
+                <span class="suffix-box-title">文章出处</span>：<a href="/2022/01/06/1/11.%E5%BE%AA%E7%8E%AF/" target="_blank"></a>
                 <br>
                 <span class="suffix-box-title">作者签名</span>：简单地活着, 肆意又精彩.
                 <br>
@@ -350,28 +355,14 @@
     </div>
     <div class="article-footer">
         
-            <div class="category">
-                分类：
-                
-                    <a href="/category/python%E5%AD%A6%E4%B9%A0/">python学习</a>
-                
-            </div>
-        
-        
-            <div class="tag">
-                标签：
-                
-                    <a href="/tag/11-%E5%BE%AA%E7%8E%AF/">11.循环</a>
-                
-            </div>
         
         <div class="article-prev-next">
             
-                <a href="/2021/12/23/1/3.%E5%A4%9A%E6%96%87%E4%BB%B6%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%BC%94%E7%BB%83/" class="prev-prefix">« </a> 上一篇：    <a href="/2021/12/23/1/3.%E5%A4%9A%E6%96%87%E4%BB%B6%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%BC%94%E7%BB%83/" title="发布于 2021-12-23 11:01"></a>
+                <a href="/2022/01/06/1/12.%E5%87%BD%E6%95%B0%E5%9F%BA%E7%A1%80/" class="prev-prefix">« </a> 上一篇：    <a href="/2022/01/06/1/12.%E5%87%BD%E6%95%B0%E5%9F%BA%E7%A1%80/" title="发布于 2022-01-06 09:37"></a>
                 <br>
             
             
-                <a href="/2021/12/23/1/11_%E8%BF%90%E7%AE%97%E7%AC%A6/" class="next-prefix">» </a> 下一篇：    <a href="/2021/12/23/1/11_%E8%BF%90%E7%AE%97%E7%AC%A6/" title="发布于 2021-12-23 08:11">10.运算符</a>
+                <a href="/2022/01/06/1/10.%E8%BF%90%E7%AE%97%E7%AC%A6/" class="next-prefix">» </a> 下一篇：    <a href="/2022/01/06/1/10.%E8%BF%90%E7%AE%97%E7%AC%A6/" title="发布于 2022-01-06 09:37"></a>
             
         </div>
     </div>

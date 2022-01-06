@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no">
+    <meta name="referrer" content="origin">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <title></title>
+    <link rel="shortcut icon" href="#"/>
+
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/LongCang.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Monda.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/NotoSansSC.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Playball.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/PTMono.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/RobotoSlab.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Rosario.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/UbuntuMono.css">
+
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/post.css">
+    
+        <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/normal.css">
+    
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/jquery-3.4.1.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body>
+    <a id="cover"></a>
+    <div id="header">
+    <div class="header">
+        <div class="vertical">
+            <div class="inner">
+                <h1 class="header-subtitle"></h1>
+                <div class="header-subinfo">
+                    <p class="article-info-text">
+                        <span>
+                            <i class="iconfont icon-time"></i> 发表时间：2022-01-06
+                        </span>
+                        
+                            <span id="/2022/01/06/1/12.函数基础/" class="leancloud_visitors" data-flag-title="">
+                                <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                            </span>
+                        
+                        <span>
+                            <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2022/01/06/1/12.函数基础/"></span>
+                        </span>  
+                    </p>                 
+                </div>
+            </div>
+        </div>
+        <canvas id="articleHeaderCanvas"></canvas>
+    </div>
+</div>
+    <div id="container">
+    <div id="content">
+        <div id="article">
+    <div class="toc"></div>
+    <div class="article-body">
+        <h1 id="函数基础"><a href="#函数基础" class="headerlink" title="函数基础"></a>函数基础</h1><h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ul>
+<li>函数的快速体验</li>
+<li>函数的基本使用</li>
+<li>函数的参数</li>
+<li>函数的返回值</li>
+<li>函数的嵌套调用</li>
+<li>在模块中定义函数</li>
+</ul>
+<h2 id="01-函数的快速体验"><a href="#01-函数的快速体验" class="headerlink" title="01. 函数的快速体验"></a>01. 函数的快速体验</h2><h3 id="1-1-快速体验"><a href="#1-1-快速体验" class="headerlink" title="1.1 快速体验"></a>1.1 快速体验</h3><ul>
+<li>所谓<strong>函数</strong>，就是把 <strong>具有独立功能的代码块</strong> 组织为一个小模块，在需要的时候 <strong>调用</strong></li>
+<li>函数的使用包含两个步骤：<ol>
+<li>定义函数 —— <strong>封装</strong> 独立的功能</li>
+<li>调用函数 —— 享受 <strong>封装</strong> 的成果</li>
+</ol>
+</li>
+<li><strong>函数的作用</strong>，在开发程序时，使用函数可以提高编写的效率以及代码的 <strong>重用</strong></li>
+</ul>
+<p><strong>演练步骤</strong></p>
+<ol>
+<li>新建 <code>04_函数</code> 项目</li>
+<li>复制之前完成的 <strong>乘法表</strong> 文件</li>
+<li>修改文件，增加函数定义 <code>multiple_table():</code></li>
+<li>新建另外一个文件，使用 <code>import</code> 导入并且调用函数</li>
+</ol>
+<h2 id="02-函数基本使用"><a href="#02-函数基本使用" class="headerlink" title="02. 函数基本使用"></a>02. 函数基本使用</h2><h3 id="2-1-函数的定义"><a href="#2-1-函数的定义" class="headerlink" title="2.1 函数的定义"></a>2.1 函数的定义</h3><p>定义函数的格式如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> 函数名():</span></span><br><span class="line"></span><br><span class="line">    函数封装的代码</span><br><span class="line">    ……</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><code>def</code> 是英文 <code>define</code> 的缩写</li>
+<li><strong>函数名称</strong> 应该能够表达 <strong>函数封装代码</strong> 的功能，方便后续的调用</li>
+<li><strong>函数名称</strong> 的命名应该 <strong>符合</strong> <strong>标识符的命名规则</strong><ul>
+<li>可以由 <strong>字母</strong>、<strong>下划线</strong> 和 <strong>数字</strong> 组成</li>
+<li><strong>不能以数字开头</strong></li>
+<li><strong>不能与关键字重名</strong></li>
+</ul>
+</li>
+</ol>
+<h3 id="2-2-函数调用"><a href="#2-2-函数调用" class="headerlink" title="2.2 函数调用"></a>2.2 函数调用</h3><p>调用函数很简单的，通过 <code>函数名()</code> 即可完成对函数的调用</p>
+<h3 id="2-3-第一个函数演练"><a href="#2-3-第一个函数演练" class="headerlink" title="2.3 第一个函数演练"></a>2.3 第一个函数演练</h3><p><strong>需求</strong></p>
+<ul>
+<li><ol>
+<li>编写一个打招呼 <code>say_hello</code> 的函数，封装三行打招呼的代码</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>在函数下方调用打招呼的代码</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">name = <span class="string">&quot;小明&quot;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 解释器知道这里定义了一个函数</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">say_hello</span>():</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;hello 1&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;hello 2&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;hello 3&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(name)</span><br><span class="line"><span class="comment"># 只有在调用函数时，之前定义的函数才会被执行</span></span><br><span class="line"><span class="comment"># 函数执行完成之后，会重新回到之前的程序中，继续执行后续的代码</span></span><br><span class="line">say_hello()</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(name)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>用 <strong>单步执行 F8 和 F7</strong> 观察以下代码的执行过程</p>
+</blockquote>
+<ul>
+<li>定义好函数之后，只表示这个函数封装了一段代码而已</li>
+<li>如果不主动调用函数，函数是不会主动执行的</li>
+</ul>
+<h4 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h4><ul>
+<li><p>能否将 <strong>函数调用</strong> 放在 <strong>函数定义</strong> 的上方？</p>
+<ul>
+<li>不能！</li>
+<li>因为在 <strong>使用函数名</strong> 调用函数之前，必须要保证 <code>Python</code> 已经知道函数的存在</li>
+<li>否则控制台会提示 <code>NameError: name &#39;say_hello&#39; is not defined</code> (<strong>名称错误：say_hello 这个名字没有被定义</strong>)</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-4-PyCharm-的调试工具"><a href="#2-4-PyCharm-的调试工具" class="headerlink" title="2.4 PyCharm 的调试工具"></a>2.4 PyCharm 的调试工具</h3><ul>
+<li><strong>F8 Step Over</strong> 可以单步执行代码，会把函数调用看作是一行代码直接执行</li>
+<li><strong>F7 Step Into</strong> 可以单步执行代码，如果是函数，会进入函数内部 </li>
+</ul>
+<h3 id="2-5-函数的文档注释"><a href="#2-5-函数的文档注释" class="headerlink" title="2.5 函数的文档注释"></a>2.5 函数的文档注释</h3><ul>
+<li>在开发中，如果希望给函数添加注释，应该在 <strong>定义函数</strong> 的下方，使用 <strong>连续的三对引号</strong></li>
+<li>在 <strong>连续的三对引号</strong> 之间编写对函数的说明文字</li>
+<li>在 <strong>函数调用</strong> 位置，使用快捷键 <code>CTRL + Q</code> 可以查看函数的说明信息</li>
+</ul>
+<blockquote>
+<p>注意：因为 <strong>函数体相对比较独立</strong>，<strong>函数定义的上方</strong>，应该和其他代码（包括注释）保留 <strong>两个空行</strong></p>
+</blockquote>
+<h2 id="03-函数的参数"><a href="#03-函数的参数" class="headerlink" title="03. 函数的参数"></a>03. 函数的参数</h2><p><strong>演练需求</strong></p>
+<ol>
+<li>开发一个 <code>sum_2_num</code> 的函数</li>
+<li>函数能够实现 <strong>两个数字的求和</strong> 功能</li>
+</ol>
+<p>演练代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sum_2_num</span>():</span></span><br><span class="line"></span><br><span class="line">    num1 = <span class="number">10</span></span><br><span class="line">    num2 = <span class="number">20</span></span><br><span class="line">    result = num1 + num2</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;%d + %d = %d&quot;</span> % (num1, num2, result))</span><br><span class="line"></span><br><span class="line">sum_2_num()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>思考一下存在什么问题</strong></p>
+<blockquote>
+<p>函数只能处理 <strong>固定数值</strong> 的相加</p>
+</blockquote>
+<p><strong>如何解决？</strong></p>
+<ul>
+<li>如果能够把需要计算的数字，在调用函数时，传递到函数内部就好了！</li>
+</ul>
+<h3 id="3-1-函数参数的使用"><a href="#3-1-函数参数的使用" class="headerlink" title="3.1 函数参数的使用"></a>3.1 函数参数的使用</h3><ul>
+<li>在函数名的后面的小括号内部填写 <strong>参数</strong></li>
+<li>多个参数之间使用 <code>,</code> 分隔</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sum_2_num</span>(<span class="params">num1, num2</span>):</span></span><br><span class="line"></span><br><span class="line">    result = num1 + num2</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;%d + %d = %d&quot;</span> % (num1, num2, result))</span><br><span class="line"></span><br><span class="line">sum_2_num(<span class="number">50</span>, <span class="number">20</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-2-参数的作用"><a href="#3-2-参数的作用" class="headerlink" title="3.2 参数的作用"></a>3.2 参数的作用</h3><ul>
+<li><strong>函数</strong>，把 <strong>具有独立功能的代码块</strong> 组织为一个小模块，在需要的时候 <strong>调用</strong></li>
+<li><strong>函数的参数</strong>，增加函数的 <strong>通用性</strong>，针对 <strong>相同的数据处理逻辑</strong>，能够 <strong>适应更多的数据</strong><ol>
+<li>在函数 <strong>内部</strong>，把参数当做 <strong>变量</strong> 使用，进行需要的数据处理</li>
+<li>函数调用时，按照函数定义的<strong>参数顺序</strong>，把 <strong>希望在函数内部处理的数据</strong>，<strong>通过参数</strong> 传递</li>
+</ol>
+</li>
+</ul>
+<h3 id="3-3-形参和实参"><a href="#3-3-形参和实参" class="headerlink" title="3.3 形参和实参"></a>3.3 形参和实参</h3><ul>
+<li><strong>形参</strong>：<strong>定义</strong> 函数时，小括号中的参数，是用来接收参数用的，在函数内部 <strong>作为变量使用</strong></li>
+<li><strong>实参</strong>：<strong>调用</strong> 函数时，小括号中的参数，是用来把数据传递到 <strong>函数内部</strong> 用的</li>
+</ul>
+<h2 id="04-函数的返回值"><a href="#04-函数的返回值" class="headerlink" title="04. 函数的返回值"></a>04. 函数的返回值</h2><ul>
+<li>在程序开发中，有时候，会希望 <strong>一个函数执行结束后，告诉调用者一个结果</strong>，以便调用者针对具体的结果做后续的处理</li>
+<li><strong>返回值</strong> 是函数 <strong>完成工作</strong>后，<strong>最后</strong> 给调用者的 <strong>一个结果</strong></li>
+<li>在函数中使用 <code>return</code> 关键字可以返回结果</li>
+<li>调用函数一方，可以 <strong>使用变量</strong> 来 <strong>接收</strong> 函数的返回结果</li>
+</ul>
+<blockquote>
+<p>注意：<code>return</code> 表示返回，后续的代码都不会被执行</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sum_2_num</span>(<span class="params">num1, num2</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;对两个数字的求和&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> num1 + num2</span><br><span class="line"></span><br><span class="line"><span class="comment"># 调用函数，并使用 result 变量接收计算结果</span></span><br><span class="line">result = sum_2_num(<span class="number">10</span>, <span class="number">20</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;计算结果是 %d&quot;</span> % result)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="05-函数的嵌套调用"><a href="#05-函数的嵌套调用" class="headerlink" title="05. 函数的嵌套调用"></a>05. 函数的嵌套调用</h2><ul>
+<li>一个函数里面 <strong>又调用</strong> 了 <strong>另外一个函数</strong>，这就是 <strong>函数嵌套调用</strong></li>
+<li>如果函数 <code>test2</code> 中，调用了另外一个函数 <code>test1</code><ul>
+<li>那么执行到调用 <code>test1</code> 函数时，会先把函数 <code>test1</code> 中的任务都执行完</li>
+<li>才会回到 <code>test2</code> 中调用函数 <code>test1</code> 的位置，继续执行后续的代码</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test1</span>():</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;*&quot;</span> * <span class="number">50</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;test 1&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;*&quot;</span> * <span class="number">50</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test2</span>():</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;-&quot;</span> * <span class="number">50</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;test 2&quot;</span>)</span><br><span class="line">    </span><br><span class="line">    test1()</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;-&quot;</span> * <span class="number">50</span>)</span><br><span class="line"></span><br><span class="line">test2()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="函数嵌套的演练-——-打印分隔线"><a href="#函数嵌套的演练-——-打印分隔线" class="headerlink" title="函数嵌套的演练 —— 打印分隔线"></a>函数嵌套的演练 —— 打印分隔线</h3><blockquote>
+<p>体会一下工作中 <strong>需求是多变</strong> 的</p>
+</blockquote>
+<p><strong>需求 1</strong></p>
+<ul>
+<li>定义一个 <code>print_line</code> 函数能够打印 <code>*</code> 组成的 <strong>一条分隔线</strong></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_line</span>(<span class="params">char</span>):</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;*&quot;</span> * <span class="number">50</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>需求 2</strong></p>
+<ul>
+<li>定义一个函数能够打印 <strong>由任意字符组成</strong> 的分隔线</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_line</span>(<span class="params">char</span>):</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(char * <span class="number">50</span>)</span><br><span class="line">    </span><br></pre></td></tr></table></figure>
+
+<p><strong>需求 3</strong></p>
+<ul>
+<li>定义一个函数能够打印 <strong>任意重复次数</strong> 的分隔线</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_line</span>(<span class="params">char, times</span>):</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(char * times)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>需求 4</strong></p>
+<ul>
+<li>定义一个函数能够打印 <strong>5 行</strong> 的分隔线，分隔线要求符合<strong>需求 3</strong></li>
+</ul>
+<blockquote>
+<p>提示：工作中针对需求的变化，应该冷静思考，<strong>不要轻易修改之前已经完成的，能够正常执行的函数</strong>！</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_line</span>(<span class="params">char, times</span>):</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(char * times)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_lines</span>(<span class="params">char, times</span>):</span></span><br><span class="line"></span><br><span class="line">    row = <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> row &lt; <span class="number">5</span>:</span><br><span class="line">        print_line(char, times)</span><br><span class="line"></span><br><span class="line">        row += <span class="number">1</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="06-使用模块中的函数"><a href="#06-使用模块中的函数" class="headerlink" title="06. 使用模块中的函数"></a>06. 使用模块中的函数</h2><blockquote>
+<p><strong>模块是 Python 程序架构的一个核心概念</strong></p>
+</blockquote>
+<ul>
+<li><strong>模块</strong> 就好比是 <strong>工具包</strong>，要想使用这个工具包中的工具，就需要 <strong>导入 import</strong> 这个模块</li>
+<li>每一个以扩展名 <code>py</code> 结尾的 <code>Python</code> 源代码文件都是一个 <strong>模块</strong></li>
+<li>在模块中定义的 <strong>全局变量</strong> 、 <strong>函数</strong> 都是模块能够提供给外界直接使用的工具</li>
+</ul>
+<h3 id="6-1-第一个模块体验"><a href="#6-1-第一个模块体验" class="headerlink" title="6.1 第一个模块体验"></a>6.1 第一个模块体验</h3><p><strong>步骤</strong></p>
+<ul>
+<li>新建 <code>hm_10_分隔线模块.py</code><ul>
+<li>复制 <code>hm_09_打印多条分隔线.py</code> 中的内容，<strong>最后一行 <code>print</code> 代码除外</strong></li>
+<li>增加一个字符串变量</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">name = <span class="string">&quot;黑马程序员&quot;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>新建 <code>hm_10_体验模块.py</code> 文件，并且编写以下代码：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> hm_10_分隔线模块</span><br><span class="line"></span><br><span class="line">hm_10_分隔线模块.print_line(<span class="string">&quot;-&quot;</span>, <span class="number">80</span>)</span><br><span class="line"><span class="built_in">print</span>(hm_10_分隔线模块.name)</span><br></pre></td></tr></table></figure>
+
+<h4 id="体验小结"><a href="#体验小结" class="headerlink" title="体验小结"></a>体验小结</h4><ul>
+<li>可以 <strong>在一个 Python 文件</strong> 中 <strong>定义 变量 或者 函数</strong></li>
+<li>然后在 <strong>另外一个文件中</strong> 使用 <code>import</code> 导入这个模块</li>
+<li>导入之后，就可以使用 <code>模块名.变量</code> / <code>模块名.函数</code> 的方式，使用这个模块中定义的变量或者函数</li>
+</ul>
+<blockquote>
+<p><strong>模块</strong>可以让 <strong>曾经编写过的代码</strong> 方便的被 <strong>复用</strong>！</p>
+</blockquote>
+<h3 id="6-2-模块名也是一个标识符"><a href="#6-2-模块名也是一个标识符" class="headerlink" title="6.2 模块名也是一个标识符"></a>6.2 模块名也是一个标识符</h3><ul>
+<li>标示符可以由 <strong>字母</strong>、<strong>下划线</strong> 和 <strong>数字</strong> 组成</li>
+<li><strong>不能以数字开头</strong></li>
+<li><strong>不能与关键字重名</strong></li>
+</ul>
+<blockquote>
+<p>注意：如果在给 Python 文件起名时，<strong>以数字开头</strong> 是无法在 <code>PyCharm</code> 中通过导入这个模块的</p>
+</blockquote>
+<h3 id="6-3-Pyc-文件（了解）"><a href="#6-3-Pyc-文件（了解）" class="headerlink" title="6.3 Pyc 文件（了解）"></a>6.3 Pyc 文件（了解）</h3><blockquote>
+<p><code>C</code> 是 <code>compiled</code> <strong>编译过</strong> 的意思</p>
+</blockquote>
+<p><strong>操作步骤</strong></p>
+<ol>
+<li>浏览程序目录会发现一个 <code>__pycache__</code> 的目录</li>
+<li>目录下会有一个 <code>hm_10_分隔线模块.cpython-35.pyc</code> 文件，<code>cpython-35</code> 表示 <code>Python</code> 解释器的版本</li>
+<li>这个 <code>pyc</code> 文件是由 Python 解释器将 <strong>模块的源码</strong> 转换为 <strong>字节码</strong><ul>
+<li><code>Python</code> 这样保存 <strong>字节码</strong> 是作为一种启动 <strong>速度的优化</strong></li>
+</ul>
+</li>
+</ol>
+<p><strong>字节码</strong></p>
+<ul>
+<li><p><code>Python</code> 在解释源程序时是分成两个步骤的</p>
+<ol>
+<li>首先处理源代码，<strong>编译</strong> 生成一个二进制 <strong>字节码</strong></li>
+<li>再对 <strong>字节码</strong> 进行处理，才会生成 CPU 能够识别的 <strong>机器码</strong></li>
+</ol>
+</li>
+<li><p>有了模块的字节码文件之后，下一次运行程序时，如果在 <strong>上次保存字节码之后</strong> 没有修改过源代码，Python 将会加载 .pyc 文件并跳过编译这个步骤</p>
+</li>
+<li><p>当 <code>Python</code> 重编译时，它会自动检查源文件和字节码文件的时间戳</p>
+</li>
+<li><p>如果你又修改了源代码，下次程序运行时，字节码将自动重新创建</p>
+</li>
+</ul>
+<blockquote>
+<p>提示：有关模块以及模块的其他导入方式，后续课程还会逐渐展开！</p>
+<p><strong>模块是 Python 程序架构的一个核心概念</strong></p>
+</blockquote>
+
+        <p class="suffix-end">__END__</p>
+        <div class="suffix-box">
+            <div class="suffix-box-left">
+                <img src="https://gitee.com/lichaikui/picture/raw/master/tupian/20211222195800.png" alt="hero">
+            </div>
+            <div class="suffix-box-right">
+                <span class="suffix-box-title">文章作者</span>：hero
+                <br>
+                <span class="suffix-box-title">文章出处</span>：<a href="/2022/01/06/1/12.%E5%87%BD%E6%95%B0%E5%9F%BA%E7%A1%80/" target="_blank"></a>
+                <br>
+                <span class="suffix-box-title">作者签名</span>：简单地活着, 肆意又精彩.
+                <br>
+                <span class="suffix-box-title">关于主题</span>：<a href="https://github.com/first19326/Hexo-LiveForCode" target="_blank">Hexo - Live For Code</a>
+                <br>
+                <span class="suffix-box-title">版权声明</span>：文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" title="BY-NC-SA" target="_blank">BY-NC-SA</a> 许可协议，转载请注明出处
+                <br>
+            </div>
+            <div style="clear: both;"></div>
+        </div>
+    </div>
+    <div class="article-footer">
+        
+        
+        <div class="article-prev-next">
+            
+                <a href="/2022/01/06/1/13.%E9%AB%98%E7%BA%A7%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B/" class="prev-prefix">« </a> 上一篇：    <a href="/2022/01/06/1/13.%E9%AB%98%E7%BA%A7%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B/" title="发布于 2022-01-06 09:37"></a>
+                <br>
+            
+            
+                <a href="/2022/01/06/1/11.%E5%BE%AA%E7%8E%AF/" class="next-prefix">» </a> 下一篇：    <a href="/2022/01/06/1/11.%E5%BE%AA%E7%8E%AF/" title="发布于 2022-01-06 09:37"></a>
+            
+        </div>
+    </div>
+    
+    <div class="article-comments">
+        <div class="comments-title">
+            评论列表
+        </div>
+        <div class="comments-content">
+        </div>
+    </div>
+
+</div>
+
+    </div>
+</div>
+    <div id="footer"></div>
+    <div id="sidebar">
+    <div class="menu-wrap" style="display:none;">
+        <nav class="menu">
+            <div class="menu-introduce"> 
+                <div class="introduce-avatar"></div> 
+                <div class="introduce-info"> 
+                    <div class="introduce-user"><span></span></div>        
+                </div> 
+            </div> 
+            <div class="menu-list">
+                <ul></ul> 
+            </div> 
+            <div class="menu-link"></div> 
+        </nav>
+        <button class="menu-button-close"></button>
+        <div class="morph-shape" id="morph-shape" data-morph-open="M-7.312,0H15c0,0,66,113.339,66,399.5C81,664.006,15,800,15,800H-7.312V0z;M-7.312,0H100c0,0,0,113.839,0,400c0,264.506,0,400,0,400H-7.312V0z">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 800" preserveAspectRatio="none">
+                <path d="M-7.312,0H0c0,0,0,113.839,0,400c0,264.506,0,400,0,400h-7.312V0z"/>
+            </svg>
+        </div>
+    </div>
+    <button class="menu-button-open">MENU</button>
+    <div class="menu-cover"></div>
+</div>
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/search.css">
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/iscroll.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/instantsearch.min.js"></script>
+<div class="search-window">
+    <div class="search-content">
+        <div class="search-content-icon">
+            <i class="iconfont icon-search"></i>
+        </div>
+        <div id="search-input" class="search-input"></div>
+    </div>
+
+    <div class="search-scroll">
+        <div class="search-result">
+            <div id="search-stats" class="search-stats"></div>
+            <div id="search-hits"></div>
+            <div id="search-pagination" class="search-pagination"></div>
+        </div>
+    </div>
+
+    <span class="search-close-icon">
+        <i class="iconfont icon-close"></i>
+    </span>
+</div>
+    <div id="tools">
+    <div class="progressbar-top"></div>
+
+    
+        <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/APlayer.css">
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/APlayer.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/Meting.min.js"></script>
+        <meting-js id="3778678" lrcshow="false" server="netease" type="playlist" fixed="true" autoplay="false" loop="all" order="random" preload="auto" volume="0.67" mutex="true"></meting-js>
+    
+    
+    <div class="wrap-right"></div>
+    <div class="loading"></div>
+</div>
+    <script>
+    window.config = {
+        GitHubUserName     : 'fubaisen',
+        GitHubRepositories : 'fubaisen.github.io',
+
+        BlogUser      : 'hero',
+        BlogAvatar    : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222195800.png',
+        BlogStartDate : '2020-01-01',
+
+        WebsiteTitleBlur         : '(◍´꒳`◍) Hi, friend',
+        WebsiteTitleBlurTimeOut  : 500,
+        WebsiteTitleFocus        : '(*´∇｀*) 欢迎回来!',
+        WebsiteTitleFocusTimeOut : 1000,
+        WebsiteFavicon           : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222195607.png',
+
+        ProgressBar: {
+            id       : 'topProgressBar',
+            color    : '#77B6FF',
+            height   : '2px',
+            duration : 0.2
+        },
+
+        Loading: {
+            rebound: {
+                tension  : 16,
+                friction : 5
+            },
+            spinner: {
+                id     : 'spinner',
+                radius : 90,
+                sides  : 3,
+                depth  : 4,
+                colors : {
+                    background : '#F0F0F0',
+                    stroke     : '#272633',
+                    base       : '',
+                    child      : '#272633'
+                },
+                alwaysForward : true,
+                restAt        : 0.5,
+                renderBase    : false
+            }
+        },
+
+        HomeHeaderAnimationRendered : true,
+        HomeHeaderAnimation         : {
+            radius      : 15,
+            density     : 0.2,
+            color       : 'rgba(255, 255, 255, .2)',
+            clearOffset : 0.3
+        },
+
+        ArticleHeaderAnimationRendered : false,
+        ArticleHeaderAnimation         : {
+            triW                  : 14,
+            triH                  : 20,
+            neighbours            : [
+                
+                    'side',
+                
+                    'top',
+                
+                    'bottom',
+                
+            ],
+            speedTrailAppear      : 0.1,
+            speedTrailDisappear   : 0.1,
+            speedTriOpen          : 1,
+            trailMaxLength        : 30,
+            trailIntervalCreation : 100,
+            delayBeforeDisappear  : 2,
+            colors                : [
+                
+                    '#96EDA6',
+                
+                    '#5BC6A9',
+                
+                    '#38668C',
+                
+                    '#374D84',
+                
+                    '#BED5CB',
+                
+                    '#62ADC6',
+                
+                    '#8EE5DE',
+                
+                    '#304E7B',
+                
+            ]
+        },
+
+        BackAnimationRendered          : true,
+        IEBrowserBackAnimationRendered : false,
+        BackAnimation                  : {
+            colorSaturation  : '60%',
+            colorBrightness  : '50%',
+            colorAlpha       : 0.5,
+            colorCycleSpeed  : 5,
+            verticalPosition : 'random',
+            horizontalSpeed  : 200,
+            ribbonCount      : 3,
+            strokeSize       : 0,
+            parallaxAmount   : -0.2,
+            animateSections  : true
+        },
+
+        HomeHeaderImage : [
+            
+                'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/image/header/home.jpg',
+            
+                'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/image/header/home.jpeg',
+            
+        ],
+        HomeBannerText  : '',
+
+        ArticleHeaderImage : [
+            
+                'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/image/header/article.jpg',
+            
+        ],
+
+        OtherBannerText : '',
+
+        MenuList : [
+            
+                {
+                    name   : '首页',
+                    href   : '/',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '标签',
+                    href   : '/tag',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '分类',
+                    href   : '/category',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '归档',
+                    href   : '/archive',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '赞赏',
+                    href   : '/donate',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '关于',
+                    href   : '/about',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '订阅',
+                    href   : '/subscription',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '搜索',
+                    href   : '',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '留言板',
+                    href   : '/comment',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '友情链接',
+                    href   : '/friend',    
+                    target : '',
+                    class  : ''
+                },
+            
+        ],
+        MenuLink : [
+            
+                
+                    {
+                        icon : 'icon-weibo', 
+                        url  : 'https://weibo.com/u/7649528498'
+                    },
+                
+                    {
+                        icon : 'icon-wechat', 
+                        url  : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222190433.png'
+                    },
+                
+                    {
+                        icon : 'icon-qq', 
+                        url  : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222190324.png'
+                    },
+                
+                    {
+                        icon : 'icon-github', 
+                        url  : 'https://github.com/fubaisen'
+                    },
+                
+            
+        ],
+
+        FooterStyle : 2,
+        BottomText  : {
+            icon    : 'like-fill',
+            left    : '人生若只如初见',
+            right   : '何事秋风悲画扇'
+        },
+        ThemeInfo   : true,
+
+        ConsoleList : [
+            
+                
+                    [
+                        
+                            
+                                'Based on cnblogs theme SimpleMemory.',
+                            
+                                '',
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                'SimpleMemory Author:',
+                            
+                                'BNDong',
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                'Theme:',
+                            
+                                'LiveForCode',
+                            
+                        
+                    ],
+                
+            
+        ],
+
+        FontIconExtend : '',
+
+        Donate : {
+            paypal  : '',
+            bitcoin : '',
+            alipay  : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222200200.png',
+            wechat  : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222194957.png'
+        },
+
+        Code : {
+            style : 'normal'
+        },  
+
+        Search : {
+            applicationID : '010C3EANT8',
+            apiKey        : 'c7abab9f11b79102b9aff7fe6d41447d',
+            indexName     : 'Notes',
+            hits          : {
+                page : 10
+            },
+            labels        : {
+                placeholder : '搜索',
+                empty       : '未发现与 「${query}」 相关的内容',
+                stats       : '${hits} 条相关条目，使用了 ${time} 毫秒',
+            }
+        }, 
+
+        Valine : {
+            switch         : true,
+            el             : '.comments-content',
+            appId          : 'srhKtvWPQTWYKh3qX8G8M7v0-gzGzoHsz',
+            appKey         : '8uVSP1q6UlALVC5igYfIfv2h',
+            placeholder    : '你是我一生只会遇见一次的惊喜...',
+            avatar         : 'mm',
+            meta           : 'nick,mail,link',
+            requiredFields : 'nick,mail',
+            pageSize       : 5,
+            lang           : 'zh-cn',
+            visitor        : true,
+            enableQQ       : true
+        },
+
+        Tocbot : {
+            switch                : true,
+            tocSelector           : '.toc',
+            contentSelector       : '.article-body',
+            headingSelector       : 'h1, h2, h3, h4, h5',
+            headingsOffset        : 0,
+            scrollSmooth          : true,
+            scrollSmoothOffset    : -5,
+            positionFixedSelector : '.toc',
+            positionFixedClass    : 'toc-fixed',
+            fixedSidebarOffset    : '',
+        },
+
+        Require : {
+            baseUrl     : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/',
+            waitSeconds : 100
+        },
+
+        Music : {
+            type : 'Meting'
+        },
+        APlayer : {
+            container : '.aplayer',
+            fixed     : true,
+            autoplay  : false,
+            loop      : 'all',
+            order     : 'random',
+            preload   : 'auto',
+            volume    : 0.67,
+            mutex     : true,
+            lrcType   : 3,
+            audio     : [
+                
+                    {
+                        name   : 'aLIEz',
+                        artist : 'mizuki（瑞葵）',
+                        cover  : '/music/cover/aLIEz.jpg',
+                        url    : '/music/song/aLIEz.mp3',
+                        lrc    : '/music/lrc/aLIEz.lrc'
+                    },
+                
+                    {
+                        name   : 'Endless Tears',
+                        artist : 'CLIFF EDGE',
+                        cover  : '/music/cover/Endless Tears.jpg',
+                        url    : '/music/song/Endless Tears.mp3',
+                        lrc    : '/music/lrc/Endless Tears.lrc'
+                    },
+                
+                    {
+                        name   : 'Miracle',
+                        artist : 'Cascada',
+                        cover  : '/music/cover/Miracle.jpg',
+                        url    : '/music/song/Miracle.mp3',
+                        lrc    : '/music/lrc/Miracle.lrc'
+                    },
+                
+                    {
+                        name   : 'Roll The Dice',
+                        artist : '高珊',
+                        cover  : '/music/cover/Roll The Dice.jpg',
+                        url    : '/music/song/Roll The Dice.mp3',
+                        lrc    : '/music/lrc/Roll The Dice.lrc'
+                    },
+                
+                    {
+                        name   : 'See You Again',
+                        artist : 'Charlie Puth, Wiz Khalifa',
+                        cover  : '/music/cover/See You Again.jpg',
+                        url    : '/music/song/See You Again.mp3',
+                        lrc    : '/music/lrc/See You Again.lrc'
+                    },
+                
+                    {
+                        name   : 'Traveling Light',
+                        artist : 'Joel Hanson, Sara Groves',
+                        cover  : '/music/cover/Traveling Light.jpg',
+                        url    : '/music/song/Traveling Light.mp3',
+                        lrc    : '/music/lrc/Traveling Light.lrc'
+                    },
+                
+                    {
+                        name   : '痴心绝对',
+                        artist : '李圣杰',
+                        cover  : '/music/cover/痴心绝对.jpg',
+                        url    : '/music/song/痴心绝对.mp3',
+                        lrc    : '/music/lrc/痴心绝对.lrc'
+                    },
+                
+                    {
+                        name   : '好想大声说爱你',
+                        artist : 'BAAD（バード）',
+                        cover  : '/music/cover/好想大声说爱你.jpg',
+                        url    : '/music/song/好想大声说爱你.mp3',
+                        lrc    : '/music/lrc/好想大声说爱你.lrc'
+                    },
+                
+            ]
+        },
+        Meting : {
+            id       : '3778678', 
+            lrcshow  : false, 
+            server   : 'netease', 
+            type     : 'playlist', 
+            fixed    : true, 
+            autoplay : false, 
+            loop     : 'all', 
+            order    : 'random', 
+            preload  : 'auto', 
+            volume   : 0.67, 
+            mutex    : true
+        },
+
+        Mouse : {
+            enable  : true,
+            options : {
+                size  : 6,
+                sizeF : 24
+            }
+        },
+
+        LazyLoad : {
+            default : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/image/website/lazyload.svg'
+        },
+  
+        Style : {
+            aplayer          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/APlayer.css',
+            archive          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/archive.css',
+            donate           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/donate.css',
+            fancybox         : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/jquery.fancybox.css',
+            footer           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/footer.css',
+            iconfont         : 'https://at.alicdn.com/t/font_1546312_l3yohatebw.css',
+            index            : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/index.css',
+            menuBubble       : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/menu-bubble.css',
+            page             : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/page.css',
+            post             : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/post.css',
+            search           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/search.css',
+            tocbot           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/tocbot.css',
+            normal           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/normal.css',
+            night            : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/night.css',
+            clipboard        : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/clipboard.css'
+        },
+
+        Script: {
+            aplayer          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/APlayer.min.js',
+            config           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/require.config.js',
+            index            : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/index.js',
+            instantSearch    : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/instantsearch.min.js',
+            jQuery           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/jquery-3.4.1.min.js',
+            loading          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/loading.js',
+            meting           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/Meting.min.js',
+            iscroll          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/iscroll.js',
+            require          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/require.min.js'
+        },
+
+        Font: {
+            LongCang   : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/LongCang.css',
+            Monda      : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Monda.css',
+            NotoSansSC : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/NotoSansSC.css',
+            Playball   : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Playball.css',
+            PTMono     : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/PTMono.css',
+            RobotoSlab : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/RobotoSlab.css',
+            Rosario    : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Rosario.css',
+            UbuntuMono : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/UbuntuMono.css'
+        },
+
+        Suffix : {
+            about : '简单地活着, 肆意又精彩.'
+        },
+            
+        Theme : {
+            url  : 'https://github.com/first19326/Hexo-LiveForCode',
+            name : 'Hexo - Live For Code'
+        }  
+    };
+</script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/index.js"></script>
+</body>
+</html>
