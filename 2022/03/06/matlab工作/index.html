@@ -6,7 +6,7 @@
     <meta name="referrer" content="origin">
     <meta http-equiv="Cache-Control" content="no-transform">
     <meta http-equiv="Cache-Control" content="no-siteapp">
-    <title>fubaisen</title>
+    <title>matlab工作</title>
     <link rel="shortcut icon" href="#"/>
 
     <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/LongCang.css">
@@ -18,294 +18,124 @@
     <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Rosario.css">
     <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/UbuntuMono.css">
 
-    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/index.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/post.css">
+    
+        <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/normal.css">
+    
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/jquery-3.4.1.min.js"></script>
+
 <meta name="generator" content="Hexo 5.4.0"></head>
 <body>
     <a id="cover"></a>
     <div id="header">
-    <div class="header" >
+    <div class="header">
         <div class="vertical">
             <div class="inner">
-                <h1 class="header-title"></h1>
-                <h2 class="header-description" id="hitokoto"></h2>
-                <h3 class="header-info" id="hitokotoAuthor"></h3>
-                <!--
-                <h1 class="header-subtitle"></h1>
-                <p class="header-subinfo"></p>
-                -->
+                <h1 class="header-subtitle">matlab工作</h1>
+                <div class="header-subinfo">
+                    <p class="article-info-text">
+                        <span>
+                            <i class="iconfont icon-time"></i> 发表时间：2022-03-06
+                        </span>
+                        
+                            <span id="/2022/03/06/matlab工作/" class="leancloud_visitors" data-flag-title="matlab工作">
+                                <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                            </span>
+                        
+                        <span>
+                            <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2022/03/06/matlab工作/"></span>
+                        </span>  
+                    </p>                 
+                </div>
             </div>
         </div>
-        <a class="scroll-down" href="javascript:;" target="_self" data-offset="-45">
-            <span class="hidden">Scroll Down</span>
-            <i class="scroll-down-icon iconfont icon-return"></i>
-        </a>
+        <canvas id="articleHeaderCanvas"></canvas>
     </div>
 </div>
     <div id="container">
     <div id="content">
-        <div class="articles">
-    
-        <div class="article">
-            <div class="article-title">
-                <a href="/2021/12/23/12.%E5%87%BD%E6%95%B0%E5%9F%BA%E7%A1%80/">12.函数基础</a>
-                
+        <div id="article">
+    <div class="toc"></div>
+    <div class="article-body">
+        <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">x=<span class="number">0</span>:<span class="number">0.1</span>:<span class="number">5</span>; <span class="comment">% x从0到5，没给0.1取一个值</span></span><br><span class="line">y=<span class="built_in">cos</span>(x);</span><br><span class="line">z = <span class="string">&#x27;studey MATLAB R2016a&#x27;</span>; <span class="comment">%将字符串赋给z变量</span></span><br><span class="line">save filexy x y ; <span class="comment">% 把变量x/y存入[filexy].mat文件中</span></span><br><span class="line">load filexy <span class="comment">% 调用filexy.mat文件到工作间</span></span><br><span class="line">save filexy z -append <span class="comment">%把变量追加存入filexy.mat文件中</span></span><br><span class="line">save filexy -ascii；<span class="comment">% 把filexy文件储存为文本文件</span></span><br><span class="line">whos<span class="comment">%显示变量</span></span><br><span class="line">clc;<span class="comment">%清屏</span></span><br><span class="line">al=int8(<span class="number">10</span>);a2=int16(<span class="number">-20</span>);a3=int32(<span class="number">-30</span>);a4=int64(<span class="number">40</span>);</span><br><span class="line">b1=uint8(<span class="number">50</span>);b2=uint16(<span class="number">60</span>);b3=uint32(<span class="number">70</span>);b4=uint64(<span class="number">80</span>);</span><br><span class="line">c1=single(<span class="number">-90.99</span>);d1=double(<span class="number">3.14159265</span>);f1=<span class="string">&#x27;hello&#x27;</span>;</span><br><span class="line">g1.name=<span class="string">&#x27;baisen&#x27;</span>;h1=@li;i1=<span class="built_in">true</span>;j1&#123;<span class="number">2</span>,<span class="number">1</span>&#125;=<span class="number">100</span>;</span><br><span class="line">clc;b=int16(<span class="number">32</span>);c=<span class="number">6.28</span>;z=b+c;</span><br><span class="line">class(z)</span><br><span class="line"><span class="comment">%a=single(3.14);b=int16(23);a+b</span></span><br><span class="line"><span class="comment">%错误使用  + </span></span><br><span class="line"><span class="comment">%整数只能与相同类的整数或标量双精度值组合使用</span></span><br><span class="line">A=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>;<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>;<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>];</span><br><span class="line">B=[<span class="number">1</span>,<span class="number">0</span>,<span class="number">3</span>;<span class="number">5</span>,<span class="number">9</span>,<span class="number">13</span>;<span class="number">7</span>,<span class="number">12</span>,<span class="number">11</span>];</span><br><span class="line">C=A/B;D=A+B;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">A=[1,2,3;4,5,6;7,8,9];</span><br><span class="line">B=[1,0,3;5,9,13;7,12,11];</span><br><span class="line">C=A*B;</span><br><span class="line">save filexy A B C ;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">A=[6 3 4 ;-2 5 7;8 -4 -3];</span><br><span class="line">B=[3;-4;-7];</span><br><span class="line">x=A\B;</span><br><span class="line">z1=3+4*1i;</span><br><span class="line">z2=1+2*1i;</span><br><span class="line">z3=2*exp(1i*pi/6);z=z1*z2/z3;</span><br><span class="line">A=[1,2;3,4]+1i*[5,6;7,8];</span><br><span class="line">B=[1+5i,2+6i;3+7i,4+8i];</span><br><span class="line">Y=[7,2,9]&gt;5;</span><br><span class="line">A=rand(3);</span><br><span class="line">B=A&lt;0.5;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">x=[true,false,true];</span><br><span class="line">k=ranf(3);</span><br><span class="line">l=rand(3);</span><br><span class="line">Y1=K|L;</span><br><span class="line">Y2=K&amp;~K;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">b=acos(1)*180/pi; % 弧度需要乘以180/π编程角度</span><br><span class="line">a=fix(-1.3);</span><br><span class="line">b=flood(-1.3);</span><br><span class="line">c=floor(-1.3);  % floor(x) 正小数值最近整数</span><br><span class="line">d=floor(1.3);</span><br><span class="line">e=ceil(-1.3);</span><br><span class="line">f=ceil(1.3);</span><br><span class="line">g=round(-2.3);</span><br><span class="line">h=round(-1.25);  % 结果  = -2     ；round（x）四舍五入至最近整数</span><br><span class="line">i=round(1.3);</span><br><span class="line">j=round(1.52);   % 结果  = 2   </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">A=floor(rand(5,4)*10);</span><br><span class="line">a=ndims(A);            % 返回A的维数。m×n矩阵为二维</span><br><span class="line">[m,n]=size(A);         % 如果A是二维数组，返回函数和列数</span><br><span class="line">c=length(A);           % 返回行、列中的最大值</span><br><span class="line">e=nnz;                 % 返回A中非0元素的个数</span><br><span class="line">Amsx=max(A);           %计算最大值</span><br><span class="line">Amin=min(A);           %计算最小值</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">x=bin2dec(&#x27;111101&#x27;);</span><br><span class="line">y=decbin(61);</span><br><span class="line">z=dechex(61);</span><br><span class="line">w=dec2base(61,8);</span><br><span class="line">q=23;sprintf(&#x27;%03d&#x27;,q); % 建数字转化为字符串，03表示3位数。不足3位的前面补0</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">% 字符串操作函数</span><br><span class="line">a=&#x27;we are leaning&#x27;;b=&#x27;MATLAB&#x27;;</span><br><span class="line">A=strcat(a,b);</span><br><span class="line">B=strrep(&#x27;image MATLSB&#x27;,&#x27;MATLAB&#x27;,&#x27;Aimulink&#x27;);</span><br><span class="line">% 判断数据类型函数</span><br><span class="line">P=[1 2 1 5];n=isreal(p);                % p都是实数</span><br><span class="line">p1=[1+5i 2+6i 3+7i 4+8i];n1=isreal(p1); % p1有非实数</span><br><span class="line">x=2.34;n=isnumeric(x);                  % x为数值型</span><br><span class="line">x1=num2str(x);n3=isnumeric(x1);         % x1为非数值型</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">% 字符串操作函数</span><br><span class="line">a=&#x27;we are leaning&#x27;;b=&#x27;MATLAB&#x27;;</span><br><span class="line">A=strcat(a,b);</span><br><span class="line">B=strrep(&#x27;image MATLSB&#x27;,&#x27;MATLAB&#x27;,&#x27;Aimulink&#x27;);</span><br><span class="line">% 判断数据类型函数</span><br><span class="line">P=[1 2 1 5];n=isreal(p);                % p都是实数</span><br><span class="line">p1=[1+5i 2+6i 3+7i 4+8i];n1=isreal(p1); % p1有非实数</span><br><span class="line">x=2.34;n=isnumeric(x);                  % x为数值型</span><br><span class="line">x1=num2str(x);n3=isnumeric(x1);         % x1为非数值型</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">% 字符串操作函数</span><br><span class="line">a=&#x27;we are leaning&#x27;;b=&#x27;MATLAB&#x27;;</span><br><span class="line">A=strcat(a,b);</span><br><span class="line">B=strrep(&#x27;image MATLSB&#x27;,&#x27;MATLAB&#x27;,&#x27;Aimulink&#x27;);</span><br><span class="line">% 判断数据类型函数</span><br><span class="line">P=[1 2 1 5];n=isreal(p);                % p都是实数</span><br><span class="line">p1=[1+5i 2+6i 3+7i 4+8i];n1=isreal(p1); % p1有非实数</span><br><span class="line">x=2.34;n=isnumeric(x);                  % x为数值型</span><br><span class="line">x1=num2str(x);n3=isnumeric(x1);         % x1为非数值型</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">% 字符串操作函数</span><br><span class="line">a=&#x27;we are leaning&#x27;;b=&#x27;MATLAB&#x27;;</span><br><span class="line">A=strcat(a,b);</span><br><span class="line">B=strrep(&#x27;image MATLSB&#x27;,&#x27;MATLAB&#x27;,&#x27;Aimulink&#x27;);</span><br><span class="line">% 判断数据类型函数</span><br><span class="line">P=[1 2 1 5];n=isreal(p);                % p都是实数</span><br><span class="line">p1=[1+5i 2+6i 3+7i 4+8i];n1=isreal(p1); % p1有非实数</span><br><span class="line">x=2.34;n=isnumeric(x);                  % x为数值型</span><br><span class="line">x1=num2str(x);n3=isnumeric(x1);         % x1为非数值型</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">% 字符串操作函数</span><br><span class="line">a=&#x27;we are leaning&#x27;;b=&#x27;MATLAB&#x27;;</span><br><span class="line">A=strcat(a,b);</span><br><span class="line">B=strrep(&#x27;image MATLSB&#x27;,&#x27;MATLAB&#x27;,&#x27;Aimulink&#x27;);</span><br><span class="line">% 判断数据类型函数</span><br><span class="line">P=[1 2 1 5];n=isreal(p);                % p都是实数</span><br><span class="line">p1=[1+5i 2+6i 3+7i 4+8i];n1=isreal(p1); % p1有非实数</span><br><span class="line">x=2.34;n=isnumeric(x);                  % x为数值型</span><br><span class="line">x1=num2str(x);n3=isnumeric(x1);         % x1为非数值型</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+        <p class="suffix-end">__END__</p>
+        <div class="suffix-box">
+            <div class="suffix-box-left">
+                <img src="https://gitee.com/lichaikui/picture/raw/master/tupian/20211222195800.png" alt="hero">
             </div>
-            <div class="article-abstract">
-                
+            <div class="suffix-box-right">
+                <span class="suffix-box-title">文章作者</span>：hero
+                <br>
+                <span class="suffix-box-title">文章出处</span>：<a href="/2022/03/06/matlab%E5%B7%A5%E4%BD%9C/" target="_blank">matlab工作</a>
+                <br>
+                <span class="suffix-box-title">作者签名</span>：简单地活着, 肆意又精彩.
+                <br>
+                <span class="suffix-box-title">关于主题</span>：<a href="https://github.com/first19326/Hexo-LiveForCode" target="_blank">Hexo - Live For Code</a>
+                <br>
+                <span class="suffix-box-title">版权声明</span>：文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" title="BY-NC-SA" target="_blank">BY-NC-SA</a> 许可协议，转载请注明出处
+                <br>
             </div>
-            <div class="clear"></div>
-            <div class="article-info">
-                <span>
-                    <i class="iconfont icon-time"></i> 发表时间：2021-12-23
-                </span>
-                
-                    <span id="/2021/12/23/12.函数基础/" class="leancloud_visitors" data-flag-title="12.函数基础">
-                        <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
-                    </span>
-                
-                <span>
-                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2021/12/23/12.函数基础/"></span>
-                </span>
-            </div>
-            <div class="clear"></div>     
+            <div style="clear: both;"></div>
         </div>
-    
-        <div class="article">
-            <div class="article-title">
-                <a href="/2021/12/23/11.%E5%BE%AA%E7%8E%AF/">11.循环</a>
+    </div>
+    <div class="article-footer">
+        
+        
+            <div class="tag">
+                标签：
+                
+                    <a href="/tag/matlab/">matlab</a>
                 
             </div>
-            <div class="article-abstract">
-                
-            </div>
-            <div class="clear"></div>
-            <div class="article-info">
-                <span>
-                    <i class="iconfont icon-time"></i> 发表时间：2021-12-23
-                </span>
-                
-                    <span id="/2021/12/23/11.循环/" class="leancloud_visitors" data-flag-title="11.循环">
-                        <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
-                    </span>
-                
-                <span>
-                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2021/12/23/11.循环/"></span>
-                </span>
-            </div>
-            <div class="clear"></div>     
+        
+        <div class="article-prev-next">
+            
+            
+                <a href="/2022/03/06/matlab%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="next-prefix">» </a> 下一篇：    <a href="/2022/03/06/matlab%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="发布于 2022-03-06 08:21">matlab学习</a>
+            
         </div>
+    </div>
     
-        <div class="article">
-            <div class="article-title">
-                <a href="/2021/12/23/10.%E8%BF%90%E7%AE%97%E7%AC%A6/">10.运算符</a>
-                
-            </div>
-            <div class="article-abstract">
-                
-            </div>
-            <div class="clear"></div>
-            <div class="article-info">
-                <span>
-                    <i class="iconfont icon-time"></i> 发表时间：2021-12-23
-                </span>
-                
-                    <span id="/2021/12/23/10.运算符/" class="leancloud_visitors" data-flag-title="10.运算符">
-                        <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
-                    </span>
-                
-                <span>
-                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2021/12/23/10.运算符/"></span>
-                </span>
-            </div>
-            <div class="clear"></div>     
+    <div class="article-comments">
+        <div class="comments-title">
+            评论列表
         </div>
-    
-        <div class="article">
-            <div class="article-title">
-                <a href="/2021/12/23/9.%E5%88%A4%E6%96%AD%EF%BC%88if%EF%BC%89%E8%AF%AD%E5%8F%A5/">9.判断（if）语句</a>
-                
-            </div>
-            <div class="article-abstract">
-                
-            </div>
-            <div class="clear"></div>
-            <div class="article-info">
-                <span>
-                    <i class="iconfont icon-time"></i> 发表时间：2021-12-23
-                </span>
-                
-                    <span id="/2021/12/23/9.判断（if）语句/" class="leancloud_visitors" data-flag-title="9.判断（if）语句">
-                        <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
-                    </span>
-                
-                <span>
-                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2021/12/23/9.判断（if）语句/"></span>
-                </span>
-            </div>
-            <div class="clear"></div>     
+        <div class="comments-content">
         </div>
-    
-        <div class="article">
-            <div class="article-title">
-                <a href="/2021/12/23/8.%E5%8F%98%E9%87%8F%E7%9A%84%E5%91%BD%E5%90%8D/">8.变量的命名</a>
-                
-            </div>
-            <div class="article-abstract">
-                
-            </div>
-            <div class="clear"></div>
-            <div class="article-info">
-                <span>
-                    <i class="iconfont icon-time"></i> 发表时间：2021-12-23
-                </span>
-                
-                    <span id="/2021/12/23/8.变量的命名/" class="leancloud_visitors" data-flag-title="8.变量的命名">
-                        <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
-                    </span>
-                
-                <span>
-                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2021/12/23/8.变量的命名/"></span>
-                </span>
-            </div>
-            <div class="clear"></div>     
-        </div>
-    
-        <div class="article">
-            <div class="article-title">
-                <a href="/2021/12/22/7.%E5%8F%98%E9%87%8F%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">7.变量的基本使用</a>
-                
-            </div>
-            <div class="article-abstract">
-                
-            </div>
-            <div class="clear"></div>
-            <div class="article-info">
-                <span>
-                    <i class="iconfont icon-time"></i> 发表时间：2021-12-22
-                </span>
-                
-                    <span id="/2021/12/22/7.变量的基本使用/" class="leancloud_visitors" data-flag-title="7.变量的基本使用">
-                        <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
-                    </span>
-                
-                <span>
-                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2021/12/22/7.变量的基本使用/"></span>
-                </span>
-            </div>
-            <div class="clear"></div>     
-        </div>
-    
-        <div class="article">
-            <div class="article-title">
-                <a href="/2021/12/22/6.%E7%A8%8B%E5%BA%8F%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86%EF%BC%88%E7%A7%91%E6%99%AE%EF%BC%89/">6.程序执行原理（科普）</a>
-                
-            </div>
-            <div class="article-abstract">
-                
-            </div>
-            <div class="clear"></div>
-            <div class="article-info">
-                <span>
-                    <i class="iconfont icon-time"></i> 发表时间：2021-12-22
-                </span>
-                
-                    <span id="/2021/12/22/6.程序执行原理（科普）/" class="leancloud_visitors" data-flag-title="6.程序执行原理（科普）">
-                        <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
-                    </span>
-                
-                <span>
-                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2021/12/22/6.程序执行原理（科普）/"></span>
-                </span>
-            </div>
-            <div class="clear"></div>     
-        </div>
-    
-        <div class="article">
-            <div class="article-title">
-                <a href="/2021/12/22/5.%E7%AE%97%E6%95%B0%E8%BF%90%E7%AE%97%E7%AC%A6/">5.算数运算符</a>
-                
-            </div>
-            <div class="article-abstract">
-                
-            </div>
-            <div class="clear"></div>
-            <div class="article-info">
-                <span>
-                    <i class="iconfont icon-time"></i> 发表时间：2021-12-22
-                </span>
-                
-                    <span id="/2021/12/22/5.算数运算符/" class="leancloud_visitors" data-flag-title="5.算数运算符">
-                        <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
-                    </span>
-                
-                <span>
-                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2021/12/22/5.算数运算符/"></span>
-                </span>
-            </div>
-            <div class="clear"></div>     
-        </div>
-    
-        <div class="article">
-            <div class="article-title">
-                <a href="/2021/12/22/4.%E7%A8%8B%E5%BA%8F%E6%B3%A8%E9%87%8A/">4.程序注释</a>
-                
-            </div>
-            <div class="article-abstract">
-                
-            </div>
-            <div class="clear"></div>
-            <div class="article-info">
-                <span>
-                    <i class="iconfont icon-time"></i> 发表时间：2021-12-22
-                </span>
-                
-                    <span id="/2021/12/22/4.程序注释/" class="leancloud_visitors" data-flag-title="4.程序注释">
-                        <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
-                    </span>
-                
-                <span>
-                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2021/12/22/4.程序注释/"></span>
-                </span>
-            </div>
-            <div class="clear"></div>     
-        </div>
-    
-        <div class="article">
-            <div class="article-title">
-                <a href="/2021/12/22/3.%E5%A4%9A%E6%96%87%E4%BB%B6%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%BC%94%E7%BB%83/">3.多文件项目的演练</a>
-                
-            </div>
-            <div class="article-abstract">
-                
-            </div>
-            <div class="clear"></div>
-            <div class="article-info">
-                <span>
-                    <i class="iconfont icon-time"></i> 发表时间：2021-12-22
-                </span>
-                
-                    <span id="/2021/12/22/3.多文件项目的演练/" class="leancloud_visitors" data-flag-title="3.多文件项目的演练">
-                        <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
-                    </span>
-                
-                <span>
-                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2021/12/22/3.多文件项目的演练/"></span>
-                </span>
-            </div>
-            <div class="clear"></div>     
-        </div>
-    
-    
-        <div class="pagination-bottom">
-            <div class="pagination">
-                
-                    <a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">下一页</a>
-                
-            </div>
-        </div>
-    
+    </div>
+
 </div>
 
     </div>
