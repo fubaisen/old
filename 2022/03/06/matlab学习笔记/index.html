@@ -6,7 +6,7 @@
     <meta name="referrer" content="origin">
     <meta http-equiv="Cache-Control" content="no-transform">
     <meta http-equiv="Cache-Control" content="no-siteapp">
-    <title>Ros</title>
+    <title>matlab学习</title>
     <link rel="shortcut icon" href="#"/>
 
     <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/LongCang.css">
@@ -32,19 +32,19 @@
     <div class="header">
         <div class="vertical">
             <div class="inner">
-                <h1 class="header-subtitle">Ros</h1>
+                <h1 class="header-subtitle">matlab学习</h1>
                 <div class="header-subinfo">
                     <p class="article-info-text">
                         <span>
-                            <i class="iconfont icon-time"></i> 发表时间：2022-01-24
+                            <i class="iconfont icon-time"></i> 发表时间：2022-03-06
                         </span>
                         
-                            <span id="/2022/01/24/Ros/" class="leancloud_visitors" data-flag-title="Ros">
+                            <span id="/2022/03/06/matlab学习笔记/" class="leancloud_visitors" data-flag-title="matlab学习">
                                 <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
                             </span>
                         
                         <span>
-                            <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2022/01/24/Ros/"></span>
+                            <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2022/03/06/matlab学习笔记/"></span>
                         </span>  
                     </p>                 
                 </div>
@@ -58,49 +58,128 @@
         <div id="article">
     <div class="toc"></div>
     <div class="article-body">
-        <h1 id="ROS的安装"><a href="#ROS的安装" class="headerlink" title="ROS的安装"></a>ROS的安装</h1><p>1.ubuntu18.04  安装ros melodic</p>
-<p>2.ubuntu16  安装ros kinetic</p>
+        <h4 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍<img src="https://s2.loli.net/2022/02/26/CHip3tQdKTZRVx8.png" alt="image-20220226160058746"></h4><h5 id="窗口操作命令"><a href="#窗口操作命令" class="headerlink" title="窗口操作命令"></a>窗口操作命令<img src="https://s2.loli.net/2022/02/26/rnJVHTeCOR6wuob.png" alt="image-20220226214038447"></h5><h5 id="程序命令"><a href="#程序命令" class="headerlink" title="程序命令"></a>程序命令<img src="https://s2.loli.net/2022/02/26/qSxVN8u1ZF25CsL.jpg" alt="6d1bfa1669a316ba46526327267cdaf"></h5><h4 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h4><p>myVar与 myvar 便是两个不同的变量</p>
+<h5 id="全局变量和局部变量"><a href="#全局变量和局部变量" class="headerlink" title="全局变量和局部变量"></a>全局变量和局部变量</h5><p>各个函数之间以及命令行窗口的工作空间中，内存空间独立，不能相互访问</p>
+<p>初始化是仅需声明一次，用时需要声明一次（在一个内存空间里声明global，在另一个内存空间里使用这个global时需要再次声明global，各内存空间声明一次即可）</p>
+<p>入股之在某个内存空间使用一次，在全局变量影响内存空间变量时，可使用clear命令清除变量名</p>
+<p>如果一个函数内的边框没有特别声明，那么变量只在函数内部使用，即为全局变量</p>
+<p>子程序较多时，全局变量会给程序调试和维护带来不便，一般不使用全局变量，如果使用 原则上   全部用大写字母表示</p>
+<h4 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h4><p>整数型、单精度浮点型、双精度浮点型、字符串型、结构体型、函数句柄型、逻辑型和单元数组型</p>
+<p>1)整数:有符号数和无符号数使用整型变量和单精度变量可以节约内存空间。<br>2)浮点数:在默认状态下，MATLAB将所有的数都看作是双精度的浮点数。即:直接输人变量值创建的是double类型，创建single类型需要用输人类型转换函数。其他类型函数可以利用转换函数存储为需要的类型，如果有小数部分，自动四舍五入处理。<img src="https://s2.loli.net/2022/02/26/opg2cBljI5WK6TZ.png" alt="image-20220226163136135"></p>
+<h4 id="常用标点符号"><a href="#常用标点符号" class="headerlink" title="常用标点符号"></a>常用标点符号<img src="https://s2.loli.net/2022/02/26/E7uyxSU4ZnzLgiB.png" alt="image-20220226214144162"></h4><h4 id="常量表示"><a href="#常量表示" class="headerlink" title="常量表示"></a>常量表示</h4><p><img src="https://s2.loli.net/2022/02/26/JzpHdYMbvf26tRg.jpg" alt="8eadc37e2477643f5f08fb75ce2c84c"></p>
+<h4 id="基础运算"><a href="#基础运算" class="headerlink" title="基础运算"></a>基础运算</h4><h5 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符<img src="https://s2.loli.net/2022/02/26/iF97ORo34DWqLru.jpg" alt="c1cfae93fd110f0228f09d6b2447ac6"></h5><ul>
+<li><p>矩阵相加减应具有相同的行和列</p>
+</li>
+<li><p>两矩阵进行点运算是指它们的对应元素进行相关运算，且要求两矩阵的维数相同</p>
+</li>
+<li><p>A.\B    表示矩阵B中的每个元素初一矩阵A的对应的元素</p>
+<p>A./B表示矩阵A中的每个元素除以矩阵B对应的元素2</p>
+</li>
+<li><p>左除、右除：</p>
 <ul>
-<li>rosdep 不成功 可跳过</li>
-</ul>
-<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Ci4y1L7ZZ/">ros学习教程地址</a><img src="https://s2.loli.net/2022/01/24/oBNb1VaCRxhgvnE.png" alt="image-20220124213358659"></p>
-<h1 id="ROS-功能"><a href="#ROS-功能" class="headerlink" title="ROS 功能"></a>ROS 功能</h1><h3 id="1-roscove节点式通信"><a href="#1-roscove节点式通信" class="headerlink" title="1.roscove节点式通信"></a>1.roscove节点式通信</h3><ul>
-<li>topic（通话）通信：</li>
-</ul>
-<p>​                单向  可连续发送</p>
-<ul>
-<li><p>service（服务）通信：</p>
-<p> 只有一次通信后 才可以建立通信通道</p>
+<li><p>A左除B(A\B)表示矩阵A的逆乘以矩阵B即inv(A)*B；</p>
+<p>inv（4）=1/4</p>
+</li>
+<li><p>A右除B(A/B)表示矩阵A乘以矩阵B的逆即A*inv(B)；</p>
+</li>
+<li><p>当A为非奇异矩阵时，x=A\B是方程A<em>x=B的解，而x=B/A是方程x</em>A=B的解</p>
 </li>
 </ul>
-<p><img src="https://s2.loli.net/2022/01/24/RscgOPkZ5hUqYre.png" alt="image-20220124210343443.png"></p>
-<p>模板 大概</p>
-<ul>
-<li><p>ros功能包：</p>
-<p><img src="https://s2.loli.net/2022/01/24/3PfcIu2DLWCKd5h.png" alt="image-20220124210431270">    </p>
-<ul>
-<li>build 产生的可执行文件</li>
-<li>devel 头文件、依赖的包</li>
-<li>src 源文件</li>
-</ul>
 </li>
 </ul>
-<blockquote>
-<p>用到了         回调函数<img src="https://s2.loli.net/2022/01/24/HRSywPmNupcdUEa.png" alt="image-20220124211509030.png"></p>
-<p><img src="https://s2.loli.net/2022/01/24/N6tQ1zoTYdCH4ZD.png" alt="image-20220124210834225.png"></p>
-</blockquote>
+<h5 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h5><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&amp;</td>
+<td>与运算</td>
+<td></td>
+</tr>
+<tr>
+<td>|</td>
+<td>或运算</td>
+<td></td>
+</tr>
+<tr>
+<td>~</td>
+<td>非运算</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>若元素为真，则用 <strong>1</strong>表示；若元素为假，则用 <strong>0</strong>表示。</p>
+<p>“&amp;” 和 “|”运算符可比较两个标量或两个同阶矩阵</p>
+<p>如果A和B都是0 -1矩阵，则 A&amp;B或A|B也都是0 -1矩阵，且 0 -1矩阵是A和B对应元素的逻辑值。逻辑值运算符主要用在条件语句和所以数组索引中</p>
+<h4 id="数学函数"><a href="#数学函数" class="headerlink" title="数学函数"></a>数学函数</h4><p><img src="https://s2.loli.net/2022/03/01/gawv28ClqdJ5tDb.jpg" alt="fe3c24f96baed02ff318e759d7fa9c0"></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">A=<span class="built_in">floor</span>(<span class="built_in">rand</span>(<span class="number">5</span>,<span class="number">4</span>)*<span class="number">10</span>);</span><br><span class="line">a=<span class="built_in">ndims</span>(A);            <span class="comment">% 返回A的维数。m×n矩阵为二维</span></span><br><span class="line">[m,n]=<span class="built_in">size</span>(A);         <span class="comment">% 如果A是二维数组，返回函数和列数</span></span><br><span class="line">c=nnz(A);              <span class="comment">% 返回行、列中的最大值</span></span><br><span class="line">Amsx=<span class="built_in">max</span>(A);           <span class="comment">%计算最大值</span></span><br><span class="line">Amin=<span class="built_in">min</span>(A);           <span class="comment">%计算最小值</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="常用三角函数"><a href="#常用三角函数" class="headerlink" title="常用三角函数"></a>常用三角函数<img src="https://s2.loli.net/2022/03/01/zFU34lKw9MJDs6c.jpg" alt="f3af65c0729a7916899a2ccc92a1161"></h5><p>取整函数</p>
+<p><img src="https://s2.loli.net/2022/03/01/qNDZGAEbS4xTXad.png" alt="image-20220301200840451"></p>
+<h4 id="转角函数"><a href="#转角函数" class="headerlink" title="转角函数"></a>转角函数</h4><p>常用转角函数<img src="https://s2.loli.net/2022/03/01/gGkWjMNCOxPrwnR.png" alt="image-20220301201316035"></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">x=bin2dec(<span class="string">&#x27;111101&#x27;</span>);</span><br><span class="line">y=decbin(<span class="number">61</span>);</span><br><span class="line">z=dechex(<span class="number">61</span>);</span><br><span class="line">w=dec2base(<span class="number">61</span>,<span class="number">8</span>);</span><br><span class="line">q=<span class="number">23</span>;sprintf(<span class="string">&#x27;%03d&#x27;</span>,q); <span class="comment">% 建数字转化为字符串，03表示3位数。不足3位的前面补0</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="字符串操作函数"><a href="#字符串操作函数" class="headerlink" title="字符串操作函数"></a>字符串操作函数</h4><h4 id="判断数据类型函数"><a href="#判断数据类型函数" class="headerlink" title="判断数据类型函数"></a><img src="https://s2.loli.net/2022/03/01/he7CzBjNxkMgLRn.png" alt="image-20220301205258635">判断数据类型函数</h4><p><img src="https://s2.loli.net/2022/03/01/s6PgVKnxujSLOEH.png" alt="image-20220301205354257"></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">P=[<span class="number">1</span> <span class="number">2</span> <span class="number">1</span> <span class="number">5</span>];n=<span class="built_in">isreal</span>(p);                <span class="comment">% p都是实数</span></span><br><span class="line">p1=[<span class="number">1</span>+<span class="number">5</span><span class="built_in">i</span> <span class="number">2</span>+<span class="number">6</span><span class="built_in">i</span> <span class="number">3</span>+<span class="number">7</span><span class="built_in">i</span> <span class="number">4</span>+<span class="number">8</span><span class="built_in">i</span>];n1=<span class="built_in">isreal</span>(p1); <span class="comment">% p1有非实数</span></span><br><span class="line">x=<span class="number">2.34</span>;n=isnumeric(x);                  <span class="comment">% x为数值型</span></span><br><span class="line">x1=num2str(x);n3=isnumeric(x1);         <span class="comment">% x1为非数值型</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="文件操作函数"><a href="#文件操作函数" class="headerlink" title="文件操作函数"></a>文件操作函数</h4><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">clear;clc;                    </span><br><span class="line">fid=fopen(<span class="string">&#x27;filel.dat&#x27;</span>,<span class="string">&#x27;w+&#x27;</span>);  <span class="comment">%创建并打开 filel.dat文件</span></span><br><span class="line">A=[<span class="number">1</span>:<span class="number">10</span>];                     <span class="comment">%创建数组A1~10</span></span><br><span class="line">count =fwrite(fid,A);         <span class="comment">%将数组A写入文件</span></span><br><span class="line">fseek(fid,<span class="number">0</span>,<span class="string">&#x27;bof&#x27;</span>);           <span class="comment">%指针指向第1个元素        </span></span><br><span class="line">f1=fgets(fid)                 <span class="comment">%读取数据到f1</span></span><br><span class="line">f1 =sprintf(<span class="string">&#x27;%3d&#x27;</span>,f1)         <span class="comment">%输出f1数据 </span></span><br><span class="line">fseek(fid,<span class="number">4</span>,<span class="string">&#x27;bof&#x27;</span>);           <span class="comment">%指针指向第5个元素</span></span><br><span class="line">f2 =fgets(fid)                <span class="comment">%读取数据到f2</span></span><br><span class="line">f2 =sprintf(<span class="string">&#x27;%3d&#x27;</span> f2)         <span class="comment">%输出 f2数据</span></span><br><span class="line">Str=[<span class="number">97</span> <span class="number">99</span> <span class="number">100</span>];</span><br><span class="line">strl=sprintf(<span class="string">&#x27;%s&#x27;</span>str);&gt;teaml=<span class="string">&#x27;中国首都&#x27;</span>;</span><br><span class="line">team2=<span class="string">&#x27;北京&#x27;</span>;</span><br><span class="line">str2=sprintf(<span class="string">&#x27;%s是%s&#x27;</span>,team1,team2)</span><br><span class="line"><span class="built_in">pi</span>=sprintf(<span class="string">&#x27;圆周率pi=%4.2f&#x27;</span>,<span class="built_in">pi</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://s2.loli.net/2022/03/01/9mKzSLoqk8HFDba.png" alt="image-20220301210007135"></p>
+<h4 id="常用特殊矩阵"><a href="#常用特殊矩阵" class="headerlink" title="常用特殊矩阵"></a>常用特殊矩阵</h4><h5 id="特殊矩阵函数"><a href="#特殊矩阵函数" class="headerlink" title="特殊矩阵函数"></a>特殊矩阵函数</h5><p><img src="https://s2.loli.net/2022/03/01/xZhYk5DdjTAK18P.png" alt="image-20220301210241569"></p>
+<p>matlab提取子块操作</p>
 <ul>
-<li><p><img src="https://s2.loli.net/2022/01/24/vMixcuUFY75I9Wq.png" alt="image-20220124210550748"></p>
-<p>include——头文件                </p>
-<p>src——源码      </p>
-<p>CMakelists.txt——加载编译文件源码把药变异的内容交给编译器    </p>
-<p>package.xml——ros功能包相关内容    </p>
+<li>A(m,n)                     :提取第m行，第n列元素</li>
+<li>A(:,n)                        ：提取第n列元素</li>
+<li>A(m,:)                       :提取第m行元素</li>
+<li>A(m1:m2,n1:n2)    :提取m1行到第m2行和第n1列到第n1列到第n2列的所有元素（提取子块）</li>
+<li>A(:)                            :元素按矩阵的1列进行排列的长列矢量</li>
+<li>矩阵拓展                   ：如果在原矩阵不存在的地址中设定一个数（赋值），则该矩阵会自动扩展行列数，并在该位置上天界这个数，而且在其他没有指定的位置补零</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">X=<span class="built_in">zeros</span>(<span class="number">4</span>);   <span class="comment">% 4×4零矩阵</span></span><br><span class="line">Y=<span class="built_in">ones</span>(<span class="number">3</span>,<span class="number">4</span>);  <span class="comment">% 3×4的全一阵</span></span><br><span class="line">Z=<span class="built_in">rand</span>(<span class="number">4</span>,<span class="number">5</span>);  <span class="comment">% 4×5均匀分布的随机矩阵</span></span><br><span class="line"><span class="built_in">true</span>(z);      <span class="comment">% 上三角阵</span></span><br><span class="line">Kmagic(<span class="number">4</span>);    <span class="comment">% 魔方阵必须是方阵</span></span><br><span class="line">L=<span class="built_in">pascal</span>(<span class="number">4</span>);  <span class="comment">% 帕斯卡矩阵必须是方阵</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="句柄函数"><a href="#句柄函数" class="headerlink" title="句柄函数"></a>句柄函数</h4><p>MATLAB提供了一个简介访问函数的方式</p>
+<ul>
+<li><p>可以使用函数名实现</p>
+</li>
+<li><p>可以使用句柄handle函数实现，在已有函数名前加符号@ ，既可创建函数句柄handle</p>
+</li>
+<li><p>可以提供匿名[nì míng]函数创建一个函数句柄</p>
 </li>
 </ul>
-<h3 id="2-物理仿生环境gazabo（可以想象成一个节点）"><a href="#2-物理仿生环境gazabo（可以想象成一个节点）" class="headerlink" title="2.物理仿生环境gazabo（可以想象成一个节点）"></a>2.物理仿生环境gazabo（可以想象成一个节点）</h3><p>​            模拟现实环境</p>
-<h3 id="3-Rivice"><a href="#3-Rivice" class="headerlink" title="3.Rivice"></a>3.Rivice<img src="https://s2.loli.net/2022/01/24/FMzKlZNi8eCP4c3.png" alt="image-20220124205422280"></h3><p>根据需要开发可视化界面</p>
-<h3 id="4-rqt工具箱"><a href="#4-rqt工具箱" class="headerlink" title="4.rqt工具箱"></a>4.rqt工具箱</h3><p><img src="https://s2.loli.net/2022/01/24/QR1e23P4ZDBsyvC.png" alt="image-20220124210135175"></p>
-<h3 id="5-收发模板"><a href="#5-收发模板" class="headerlink" title="5.收发模板"></a>5.收发模板</h3><p>北大模板生成   包/项目   —–用 <code>类</code> 的方法 实现  多个节点同时工作  （多收多发）</p>
+<p>创建格式：</p>
+<p><code>handle=@functionname或:fun1=@functionname</code></p>
+<p>调用格式</p>
+<p><code>fun(arg1,arg2,....e,argn);</code></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sqr=@(x)x.^<span class="number">2</span>;</span><br><span class="line">a=sqr(<span class="number">5</span>);</span><br><span class="line">fun=@(x,y)x.^<span class="number">2</span>+y.^<span class="number">2</span>;</span><br><span class="line">b=fun(<span class="number">2</span>,<span class="number">3</span>);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% 结果</span></span><br><span class="line">a=<span class="number">25</span></span><br><span class="line">b=<span class="number">13</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="数组表示"><a href="#数组表示" class="headerlink" title="数组表示"></a>数组表示</h4><h6 id="1、结构数组"><a href="#1、结构数组" class="headerlink" title="1、结构数组"></a>1、结构数组</h6><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">student(<span class="number">1</span>).name =<span class="string">&#x27;Li Ming&#x27;</span>; student(<span class="number">1</span>).course=[<span class="number">10135</span> <span class="number">10096</span>];</span><br><span class="line">student(<span class="number">1</span>)score=[<span class="number">87</span> <span class="number">92</span>];student(<span class="number">2</span>).name=<span class="string">&#x27;Zhang Li&#x27;</span>;</span><br><span class="line">student (<span class="number">2</span>). course =[<span class="number">10135</span> <span class="number">10096</span>]; student (<span class="number">2</span>).score =[<span class="number">82</span> <span class="number">76</span>];</span><br><span class="line">nl =student(<span class="number">1</span>);</span><br><span class="line">n2 =student(<span class="number">2</span>)&gt; student(<span class="number">2</span>).name;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% 结果:</span></span><br><span class="line">nl =name: <span class="string">&#x27;Li Ming&#x27;</span></span><br><span class="line">course:[<span class="number">10135</span> <span class="number">10096</span>] score:[<span class="number">87</span> <span class="number">92</span>] </span><br><span class="line">n2 =name: <span class="string">&#x27;zhang Li&#x27;</span></span><br><span class="line">course:[<span class="number">10135</span> <span class="number">10096</span>] score:[<span class="number">82</span> <span class="number">76</span>] <span class="built_in">ans</span> =Zhang Li</span><br></pre></td></tr></table></figure>
+
+<p>可以利用struct结构函数创建结构，其调用格式为：</p>
+<p>​                <code>strArray=srtuct(&#39;fielld1&#39;,&#39;vall&#39;,&#39;&#39;field2),val2,...）</code></p>
+<p>​                <strong>其中  “field”   和   val 为  字段  和   对应值</strong></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stu=struct(<span class="string">&#x27;name&#x27;</span>,<span class="string">&#x27;wangfang&#x27;</span>,<span class="string">&#x27;course&#x27;</span>,[<span class="number">10568</span> <span class="number">10063</span>],<span class="string">&#x27;score&#x27;</span>,[<span class="number">72</span> <span class="number">82</span>])</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">stu = </span><br><span class="line"></span><br><span class="line">      name: <span class="string">&#x27;wangfang&#x27;</span></span><br><span class="line">    course: [<span class="number">10568</span> <span class="number">10063</span>]</span><br><span class="line">     score: [<span class="number">72</span> <span class="number">82</span>]</span><br></pre></td></tr></table></figure>
+
+<h6 id="2-细胞数组"><a href="#2-细胞数组" class="headerlink" title="2.细胞数组"></a>2.细胞数组</h6><p>（1）细胞（单元）数组是matlab特有的一种数据类型，组成它的的元素是细胞，细胞是用来储存不同类型数据单元。</p>
+<p>（2）细胞数组中的每一个细胞储存一种类型的MATLAB数组，此数组中的数据可以是任意一种matlab数据类型或用户自定义的类型，其大小也可以是任意的，相同细胞数组中第二个细胞类型与大小可以和第一细胞完全不同2x2细胞数组结构如图1.6所示。<img src="https://s2.loli.net/2022/03/06/SO4HYyTVtxKNeCj.png" alt="image-20220303204733865"></p>
+<p>（3）细胞数组可以将不同类型或不同尺寸的数据存储到同一个数组当中。访问单元数组的方法与 矩阵索引方法基本相同，区别在于单元数组索引 时，需要用    <strong>{}</strong>     将下标置于其中。创建单元数组 与创建矩阵基本相同，区别在于矩阵用   <strong>[]</strong>  ，单元数组用    <strong>{}</strong>   </p>
+<p> 例如        创建单元数组(一维): </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a=&#123;[2 4 7;3 9 6;1 8 5],&#x27;Li Ming&#x27;,2+3i,1:2:10&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>​                  对单元数组向量下标赋空值相当于删除单元数组的行或列，删除单元数组的列：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a(:,2)=[];</span><br></pre></td></tr></table></figure>
+
+<p>直接在命令窗输入单元数组名，可显示数组的构成单元。使用celldisp函数可以显示单元数组，利用索引可以对单元数组进行运算操作</p>
 
         <p class="suffix-end">__END__</p>
         <div class="suffix-box">
@@ -110,7 +189,7 @@
             <div class="suffix-box-right">
                 <span class="suffix-box-title">文章作者</span>：hero
                 <br>
-                <span class="suffix-box-title">文章出处</span>：<a href="/2022/01/24/Ros/" target="_blank">Ros</a>
+                <span class="suffix-box-title">文章出处</span>：<a href="/2022/03/06/matlab%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" target="_blank">matlab学习</a>
                 <br>
                 <span class="suffix-box-title">作者签名</span>：简单地活着, 肆意又精彩.
                 <br>
@@ -128,17 +207,14 @@
             <div class="tag">
                 标签：
                 
-                    <a href="/tag/ROS%E7%AC%94%E8%AE%B0/">ROS笔记</a>
+                    <a href="/tag/matlab/">matlab</a>
                 
             </div>
         
         <div class="article-prev-next">
             
-                <a href="/2022/03/06/matlab%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="prev-prefix">« </a> 上一篇：    <a href="/2022/03/06/matlab%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="发布于 2022-03-06 08:21">matlab学习</a>
-                <br>
             
-            
-                <a href="/2022/01/23/15.%E5%8F%98%E9%87%8F%E8%BF%9B%E9%98%B6%EF%BC%88%E7%90%86%E8%A7%A3%EF%BC%89/" class="next-prefix">» </a> 下一篇：    <a href="/2022/01/23/15.%E5%8F%98%E9%87%8F%E8%BF%9B%E9%98%B6%EF%BC%88%E7%90%86%E8%A7%A3%EF%BC%89/" title="发布于 2022-01-23 12:40">15.变量进阶（理解）</a>
+                <a href="/2022/01/24/Ros/" class="next-prefix">» </a> 下一篇：    <a href="/2022/01/24/Ros/" title="发布于 2022-01-24 10:11">Ros</a>
             
         </div>
     </div>
