@@ -6,7 +6,7 @@
     <meta name="referrer" content="origin">
     <meta http-equiv="Cache-Control" content="no-transform">
     <meta http-equiv="Cache-Control" content="no-siteapp">
-    <title>14_eval函数</title>
+    <title></title>
     <link rel="shortcut icon" href="#"/>
 
     <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/LongCang.css">
@@ -32,19 +32,19 @@
     <div class="header">
         <div class="vertical">
             <div class="inner">
-                <h1 class="header-subtitle">14_eval函数</h1>
+                <h1 class="header-subtitle"></h1>
                 <div class="header-subinfo">
                     <p class="article-info-text">
                         <span>
-                            <i class="iconfont icon-time"></i> 发表时间：2022-03-29
+                            <i class="iconfont icon-time"></i> 发表时间：2022-03-31
                         </span>
                         
-                            <span id="/2022/03/29/python面对对象学习/14_eval函数/" class="leancloud_visitors" data-flag-title="14_eval函数">
+                            <span id="/2022/03/31/MATLAB学习/补充文件/数组类型/" class="leancloud_visitors" data-flag-title="">
                                 <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
                             </span>
                         
                         <span>
-                            <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2022/03/29/python面对对象学习/14_eval函数/"></span>
+                            <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2022/03/31/MATLAB学习/补充文件/数组类型/"></span>
                         </span>  
                     </p>                 
                 </div>
@@ -58,31 +58,98 @@
         <div id="article">
     <div class="toc"></div>
     <div class="article-body">
-        <h1 id="eval-函数"><a href="#eval-函数" class="headerlink" title="eval 函数"></a><code>eval</code> 函数</h1><p><code>eval()</code> 函数十分强大 —— <strong>将字符串</strong> 当成 <strong>有效的表达式</strong> 来求值 并 <strong>返回计算结果</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 基本的数学计算</span></span><br><span class="line">In [<span class="number">1</span>]: <span class="built_in">eval</span>(<span class="string">&quot;1 + 1&quot;</span>)</span><br><span class="line">Out[<span class="number">1</span>]: <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 字符串重复</span></span><br><span class="line">In [<span class="number">2</span>]: <span class="built_in">eval</span>(<span class="string">&quot;&#x27;*&#x27; * 10&quot;</span>)</span><br><span class="line">Out[<span class="number">2</span>]: <span class="string">&#x27;**********&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将字符串转换成列表</span></span><br><span class="line">In [<span class="number">3</span>]: <span class="built_in">type</span>(<span class="built_in">eval</span>(<span class="string">&quot;[1, 2, 3, 4, 5]&quot;</span>))</span><br><span class="line">Out[<span class="number">3</span>]: <span class="built_in">list</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将字符串转换成字典</span></span><br><span class="line">In [<span class="number">4</span>]: <span class="built_in">type</span>(<span class="built_in">eval</span>(<span class="string">&quot;&#123;&#x27;name&#x27;: &#x27;xiaoming&#x27;, &#x27;age&#x27;: 18&#125;&quot;</span>))</span><br><span class="line">Out[<span class="number">4</span>]: <span class="built_in">dict</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="案例-计算器"><a href="#案例-计算器" class="headerlink" title="案例 - 计算器"></a>案例 - 计算器</h2><p><strong>需求</strong></p>
-<ol>
-<li>提示用户输入一个 <strong>加减乘除混合运算</strong></li>
-<li>返回计算结果</li>
-</ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">input_str = <span class="built_in">input</span>(<span class="string">&quot;请输入一个算术题：&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">eval</span>(input_str))</span><br></pre></td></tr></table></figure>
-
-<h2 id="不要滥用-eval"><a href="#不要滥用-eval" class="headerlink" title="不要滥用 eval"></a>不要滥用 <code>eval</code></h2><blockquote>
-<p>在开发时千万不要使用 <code>eval</code> 直接转换 <code>input</code> 的结果</p>
+        <h1 id="数组类型"><a href="#数组类型" class="headerlink" title="数组类型"></a>数组类型</h1><p>在<code>MATLAB</code>中进行运算的所有数据类型，<strong>都是按照数组及矩阵的形式进行存储和运算</strong>的，但是两者在性质上有着些许区别</p>
+<ul>
+<li>数组强调元素对元素的运算</li>
+<li>矩阵则采用线性代数的运算法则</li>
+</ul>
+<p>数组的属性及数组之间的逻辑关系，是在编写程序中两个非常重要的方面</p>
+<p>在<code>MATLAB</code>中，数组的定义是广泛的，<strong>数组中的数据类型元素</strong>可以是<strong>任意的数据类型</strong>，如<code>数值、字符串、指针</code>等。</p>
+<p>本次主要介绍数据的构建方式</p>
+<blockquote>
+<ul>
+<li>直接赋值</li>
+<li>函数构造</li>
+<li>空数组</li>
+</ul>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">__import__</span>(<span class="string">&#x27;os&#x27;</span>).system(<span class="string">&#x27;ls&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="一、直接赋值"><a href="#一、直接赋值" class="headerlink" title="一、直接赋值"></a>一、直接赋值</h2><p>可以通过直接对变量进行赋值来构建数组。如下：<br><code>code:</code></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; Array = [<span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span>]</span><br><span class="line"></span><br><span class="line">Array =</span><br><span class="line"></span><br><span class="line">     <span class="number">1</span>     <span class="number">2</span>     <span class="number">3</span>     <span class="number">4</span>     <span class="number">5</span>     <span class="number">6</span></span><br></pre></td></tr></table></figure>
 
+<p>在<code>MATLAB</code>中还可以通过冒号<code>:</code>来代替一系列的数值，可以用来定义数组。语法格式如下：<br><code>code:</code></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; Array = <span class="built_in">i</span>:<span class="built_in">j</span>:k</span><br></pre></td></tr></table></figure>
+
+<p>表示的含义为：创建从<code>i</code>开始，步长为<code>j</code>，到<code>k</code>结束的数字序列。其中<code>j</code>可以省略，如果省略代表创建从<code>i</code>开始，步长为<code>1</code>，到<code>k</code>结束的数字序列。如下：<br><code>code:</code></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; Array = <span class="number">1</span>:<span class="number">6</span></span><br><span class="line"></span><br><span class="line">Array =</span><br><span class="line"></span><br><span class="line">     <span class="number">1</span>     <span class="number">2</span>     <span class="number">3</span>     <span class="number">4</span>     <span class="number">5</span>     <span class="number">6</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="二、函数构造"><a href="#二、函数构造" class="headerlink" title="二、函数构造"></a>二、函数构造</h2><p>还可以通过一些预定义的函数来构建线性序列和逻辑序列。如下：<br><code>code:</code></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; Array = <span class="built_in">linspace</span>(<span class="number">1</span>,<span class="number">10</span>,<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">Array =</span><br><span class="line"></span><br><span class="line">    <span class="number">1.0000</span>    <span class="number">3.2500</span>    <span class="number">5.5000</span>    <span class="number">7.7500</span>   <span class="number">10.000</span></span><br></pre></td></tr></table></figure>
+
+<p>在区间<code>[1,10]</code>上等距离的创建了<code>5</code>个数字序列。</p>
+<h2 id="三、空数组"><a href="#三、空数组" class="headerlink" title="三、空数组"></a>三、空数组</h2><p>空数组，是十分有用的，表达的意思是数组的元素个数为<code>0</code>个，主要用于逻辑运算、数组声明、数组的清空等。如：<br><code>code:</code></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; Array_Empty = []</span><br><span class="line"></span><br><span class="line">Array_Empty =</span><br><span class="line"></span><br><span class="line">     []</span><br></pre></td></tr></table></figure>
+
+<h1 id="单元数组"><a href="#单元数组" class="headerlink" title="单元数组"></a>单元数组</h1><p>介绍了<strong>数组类型</strong>，本次简述一种广义的“数组”——单元数组（<code>cell</code>）</p>
+<p><strong>单元数组是一种无所不包的广义矩阵</strong>，其中<code>可以包括各种数据类型的数组</code></p>
 <ul>
-<li>等价代码</li>
+<li>如数值数组</li>
+<li>字符串数组</li>
+<li>结构体数组</li>
+<li>另外一个单元数组</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line">os.system(<span class="string">&quot;终端命令&quot;</span>)</span><br></pre></td></tr></table></figure>
-
+<p>组成单元数组的每一个元素称为一个单元。和一般的数值数组一样，单元数组可以是一维、二维或者多维的。使用单元数组的目的主要在于，<code>把不同的数据类型放在一起管理</code>。</p>
+<p>本文将主要从单元数组的创建、寻访和操作三个方面做出简单介绍。</p>
+<blockquote>
 <ul>
-<li>执行成功，返回 0</li>
-<li>执行失败，返回错误信息</li>
+<li>创建</li>
+<li>寻访</li>
+<li>操作</li>
 </ul>
+</blockquote>
+<h2 id="一、创建"><a href="#一、创建" class="headerlink" title="一、创建"></a>一、创建</h2><p>单元数组的创建主要有两种方法，使用赋值语句创建单元数组和利用<code>cell</code>函数创建数组。下面分别作出介绍。</p>
+<h4 id="1-使用赋值语句创建"><a href="#1-使用赋值语句创建" class="headerlink" title="1.使用赋值语句创建"></a>1.使用赋值语句创建</h4><p>与一般数组有所不同的是，单元数组使用<code>&#123;&#125;</code>来创建，使用<code>,</code>或者空格来分割每一个单元，使用<code>;</code>来分行。<br>例如：<br><code>code:</code></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; C = &#123;<span class="string">&#x27;x&#x27;</span>,[<span class="number">1</span>;<span class="number">3</span>;<span class="number">6</span>];<span class="number">10</span>,<span class="built_in">pi</span>&#125;;</span><br><span class="line">&gt;&gt; whos C</span><br><span class="line">  Name      Size            Bytes  Class    Attributes</span><br><span class="line"></span><br><span class="line">  C         <span class="number">2</span>x2               <span class="number">490</span>  cell               </span><br></pre></td></tr></table></figure>
 
+<h4 id="2-使用cell函数创建"><a href="#2-使用cell函数创建" class="headerlink" title="2.使用cell函数创建"></a>2.使用cell函数创建</h4><p>cell函数的调用格式如下：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cellName = cell(m,n)</span><br></pre></td></tr></table></figure>
+
+<p>表示的意思维创建一个<code>m</code>×<code>n</code>的单元数组，其每一个单元均为空矩阵。<br>例如：<br><code>code:</code></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; a = cell(<span class="number">2</span>,<span class="number">2</span>);</span><br><span class="line">&gt;&gt; b = cell(<span class="number">1</span>,<span class="number">1</span>);</span><br><span class="line">&gt;&gt; whos</span><br><span class="line">  Name      Size            Bytes  Class    Attributes</span><br><span class="line"></span><br><span class="line">  a         <span class="number">2</span>x2                <span class="number">32</span>  cell               </span><br><span class="line">  b         <span class="number">1</span>x1                 <span class="number">8</span>  cell               </span><br><span class="line"></span><br><span class="line">&gt;&gt; a</span><br><span class="line"></span><br><span class="line">a =</span><br><span class="line"></span><br><span class="line">  <span class="number">2</span>×<span class="number">2</span> cell 数组</span><br><span class="line"></span><br><span class="line">    []    []</span><br><span class="line">    []    []</span><br><span class="line"></span><br><span class="line">&gt;&gt; b</span><br><span class="line"></span><br><span class="line">b =</span><br><span class="line"></span><br><span class="line">  cell</span><br><span class="line"></span><br><span class="line">    &#123;[]&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>最后再说明一点，同一般的数值数组一样，单元数组内存空间也是动态分配的。因而，使用<code>cell</code>函数创建空单元数组的主要目的为了让单元数组预先分配连续的存储空间，以节约内存，提高执行效率</p>
+</blockquote>
+<h2 id="二、寻访"><a href="#二、寻访" class="headerlink" title="二、寻访"></a>二、寻访</h2><p>在单元数组中，一定要区分单元和单元中的内容，不然很容易出错</p>
+<p><code>MATLAB</code>中对此设计了两种操作对象：单元外标识符和单元内编制</p>
+<p>对于单元数组<code>C</code></p>
+<ul>
+<li><code>C(m,n)</code>指的是单元数组中第m行第n列的单元</li>
+<li><code>C&#123;m,n&#125;</code>指的是单元数组中第<code>m</code>行第<code>n</code>列的单元中的内容</li>
+</ul>
+<p>例如：</p>
+<p><code>code:</code></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; C = &#123;<span class="number">3</span>,[<span class="number">4</span> <span class="number">7</span>;<span class="number">6</span> <span class="number">6</span>;<span class="number">80</span> <span class="number">9</span>],<span class="string">&#x27;String&#x27;</span>;<span class="built_in">sin</span>(<span class="built_in">pi</span>/<span class="number">8</span>),<span class="number">3</span>&gt;<span class="number">10</span>,<span class="string">&#x27;code&#x27;</span>&#125;;</span><br><span class="line">&gt;&gt; unitVal_1 = C(<span class="number">2</span>,<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">unitVal_1 =</span><br><span class="line"></span><br><span class="line">  cell</span><br><span class="line"></span><br><span class="line">    [<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">&gt;&gt; class(unitVal_1)</span><br><span class="line"></span><br><span class="line"><span class="built_in">ans</span> =</span><br><span class="line"></span><br><span class="line">cell</span><br><span class="line"></span><br><span class="line">&gt;&gt; unitVal_2 = C&#123;<span class="number">2</span>,<span class="number">2</span>&#125;</span><br><span class="line"></span><br><span class="line">unitVal_2 =</span><br><span class="line"></span><br><span class="line">  logical</span><br><span class="line"></span><br><span class="line">   <span class="number">0</span></span><br><span class="line"></span><br><span class="line">&gt;&gt; class(unitVal_2)</span><br><span class="line"></span><br><span class="line"><span class="built_in">ans</span> =</span><br><span class="line"></span><br><span class="line">logical</span><br></pre></td></tr></table></figure>
+
+<h2 id="三、操作"><a href="#三、操作" class="headerlink" title="三、操作"></a>三、操作</h2><p>单元数组的操作包括</p>
+<ul>
+<li><strong>合并</strong></li>
+<li><strong>删除指定单元</strong></li>
+<li><strong>改变形状</strong></li>
+</ul>
+<h4 id="1、合并"><a href="#1、合并" class="headerlink" title="1、合并"></a>1、合并</h4><p>单元数组的合并<br><code>code:</code></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; a&#123;<span class="number">1</span>,<span class="number">1</span>&#125; = <span class="string">&#x27;cellclass&#x27;</span>;</span><br><span class="line">a&#123;<span class="number">1</span>,<span class="number">2</span>&#125; = [<span class="number">1</span> <span class="number">2</span> <span class="number">2</span>];</span><br><span class="line">a&#123;<span class="number">2</span>,<span class="number">1</span>&#125; = [<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>];</span><br><span class="line">a&#123;<span class="number">2</span>,<span class="number">2</span>&#125; = [<span class="number">9</span> <span class="number">4</span> <span class="number">5</span>];</span><br><span class="line">a</span><br><span class="line">b = &#123;<span class="string">&#x27;jan&#x27;</span>&#125;</span><br><span class="line">C = &#123;a,b&#125;</span><br><span class="line"></span><br><span class="line">a =</span><br><span class="line"></span><br><span class="line">  <span class="number">2</span>×<span class="number">2</span> cell 数组</span><br><span class="line"></span><br><span class="line">    <span class="string">&#x27;cellclass&#x27;</span>    [<span class="number">1</span>×<span class="number">3</span> double]</span><br><span class="line">    <span class="string">&#x27;abc&#x27;</span>          [<span class="number">1</span>×<span class="number">3</span> double]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">b =</span><br><span class="line"></span><br><span class="line">  cell</span><br><span class="line"></span><br><span class="line">    <span class="string">&#x27;jan&#x27;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">C =</span><br><span class="line"></span><br><span class="line">  <span class="number">1</span>×<span class="number">2</span> cell 数组</span><br><span class="line"></span><br><span class="line">    &#123;<span class="number">2</span>×<span class="number">2</span> cell&#125;    &#123;<span class="number">1</span>×<span class="number">1</span> cell&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2、删除"><a href="#2、删除" class="headerlink" title="2、删除"></a>2、删除</h4><p>如果要删除的话，那就用空矩阵把其给替换掉。</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C&#123;m,n&#125; = []</span><br></pre></td></tr></table></figure>
+
+<p>例如：<br><code>code:</code></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; C = &#123;<span class="built_in">ones</span>(<span class="number">3</span>),<span class="string">&#x27;Hello CN&#x27;</span>,<span class="built_in">zeros</span>(<span class="number">5</span>),[<span class="number">20</span>,<span class="number">4</span>,<span class="number">6</span>]&#125;</span><br><span class="line"></span><br><span class="line">C =</span><br><span class="line"></span><br><span class="line">  <span class="number">1</span>×<span class="number">4</span> cell 数组</span><br><span class="line"></span><br><span class="line">    [<span class="number">3</span>×<span class="number">3</span> double]    <span class="string">&#x27;Hello CN&#x27;</span>    [<span class="number">5</span>×<span class="number">5</span> double]    [<span class="number">1</span>×<span class="number">3</span> double]</span><br><span class="line"></span><br><span class="line">&gt;&gt; C&#123;<span class="number">1</span>,<span class="number">4</span>&#125; = []</span><br><span class="line"></span><br><span class="line">C =</span><br><span class="line"></span><br><span class="line">  <span class="number">1</span>×<span class="number">4</span> cell 数组</span><br><span class="line"></span><br><span class="line">    [<span class="number">3</span>×<span class="number">3</span> double]    <span class="string">&#x27;Hello CN&#x27;</span>    [<span class="number">5</span>×<span class="number">5</span> double]    []</span><br></pre></td></tr></table></figure>
+
+<h4 id="3、变形"><a href="#3、变形" class="headerlink" title="3、变形"></a>3、变形</h4><p>改变形状的要使用reshape函数，调用格式为：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">trimC = <span class="built_in">reshape</span>(C,M,N)</span><br></pre></td></tr></table></figure>
+
+<p>意思是把单元数组<code>C</code>变成一个具有<code>M</code>行和<code>N</code>列的新的单元数组。<br>例如：<br><code>code:</code></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; C = &#123;<span class="built_in">ones</span>(<span class="number">3</span>),<span class="string">&#x27;Hello CN&#x27;</span>,<span class="built_in">zeros</span>(<span class="number">5</span>),[<span class="number">20</span>,<span class="number">4</span>,<span class="number">6</span>]&#125;</span><br><span class="line"></span><br><span class="line">C =</span><br><span class="line"></span><br><span class="line">  <span class="number">1</span>×<span class="number">4</span> cell 数组</span><br><span class="line"></span><br><span class="line">    [<span class="number">3</span>×<span class="number">3</span> double]    <span class="string">&#x27;Hello CN&#x27;</span>    [<span class="number">5</span>×<span class="number">5</span> double]    [<span class="number">1</span>×<span class="number">3</span> double]</span><br><span class="line"></span><br><span class="line">&gt;&gt; newC = <span class="built_in">reshape</span>(C,<span class="number">4</span>,<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">newC =</span><br><span class="line"></span><br><span class="line">  <span class="number">4</span>×<span class="number">1</span> cell 数组</span><br><span class="line"></span><br><span class="line">    [<span class="number">3</span>×<span class="number">3</span> double]</span><br><span class="line">    <span class="string">&#x27;Hello CN&#x27;</span></span><br><span class="line">    [<span class="number">5</span>×<span class="number">5</span> double]</span><br><span class="line">    [<span class="number">1</span>×<span class="number">3</span> double]</span><br></pre></td></tr></table></figure>
         <p class="suffix-end">__END__</p>
         <div class="suffix-box">
             <div class="suffix-box-left">
@@ -91,7 +158,7 @@
             <div class="suffix-box-right">
                 <span class="suffix-box-title">文章作者</span>：hero
                 <br>
-                <span class="suffix-box-title">文章出处</span>：<a href="/2022/03/29/python%E9%9D%A2%E5%AF%B9%E5%AF%B9%E8%B1%A1%E5%AD%A6%E4%B9%A0/14_eval%E5%87%BD%E6%95%B0/" target="_blank">14_eval函数</a>
+                <span class="suffix-box-title">文章出处</span>：<a href="/2022/03/31/MATLAB%E5%AD%A6%E4%B9%A0/%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/%E6%95%B0%E7%BB%84%E7%B1%BB%E5%9E%8B/" target="_blank"></a>
                 <br>
                 <span class="suffix-box-title">作者签名</span>：简单地活着, 肆意又精彩.
                 <br>
@@ -105,28 +172,14 @@
     </div>
     <div class="article-footer">
         
-            <div class="category">
-                分类：
-                
-                    <a href="/category/python%E9%9D%A2%E5%AF%B9%E5%AF%B9%E8%B1%A1%E5%AD%A6%E4%B9%A0/">python面对对象学习</a>
-                
-            </div>
-        
-        
-            <div class="tag">
-                标签：
-                
-                    <a href="/tag/python%E5%AD%A6%E4%B9%A0/">python学习</a>
-                
-            </div>
         
         <div class="article-prev-next">
             
-                <a href="/2022/03/31/MATLAB%E5%AD%A6%E4%B9%A0/%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/asv%E6%96%87%E4%BB%B6/" class="prev-prefix">« </a> 上一篇：    <a href="/2022/03/31/MATLAB%E5%AD%A6%E4%B9%A0/%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/asv%E6%96%87%E4%BB%B6/" title="发布于 2022-03-31 01:37"></a>
+                <a href="/2022/03/31/MATLAB%E5%AD%A6%E4%B9%A0/%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/%E6%B3%A8%E9%87%8A/" class="prev-prefix">« </a> 上一篇：    <a href="/2022/03/31/MATLAB%E5%AD%A6%E4%B9%A0/%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/%E6%B3%A8%E9%87%8A/" title="发布于 2022-03-31 01:37"></a>
                 <br>
             
             
-                <a href="/2022/03/28/python%E9%9D%A2%E5%AF%B9%E5%AF%B9%E8%B1%A1%E5%AD%A6%E4%B9%A0/13_%E6%96%87%E4%BB%B6/" class="next-prefix">» </a> 下一篇：    <a href="/2022/03/28/python%E9%9D%A2%E5%AF%B9%E5%AF%B9%E8%B1%A1%E5%AD%A6%E4%B9%A0/13_%E6%96%87%E4%BB%B6/" title="发布于 2022-03-28 08:12">13_文件</a>
+                <a href="/2022/03/31/MATLAB%E5%AD%A6%E4%B9%A0/%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/%E5%AD%97%E7%AC%A6%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="next-prefix">» </a> 下一篇：    <a href="/2022/03/31/MATLAB%E5%AD%A6%E4%B9%A0/%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/%E5%AD%97%E7%AC%A6%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2/" title="发布于 2022-03-31 01:37"></a>
             
         </div>
     </div>
