@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no">
+    <meta name="referrer" content="origin">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <title>03_基础语法</title>
+    <link rel="shortcut icon" href="#"/>
+
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/LongCang.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Monda.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/NotoSansSC.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Playball.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/PTMono.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/RobotoSlab.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Rosario.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/UbuntuMono.css">
+
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/post.css">
+    
+        <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/normal.css">
+    
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/jquery-3.4.1.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.1"></head>
+<body>
+    <a id="cover"></a>
+    <div id="header">
+    <div class="header">
+        <div class="vertical">
+            <div class="inner">
+                <h1 class="header-subtitle">03_基础语法</h1>
+                <div class="header-subinfo">
+                    <p class="article-info-text">
+                        <span>
+                            <i class="iconfont icon-time"></i> 发表时间：2022-03-19
+                        </span>
+                        
+                            <span id="/2022/03/19/python面对对象学习/03_基础语法/" class="leancloud_visitors" data-flag-title="03_基础语法">
+                                <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                            </span>
+                        
+                        <span>
+                            <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2022/03/19/python面对对象学习/03_基础语法/"></span>
+                        </span>  
+                    </p>                 
+                </div>
+            </div>
+        </div>
+        <canvas id="articleHeaderCanvas"></canvas>
+    </div>
+</div>
+    <div id="container">
+    <div id="content">
+        <div id="article">
+    <div class="toc"></div>
+    <div class="article-body">
+        <h1 id="面相对象基础语法"><a href="#面相对象基础语法" class="headerlink" title="面相对象基础语法"></a>面相对象基础语法</h1><h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ul>
+<li><code>dir</code> 内置函数</li>
+<li>定义简单的类（只包含方法）</li>
+<li>方法中的 <code>self</code> 参数</li>
+<li>初始化方法</li>
+<li>内置方法和属性</li>
+</ul>
+<h2 id="01-dir-内置函数（知道）"><a href="#01-dir-内置函数（知道）" class="headerlink" title="01. dir 内置函数（知道）"></a>01. <code>dir</code> 内置函数（知道）</h2><ul>
+<li>在 <code>Python</code> 中 <strong>对象几乎是无所不在的</strong>，<em>我们之前学习的 <strong>变量</strong>、<strong>数据</strong>、<strong>函数</strong> 都是对象</em></li>
+</ul>
+<p>在 <code>Python</code> 中可以使用以下两个方法验证：</p>
+<ol>
+<li>在 <strong>标识符</strong> / <strong>数据</strong> 后输入一个 <code>.</code>，然后按下 <code>TAB</code> 键，<code>iPython</code> 会提示该对象能够调用的 <strong>方法列表</strong></li>
+<li>使用内置函数 <code>dir</code> 传入 <strong>标识符</strong> / <strong>数据</strong>，可以查看对象内的 <strong>所有属性及方法</strong></li>
+</ol>
+<p><strong>提示</strong> <code>__方法名__</code> 格式的方法是 <code>Python</code> 提供的 <strong>内置方法 / 属性</strong>，稍后会给大家介绍一些常用的 内置方法 / 属性</p>
+<p><img src="https://s2.loli.net/2022/03/19/rMtYxpNqUv3A7Oc.png" alt="image-20220319133706372"><code>._ _doc_ _      属性</code></p>
+<table>
+<thead>
+<tr>
+<th align="center">序号</th>
+<th align="center">方法名</th>
+<th align="center">类型</th>
+<th align="left">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">01</td>
+<td align="center"><code>__new__</code></td>
+<td align="center">方法</td>
+<td align="left"><strong>创建对象</strong>时，会被 <strong>自动</strong> 调用</td>
+</tr>
+<tr>
+<td align="center">02</td>
+<td align="center"><code>__init__</code></td>
+<td align="center">方法</td>
+<td align="left"><strong>对象被初始化</strong>时，会被 <strong>自动</strong> 调用</td>
+</tr>
+<tr>
+<td align="center">03</td>
+<td align="center"><code>__del__</code></td>
+<td align="center">方法</td>
+<td align="left"><strong>对象被从内存中销毁</strong>前，会被 <strong>自动</strong> 调用</td>
+</tr>
+<tr>
+<td align="center">04</td>
+<td align="center"><code>__str__</code></td>
+<td align="center">方法</td>
+<td align="left">返回<strong>对象的描述信息</strong>，<code>print</code> 函数输出使用</td>
+</tr>
+</tbody></table>
+<p><strong>提示</strong> 利用好 <code>dir()</code> 函数，在学习时很多内容就不需要死记硬背了</p>
+<h2 id="02-定义简单的类（只包含方法）"><a href="#02-定义简单的类（只包含方法）" class="headerlink" title="02. 定义简单的类（只包含方法）"></a>02. 定义简单的类（只包含方法）</h2><blockquote>
+<p><strong>面向对象</strong> 是 <strong>更大</strong> 的 <strong>封装</strong>，在 <strong>一个类中 封装 多个方法</strong>，这样 <strong>通过这个类创建出来的对象，就可以直接调用这些方法了</strong>！</p>
+</blockquote>
+<h3 id="2-1-定义只包含方法的类"><a href="#2-1-定义只包含方法的类" class="headerlink" title="2.1 定义只包含方法的类"></a>2.1 定义只包含方法的类</h3><ul>
+<li>在 <code>Python</code> 中要定义一个只包含方法的类，语法格式如下：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> 类名:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> 方法1(<span class="params">self, 参数列表</span>):</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> 方法2(<span class="params">self, 参数列表</span>):</span></span><br><span class="line">        <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>方法</strong> 的定义格式和之前学习过的<strong>函数</strong> 几乎一样</li>
+<li>区别在于第一个参数必须是 <code>self</code>，大家暂时先记住，稍后介绍 <code>self</code></li>
+</ul>
+<blockquote>
+<p>注意：<strong>类名</strong> 的 命名规则 要符合 <strong>大驼峰命名法</strong></p>
+</blockquote>
+<h3 id="2-2-创建对象"><a href="#2-2-创建对象" class="headerlink" title="2.2 创建对象"></a>2.2 创建对象</h3><ul>
+<li>当一个类定义完成之后，要使用这个类来创建对象，语法格式如下：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">对象变量 = 类名()</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-3-第一个面向对象程序"><a href="#2-3-第一个面向对象程序" class="headerlink" title="2.3 第一个面向对象程序"></a>2.3 第一个面向对象程序</h3><p><strong>需求</strong></p>
+<ul>
+<li><strong>小猫</strong> 爱 <strong>吃</strong> 鱼，<strong>小猫</strong> 要 <strong>喝</strong> 水</li>
+</ul>
+<p><strong>分析</strong></p>
+<ol>
+<li>定义一个猫类 <code>Cat</code></li>
+<li>定义两个方法 <code>eat</code> 和 <code>drink</code></li>
+<li>按照需求 —— 不需要定义属性</li>
+</ol>
+<p><img src="https://s2.loli.net/2022/03/19/4nyHJSbaDlu6WAY.png" alt="004_Cat类1"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span>:</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;这是一个猫类&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">eat</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;小猫爱吃鱼&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">drink</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;小猫在喝水&quot;</span>)</span><br><span class="line"></span><br><span class="line">tom = Cat()</span><br><span class="line">tom.drink()</span><br><span class="line">tom.eat()</span><br></pre></td></tr></table></figure>
+
+<h4 id="引用概念的强调"><a href="#引用概念的强调" class="headerlink" title="引用概念的强调"></a>引用概念的强调</h4><blockquote>
+<p>在面向对象开发中，<strong>引用</strong>的概念是同样适用的！</p>
+</blockquote>
+<ul>
+<li><p>在 <code>Python</code> 中使用类 <strong>创建对象之后</strong>，<code>tom</code> 变量中 仍然记录的是 <strong>对象在内存中的地址</strong></p>
+</li>
+<li><p>也就是 <code>tom</code> 变量 <strong>引用</strong> 了 <strong>新建的猫对象</strong></p>
+<ul>
+<li><p>（借用引用概念可以解释：</p>
+<p><a href="%5B(4%E6%9D%A1%E6%B6%88%E6%81%AF">Python中一切皆对象。不管是我们自己定义的类、6种基本数据类型还是内置的类(第三方类)等都称作为对象</a> python：类基础_不怕猫的耗子A的博客-CSDN博客_python 类](<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_39314932/article/details/80716295))%EF%BC%89">https://blog.csdn.net/qq_39314932/article/details/80716295))）</a></p>
+</li>
+</ul>
+</li>
+<li><p>使用 <code>print</code> 输出 <strong>对象变量</strong>，默认情况下，是能够输出这个变量 <strong>引用的对象</strong> 是 <strong>由哪一个类创建的对象</strong>，以及 <strong>在内存中的地址</strong>（<strong>十六进制表示</strong>）</p>
+</li>
+</ul>
+<blockquote>
+<p>提示：在计算机中，通常使用 <strong>十六进制</strong> 表示 <strong>内存地址</strong></p>
+<ul>
+<li><strong>十进制</strong> 和 <strong>十六进制</strong> 都是用来表达数字的，只是表示的方式不一样</li>
+<li><strong>十进制</strong> 和 <strong>十六进制</strong> 的数字之间可以来回转换</li>
+</ul>
+</blockquote>
+<ul>
+<li><code>%d</code> 可以以 <strong>10 进制</strong> 输出数字</li>
+<li><code>%x</code> 可以以 <strong>16 进制</strong> 输出数字</li>
+</ul>
+<p><img src="https://s2.loli.net/2022/03/20/Yg96x43bnzpRiyO.png" alt="image-20220320132828155"></p>
+<h4 id="案例进阶-——-使用-Cat-类再创建一个对象"><a href="#案例进阶-——-使用-Cat-类再创建一个对象" class="headerlink" title="案例进阶 —— 使用 Cat 类再创建一个对象"></a>案例进阶 —— 使用 Cat 类再创建一个对象</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">lazy_cat = Cat()</span><br><span class="line">lazy_cat.eat()</span><br><span class="line">lazy_cat.drink()</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>提问：<code>tom</code> 和 <code>lazy_cat</code> 是同一个对象吗？</p>
+</blockquote>
+<h2 id="03-方法中的-self-参数"><a href="#03-方法中的-self-参数" class="headerlink" title="03. 方法中的 self 参数"></a>03. 方法中的 <code>self</code> 参数</h2><h3 id="3-1-案例改造-——-给对象增加属性"><a href="#3-1-案例改造-——-给对象增加属性" class="headerlink" title="3.1 案例改造 —— 给对象增加属性"></a>3.1 案例改造 —— 给对象增加属性</h3><ul>
+<li><p>在 Python中，要给对象设置属性，非常的容易，但是不推荐使用</p>
+<ul>
+<li>因为：对象属性的封装应该封装在类的内部</li>
+</ul>
+</li>
+<li><p>只需要在 <strong>类的外部的代码</strong> 中直接通过 <code>.</code> 设置一个属性即可</p>
+<p><img src="https://s2.loli.net/2022/03/20/iJaLUof3WjwOcEM.png" alt="image-20220320134607670"></p>
+</li>
+</ul>
+<blockquote>
+<p>注意：这种方式虽然简单，但是不推荐使用！</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tom.name = <span class="string">&quot;Tom&quot;</span></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">lazy_cat.name = <span class="string">&quot;大懒猫&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-2-使用-self-在方法内部输出每一只猫的名字"><a href="#3-2-使用-self-在方法内部输出每一只猫的名字" class="headerlink" title="3.2 使用 self 在方法内部输出每一只猫的名字"></a>3.2 使用 <code>self</code> 在方法内部输出每一只猫的名字</h3><blockquote>
+<p>由 <strong>哪一个对象</strong> 调用的方法，方法内的 <code>self</code> 就是 <strong>哪一个对象的引用</strong></p>
+<p><img src="https://s2.loli.net/2022/03/20/B4nzx5FOyAwHgiv.png" alt="image-20220320135141107" style="zoom:33%;" /><img src="https://s2.loli.net/2022/03/20/BHUGXhb2596A1Rj.png" alt="image-20220320135222976" style="zoom:33%;" /><img src="https://s2.loli.net/2022/03/20/hOgwHs1CVESdmMT.png" alt="image-20220320135613550" style="zoom: 25%;" /></p>
+</blockquote>
+<ul>
+<li>在类封装的方法内部，<code>self</code> 就表示 <strong>当前调用方法的对象自己</strong></li>
+<li><strong>调用方法时</strong>，程序员不需要传递 <code>self</code> 参数</li>
+<li>在方法内部<ul>
+<li>可以通过 <code>self.</code> <strong>访问对象的属性</strong></li>
+<li>也可以通过 <code>self.</code> <strong>调用其他的对象方法</strong></li>
+</ul>
+</li>
+<li>改造代码如下：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">eat</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;%s 爱吃鱼&quot;</span> % self.name)</span><br><span class="line"></span><br><span class="line">tom = Cat()</span><br><span class="line">tom.name = <span class="string">&quot;Tom&quot;</span></span><br><span class="line">tom.eat()</span><br><span class="line"></span><br><span class="line">lazy_cat = Cat()</span><br><span class="line">lazy_cat.name = <span class="string">&quot;大懒猫&quot;</span></span><br><span class="line">lazy_cat.eat()</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p><img src="https://s2.loli.net/2022/03/19/JaVXxeRbFdZmswT.png" alt="005_方法中的self"></p>
+<ul>
+<li>在 <strong>类的外部</strong>，通过 <code>变量名.</code> 访问对象的 <strong>属性和方法</strong></li>
+<li>在 <strong>类封装的方法中</strong>，通过 <code>self.</code> 访问对象的 <strong>属性和方法</strong></li>
+</ul>
+<h2 id="04-初始化方法"><a href="#04-初始化方法" class="headerlink" title="04. 初始化方法"></a>04. 初始化方法</h2><h3 id="4-1-之前代码存在的问题-——-在类的外部给对象增加属性"><a href="#4-1-之前代码存在的问题-——-在类的外部给对象增加属性" class="headerlink" title="4.1 之前代码存在的问题 —— 在类的外部给对象增加属性"></a>4.1 之前代码存在的问题 —— 在类的外部给对象增加属性</h3><ul>
+<li>将案例代码进行调整，<strong>先调用方法 再设置属性</strong>，观察一下执行效果</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tom = Cat()</span><br><span class="line">tom.drink()</span><br><span class="line">tom.eat()</span><br><span class="line">tom.name = <span class="string">&quot;Tom&quot;</span></span><br><span class="line"><span class="built_in">print</span>(tom)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>程序执行报错如下：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">AttributeError: &#x27;Cat&#x27; object has no attribute &#x27;name&#x27;</span><br><span class="line">属性错误：&#x27;Cat&#x27; 对象没有 &#x27;name&#x27; 属性</span><br></pre></td></tr></table></figure>
+
+<p><strong>提示</strong></p>
+<ul>
+<li><p>在日常开发中，不推荐在类的外部给对象增加属性</p>
+<ul>
+<li>如果<strong>在运行时，没有找到属性，程序会报错</strong></li>
+</ul>
+</li>
+<li><p>对象应该包含有哪些属性，应该 <strong>封装在类的内部</strong></p>
+</li>
+</ul>
+<h3 id="4-2-初始化方法"><a href="#4-2-初始化方法" class="headerlink" title="4.2 初始化方法"></a>4.2 初始化方法</h3><ul>
+<li><p>当使用  类名()  创建对象时，会自动执行以下操作：</p>
+<ol>
+<li>为对象在内存中 <strong>分配空间</strong> —— 创建对象</li>
+<li>为对象的属性 <strong>设置初始值</strong> —— 初始化方法(<code>init</code>)</li>
+</ol>
+</li>
+<li><p>这个 <strong>初始化方法</strong> 就是 <code>__init__</code> 方法，<code>__init__</code> 是对象的<strong>内置方法</strong></p>
+</li>
+</ul>
+<blockquote>
+<p><code>__init__</code> 方法是 <strong>专门</strong> 用来定义一个类 <strong>具有哪些属性的方法</strong>！</p>
+</blockquote>
+<p>在 <code>Cat</code> 中增加 <code>__init__</code> 方法，验证该方法在创建对象时会被自动调用</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span>:</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;这是一个猫类&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;初始化方法&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-3-在初始化方法内部定义属性"><a href="#4-3-在初始化方法内部定义属性" class="headerlink" title="4.3 在初始化方法内部定义属性"></a>4.3 在初始化方法内部定义属性</h3><ul>
+<li>在 <code>__init__</code> 方法内部使用 <code>self.属性名 = 属性的初始值</code> 就可以 <strong>定义属性</strong></li>
+<li>定义属性之后，再使用 <code>Cat</code> 类创建的对象，都会拥有该属性</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line"></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;这是一个初始化方法&quot;</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 定义用 Cat 类创建的猫对象都有一个 name 的属性</span></span><br><span class="line">        self.name = <span class="string">&quot;Tom&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">eat</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;%s 爱吃鱼&quot;</span> % self.name)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用类名()创建对象的时候，会自动调用初始化方法 __init__</span></span><br><span class="line">tom = Cat()</span><br><span class="line"></span><br><span class="line">tom.eat()</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-4-改造初始化方法-——-初始化的同时设置初始值"><a href="#4-4-改造初始化方法-——-初始化的同时设置初始值" class="headerlink" title="4.4 改造初始化方法 —— 初始化的同时设置初始值"></a>4.4 改造初始化方法 —— 初始化的同时设置初始值</h3><ul>
+<li><p>在开发中，如果希望在创建对象的同时，就设置对象的属性，可以对__init__方法进行改造</p>
+<ol>
+<li>把希望设置的属性值，定义成 <code>__init__</code> 方法的参数</li>
+<li>在方法内部使用 <code>self.属性 = 形参</code> 接收外部传递的参数</li>
+<li>在创建对象时，使用 <code>类名(属性1, 属性2...)</code> 调用</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, name</span>):</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;初始化方法 %s&quot;</span> % name)</span><br><span class="line">        self.name = name</span><br><span class="line">    ...</span><br><span class="line">    </span><br><span class="line">tom = Cat(<span class="string">&quot;Tom&quot;</span>)</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">lazy_cat = Cat(<span class="string">&quot;大懒猫&quot;</span>)</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<h2 id="05-内置方法和属性"><a href="#05-内置方法和属性" class="headerlink" title="05. 内置方法和属性"></a>05. 内置方法和属性</h2><table>
+<thead>
+<tr>
+<th align="center">序号</th>
+<th align="center">方法名</th>
+<th align="center">类型</th>
+<th align="left">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">01</td>
+<td align="center"><code>__del__</code></td>
+<td align="center">方法</td>
+<td align="left"><strong>对象被从内存中销毁</strong>前，会被 <strong>自动</strong> 调用</td>
+</tr>
+<tr>
+<td align="center">02</td>
+<td align="center"><code>__str__</code></td>
+<td align="center">方法</td>
+<td align="left">返回<strong>对象的描述信息</strong>，<code>print</code> 函数输出使用</td>
+</tr>
+</tbody></table>
+<h3 id="5-1-del-方法（知道）"><a href="#5-1-del-方法（知道）" class="headerlink" title="5.1 __del__ 方法（知道）"></a>5.1 <code>__del__</code> 方法（知道）</h3><ul>
+<li>在 <code>Python</code> 中<ul>
+<li>当使用 <code>类名()</code> 创建对象时，为对象 <strong>分配完空间</strong>后，<strong>自动</strong> 调用 <code>__init__</code> 方法</li>
+<li>当一个 <strong>对象被从内存中销毁</strong> 前，会 <strong>自动</strong> 调用 <code>__del__</code> 方法</li>
+</ul>
+</li>
+<li><strong>应用场景</strong><ul>
+<li><code>__init__</code> 改造初始化方法，可以让创建对象更加灵活</li>
+<li><code>__del__</code> 如果希望在对象被销毁前，再做一些事情，可以考虑一下 <code>__del__</code> 方法</li>
+</ul>
+</li>
+<li><strong>生命周期</strong><ul>
+<li>一个对象从调用 <code>类名()</code> 创建，生命周期开始</li>
+<li>一个对象的 <code>__del__</code> 方法一旦被调用，生命周期结束</li>
+<li>在对象的生命周期内，可以访问对象属性，或者让对象调用方法</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, new_name</span>):</span></span><br><span class="line"></span><br><span class="line">        self.name = new_name</span><br><span class="line"></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;%s 来了&quot;</span> % self.name)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__del__</span>(<span class="params">self</span>):</span></span><br><span class="line"></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;%s 去了&quot;</span> % self.name)</span><br><span class="line"></span><br><span class="line"><span class="comment"># tom 是一个全局变量</span></span><br><span class="line">tom = Cat(<span class="string">&quot;Tom&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(tom.name)</span><br><span class="line"></span><br><span class="line"><span class="comment"># del 关键字可以删除一个对象</span></span><br><span class="line"><span class="keyword">del</span> tom</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;-&quot;</span> * <span class="number">50</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-2-str-方法"><a href="#5-2-str-方法" class="headerlink" title="5.2 __str__ 方法"></a>5.2 <code>__str__</code> 方法</h3><ul>
+<li>在 <code>Python</code> 中，使用 <code>print</code> 输出 <strong>对象变量</strong>，默认情况下，会输出这个变量 <strong>引用的对象</strong> 是 <strong>由哪一个类创建的对象</strong>，以及 <strong>在内存中的地址</strong>（<strong>十六进制表示</strong>）</li>
+<li>如果在开发中，希望使用 <code>print</code> 输出 <strong>对象变量</strong> 时，能够打印 <strong>自定义的内容</strong>，就可以利用 <code>__str__</code> 这个内置方法了</li>
+</ul>
+<blockquote>
+<p>注意：<code>__str__</code> 方法必须返回一个字符串</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, new_name</span>):</span></span><br><span class="line"></span><br><span class="line">        self.name = new_name</span><br><span class="line"></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;%s 来了&quot;</span> % self.name)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__del__</span>(<span class="params">self</span>):</span></span><br><span class="line"></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;%s 去了&quot;</span> % self.name)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;我是小猫：%s&quot;</span> % self.name</span><br><span class="line"></span><br><span class="line">tom = Cat(<span class="string">&quot;Tom&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(tom)</span><br></pre></td></tr></table></figure>
+        <p class="suffix-end">__END__</p>
+        <div class="suffix-box">
+            <div class="suffix-box-left">
+                <img src="https://gitee.com/lichaikui/picture/raw/master/tupian/20211222195800.png" alt="hero">
+            </div>
+            <div class="suffix-box-right">
+                <span class="suffix-box-title">文章作者</span>：hero
+                <br>
+                <span class="suffix-box-title">文章出处</span>：<a href="/2022/03/19/python%E9%9D%A2%E5%AF%B9%E5%AF%B9%E8%B1%A1%E5%AD%A6%E4%B9%A0/03_%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" target="_blank">03_基础语法</a>
+                <br>
+                <span class="suffix-box-title">作者签名</span>：简单地活着, 肆意又精彩.
+                <br>
+                <span class="suffix-box-title">关于主题</span>：<a href="https://github.com/first19326/Hexo-LiveForCode" target="_blank">Hexo - Live For Code</a>
+                <br>
+                <span class="suffix-box-title">版权声明</span>：文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" title="BY-NC-SA" target="_blank">BY-NC-SA</a> 许可协议，转载请注明出处
+                <br>
+            </div>
+            <div style="clear: both;"></div>
+        </div>
+    </div>
+    <div class="article-footer">
+        
+            <div class="category">
+                分类：
+                
+                    <a href="/category/python%E9%9D%A2%E5%AF%B9%E5%AF%B9%E8%B1%A1%E5%AD%A6%E4%B9%A0/">python面对对象学习</a>
+                
+            </div>
+        
+        
+            <div class="tag">
+                标签：
+                
+                    <a href="/tag/python%E5%AD%A6%E4%B9%A0/">python学习</a>
+                
+            </div>
+        
+        <div class="article-prev-next">
+            
+                <a href="/2022/03/20/python%E9%9D%A2%E5%AF%B9%E5%AF%B9%E8%B1%A1%E5%AD%A6%E4%B9%A0/04_%E5%B0%81%E8%A3%85%E6%A1%88%E4%BE%8BI/" class="prev-prefix">« </a> 上一篇：    <a href="/2022/03/20/python%E9%9D%A2%E5%AF%B9%E5%AF%B9%E8%B1%A1%E5%AD%A6%E4%B9%A0/04_%E5%B0%81%E8%A3%85%E6%A1%88%E4%BE%8BI/" title="发布于 2022-03-20 08:12">04_封装案例I</a>
+                <br>
+            
+            
+                <a href="/2022/03/18/python%E9%9D%A2%E5%AF%B9%E5%AF%B9%E8%B1%A1%E5%AD%A6%E4%B9%A0/02_%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="next-prefix">» </a> 下一篇：    <a href="/2022/03/18/python%E9%9D%A2%E5%AF%B9%E5%AF%B9%E8%B1%A1%E5%AD%A6%E4%B9%A0/02_%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" title="发布于 2022-03-18 08:12">02_类和对象基本概念</a>
+            
+        </div>
+    </div>
+    
+    <div class="article-comments">
+        <div class="comments-title">
+            评论列表
+        </div>
+        <div class="comments-content">
+        </div>
+    </div>
+
+</div>
+
+    </div>
+</div>
+    <div id="footer"></div>
+    <div id="sidebar">
+    <div class="menu-wrap" style="display:none;">
+        <nav class="menu">
+            <div class="menu-introduce"> 
+                <div class="introduce-avatar"></div> 
+                <div class="introduce-info"> 
+                    <div class="introduce-user"><span></span></div>        
+                </div> 
+            </div> 
+            <div class="menu-list">
+                <ul></ul> 
+            </div> 
+            <div class="menu-link"></div> 
+        </nav>
+        <button class="menu-button-close"></button>
+        <div class="morph-shape" id="morph-shape" data-morph-open="M-7.312,0H15c0,0,66,113.339,66,399.5C81,664.006,15,800,15,800H-7.312V0z;M-7.312,0H100c0,0,0,113.839,0,400c0,264.506,0,400,0,400H-7.312V0z">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 800" preserveAspectRatio="none">
+                <path d="M-7.312,0H0c0,0,0,113.839,0,400c0,264.506,0,400,0,400h-7.312V0z"/>
+            </svg>
+        </div>
+    </div>
+    <button class="menu-button-open">MENU</button>
+    <div class="menu-cover"></div>
+</div>
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/search.css">
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/iscroll.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/instantsearch.min.js"></script>
+<div class="search-window">
+    <div class="search-content">
+        <div class="search-content-icon">
+            <i class="iconfont icon-search"></i>
+        </div>
+        <div id="search-input" class="search-input"></div>
+    </div>
+
+    <div class="search-scroll">
+        <div class="search-result">
+            <div id="search-stats" class="search-stats"></div>
+            <div id="search-hits"></div>
+            <div id="search-pagination" class="search-pagination"></div>
+        </div>
+    </div>
+
+    <span class="search-close-icon">
+        <i class="iconfont icon-close"></i>
+    </span>
+</div>
+    <div id="tools">
+    <div class="progressbar-top"></div>
+
+    
+        <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/APlayer.css">
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/APlayer.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/Meting.min.js"></script>
+        <meting-js id="3778678" lrcshow="false" server="netease" type="playlist" fixed="true" autoplay="false" loop="all" order="random" preload="auto" volume="0.67" mutex="true"></meting-js>
+    
+    
+    <div class="wrap-right"></div>
+    <div class="loading"></div>
+</div>
+    <script>
+    window.config = {
+        GitHubUserName     : 'fubaisen',
+        GitHubRepositories : 'fubaisen.github.io',
+
+        BlogUser      : 'hero',
+        BlogAvatar    : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222195800.png',
+        BlogStartDate : '2020-01-01',
+
+        WebsiteTitleBlur         : '(◍´꒳`◍) Hi, friend',
+        WebsiteTitleBlurTimeOut  : 500,
+        WebsiteTitleFocus        : '(*´∇｀*) 欢迎回来!',
+        WebsiteTitleFocusTimeOut : 1000,
+        WebsiteFavicon           : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222195607.png',
+
+        ProgressBar: {
+            id       : 'topProgressBar',
+            color    : '#77B6FF',
+            height   : '2px',
+            duration : 0.2
+        },
+
+        Loading: {
+            rebound: {
+                tension  : 16,
+                friction : 5
+            },
+            spinner: {
+                id     : 'spinner',
+                radius : 90,
+                sides  : 3,
+                depth  : 4,
+                colors : {
+                    background : '#F0F0F0',
+                    stroke     : '#272633',
+                    base       : '',
+                    child      : '#272633'
+                },
+                alwaysForward : true,
+                restAt        : 0.5,
+                renderBase    : false
+            }
+        },
+
+        HomeHeaderAnimationRendered : true,
+        HomeHeaderAnimation         : {
+            radius      : 15,
+            density     : 0.2,
+            color       : 'rgba(255, 255, 255, .2)',
+            clearOffset : 0.3
+        },
+
+        ArticleHeaderAnimationRendered : false,
+        ArticleHeaderAnimation         : {
+            triW                  : 14,
+            triH                  : 20,
+            neighbours            : [
+                
+                    'side',
+                
+                    'top',
+                
+                    'bottom',
+                
+            ],
+            speedTrailAppear      : 0.1,
+            speedTrailDisappear   : 0.1,
+            speedTriOpen          : 1,
+            trailMaxLength        : 30,
+            trailIntervalCreation : 100,
+            delayBeforeDisappear  : 2,
+            colors                : [
+                
+                    '#96EDA6',
+                
+                    '#5BC6A9',
+                
+                    '#38668C',
+                
+                    '#374D84',
+                
+                    '#BED5CB',
+                
+                    '#62ADC6',
+                
+                    '#8EE5DE',
+                
+                    '#304E7B',
+                
+            ]
+        },
+
+        BackAnimationRendered          : true,
+        IEBrowserBackAnimationRendered : false,
+        BackAnimation                  : {
+            colorSaturation  : '60%',
+            colorBrightness  : '50%',
+            colorAlpha       : 0.5,
+            colorCycleSpeed  : 5,
+            verticalPosition : 'random',
+            horizontalSpeed  : 200,
+            ribbonCount      : 3,
+            strokeSize       : 0,
+            parallaxAmount   : -0.2,
+            animateSections  : true
+        },
+
+        HomeHeaderImage : [
+            
+                'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/image/header/home.jpg',
+            
+                'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/image/header/home.jpeg',
+            
+        ],
+        HomeBannerText  : '',
+
+        ArticleHeaderImage : [
+            
+                'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/image/header/article.jpg',
+            
+        ],
+
+        OtherBannerText : '',
+
+        MenuList : [
+            
+                {
+                    name   : '首页',
+                    href   : '/',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '标签',
+                    href   : '/tag',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '分类',
+                    href   : '/category',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '归档',
+                    href   : '/archive',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '赞赏',
+                    href   : '/donate',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '关于',
+                    href   : '/about',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '订阅',
+                    href   : '/subscription',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '搜索',
+                    href   : '',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '留言板',
+                    href   : '/comment',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '友情链接',
+                    href   : '/friend',    
+                    target : '',
+                    class  : ''
+                },
+            
+        ],
+        MenuLink : [
+            
+                
+                    {
+                        icon : 'icon-weibo', 
+                        url  : 'https://weibo.com/u/7649528498'
+                    },
+                
+                    {
+                        icon : 'icon-wechat', 
+                        url  : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222190433.png'
+                    },
+                
+                    {
+                        icon : 'icon-qq', 
+                        url  : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222190324.png'
+                    },
+                
+                    {
+                        icon : 'icon-github', 
+                        url  : 'https://github.com/fubaisen'
+                    },
+                
+            
+        ],
+
+        FooterStyle : 2,
+        BottomText  : {
+            icon    : 'like-fill',
+            left    : '人生若只如初见',
+            right   : '何事秋风悲画扇'
+        },
+        ThemeInfo   : true,
+
+        ConsoleList : [
+            
+                
+                    [
+                        
+                            
+                                'Based on cnblogs theme SimpleMemory.',
+                            
+                                '',
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                'SimpleMemory Author:',
+                            
+                                'BNDong',
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                'Theme:',
+                            
+                                'LiveForCode',
+                            
+                        
+                    ],
+                
+            
+        ],
+
+        FontIconExtend : '',
+
+        Donate : {
+            paypal  : '',
+            bitcoin : '',
+            alipay  : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222200200.png',
+            wechat  : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222194957.png'
+        },
+
+        Code : {
+            style : 'normal'
+        },  
+
+        Search : {
+            applicationID : '010C3EANT8',
+            apiKey        : 'c7abab9f11b79102b9aff7fe6d41447d',
+            indexName     : 'Notes',
+            hits          : {
+                page : 10
+            },
+            labels        : {
+                placeholder : '搜索',
+                empty       : '未发现与 「${query}」 相关的内容',
+                stats       : '${hits} 条相关条目，使用了 ${time} 毫秒',
+            }
+        }, 
+
+        Valine : {
+            switch         : true,
+            el             : '.comments-content',
+            appId          : 'srhKtvWPQTWYKh3qX8G8M7v0-gzGzoHsz',
+            appKey         : '8uVSP1q6UlALVC5igYfIfv2h',
+            placeholder    : '你是我一生只会遇见一次的惊喜...',
+            avatar         : 'mm',
+            meta           : 'nick,mail,link',
+            requiredFields : 'nick,mail',
+            pageSize       : 5,
+            lang           : 'zh-cn',
+            visitor        : true,
+            enableQQ       : true
+        },
+
+        Tocbot : {
+            switch                : true,
+            tocSelector           : '.toc',
+            contentSelector       : '.article-body',
+            headingSelector       : 'h1, h2, h3, h4, h5',
+            headingsOffset        : 0,
+            scrollSmooth          : true,
+            scrollSmoothOffset    : -5,
+            positionFixedSelector : '.toc',
+            positionFixedClass    : 'toc-fixed',
+            fixedSidebarOffset    : '',
+        },
+
+        Require : {
+            baseUrl     : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/',
+            waitSeconds : 100
+        },
+
+        Music : {
+            type : 'Meting'
+        },
+        APlayer : {
+            container : '.aplayer',
+            fixed     : true,
+            autoplay  : false,
+            loop      : 'all',
+            order     : 'random',
+            preload   : 'auto',
+            volume    : 0.67,
+            mutex     : true,
+            lrcType   : 3,
+            audio     : [
+                
+                    {
+                        name   : 'aLIEz',
+                        artist : 'mizuki（瑞葵）',
+                        cover  : '/music/cover/aLIEz.jpg',
+                        url    : '/music/song/aLIEz.mp3',
+                        lrc    : '/music/lrc/aLIEz.lrc'
+                    },
+                
+                    {
+                        name   : 'Endless Tears',
+                        artist : 'CLIFF EDGE',
+                        cover  : '/music/cover/Endless Tears.jpg',
+                        url    : '/music/song/Endless Tears.mp3',
+                        lrc    : '/music/lrc/Endless Tears.lrc'
+                    },
+                
+                    {
+                        name   : 'Miracle',
+                        artist : 'Cascada',
+                        cover  : '/music/cover/Miracle.jpg',
+                        url    : '/music/song/Miracle.mp3',
+                        lrc    : '/music/lrc/Miracle.lrc'
+                    },
+                
+                    {
+                        name   : 'Roll The Dice',
+                        artist : '高珊',
+                        cover  : '/music/cover/Roll The Dice.jpg',
+                        url    : '/music/song/Roll The Dice.mp3',
+                        lrc    : '/music/lrc/Roll The Dice.lrc'
+                    },
+                
+                    {
+                        name   : 'See You Again',
+                        artist : 'Charlie Puth, Wiz Khalifa',
+                        cover  : '/music/cover/See You Again.jpg',
+                        url    : '/music/song/See You Again.mp3',
+                        lrc    : '/music/lrc/See You Again.lrc'
+                    },
+                
+                    {
+                        name   : 'Traveling Light',
+                        artist : 'Joel Hanson, Sara Groves',
+                        cover  : '/music/cover/Traveling Light.jpg',
+                        url    : '/music/song/Traveling Light.mp3',
+                        lrc    : '/music/lrc/Traveling Light.lrc'
+                    },
+                
+                    {
+                        name   : '痴心绝对',
+                        artist : '李圣杰',
+                        cover  : '/music/cover/痴心绝对.jpg',
+                        url    : '/music/song/痴心绝对.mp3',
+                        lrc    : '/music/lrc/痴心绝对.lrc'
+                    },
+                
+                    {
+                        name   : '好想大声说爱你',
+                        artist : 'BAAD（バード）',
+                        cover  : '/music/cover/好想大声说爱你.jpg',
+                        url    : '/music/song/好想大声说爱你.mp3',
+                        lrc    : '/music/lrc/好想大声说爱你.lrc'
+                    },
+                
+            ]
+        },
+        Meting : {
+            id       : '3778678', 
+            lrcshow  : false, 
+            server   : 'netease', 
+            type     : 'playlist', 
+            fixed    : true, 
+            autoplay : false, 
+            loop     : 'all', 
+            order    : 'random', 
+            preload  : 'auto', 
+            volume   : 0.67, 
+            mutex    : true
+        },
+
+        Mouse : {
+            enable  : true,
+            options : {
+                size  : 6,
+                sizeF : 24
+            }
+        },
+
+        LazyLoad : {
+            default : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/image/website/lazyload.svg'
+        },
+  
+        Style : {
+            aplayer          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/APlayer.css',
+            archive          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/archive.css',
+            donate           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/donate.css',
+            fancybox         : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/jquery.fancybox.css',
+            footer           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/footer.css',
+            iconfont         : 'https://at.alicdn.com/t/font_1546312_l3yohatebw.css',
+            index            : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/index.css',
+            menuBubble       : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/menu-bubble.css',
+            page             : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/page.css',
+            post             : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/post.css',
+            search           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/search.css',
+            tocbot           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/tocbot.css',
+            normal           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/normal.css',
+            night            : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/night.css',
+            clipboard        : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/clipboard.css'
+        },
+
+        Script: {
+            aplayer          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/APlayer.min.js',
+            config           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/require.config.js',
+            index            : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/index.js',
+            instantSearch    : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/instantsearch.min.js',
+            jQuery           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/jquery-3.4.1.min.js',
+            loading          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/loading.js',
+            meting           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/Meting.min.js',
+            iscroll          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/iscroll.js',
+            require          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/require.min.js'
+        },
+
+        Font: {
+            LongCang   : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/LongCang.css',
+            Monda      : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Monda.css',
+            NotoSansSC : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/NotoSansSC.css',
+            Playball   : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Playball.css',
+            PTMono     : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/PTMono.css',
+            RobotoSlab : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/RobotoSlab.css',
+            Rosario    : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Rosario.css',
+            UbuntuMono : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/UbuntuMono.css'
+        },
+
+        Suffix : {
+            about : '简单地活着, 肆意又精彩.'
+        },
+            
+        Theme : {
+            url  : 'https://github.com/first19326/Hexo-LiveForCode',
+            name : 'Hexo - Live For Code'
+        }  
+    };
+</script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/index.js"></script>
+</body>
+</html>

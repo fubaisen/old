@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no">
+    <meta name="referrer" content="origin">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <title>14.综合应用 —— 名片管理系统</title>
+    <link rel="shortcut icon" href="#"/>
+
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/LongCang.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Monda.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/NotoSansSC.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Playball.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/PTMono.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/RobotoSlab.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Rosario.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/UbuntuMono.css">
+
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/post.css">
+    
+        <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/normal.css">
+    
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/jquery-3.4.1.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.1"></head>
+<body>
+    <a id="cover"></a>
+    <div id="header">
+    <div class="header">
+        <div class="vertical">
+            <div class="inner">
+                <h1 class="header-subtitle">14.综合应用 —— 名片管理系统</h1>
+                <div class="header-subinfo">
+                    <p class="article-info-text">
+                        <span>
+                            <i class="iconfont icon-time"></i> 发表时间：2022-01-19
+                        </span>
+                        
+                            <span id="/2022/01/19/python面对过程学习/14.综合应用 —— 名片管理系统/" class="leancloud_visitors" data-flag-title="14.综合应用 —— 名片管理系统">
+                                <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                            </span>
+                        
+                        <span>
+                            <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2022/01/19/python面对过程学习/14.综合应用 —— 名片管理系统/"></span>
+                        </span>  
+                    </p>                 
+                </div>
+            </div>
+        </div>
+        <canvas id="articleHeaderCanvas"></canvas>
+    </div>
+</div>
+    <div id="container">
+    <div id="content">
+        <div id="article">
+    <div class="toc"></div>
+    <div class="article-body">
+        <h1 id="综合应用-——-名片管理系统"><a href="#综合应用-——-名片管理系统" class="headerlink" title="综合应用 —— 名片管理系统"></a>综合应用 —— 名片管理系统</h1><h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><p>综合应用已经学习过的知识点：</p>
+<ul>
+<li><strong>变量</strong></li>
+<li><strong>流程控制</strong></li>
+<li><strong>函数</strong></li>
+<li><strong>模块</strong></li>
+</ul>
+<p>开发 <strong>名片管理系统</strong></p>
+<h2 id="系统需求"><a href="#系统需求" class="headerlink" title="系统需求"></a>系统需求</h2><ul>
+<li><ol>
+<li>程序启动，显示名片管理系统欢迎界面，并显示功能菜单</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">**************************************************</span><br><span class="line">欢迎使用【名片管理系统】V1.0</span><br><span class="line"></span><br><span class="line">1. 新建名片</span><br><span class="line">2. 显示全部</span><br><span class="line">3. 查询名片</span><br><span class="line"></span><br><span class="line">0. 退出系统</span><br><span class="line">**************************************************</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><ol start="2">
+<li>用户用数字选择不同的功能</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>根据功能选择，执行不同的功能</li>
+</ol>
+</li>
+<li><ol start="4">
+<li>用户名片需要记录用户的 <strong>姓名</strong>、<strong>电话</strong>、<strong>QQ</strong>、<strong>邮件</strong></li>
+</ol>
+</li>
+<li><ol start="5">
+<li>如果查询到指定的名片，用户可以选择 <strong>修改</strong> 或者 <strong>删除</strong> 名片</li>
+</ol>
+</li>
+</ul>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol>
+<li>框架搭建</li>
+<li>新增名片</li>
+<li>显示所有名片</li>
+<li>查询名片</li>
+<li>查询成功后修改、删除名片</li>
+<li>让 Python 程序能够直接运行</li>
+</ol>
+<h2 id="01-框架搭建"><a href="#01-框架搭建" class="headerlink" title="01. 框架搭建"></a>01. 框架搭建</h2><p><strong>目标</strong></p>
+<ul>
+<li>搭建名片管理系统 <strong>框架结构</strong><ol>
+<li><strong>准备文件</strong>，确定文件名，保证能够 <strong>在需要的位置</strong> 编写代码</li>
+<li>编写 <strong>主运行循环</strong>，实现基本的 <strong>用户输入和判断</strong></li>
+</ol>
+</li>
+</ul>
+<h3 id="1-1-文件准备"><a href="#1-1-文件准备" class="headerlink" title="1.1 文件准备"></a>1.1 文件准备</h3><ol>
+<li>新建 <code>cards_main.py</code> 保存 <strong>主程序功能代码</strong><ul>
+<li>程序的入口</li>
+<li>每一次启动名片管理系统都通过 <code>main</code> 这个文件启动 </li>
+</ul>
+</li>
+<li>新建 <code>cards_tools.py</code> 保存 <strong>所有名片功能函数</strong><ul>
+<li>将对名片的 <strong>新增</strong>、<strong>查询</strong>、<strong>修改</strong>、<strong>删除</strong> 等功能封装在不同的函数中</li>
+</ul>
+</li>
+</ol>
+<h3 id="1-2-编写主运行循环"><a href="#1-2-编写主运行循环" class="headerlink" title="1.2 编写主运行循环"></a>1.2 编写主运行循环</h3><ul>
+<li>在 <code>cards_main</code> 中添加一个 <strong>无限循环</strong></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line"></span><br><span class="line">    <span class="comment"># TODO(小明) 显示系统菜单</span></span><br><span class="line"></span><br><span class="line">    action = <span class="built_in">input</span>(<span class="string">&quot;请选择操作功能：&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;您选择的操作是：%s&quot;</span> % action)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 根据用户输入决定后续的操作</span></span><br><span class="line">    <span class="keyword">if</span> action <span class="keyword">in</span> [<span class="string">&quot;1&quot;</span>, <span class="string">&quot;2&quot;</span>, <span class="string">&quot;3&quot;</span>]:</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    <span class="keyword">elif</span> action == <span class="string">&quot;0&quot;</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;欢迎再次使用【名片管理系统】&quot;</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;输入错误，请重新输入&quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="字符串判断"><a href="#字符串判断" class="headerlink" title="字符串判断"></a>字符串判断</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> action <span class="keyword">in</span> [<span class="string">&quot;1&quot;</span>, <span class="string">&quot;2&quot;</span>, <span class="string">&quot;3&quot;</span>]:     <span class="comment"># 成员运算符</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> action == <span class="string">&quot;1&quot;</span> <span class="keyword">or</span> action == <span class="string">&quot;2&quot;</span> <span class="keyword">or</span> action == <span class="string">&quot;3&quot;</span>:</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p>使用 <code>in</code> 针对 <strong>列表</strong> 判断，避免使用 <code>or</code> 拼接复杂的逻辑条件</p>
+<p><img src="https://s2.loli.net/2022/01/16/jm1t3BW6Ff7Zo9M.png" alt="image-20220116141725432"></p>
+</li>
+<li><p>没有使用 <code>int</code> 转换用户输入，可以避免 <strong>一旦用户输入的不是数字</strong>，导致程序运行出错</p>
+</li>
+</ol>
+<h4 id="pass"><a href="#pass" class="headerlink" title="pass"></a>pass</h4><ul>
+<li><p>是为了保持程序结构的完整性</p>
+</li>
+<li><p>```</p>
+<h1 id="如果在开发程序时，不希望立刻编写分支内部的代码"><a href="#如果在开发程序时，不希望立刻编写分支内部的代码" class="headerlink" title="如果在开发程序时，不希望立刻编写分支内部的代码"></a>如果在开发程序时，不希望立刻编写分支内部的代码</h1><h1 id="可以使用-pass-关键字，表示一个占位符，能够保证程序的代码结构正确！"><a href="#可以使用-pass-关键字，表示一个占位符，能够保证程序的代码结构正确！" class="headerlink" title="可以使用 pass 关键字，表示一个占位符，能够保证程序的代码结构正确！"></a>可以使用 pass 关键字，表示一个占位符，能够保证程序的代码结构正确！</h1><h1 id="程序运行时，pass-关键字不会执行任何的操作！"><a href="#程序运行时，pass-关键字不会执行任何的操作！" class="headerlink" title="程序运行时，pass 关键字不会执行任何的操作！"></a>程序运行时，pass 关键字不会执行任何的操作！</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 无限循环</span><br><span class="line"></span><br><span class="line">* 在开发软件时，如果 **不希望程序执行后** 立即退出</span><br><span class="line">* 可以在程序中增加一个 **无限循环**</span><br><span class="line">* **由用户来决定** 退出程序的时机</span><br><span class="line"></span><br><span class="line">#### TODO 注释</span><br><span class="line"></span><br><span class="line">* 在 `#` 后跟上 `TODO`，用于标记需要去做的工作</span><br><span class="line"></span><br><span class="line">```python</span><br><span class="line"># TODO(作者/邮件) 显示系统菜单</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="1-3-在-cards-tools-中增加四个新函数"><a href="#1-3-在-cards-tools-中增加四个新函数" class="headerlink" title="1.3 在 cards_tools 中增加四个新函数"></a>1.3 在 <code>cards_tools</code> 中增加四个新函数</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">show_menu</span>():</span></span><br><span class="line"></span><br><span class="line">    <span class="string">&quot;&quot;&quot;显示菜单</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">new_card</span>():</span></span><br><span class="line"></span><br><span class="line">    <span class="string">&quot;&quot;&quot;新建名片</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;-&quot;</span> * <span class="number">50</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;功能：新建名片&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">show_all</span>():</span></span><br><span class="line"></span><br><span class="line">    <span class="string">&quot;&quot;&quot;显示全部</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;-&quot;</span> * <span class="number">50</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;功能：显示全部&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">search_card</span>():</span></span><br><span class="line"></span><br><span class="line">    <span class="string">&quot;&quot;&quot;搜索名片</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;-&quot;</span> * <span class="number">50</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;功能：搜索名片&quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="1-4-导入模块"><a href="#1-4-导入模块" class="headerlink" title="1.4 导入模块"></a>1.4 导入模块</h3><ul>
+<li>在 <code>cards_main.py</code> 中使用 <code>import</code> 导入 <code>cards_tools</code> 模块</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cards_tools</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>修改 <code>while</code> 循环的代码如下：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cards_tools</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line"></span><br><span class="line">    cards_tools.show_menu()</span><br><span class="line"></span><br><span class="line">    action = <span class="built_in">input</span>(<span class="string">&quot;请选择操作功能：&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;您选择的操作是：%s&quot;</span> % action)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 根据用户输入决定后续的操作</span></span><br><span class="line">    <span class="keyword">if</span> action <span class="keyword">in</span> [<span class="string">&quot;1&quot;</span>, <span class="string">&quot;2&quot;</span>, <span class="string">&quot;3&quot;</span>]:</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> action == <span class="string">&quot;1&quot;</span>:</span><br><span class="line">            cards_tools.new_card()</span><br><span class="line"></span><br><span class="line">        <span class="keyword">elif</span> action == <span class="string">&quot;2&quot;</span>:</span><br><span class="line">            cards_tools.show_all()</span><br><span class="line"></span><br><span class="line">        <span class="keyword">elif</span> action == <span class="string">&quot;3&quot;</span>:</span><br><span class="line">            cards_tools.search_card()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">elif</span> action == <span class="string">&quot;0&quot;</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;欢迎再次使用【名片管理系统】&quot;</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;输入错误，请重新输入：&quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>至此：<code>cards_main</code> 中的所有代码全部开发完毕！</p>
+</blockquote>
+<h3 id="1-5-完成-show-menu-函数"><a href="#1-5-完成-show-menu-函数" class="headerlink" title="1.5 完成 show_menu 函数"></a>1.5 完成 <code>show_menu</code> 函数</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">show_menu</span>():</span></span><br><span class="line"></span><br><span class="line">    <span class="string">&quot;&quot;&quot;显示菜单</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;*&quot;</span> * <span class="number">50</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;欢迎使用【菜单管理系统】V1.0&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;1. 新建名片&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;2. 显示全部&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;3. 查询名片&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;0. 退出系统&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;*&quot;</span> * <span class="number">50</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="02-保存名片数据的结构"><a href="#02-保存名片数据的结构" class="headerlink" title="02. 保存名片数据的结构"></a>02. 保存名片数据的结构</h2><p><strong>程序就是用来处理数据的，而变量就是用来存储数据的</strong></p>
+<ul>
+<li>使用 <strong>字典</strong> 记录 <strong>每一张名片</strong> 的详细信息</li>
+<li>使用 <strong>列表</strong> 统一记录所有的 <strong>名片字典</strong></li>
+</ul>
+<p><img src="https://s2.loli.net/2022/01/11/rjRLh6AVOHifevk.png" alt="001_名片管理系统全局列表-w500"></p>
+<h3 id="定义名片列表变量"><a href="#定义名片列表变量" class="headerlink" title="定义名片列表变量"></a>定义名片列表变量</h3><ul>
+<li>在 <code>cards_tools</code> 文件的顶部增加一个 <strong>列表变量</strong></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 所有名片记录的列表</span></span><br><span class="line">card_list = []</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意</strong></p>
+<ol>
+<li><strong>所有名片相关操作</strong>，都需要使用这个列表，所以应该 <strong>定义在程序的顶部</strong></li>
+<li><strong>程序刚运行时，没有数据</strong>，所以是 <strong>空列表</strong></li>
+</ol>
+<h2 id="03-新增名片"><a href="#03-新增名片" class="headerlink" title="03. 新增名片"></a>03. 新增名片</h2><h3 id="3-1-功能分析"><a href="#3-1-功能分析" class="headerlink" title="3.1 功能分析"></a>3.1 功能分析</h3><ol>
+<li>提示用户依次输入名片信息</li>
+<li>将名片信息保存到一个字典</li>
+<li>将字典添加到名片列表</li>
+<li>提示名片添加完成</li>
+</ol>
+<h3 id="3-2-实现-new-card-方法"><a href="#3-2-实现-new-card-方法" class="headerlink" title="3.2 实现 new_card 方法"></a>3.2 实现 new_card 方法</h3><ul>
+<li>根据步骤实现代码</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">new_card</span>():</span></span><br><span class="line"></span><br><span class="line">    <span class="string">&quot;&quot;&quot;新建名片</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;-&quot;</span> * <span class="number">50</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;功能：新建名片&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 1. 提示用户输入名片信息</span></span><br><span class="line">    name = <span class="built_in">input</span>(<span class="string">&quot;请输入姓名：&quot;</span>)</span><br><span class="line">    phone = <span class="built_in">input</span>(<span class="string">&quot;请输入电话：&quot;</span>)</span><br><span class="line">    qq = <span class="built_in">input</span>(<span class="string">&quot;请输入 QQ 号码：&quot;</span>)</span><br><span class="line">    email = <span class="built_in">input</span>(<span class="string">&quot;请输入邮箱：&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 2. 将用户信息保存到一个字典</span></span><br><span class="line">    card_dict = &#123;<span class="string">&quot;name&quot;</span>: name,</span><br><span class="line">                 <span class="string">&quot;phone&quot;</span>: phone,</span><br><span class="line">                 <span class="string">&quot;qq&quot;</span>: qq,</span><br><span class="line">                 <span class="string">&quot;email&quot;</span>: email&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 3. 将用户字典添加到名片列表</span></span><br><span class="line">    card_list.append(card_dict)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(card_list)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 4. 提示添加成功信息</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;成功添加 %s 的名片&quot;</span> % card_dict[<span class="string">&quot;name&quot;</span>])</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<h1 id="技巧：在-PyCharm-中，可以使用-SHIFT-F6-统一修改变量名"><a href="#技巧：在-PyCharm-中，可以使用-SHIFT-F6-统一修改变量名" class="headerlink" title="技巧：在 PyCharm 中，可以使用 SHIFT + F6 统一修改变量名"></a>技巧：在 <code>PyCharm</code> 中，可以使用 <code>SHIFT + F6</code> 统一修改变量名<img src="https://s2.loli.net/2022/01/17/rIlCog3X2U5ueFn.png" alt="image-20220117153300537"></h1></blockquote>
+<h2 id="04-显示所有名片"><a href="#04-显示所有名片" class="headerlink" title="04. 显示所有名片"></a>04. 显示所有名片</h2><h3 id="4-1-功能分析"><a href="#4-1-功能分析" class="headerlink" title="4.1 功能分析"></a>4.1 功能分析</h3><ul>
+<li>循环遍历名片列表，顺序显示每一个字典的信息</li>
+</ul>
+<h3 id="4-2-基础代码实现"><a href="#4-2-基础代码实现" class="headerlink" title="4.2 基础代码实现"></a>4.2 基础代码实现</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">show_all</span>():</span></span><br><span class="line"></span><br><span class="line">    <span class="string">&quot;&quot;&quot;显示全部</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;-&quot;</span> * <span class="number">50</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;功能：显示全部&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> card_dict <span class="keyword">in</span> card_list:</span><br><span class="line"></span><br><span class="line">        <span class="built_in">print</span>(card_dict)</span><br><span class="line">        </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>显示效果不好！</li>
+</ul>
+<h3 id="4-3-增加标题和使用-t-显示"><a href="#4-3-增加标题和使用-t-显示" class="headerlink" title="4.3 增加标题和使用 \t 显示"></a>4.3 增加标题和使用 <code>\t</code> 显示</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">show_all</span>():</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;显示全部</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;-&quot;</span> * <span class="number">50</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;功能：显示全部&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 打印表头</span></span><br><span class="line">    <span class="keyword">for</span> name <span class="keyword">in</span> [<span class="string">&quot;姓名&quot;</span>, <span class="string">&quot;电话&quot;</span>, <span class="string">&quot;QQ&quot;</span>, <span class="string">&quot;邮箱&quot;</span>]:</span><br><span class="line">        <span class="built_in">print</span>(name, end=<span class="string">&quot;\t\t&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 打印分隔线</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;=&quot;</span> * <span class="number">50</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> card_dict <span class="keyword">in</span> card_list:</span><br><span class="line"></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;%s\t\t%s\t\t%s\t\t%s&quot;</span> % (card_dict[<span class="string">&quot;name&quot;</span>],</span><br><span class="line">                                        card_dict[<span class="string">&quot;phone&quot;</span>],</span><br><span class="line">                                        card_dict[<span class="string">&quot;qq&quot;</span>],</span><br><span class="line">                                        card_dict[<span class="string">&quot;email&quot;</span>]))</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-4-增加没有名片记录判断"><a href="#4-4-增加没有名片记录判断" class="headerlink" title="4.4 增加没有名片记录判断"></a>4.4 增加没有名片记录判断</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">show_all</span>():</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;显示全部</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;-&quot;</span> * <span class="number">50</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;功能：显示全部&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 1. 判断是否有名片记录</span></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(card_list) == <span class="number">0</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;提示：没有任何名片记录&quot;</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>注意</strong></p>
+<ul>
+<li><p>在函数中使用 <code>return</code> 表示返回</p>
+</li>
+<li><p>如果在 <code>return</code> 后没有跟任何内容，只是表示该函数执行到此就不再执行后续的代码</p>
+</li>
+<li><p>```</p>
+<h1 id="如果-return-后面-没有任何的内容，表示会返回到调用函数的位置并不会返回任何的结果"><a href="#如果-return-后面-没有任何的内容，表示会返回到调用函数的位置并不会返回任何的结果" class="headerlink" title="如果 return 后面 没有任何的内容，表示会返回到调用函数的位置并不会返回任何的结果"></a>如果 return 后面 没有任何的内容，表示会返回到调用函数的位置并不会返回任何的结果</h1><h1 id="return-返回到调用函数的代码，去执行调用函数下方的代码"><a href="#return-返回到调用函数的代码，去执行调用函数下方的代码" class="headerlink" title="return 返回到调用函数的代码，去执行调用函数下方的代码"></a>return 返回到调用函数的代码，去执行调用函数下方的代码</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 05. 查询名片</span><br><span class="line"></span><br><span class="line">### 5.1 功能分析</span><br><span class="line"></span><br><span class="line">1. 提示用户要搜索的姓名</span><br><span class="line">2. 根据用户输入的姓名遍历列表</span><br><span class="line">3. 搜索到指定的名片后，再执行后续的操作</span><br><span class="line"></span><br><span class="line">### 5.2 代码实现</span><br><span class="line"></span><br><span class="line">* 查询功能实现</span><br><span class="line"></span><br><span class="line">```python</span><br><span class="line">def search_card():</span><br><span class="line"></span><br><span class="line">    &quot;&quot;&quot;搜索名片</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    print(&quot;-&quot; * 50)</span><br><span class="line">    print(&quot;功能：搜索名片&quot;)</span><br><span class="line"></span><br><span class="line">    # 1. 提示要搜索的姓名</span><br><span class="line">    find_name = input(&quot;请输入要搜索的姓名：&quot;)</span><br><span class="line"></span><br><span class="line">    # 2. 遍历字典</span><br><span class="line">    for card_dict in card_list:</span><br><span class="line"></span><br><span class="line">        if card_dict[&quot;name&quot;] == find_name:</span><br><span class="line"></span><br><span class="line">            print(&quot;姓名\t\t\t电话\t\t\tQQ\t\t\t邮箱&quot;)</span><br><span class="line">            print(&quot;-&quot; * 40)</span><br><span class="line">            </span><br><span class="line">            print(&quot;%s\t\t\t%s\t\t\t%s\t\t\t%s&quot; % (</span><br><span class="line">                card_dict[&quot;name&quot;],</span><br><span class="line">                card_dict[&quot;phone&quot;],</span><br><span class="line">                card_dict[&quot;qq&quot;],</span><br><span class="line">                card_dict[&quot;email&quot;]))</span><br><span class="line"></span><br><span class="line">            print(&quot;-&quot; * 40)</span><br><span class="line">            </span><br><span class="line">            # TODO(小明) 针对找到的字典进行后续操作：修改/删除</span><br><span class="line"></span><br><span class="line">            break</span><br><span class="line">    else:</span><br><span class="line">        print(&quot;没有找到 %s&quot; % find_name)</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li><p>增加名片操作函数：<strong>修改</strong>/<strong>删除</strong>/<strong>返回主菜单</strong></p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">deal_card</span>(<span class="params">find_dict</span>):</span></span><br><span class="line"></span><br><span class="line">    <span class="string">&quot;&quot;&quot;操作搜索到的名片字典</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    :param find_dict:找到的名片字典</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="built_in">print</span>(find_dict)</span><br><span class="line"></span><br><span class="line">    action_str = <span class="built_in">input</span>(<span class="string">&quot;请选择要执行的操作 &quot;</span></span><br><span class="line">                       <span class="string">&quot;[1] 修改 [2] 删除 [0] 返回上级菜单&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> action == <span class="string">&quot;1&quot;</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;修改&quot;</span>)</span><br><span class="line">    <span class="keyword">elif</span> action == <span class="string">&quot;2&quot;</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;删除&quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="06-修改和删除"><a href="#06-修改和删除" class="headerlink" title="06. 修改和删除"></a>06. 修改和删除</h2><h3 id="6-1-查询成功后删除名片"><a href="#6-1-查询成功后删除名片" class="headerlink" title="6.1 查询成功后删除名片"></a>6.1 查询成功后删除名片</h3><ul>
+<li>由于找到的字典记录已经在列表中保存</li>
+<li>要删除名片记录，只需要把列表中对应的字典删除即可</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">elif</span> action == <span class="string">&quot;2&quot;</span>:</span><br><span class="line">    card_list.remove(find_dict)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;删除成功&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-2-修改名片"><a href="#6-2-修改名片" class="headerlink" title="6.2 修改名片"></a>6.2 修改名片</h3><ul>
+<li>由于找到的字典记录已经在列表中保存</li>
+<li>要修改名片记录，只需要把列表中对应的字典中每一个键值对的数据修改即可</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> action == <span class="string">&quot;1&quot;</span>:</span><br><span class="line"></span><br><span class="line">    find_dict[<span class="string">&quot;name&quot;</span>] = <span class="built_in">input</span>(<span class="string">&quot;请输入姓名：&quot;</span>)</span><br><span class="line">    find_dict[<span class="string">&quot;phone&quot;</span>] = <span class="built_in">input</span>(<span class="string">&quot;请输入电话：&quot;</span>)</span><br><span class="line">    find_dict[<span class="string">&quot;qq&quot;</span>] = <span class="built_in">input</span>(<span class="string">&quot;请输入QQ：&quot;</span>)</span><br><span class="line">    find_dict[<span class="string">&quot;email&quot;</span>] = <span class="built_in">input</span>(<span class="string">&quot;请输入邮件：&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;%s 的名片修改成功&quot;</span> % find_dict[<span class="string">&quot;name&quot;</span>])</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="修改名片细化"><a href="#修改名片细化" class="headerlink" title="修改名片细化"></a>修改名片细化</h4><ul>
+<li><strong>如果用户在使用时，某些名片内容并不想修改</strong>，应该如何做呢？—— 既然系统提供的 <code>input</code> 函数不能满足需求，那么就新定义一个函数 <code>input_card_info</code> 对系统的 <code>input</code> 函数进行扩展</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">input_card_info</span>(<span class="params">dict_value, tip_message</span>):</span></span><br><span class="line"></span><br><span class="line">    <span class="string">&quot;&quot;&quot;输入名片信息</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    :param dict_value: 字典原有值</span></span><br><span class="line"><span class="string">    :param tip_message: 输入提示信息</span></span><br><span class="line"><span class="string">    :return: 如果输入，返回输入内容，否则返回字典原有值</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="comment"># 1. 提示用户输入内容</span></span><br><span class="line">    result_str = <span class="built_in">input</span>(tip_message)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 2. 针对用户的输入进行判断，如果用户输入了内容，直接返回结果</span></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(result_str) &gt; <span class="number">0</span>:</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> result_str</span><br><span class="line">    <span class="comment"># 3. 如果用户没有输入内容，返回 `字典中原有的值`</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> dict_value</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="07-LINUX-上的-Shebang-符号"><a href="#07-LINUX-上的-Shebang-符号" class="headerlink" title="07. LINUX 上的 Shebang 符号(#!)"></a>07. LINUX 上的 <code>Shebang</code> 符号(<code>#!</code>)</h2><ul>
+<li><code>#!</code>这个符号叫做 <code>Shebang</code> 或者 <code>Sha-bang</code></li>
+<li><code>Shebang</code> 通常在 <code>Unix</code> 系统脚本的中 <strong>第一行开头</strong> 使用</li>
+<li>指明 <strong>执行这个脚本文件</strong> 的 <strong>解释程序</strong></li>
+</ul>
+<h3 id="使用-Shebang-的步骤"><a href="#使用-Shebang-的步骤" class="headerlink" title="使用 Shebang 的步骤"></a>使用 Shebang 的步骤</h3><ul>
+<li><ol>
+<li>使用 <code>which</code> 查询 <code>python3</code> 解释器所在路径</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">which</span> python3</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><ol start="2">
+<li>修改要运行的 <strong>主 python 文件</strong>，在第一行增加以下内容</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#! /usr/bin/python3</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><ol start="3">
+<li>修改 <strong>主 python 文件</strong> 的文件权限，增加执行权限</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ chmod +x cards_main.py</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><ol start="4">
+<li>在需要时执行程序即可</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./cards_main.py</span><br></pre></td></tr></table></figure>
+
+
+
+
+        <p class="suffix-end">__END__</p>
+        <div class="suffix-box">
+            <div class="suffix-box-left">
+                <img src="https://gitee.com/lichaikui/picture/raw/master/tupian/20211222195800.png" alt="hero">
+            </div>
+            <div class="suffix-box-right">
+                <span class="suffix-box-title">文章作者</span>：hero
+                <br>
+                <span class="suffix-box-title">文章出处</span>：<a href="/2022/01/19/python%E9%9D%A2%E5%AF%B9%E8%BF%87%E7%A8%8B%E5%AD%A6%E4%B9%A0/14.%E7%BB%BC%E5%90%88%E5%BA%94%E7%94%A8%20%E2%80%94%E2%80%94%20%E5%90%8D%E7%89%87%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/" target="_blank">14.综合应用 —— 名片管理系统</a>
+                <br>
+                <span class="suffix-box-title">作者签名</span>：简单地活着, 肆意又精彩.
+                <br>
+                <span class="suffix-box-title">关于主题</span>：<a href="https://github.com/first19326/Hexo-LiveForCode" target="_blank">Hexo - Live For Code</a>
+                <br>
+                <span class="suffix-box-title">版权声明</span>：文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" title="BY-NC-SA" target="_blank">BY-NC-SA</a> 许可协议，转载请注明出处
+                <br>
+            </div>
+            <div style="clear: both;"></div>
+        </div>
+    </div>
+    <div class="article-footer">
+        
+            <div class="category">
+                分类：
+                
+                    <a href="/category/python%E9%9D%A2%E5%AF%B9%E8%BF%87%E7%A8%8B%E5%AD%A6%E4%B9%A0/">python面对过程学习</a>
+                
+            </div>
+        
+        
+            <div class="tag">
+                标签：
+                
+                    <a href="/tag/python%E5%AD%A6%E4%B9%A0/">python学习</a>
+                
+            </div>
+        
+        <div class="article-prev-next">
+            
+                <a href="/2022/01/23/python%E9%9D%A2%E5%AF%B9%E8%BF%87%E7%A8%8B%E5%AD%A6%E4%B9%A0/15.%E5%8F%98%E9%87%8F%E8%BF%9B%E9%98%B6%EF%BC%88%E7%90%86%E8%A7%A3%EF%BC%89/" class="prev-prefix">« </a> 上一篇：    <a href="/2022/01/23/python%E9%9D%A2%E5%AF%B9%E8%BF%87%E7%A8%8B%E5%AD%A6%E4%B9%A0/15.%E5%8F%98%E9%87%8F%E8%BF%9B%E9%98%B6%EF%BC%88%E7%90%86%E8%A7%A3%EF%BC%89/" title="发布于 2022-01-23 12:40">15.变量进阶（理解）</a>
+                <br>
+            
+            
+                <a href="/2022/01/14/python%E9%9D%A2%E5%AF%B9%E8%BF%87%E7%A8%8B%E5%AD%A6%E4%B9%A0/16.%E5%87%BD%E6%95%B0%E8%BF%9B%E9%98%B6/" class="next-prefix">» </a> 下一篇：    <a href="/2022/01/14/python%E9%9D%A2%E5%AF%B9%E8%BF%87%E7%A8%8B%E5%AD%A6%E4%B9%A0/16.%E5%87%BD%E6%95%B0%E8%BF%9B%E9%98%B6/" title="发布于 2022-01-14 01:48">16.函数进阶</a>
+            
+        </div>
+    </div>
+    
+    <div class="article-comments">
+        <div class="comments-title">
+            评论列表
+        </div>
+        <div class="comments-content">
+        </div>
+    </div>
+
+</div>
+
+    </div>
+</div>
+    <div id="footer"></div>
+    <div id="sidebar">
+    <div class="menu-wrap" style="display:none;">
+        <nav class="menu">
+            <div class="menu-introduce"> 
+                <div class="introduce-avatar"></div> 
+                <div class="introduce-info"> 
+                    <div class="introduce-user"><span></span></div>        
+                </div> 
+            </div> 
+            <div class="menu-list">
+                <ul></ul> 
+            </div> 
+            <div class="menu-link"></div> 
+        </nav>
+        <button class="menu-button-close"></button>
+        <div class="morph-shape" id="morph-shape" data-morph-open="M-7.312,0H15c0,0,66,113.339,66,399.5C81,664.006,15,800,15,800H-7.312V0z;M-7.312,0H100c0,0,0,113.839,0,400c0,264.506,0,400,0,400H-7.312V0z">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 800" preserveAspectRatio="none">
+                <path d="M-7.312,0H0c0,0,0,113.839,0,400c0,264.506,0,400,0,400h-7.312V0z"/>
+            </svg>
+        </div>
+    </div>
+    <button class="menu-button-open">MENU</button>
+    <div class="menu-cover"></div>
+</div>
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/search.css">
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/iscroll.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/instantsearch.min.js"></script>
+<div class="search-window">
+    <div class="search-content">
+        <div class="search-content-icon">
+            <i class="iconfont icon-search"></i>
+        </div>
+        <div id="search-input" class="search-input"></div>
+    </div>
+
+    <div class="search-scroll">
+        <div class="search-result">
+            <div id="search-stats" class="search-stats"></div>
+            <div id="search-hits"></div>
+            <div id="search-pagination" class="search-pagination"></div>
+        </div>
+    </div>
+
+    <span class="search-close-icon">
+        <i class="iconfont icon-close"></i>
+    </span>
+</div>
+    <div id="tools">
+    <div class="progressbar-top"></div>
+
+    
+        <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/APlayer.css">
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/APlayer.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/Meting.min.js"></script>
+        <meting-js id="3778678" lrcshow="false" server="netease" type="playlist" fixed="true" autoplay="false" loop="all" order="random" preload="auto" volume="0.67" mutex="true"></meting-js>
+    
+    
+    <div class="wrap-right"></div>
+    <div class="loading"></div>
+</div>
+    <script>
+    window.config = {
+        GitHubUserName     : 'fubaisen',
+        GitHubRepositories : 'fubaisen.github.io',
+
+        BlogUser      : 'hero',
+        BlogAvatar    : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222195800.png',
+        BlogStartDate : '2020-01-01',
+
+        WebsiteTitleBlur         : '(◍´꒳`◍) Hi, friend',
+        WebsiteTitleBlurTimeOut  : 500,
+        WebsiteTitleFocus        : '(*´∇｀*) 欢迎回来!',
+        WebsiteTitleFocusTimeOut : 1000,
+        WebsiteFavicon           : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222195607.png',
+
+        ProgressBar: {
+            id       : 'topProgressBar',
+            color    : '#77B6FF',
+            height   : '2px',
+            duration : 0.2
+        },
+
+        Loading: {
+            rebound: {
+                tension  : 16,
+                friction : 5
+            },
+            spinner: {
+                id     : 'spinner',
+                radius : 90,
+                sides  : 3,
+                depth  : 4,
+                colors : {
+                    background : '#F0F0F0',
+                    stroke     : '#272633',
+                    base       : '',
+                    child      : '#272633'
+                },
+                alwaysForward : true,
+                restAt        : 0.5,
+                renderBase    : false
+            }
+        },
+
+        HomeHeaderAnimationRendered : true,
+        HomeHeaderAnimation         : {
+            radius      : 15,
+            density     : 0.2,
+            color       : 'rgba(255, 255, 255, .2)',
+            clearOffset : 0.3
+        },
+
+        ArticleHeaderAnimationRendered : false,
+        ArticleHeaderAnimation         : {
+            triW                  : 14,
+            triH                  : 20,
+            neighbours            : [
+                
+                    'side',
+                
+                    'top',
+                
+                    'bottom',
+                
+            ],
+            speedTrailAppear      : 0.1,
+            speedTrailDisappear   : 0.1,
+            speedTriOpen          : 1,
+            trailMaxLength        : 30,
+            trailIntervalCreation : 100,
+            delayBeforeDisappear  : 2,
+            colors                : [
+                
+                    '#96EDA6',
+                
+                    '#5BC6A9',
+                
+                    '#38668C',
+                
+                    '#374D84',
+                
+                    '#BED5CB',
+                
+                    '#62ADC6',
+                
+                    '#8EE5DE',
+                
+                    '#304E7B',
+                
+            ]
+        },
+
+        BackAnimationRendered          : true,
+        IEBrowserBackAnimationRendered : false,
+        BackAnimation                  : {
+            colorSaturation  : '60%',
+            colorBrightness  : '50%',
+            colorAlpha       : 0.5,
+            colorCycleSpeed  : 5,
+            verticalPosition : 'random',
+            horizontalSpeed  : 200,
+            ribbonCount      : 3,
+            strokeSize       : 0,
+            parallaxAmount   : -0.2,
+            animateSections  : true
+        },
+
+        HomeHeaderImage : [
+            
+                'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/image/header/home.jpg',
+            
+                'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/image/header/home.jpeg',
+            
+        ],
+        HomeBannerText  : '',
+
+        ArticleHeaderImage : [
+            
+                'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/image/header/article.jpg',
+            
+        ],
+
+        OtherBannerText : '',
+
+        MenuList : [
+            
+                {
+                    name   : '首页',
+                    href   : '/',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '标签',
+                    href   : '/tag',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '分类',
+                    href   : '/category',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '归档',
+                    href   : '/archive',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '赞赏',
+                    href   : '/donate',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '关于',
+                    href   : '/about',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '订阅',
+                    href   : '/subscription',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '搜索',
+                    href   : '',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '留言板',
+                    href   : '/comment',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '友情链接',
+                    href   : '/friend',    
+                    target : '',
+                    class  : ''
+                },
+            
+        ],
+        MenuLink : [
+            
+                
+                    {
+                        icon : 'icon-weibo', 
+                        url  : 'https://weibo.com/u/7649528498'
+                    },
+                
+                    {
+                        icon : 'icon-wechat', 
+                        url  : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222190433.png'
+                    },
+                
+                    {
+                        icon : 'icon-qq', 
+                        url  : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222190324.png'
+                    },
+                
+                    {
+                        icon : 'icon-github', 
+                        url  : 'https://github.com/fubaisen'
+                    },
+                
+            
+        ],
+
+        FooterStyle : 2,
+        BottomText  : {
+            icon    : 'like-fill',
+            left    : '人生若只如初见',
+            right   : '何事秋风悲画扇'
+        },
+        ThemeInfo   : true,
+
+        ConsoleList : [
+            
+                
+                    [
+                        
+                            
+                                'Based on cnblogs theme SimpleMemory.',
+                            
+                                '',
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                'SimpleMemory Author:',
+                            
+                                'BNDong',
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                'Theme:',
+                            
+                                'LiveForCode',
+                            
+                        
+                    ],
+                
+            
+        ],
+
+        FontIconExtend : '',
+
+        Donate : {
+            paypal  : '',
+            bitcoin : '',
+            alipay  : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222200200.png',
+            wechat  : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222194957.png'
+        },
+
+        Code : {
+            style : 'normal'
+        },  
+
+        Search : {
+            applicationID : '010C3EANT8',
+            apiKey        : 'c7abab9f11b79102b9aff7fe6d41447d',
+            indexName     : 'Notes',
+            hits          : {
+                page : 10
+            },
+            labels        : {
+                placeholder : '搜索',
+                empty       : '未发现与 「${query}」 相关的内容',
+                stats       : '${hits} 条相关条目，使用了 ${time} 毫秒',
+            }
+        }, 
+
+        Valine : {
+            switch         : true,
+            el             : '.comments-content',
+            appId          : 'srhKtvWPQTWYKh3qX8G8M7v0-gzGzoHsz',
+            appKey         : '8uVSP1q6UlALVC5igYfIfv2h',
+            placeholder    : '你是我一生只会遇见一次的惊喜...',
+            avatar         : 'mm',
+            meta           : 'nick,mail,link',
+            requiredFields : 'nick,mail',
+            pageSize       : 5,
+            lang           : 'zh-cn',
+            visitor        : true,
+            enableQQ       : true
+        },
+
+        Tocbot : {
+            switch                : true,
+            tocSelector           : '.toc',
+            contentSelector       : '.article-body',
+            headingSelector       : 'h1, h2, h3, h4, h5',
+            headingsOffset        : 0,
+            scrollSmooth          : true,
+            scrollSmoothOffset    : -5,
+            positionFixedSelector : '.toc',
+            positionFixedClass    : 'toc-fixed',
+            fixedSidebarOffset    : '',
+        },
+
+        Require : {
+            baseUrl     : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/',
+            waitSeconds : 100
+        },
+
+        Music : {
+            type : 'Meting'
+        },
+        APlayer : {
+            container : '.aplayer',
+            fixed     : true,
+            autoplay  : false,
+            loop      : 'all',
+            order     : 'random',
+            preload   : 'auto',
+            volume    : 0.67,
+            mutex     : true,
+            lrcType   : 3,
+            audio     : [
+                
+                    {
+                        name   : 'aLIEz',
+                        artist : 'mizuki（瑞葵）',
+                        cover  : '/music/cover/aLIEz.jpg',
+                        url    : '/music/song/aLIEz.mp3',
+                        lrc    : '/music/lrc/aLIEz.lrc'
+                    },
+                
+                    {
+                        name   : 'Endless Tears',
+                        artist : 'CLIFF EDGE',
+                        cover  : '/music/cover/Endless Tears.jpg',
+                        url    : '/music/song/Endless Tears.mp3',
+                        lrc    : '/music/lrc/Endless Tears.lrc'
+                    },
+                
+                    {
+                        name   : 'Miracle',
+                        artist : 'Cascada',
+                        cover  : '/music/cover/Miracle.jpg',
+                        url    : '/music/song/Miracle.mp3',
+                        lrc    : '/music/lrc/Miracle.lrc'
+                    },
+                
+                    {
+                        name   : 'Roll The Dice',
+                        artist : '高珊',
+                        cover  : '/music/cover/Roll The Dice.jpg',
+                        url    : '/music/song/Roll The Dice.mp3',
+                        lrc    : '/music/lrc/Roll The Dice.lrc'
+                    },
+                
+                    {
+                        name   : 'See You Again',
+                        artist : 'Charlie Puth, Wiz Khalifa',
+                        cover  : '/music/cover/See You Again.jpg',
+                        url    : '/music/song/See You Again.mp3',
+                        lrc    : '/music/lrc/See You Again.lrc'
+                    },
+                
+                    {
+                        name   : 'Traveling Light',
+                        artist : 'Joel Hanson, Sara Groves',
+                        cover  : '/music/cover/Traveling Light.jpg',
+                        url    : '/music/song/Traveling Light.mp3',
+                        lrc    : '/music/lrc/Traveling Light.lrc'
+                    },
+                
+                    {
+                        name   : '痴心绝对',
+                        artist : '李圣杰',
+                        cover  : '/music/cover/痴心绝对.jpg',
+                        url    : '/music/song/痴心绝对.mp3',
+                        lrc    : '/music/lrc/痴心绝对.lrc'
+                    },
+                
+                    {
+                        name   : '好想大声说爱你',
+                        artist : 'BAAD（バード）',
+                        cover  : '/music/cover/好想大声说爱你.jpg',
+                        url    : '/music/song/好想大声说爱你.mp3',
+                        lrc    : '/music/lrc/好想大声说爱你.lrc'
+                    },
+                
+            ]
+        },
+        Meting : {
+            id       : '3778678', 
+            lrcshow  : false, 
+            server   : 'netease', 
+            type     : 'playlist', 
+            fixed    : true, 
+            autoplay : false, 
+            loop     : 'all', 
+            order    : 'random', 
+            preload  : 'auto', 
+            volume   : 0.67, 
+            mutex    : true
+        },
+
+        Mouse : {
+            enable  : true,
+            options : {
+                size  : 6,
+                sizeF : 24
+            }
+        },
+
+        LazyLoad : {
+            default : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/image/website/lazyload.svg'
+        },
+  
+        Style : {
+            aplayer          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/APlayer.css',
+            archive          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/archive.css',
+            donate           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/donate.css',
+            fancybox         : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/jquery.fancybox.css',
+            footer           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/footer.css',
+            iconfont         : 'https://at.alicdn.com/t/font_1546312_l3yohatebw.css',
+            index            : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/index.css',
+            menuBubble       : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/menu-bubble.css',
+            page             : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/page.css',
+            post             : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/post.css',
+            search           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/search.css',
+            tocbot           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/tocbot.css',
+            normal           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/normal.css',
+            night            : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/night.css',
+            clipboard        : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/clipboard.css'
+        },
+
+        Script: {
+            aplayer          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/APlayer.min.js',
+            config           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/require.config.js',
+            index            : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/index.js',
+            instantSearch    : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/instantsearch.min.js',
+            jQuery           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/jquery-3.4.1.min.js',
+            loading          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/loading.js',
+            meting           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/Meting.min.js',
+            iscroll          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/iscroll.js',
+            require          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/require.min.js'
+        },
+
+        Font: {
+            LongCang   : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/LongCang.css',
+            Monda      : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Monda.css',
+            NotoSansSC : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/NotoSansSC.css',
+            Playball   : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Playball.css',
+            PTMono     : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/PTMono.css',
+            RobotoSlab : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/RobotoSlab.css',
+            Rosario    : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Rosario.css',
+            UbuntuMono : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/UbuntuMono.css'
+        },
+
+        Suffix : {
+            about : '简单地活着, 肆意又精彩.'
+        },
+            
+        Theme : {
+            url  : 'https://github.com/first19326/Hexo-LiveForCode',
+            name : 'Hexo - Live For Code'
+        }  
+    };
+</script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/index.js"></script>
+</body>
+</html>

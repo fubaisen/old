@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no">
+    <meta name="referrer" content="origin">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <title>11.循环</title>
+    <link rel="shortcut icon" href="#"/>
+
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/LongCang.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Monda.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/NotoSansSC.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Playball.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/PTMono.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/RobotoSlab.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Rosario.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/UbuntuMono.css">
+
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/post.css">
+    
+        <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/normal.css">
+    
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/jquery-3.4.1.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.1"></head>
+<body>
+    <a id="cover"></a>
+    <div id="header">
+    <div class="header">
+        <div class="vertical">
+            <div class="inner">
+                <h1 class="header-subtitle">11.循环</h1>
+                <div class="header-subinfo">
+                    <p class="article-info-text">
+                        <span>
+                            <i class="iconfont icon-time"></i> 发表时间：2021-12-23
+                        </span>
+                        
+                            <span id="/2021/12/23/python面对过程学习/11.循环/" class="leancloud_visitors" data-flag-title="11.循环">
+                                <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                            </span>
+                        
+                        <span>
+                            <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2021/12/23/python面对过程学习/11.循环/"></span>
+                        </span>  
+                    </p>                 
+                </div>
+            </div>
+        </div>
+        <canvas id="articleHeaderCanvas"></canvas>
+    </div>
+</div>
+    <div id="container">
+    <div id="content">
+        <div id="article">
+    <div class="toc"></div>
+    <div class="article-body">
+        <h1 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h1><h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ul>
+<li>程序的三大流程</li>
+<li>while 循环基本使用</li>
+<li>break 和 continue</li>
+<li>while 循环嵌套</li>
+</ul>
+<h2 id="01-程序的三大流程"><a href="#01-程序的三大流程" class="headerlink" title="01. 程序的三大流程"></a>01. 程序的三大流程</h2><ul>
+<li><p>在程序开发中，一共有三种流程方式：</p>
+<ul>
+<li><strong>顺序</strong> —— <strong>从上向下</strong>，顺序执行代码</li>
+<li><strong>分支</strong> —— 根据条件判断，决定执行代码的 <strong>分支</strong></li>
+<li><strong>循环</strong> —— 让 <strong>特定代码 重复</strong> 执行</li>
+</ul>
+<p>  <img src="https://gitee.com/lichaikui/picture/raw/master/tupian/001_%E7%A8%8B%E5%BA%8F%E4%B8%89%E5%A4%A7%E6%B5%81%E7%A8%8B.png" alt="001_程序三大流程"></p>
+</li>
+</ul>
+<h2 id="02-while-循环基本使用"><a href="#02-while-循环基本使用" class="headerlink" title="02. while 循环基本使用"></a>02. <code>while</code> 循环基本使用</h2><ul>
+<li><p>循环的作用就是让 <strong>指定的代码</strong> 重复的执行</p>
+</li>
+<li><p><code>while</code> 循环最常用的应用场景就是 <strong>让执行的代码</strong> 按照 <strong>指定的次数</strong> <strong>重复</strong> 执行</p>
+</li>
+<li><p>需求 —— 打印 5 遍 <code>Hello Python</code></p>
+</li>
+<li><p>思考 —— 如果要求打印 100 遍怎么办？</p>
+</li>
+</ul>
+<h3 id="2-1-while-语句基本语法"><a href="#2-1-while-语句基本语法" class="headerlink" title="2.1 while 语句基本语法"></a>2.1 <code>while</code> 语句基本语法</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">初始条件设置 —— 通常是重复执行的 计数器</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> 条件(判断 计数器 是否达到 目标次数):</span><br><span class="line">    条件满足时，做的事情<span class="number">1</span></span><br><span class="line">    条件满足时，做的事情<span class="number">2</span></span><br><span class="line">    条件满足时，做的事情<span class="number">3</span></span><br><span class="line">    ...(省略)...</span><br><span class="line">    </span><br><span class="line">    处理条件(计数器 + <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意</strong>：</p>
+<ul>
+<li><code>while</code> 语句以及缩进部分是一个 <strong>完整的代码块</strong></li>
+</ul>
+<h4 id="第一个-while-循环"><a href="#第一个-while-循环" class="headerlink" title="第一个 while 循环"></a>第一个 while 循环</h4><p><strong>需求</strong></p>
+<ul>
+<li>打印 5 遍 Hello Python</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># 1. 定义重复次数计数器</span><br><span class="line">i = 1</span><br><span class="line"></span><br><span class="line"># 2. 使用 while 判断条件</span><br><span class="line">while i &lt;= 5:</span><br><span class="line">    # 要重复执行的代码</span><br><span class="line">    print(&quot;Hello Python&quot;)</span><br><span class="line"></span><br><span class="line">    # 处理计数器 i</span><br><span class="line">    i = i + 1</span><br><span class="line"></span><br><span class="line">print(&quot;循环结束后的 i = %d&quot; % i)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：循环结束后，之前定义的计数器条件的数值是依旧存在的</p>
+</blockquote>
+<h4 id="死循环"><a href="#死循环" class="headerlink" title="死循环"></a>死循环</h4><blockquote>
+<p>由于程序员的原因，<strong>忘记</strong> 在循环内部 <strong>修改循环的判断条件</strong>，导致循环持续执行，程序无法终止！</p>
+</blockquote>
+<h3 id="2-2-赋值运算符"><a href="#2-2-赋值运算符" class="headerlink" title="2.2 赋值运算符"></a>2.2 赋值运算符</h3><ul>
+<li>在 Python 中，使用 <code>=</code> 可以给变量赋值</li>
+<li>在算术运算时，为了简化代码的编写，<code>Python</code> 还提供了一系列的 与 <strong>算术运算符</strong> 对应的 <strong>赋值运算符</strong></li>
+<li>注意：<strong>赋值运算符中间不能使用空格</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+<th>实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>=</td>
+<td>简单的赋值运算符</td>
+<td>c = a + b 将 a + b 的运算结果赋值为 c</td>
+</tr>
+<tr>
+<td>+=</td>
+<td>加法赋值运算符</td>
+<td>c += a 等效于 c = c + a</td>
+</tr>
+<tr>
+<td>-=</td>
+<td>减法赋值运算符</td>
+<td>c -= a 等效于 c = c - a</td>
+</tr>
+<tr>
+<td>*=</td>
+<td>乘法赋值运算符</td>
+<td>c *= a 等效于 c = c * a</td>
+</tr>
+<tr>
+<td>/=</td>
+<td>除法赋值运算符</td>
+<td>c /= a 等效于 c = c / a</td>
+</tr>
+<tr>
+<td>//=</td>
+<td>取整除赋值运算符</td>
+<td>c //= a 等效于 c = c // a</td>
+</tr>
+<tr>
+<td>%=</td>
+<td>取 <strong>模</strong> (余数)赋值运算符</td>
+<td>c %= a 等效于 c = c % a</td>
+</tr>
+<tr>
+<td>**=</td>
+<td>幂赋值运算符</td>
+<td>c **= a 等效于 c = c ** a</td>
+</tr>
+</tbody></table>
+<h3 id="2-3-Python-中的计数方法"><a href="#2-3-Python-中的计数方法" class="headerlink" title="2.3 Python 中的计数方法"></a>2.3 Python 中的计数方法</h3><p>常见的计数方法有两种，可以分别称为：</p>
+<ul>
+<li><strong>自然计数法</strong>（从 <code>1</code> 开始）—— 更符合人类的习惯</li>
+<li><strong>程序计数法</strong>（从 <code>0</code> 开始）—— 几乎所有的程序语言都选择从 0 开始计数</li>
+</ul>
+<p>因此，大家在编写程序时，应该尽量养成习惯：<strong>除非需求的特殊要求，否则 循环 的计数都从 0 开始</strong></p>
+<h3 id="2-4-循环计算"><a href="#2-4-循环计算" class="headerlink" title="2.4 循环计算"></a>2.4 循环计算</h3><blockquote>
+<p>在程序开发中，通常会遇到 <strong>利用循环</strong> <strong>重复计算</strong> 的需求</p>
+</blockquote>
+<p>遇到这种需求，可以：</p>
+<ol>
+<li>在 <code>while</code> 上方定义一个变量，用于 <strong>存放最终计算结果</strong></li>
+<li>在循环体内部，每次循环都用 <strong>最新的计算结果</strong>，<strong>更新</strong> 之前定义的变量</li>
+</ol>
+<p><strong>需求</strong></p>
+<ul>
+<li>计算 0 ~ 100 之间所有数字的累计求和结果</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 计算 0 ~ 100 之间所有数字的累计求和结果</span></span><br><span class="line"><span class="comment"># 0. 定义最终结果的变量</span></span><br><span class="line">result = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 1. 定义一个整数的变量记录循环的次数</span></span><br><span class="line">i = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 开始循环</span></span><br><span class="line"><span class="keyword">while</span> i &lt;= <span class="number">100</span>:</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 每一次循环，都让 result 这个变量和 i 这个计数器相加</span></span><br><span class="line">    result += i</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 处理计数器</span></span><br><span class="line">    i += <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;0~100之间的数字求和结果 = %d&quot;</span> % result)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="需求进阶"><a href="#需求进阶" class="headerlink" title="需求进阶"></a>需求进阶</h4><ul>
+<li>计算 0 ~ 100 之间 所有 <strong>偶数</strong> 的累计求和结果</li>
+</ul>
+<p>开发步骤</p>
+<ol>
+<li>编写循环 <strong>确认</strong> <strong>要计算的数字</strong></li>
+<li>添加 <strong>结果</strong> 变量，在循环内部 <strong>处理计算结果</strong></li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 0. 最终结果</span></span><br><span class="line">result = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 1. 计数器</span></span><br><span class="line">i = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 开始循环</span></span><br><span class="line"><span class="keyword">while</span> i &lt;= <span class="number">100</span>:</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 判断偶数</span></span><br><span class="line">    <span class="keyword">if</span> i % <span class="number">2</span> == <span class="number">0</span>:</span><br><span class="line">        <span class="built_in">print</span>(i)</span><br><span class="line">        result += i</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 处理计数器</span></span><br><span class="line">    i += <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;0~100之间偶数求和结果 = %d&quot;</span> % result)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="03-break-和-continue"><a href="#03-break-和-continue" class="headerlink" title="03. break 和 continue"></a>03. break 和 continue</h2><blockquote>
+<p><code>break</code> 和 <code>continue</code> 是专门在循环中使用的关键字</p>
+</blockquote>
+<ul>
+<li><code>break</code> <strong>某一条件满足时</strong>，退出循环，不再执行后续重复的代码</li>
+<li><code>continue</code> <strong>某一条件满足时</strong>，不执行后续重复的代码</li>
+</ul>
+<blockquote>
+<p><code>break</code> 和 <code>continue</code> 只针对 <strong>当前所在循环</strong> 有效</p>
+</blockquote>
+<p><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/002_%E5%BE%AA%E7%8E%AF%E6%B5%81%E7%A8%8B%E5%9B%BE.png" alt="002_循环流程图-w400"></p>
+<h3 id="3-1-break"><a href="#3-1-break" class="headerlink" title="3.1 break"></a>3.1 break</h3><ul>
+<li><strong>在循环过程中</strong>，如果 <strong>某一个条件满足后</strong>，<strong>不</strong> 再希望 <strong>循环继续执行</strong>，可以使用 <code>break</code> 退出循环</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">i = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> i &lt; <span class="number">10</span>:</span><br><span class="line"></span><br><span class="line">    <span class="comment"># break 某一条件满足时，退出循环，不再执行后续重复的代码</span></span><br><span class="line">    <span class="comment"># i == 3</span></span><br><span class="line">    <span class="keyword">if</span> i == <span class="number">3</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(i)</span><br><span class="line"></span><br><span class="line">    i += <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;over&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>break</code> 只针对当前所在循环有效</p>
+</blockquote>
+<h3 id="3-2-continue"><a href="#3-2-continue" class="headerlink" title="3.2 continue"></a>3.2 continue</h3><ul>
+<li><strong>在循环过程中</strong>，如果 <strong>某一个条件满足后</strong>，<strong>不</strong> 希望 <strong>执行循环代码，但是又不希望退出循环</strong>，可以使用 <code>continue</code></li>
+<li>也就是：在整个循环中，<strong>只有某些条件</strong>，不需要执行循环代码，而其他条件都需要执行</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">i = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> i &lt; <span class="number">10</span>:</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 当 i == 7 时，不希望执行需要重复执行的代码</span></span><br><span class="line">    <span class="keyword">if</span> i == <span class="number">7</span>:</span><br><span class="line">        <span class="comment"># 在使用 continue 之前，同样应该修改计数器</span></span><br><span class="line">        <span class="comment"># 否则会出现死循环</span></span><br><span class="line">        i += <span class="number">1</span>   （ 更改此处 i += <span class="number">2</span> 则可跳过输出 <span class="number">8</span>   ==》跳过一段循环 ）</span><br><span class="line"></span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 重复执行的代码</span></span><br><span class="line">    <span class="built_in">print</span>(i)</span><br><span class="line"></span><br><span class="line">    i += <span class="number">1</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>需要注意：使用 <code>continue</code> 时，<strong>条件处理部分的代码，需要特别注意</strong>，不小心会出现 <strong>死循环</strong></li>
+</ul>
+<blockquote>
+<p><code>continue</code> 只针对当前所在循环有效</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">非break = continue</span><br></pre></td></tr></table></figure>
+
+<h2 id="04-while-循环嵌套"><a href="#04-while-循环嵌套" class="headerlink" title="04. while 循环嵌套"></a>04. <code>while</code> 循环嵌套</h2><h3 id="4-1-循环嵌套"><a href="#4-1-循环嵌套" class="headerlink" title="4.1 循环嵌套"></a>4.1 循环嵌套</h3><ul>
+<li><code>while</code> 嵌套就是：<code>while</code> 里面还有 <code>while</code></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> 条件 <span class="number">1</span>:</span><br><span class="line">    条件满足时，做的事情<span class="number">1</span></span><br><span class="line">    条件满足时，做的事情<span class="number">2</span></span><br><span class="line">    条件满足时，做的事情<span class="number">3</span></span><br><span class="line">    ...(省略)...</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> 条件 <span class="number">2</span>:</span><br><span class="line">        条件满足时，做的事情<span class="number">1</span></span><br><span class="line">        条件满足时，做的事情<span class="number">2</span></span><br><span class="line">        条件满足时，做的事情<span class="number">3</span></span><br><span class="line">        ...(省略)...</span><br><span class="line">    </span><br><span class="line">        处理条件 <span class="number">2</span></span><br><span class="line">    </span><br><span class="line">    处理条件 <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-2-循环嵌套演练-——-九九乘法表"><a href="#4-2-循环嵌套演练-——-九九乘法表" class="headerlink" title="4.2 循环嵌套演练 —— 九九乘法表"></a>4.2 循环嵌套演练 —— 九九乘法表</h3><h4 id="第-1-步：用嵌套打印小星星"><a href="#第-1-步：用嵌套打印小星星" class="headerlink" title="第 1 步：用嵌套打印小星星"></a>第 1 步：用嵌套打印小星星</h4><p><strong>需求</strong></p>
+<ul>
+<li>在控制台连续输出五行 <code>*</code>，每一行星号的数量依次递增</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">*</span><br><span class="line">**</span><br><span class="line">***</span><br><span class="line">****</span><br><span class="line">*****</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>使用字符串 * 打印</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 定义一个计数器变量，从数字1开始，循环会比较方便</span></span><br><span class="line">row = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> row &lt;= <span class="number">5</span>:</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;*&quot;</span> * row)</span><br><span class="line"></span><br><span class="line">    row += <span class="number">1</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="第-2-步：使用循环嵌套打印小星星"><a href="#第-2-步：使用循环嵌套打印小星星" class="headerlink" title="第 2 步：使用循环嵌套打印小星星"></a>第 2 步：使用循环嵌套打印小星星</h4><p><strong>知识点</strong> 对 <code>print</code> 函数的使用做一个增强</p>
+<ul>
+<li><p>在默认情况下，<code>print</code> 函数输出内容之后，会自动在内容末尾增加换行</p>
+</li>
+<li><p>如果不希望末尾增加换行，可以在 <code>print</code> 函数输出内容的后面增加 <code>, end=&quot;&quot;</code></p>
+</li>
+<li><p>其中 <code>&quot;&quot;</code> 中间可以指定 <code>print</code> 函数输出内容之后，继续希望显示的内容</p>
+</li>
+<li><p>语法格式如下：</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 向控制台输出内容结束之后，不会换行</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;*&quot;</span>, end=<span class="string">&quot;&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 单纯的换行</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>end=&quot;&quot;</code> 表示向控制台输出内容结束之后，不会换行</p>
+</blockquote>
+<p><strong>假设</strong> <code>Python</code> <strong>没有提供</strong> 字符串的 <code>*</code> 操作 <strong>拼接字符串</strong></p>
+<p><strong>需求</strong></p>
+<ul>
+<li>在控制台连续输出五行 <code>*</code>，每一行星号的数量依次递增</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">*</span><br><span class="line">**</span><br><span class="line">***</span><br><span class="line">****</span><br><span class="line">*****</span><br></pre></td></tr></table></figure>
+
+<p><strong>开发步骤</strong></p>
+<ul>
+<li>1&gt; 完成 5 行内容的简单输出</li>
+<li>2&gt; 分析每行内部的 <code>*</code> 应该如何处理？<ul>
+<li>每行显示的星星和当前所在的行数是一致的</li>
+<li>嵌套一个小的循环，专门处理每一行中 <code>列</code> 的星星显示  </li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">row = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> row &lt;= <span class="number">5</span>:</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 假设 python 没有提供字符串 * 操作</span></span><br><span class="line">    <span class="comment"># 在循环内部，再增加一个循环，实现每一行的 星星 打印</span></span><br><span class="line">    col = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> col &lt;= row:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;*&quot;</span>, end=<span class="string">&quot;&quot;</span>)</span><br><span class="line"></span><br><span class="line">        col += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 每一行星号输出完成后，再增加一个换行</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;&quot;</span>)</span><br><span class="line"></span><br><span class="line">    row += <span class="number">1</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="第-3-步：-九九乘法表"><a href="#第-3-步：-九九乘法表" class="headerlink" title="第 3 步： 九九乘法表"></a>第 3 步： 九九乘法表</h4><p><strong>需求</strong> 输出 九九乘法表，格式如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1 * 1 = 1	</span><br><span class="line">1 * 2 = 2	2 * 2 = 4	</span><br><span class="line">1 * 3 = 3	2 * 3 = 6	3 * 3 = 9	</span><br><span class="line">1 * 4 = 4	2 * 4 = 8	3 * 4 = 12	4 * 4 = 16	</span><br><span class="line">1 * 5 = 5	2 * 5 = 10	3 * 5 = 15	4 * 5 = 20	5 * 5 = 25	</span><br><span class="line">1 * 6 = 6	2 * 6 = 12	3 * 6 = 18	4 * 6 = 24	5 * 6 = 30	6 * 6 = 36	</span><br><span class="line">1 * 7 = 7	2 * 7 = 14	3 * 7 = 21	4 * 7 = 28	5 * 7 = 35	6 * 7 = 42	7 * 7 = 49	</span><br><span class="line">1 * 8 = 8	2 * 8 = 16	3 * 8 = 24	4 * 8 = 32	5 * 8 = 40	6 * 8 = 48	7 * 8 = 56	8 * 8 = 64	</span><br><span class="line">1 * 9 = 9	2 * 9 = 18	3 * 9 = 27	4 * 9 = 36	5 * 9 = 45	6 * 9 = 54	7 * 9 = 63	8 * 9 = 72	9 * 9 = 81</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>开发步骤</strong></p>
+<ul>
+<li><ol>
+<li>打印 9 行小星星</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">*</span><br><span class="line">**</span><br><span class="line">***</span><br><span class="line">****</span><br><span class="line">*****</span><br><span class="line">******</span><br><span class="line">*******</span><br><span class="line">********</span><br><span class="line">*********</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><ol start="2">
+<li>将每一个 <code>*</code> 替换成对应的行与列相乘</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 定义起始行</span></span><br><span class="line">row = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 最大打印 9 行</span></span><br><span class="line"><span class="keyword">while</span> row &lt;= <span class="number">9</span>:</span><br><span class="line">    <span class="comment"># 定义起始列</span></span><br><span class="line">    col = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 最大打印 row 列</span></span><br><span class="line">    <span class="keyword">while</span> col &lt;= row:</span><br><span class="line"></span><br><span class="line">        <span class="comment"># end = &quot;&quot;，表示输出结束后，不换行</span></span><br><span class="line">        <span class="comment"># &quot;\t&quot; 可以在控制台输出一个制表符，协助在输出文本时对齐</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;%d * %d = %d&quot;</span> % (col, row, row * col), end=<span class="string">&quot;\t&quot;</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 列数 + 1</span></span><br><span class="line">        col += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 一行打印完成的换行</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 行数 + 1</span></span><br><span class="line">    row += <span class="number">1</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>字符串中的转义字符</strong></p>
+<ul>
+<li><code>\t</code> 在控制台输出一个 <strong>制表符</strong>，协助在输出文本时 <strong>垂直方向</strong> 保持对齐</li>
+<li><code>\n</code> 在控制台输出一个 <strong>换行符</strong></li>
+</ul>
+<blockquote>
+<p><strong>制表符</strong> 的功能是在不使用表格的情况下在 <strong>垂直方向</strong> 按列对齐文本</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>转义字符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>\\</td>
+<td>反斜杠符号</td>
+</tr>
+<tr>
+<td>\‘</td>
+<td>单引号</td>
+</tr>
+<tr>
+<td>\“</td>
+<td>双引号</td>
+</tr>
+<tr>
+<td>\n</td>
+<td>换行</td>
+</tr>
+<tr>
+<td>\t</td>
+<td>横向制表符</td>
+</tr>
+<tr>
+<td>\r</td>
+<td>回车</td>
+</tr>
+</tbody></table>
+<p>​    <img src="https://gitee.com/lichaikui/picture/raw/master/tupian/image-20211231093938346.png" alt="image-20211231093938346"></p>
+<p><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/image-20211231094046832.png" alt="image-20211231094046832"></p>
+<p><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/image-20211231094945065.png" alt="image-20211231094945065"></p>
+
+        <p class="suffix-end">__END__</p>
+        <div class="suffix-box">
+            <div class="suffix-box-left">
+                <img src="https://gitee.com/lichaikui/picture/raw/master/tupian/20211222195800.png" alt="hero">
+            </div>
+            <div class="suffix-box-right">
+                <span class="suffix-box-title">文章作者</span>：hero
+                <br>
+                <span class="suffix-box-title">文章出处</span>：<a href="/2021/12/23/python%E9%9D%A2%E5%AF%B9%E8%BF%87%E7%A8%8B%E5%AD%A6%E4%B9%A0/11.%E5%BE%AA%E7%8E%AF/" target="_blank">11.循环</a>
+                <br>
+                <span class="suffix-box-title">作者签名</span>：简单地活着, 肆意又精彩.
+                <br>
+                <span class="suffix-box-title">关于主题</span>：<a href="https://github.com/first19326/Hexo-LiveForCode" target="_blank">Hexo - Live For Code</a>
+                <br>
+                <span class="suffix-box-title">版权声明</span>：文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" title="BY-NC-SA" target="_blank">BY-NC-SA</a> 许可协议，转载请注明出处
+                <br>
+            </div>
+            <div style="clear: both;"></div>
+        </div>
+    </div>
+    <div class="article-footer">
+        
+            <div class="category">
+                分类：
+                
+                    <a href="/category/python%E9%9D%A2%E5%AF%B9%E8%BF%87%E7%A8%8B%E5%AD%A6%E4%B9%A0/">python面对过程学习</a>
+                
+            </div>
+        
+        
+            <div class="tag">
+                标签：
+                
+                    <a href="/tag/python%E5%AD%A6%E4%B9%A0/">python学习</a>
+                
+            </div>
+        
+        <div class="article-prev-next">
+            
+                <a href="/2021/12/23/python%E9%9D%A2%E5%AF%B9%E8%BF%87%E7%A8%8B%E5%AD%A6%E4%B9%A0/12.%E5%87%BD%E6%95%B0%E5%9F%BA%E7%A1%80/" class="prev-prefix">« </a> 上一篇：    <a href="/2021/12/23/python%E9%9D%A2%E5%AF%B9%E8%BF%87%E7%A8%8B%E5%AD%A6%E4%B9%A0/12.%E5%87%BD%E6%95%B0%E5%9F%BA%E7%A1%80/" title="发布于 2021-12-23 09:34">12.函数基础</a>
+                <br>
+            
+            
+                <a href="/2021/12/23/python%E9%9D%A2%E5%AF%B9%E8%BF%87%E7%A8%8B%E5%AD%A6%E4%B9%A0/10.%E8%BF%90%E7%AE%97%E7%AC%A6/" class="next-prefix">» </a> 下一篇：    <a href="/2021/12/23/python%E9%9D%A2%E5%AF%B9%E8%BF%87%E7%A8%8B%E5%AD%A6%E4%B9%A0/10.%E8%BF%90%E7%AE%97%E7%AC%A6/" title="发布于 2021-12-23 09:32">10.运算符</a>
+            
+        </div>
+    </div>
+    
+    <div class="article-comments">
+        <div class="comments-title">
+            评论列表
+        </div>
+        <div class="comments-content">
+        </div>
+    </div>
+
+</div>
+
+    </div>
+</div>
+    <div id="footer"></div>
+    <div id="sidebar">
+    <div class="menu-wrap" style="display:none;">
+        <nav class="menu">
+            <div class="menu-introduce"> 
+                <div class="introduce-avatar"></div> 
+                <div class="introduce-info"> 
+                    <div class="introduce-user"><span></span></div>        
+                </div> 
+            </div> 
+            <div class="menu-list">
+                <ul></ul> 
+            </div> 
+            <div class="menu-link"></div> 
+        </nav>
+        <button class="menu-button-close"></button>
+        <div class="morph-shape" id="morph-shape" data-morph-open="M-7.312,0H15c0,0,66,113.339,66,399.5C81,664.006,15,800,15,800H-7.312V0z;M-7.312,0H100c0,0,0,113.839,0,400c0,264.506,0,400,0,400H-7.312V0z">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 800" preserveAspectRatio="none">
+                <path d="M-7.312,0H0c0,0,0,113.839,0,400c0,264.506,0,400,0,400h-7.312V0z"/>
+            </svg>
+        </div>
+    </div>
+    <button class="menu-button-open">MENU</button>
+    <div class="menu-cover"></div>
+</div>
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/search.css">
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/iscroll.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/instantsearch.min.js"></script>
+<div class="search-window">
+    <div class="search-content">
+        <div class="search-content-icon">
+            <i class="iconfont icon-search"></i>
+        </div>
+        <div id="search-input" class="search-input"></div>
+    </div>
+
+    <div class="search-scroll">
+        <div class="search-result">
+            <div id="search-stats" class="search-stats"></div>
+            <div id="search-hits"></div>
+            <div id="search-pagination" class="search-pagination"></div>
+        </div>
+    </div>
+
+    <span class="search-close-icon">
+        <i class="iconfont icon-close"></i>
+    </span>
+</div>
+    <div id="tools">
+    <div class="progressbar-top"></div>
+
+    
+        <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/APlayer.css">
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/APlayer.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/Meting.min.js"></script>
+        <meting-js id="3778678" lrcshow="false" server="netease" type="playlist" fixed="true" autoplay="false" loop="all" order="random" preload="auto" volume="0.67" mutex="true"></meting-js>
+    
+    
+    <div class="wrap-right"></div>
+    <div class="loading"></div>
+</div>
+    <script>
+    window.config = {
+        GitHubUserName     : 'fubaisen',
+        GitHubRepositories : 'fubaisen.github.io',
+
+        BlogUser      : 'hero',
+        BlogAvatar    : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222195800.png',
+        BlogStartDate : '2020-01-01',
+
+        WebsiteTitleBlur         : '(◍´꒳`◍) Hi, friend',
+        WebsiteTitleBlurTimeOut  : 500,
+        WebsiteTitleFocus        : '(*´∇｀*) 欢迎回来!',
+        WebsiteTitleFocusTimeOut : 1000,
+        WebsiteFavicon           : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222195607.png',
+
+        ProgressBar: {
+            id       : 'topProgressBar',
+            color    : '#77B6FF',
+            height   : '2px',
+            duration : 0.2
+        },
+
+        Loading: {
+            rebound: {
+                tension  : 16,
+                friction : 5
+            },
+            spinner: {
+                id     : 'spinner',
+                radius : 90,
+                sides  : 3,
+                depth  : 4,
+                colors : {
+                    background : '#F0F0F0',
+                    stroke     : '#272633',
+                    base       : '',
+                    child      : '#272633'
+                },
+                alwaysForward : true,
+                restAt        : 0.5,
+                renderBase    : false
+            }
+        },
+
+        HomeHeaderAnimationRendered : true,
+        HomeHeaderAnimation         : {
+            radius      : 15,
+            density     : 0.2,
+            color       : 'rgba(255, 255, 255, .2)',
+            clearOffset : 0.3
+        },
+
+        ArticleHeaderAnimationRendered : false,
+        ArticleHeaderAnimation         : {
+            triW                  : 14,
+            triH                  : 20,
+            neighbours            : [
+                
+                    'side',
+                
+                    'top',
+                
+                    'bottom',
+                
+            ],
+            speedTrailAppear      : 0.1,
+            speedTrailDisappear   : 0.1,
+            speedTriOpen          : 1,
+            trailMaxLength        : 30,
+            trailIntervalCreation : 100,
+            delayBeforeDisappear  : 2,
+            colors                : [
+                
+                    '#96EDA6',
+                
+                    '#5BC6A9',
+                
+                    '#38668C',
+                
+                    '#374D84',
+                
+                    '#BED5CB',
+                
+                    '#62ADC6',
+                
+                    '#8EE5DE',
+                
+                    '#304E7B',
+                
+            ]
+        },
+
+        BackAnimationRendered          : true,
+        IEBrowserBackAnimationRendered : false,
+        BackAnimation                  : {
+            colorSaturation  : '60%',
+            colorBrightness  : '50%',
+            colorAlpha       : 0.5,
+            colorCycleSpeed  : 5,
+            verticalPosition : 'random',
+            horizontalSpeed  : 200,
+            ribbonCount      : 3,
+            strokeSize       : 0,
+            parallaxAmount   : -0.2,
+            animateSections  : true
+        },
+
+        HomeHeaderImage : [
+            
+                'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/image/header/home.jpg',
+            
+                'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/image/header/home.jpeg',
+            
+        ],
+        HomeBannerText  : '',
+
+        ArticleHeaderImage : [
+            
+                'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/image/header/article.jpg',
+            
+        ],
+
+        OtherBannerText : '',
+
+        MenuList : [
+            
+                {
+                    name   : '首页',
+                    href   : '/',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '标签',
+                    href   : '/tag',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '分类',
+                    href   : '/category',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '归档',
+                    href   : '/archive',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '赞赏',
+                    href   : '/donate',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '关于',
+                    href   : '/about',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '订阅',
+                    href   : '/subscription',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '搜索',
+                    href   : '',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '留言板',
+                    href   : '/comment',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '友情链接',
+                    href   : '/friend',    
+                    target : '',
+                    class  : ''
+                },
+            
+        ],
+        MenuLink : [
+            
+                
+                    {
+                        icon : 'icon-weibo', 
+                        url  : 'https://weibo.com/u/7649528498'
+                    },
+                
+                    {
+                        icon : 'icon-wechat', 
+                        url  : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222190433.png'
+                    },
+                
+                    {
+                        icon : 'icon-qq', 
+                        url  : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222190324.png'
+                    },
+                
+                    {
+                        icon : 'icon-github', 
+                        url  : 'https://github.com/fubaisen'
+                    },
+                
+            
+        ],
+
+        FooterStyle : 2,
+        BottomText  : {
+            icon    : 'like-fill',
+            left    : '人生若只如初见',
+            right   : '何事秋风悲画扇'
+        },
+        ThemeInfo   : true,
+
+        ConsoleList : [
+            
+                
+                    [
+                        
+                            
+                                'Based on cnblogs theme SimpleMemory.',
+                            
+                                '',
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                'SimpleMemory Author:',
+                            
+                                'BNDong',
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                'Theme:',
+                            
+                                'LiveForCode',
+                            
+                        
+                    ],
+                
+            
+        ],
+
+        FontIconExtend : '',
+
+        Donate : {
+            paypal  : '',
+            bitcoin : '',
+            alipay  : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222200200.png',
+            wechat  : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222194957.png'
+        },
+
+        Code : {
+            style : 'normal'
+        },  
+
+        Search : {
+            applicationID : '010C3EANT8',
+            apiKey        : 'c7abab9f11b79102b9aff7fe6d41447d',
+            indexName     : 'Notes',
+            hits          : {
+                page : 10
+            },
+            labels        : {
+                placeholder : '搜索',
+                empty       : '未发现与 「${query}」 相关的内容',
+                stats       : '${hits} 条相关条目，使用了 ${time} 毫秒',
+            }
+        }, 
+
+        Valine : {
+            switch         : true,
+            el             : '.comments-content',
+            appId          : 'srhKtvWPQTWYKh3qX8G8M7v0-gzGzoHsz',
+            appKey         : '8uVSP1q6UlALVC5igYfIfv2h',
+            placeholder    : '你是我一生只会遇见一次的惊喜...',
+            avatar         : 'mm',
+            meta           : 'nick,mail,link',
+            requiredFields : 'nick,mail',
+            pageSize       : 5,
+            lang           : 'zh-cn',
+            visitor        : true,
+            enableQQ       : true
+        },
+
+        Tocbot : {
+            switch                : true,
+            tocSelector           : '.toc',
+            contentSelector       : '.article-body',
+            headingSelector       : 'h1, h2, h3, h4, h5',
+            headingsOffset        : 0,
+            scrollSmooth          : true,
+            scrollSmoothOffset    : -5,
+            positionFixedSelector : '.toc',
+            positionFixedClass    : 'toc-fixed',
+            fixedSidebarOffset    : '',
+        },
+
+        Require : {
+            baseUrl     : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/',
+            waitSeconds : 100
+        },
+
+        Music : {
+            type : 'Meting'
+        },
+        APlayer : {
+            container : '.aplayer',
+            fixed     : true,
+            autoplay  : false,
+            loop      : 'all',
+            order     : 'random',
+            preload   : 'auto',
+            volume    : 0.67,
+            mutex     : true,
+            lrcType   : 3,
+            audio     : [
+                
+                    {
+                        name   : 'aLIEz',
+                        artist : 'mizuki（瑞葵）',
+                        cover  : '/music/cover/aLIEz.jpg',
+                        url    : '/music/song/aLIEz.mp3',
+                        lrc    : '/music/lrc/aLIEz.lrc'
+                    },
+                
+                    {
+                        name   : 'Endless Tears',
+                        artist : 'CLIFF EDGE',
+                        cover  : '/music/cover/Endless Tears.jpg',
+                        url    : '/music/song/Endless Tears.mp3',
+                        lrc    : '/music/lrc/Endless Tears.lrc'
+                    },
+                
+                    {
+                        name   : 'Miracle',
+                        artist : 'Cascada',
+                        cover  : '/music/cover/Miracle.jpg',
+                        url    : '/music/song/Miracle.mp3',
+                        lrc    : '/music/lrc/Miracle.lrc'
+                    },
+                
+                    {
+                        name   : 'Roll The Dice',
+                        artist : '高珊',
+                        cover  : '/music/cover/Roll The Dice.jpg',
+                        url    : '/music/song/Roll The Dice.mp3',
+                        lrc    : '/music/lrc/Roll The Dice.lrc'
+                    },
+                
+                    {
+                        name   : 'See You Again',
+                        artist : 'Charlie Puth, Wiz Khalifa',
+                        cover  : '/music/cover/See You Again.jpg',
+                        url    : '/music/song/See You Again.mp3',
+                        lrc    : '/music/lrc/See You Again.lrc'
+                    },
+                
+                    {
+                        name   : 'Traveling Light',
+                        artist : 'Joel Hanson, Sara Groves',
+                        cover  : '/music/cover/Traveling Light.jpg',
+                        url    : '/music/song/Traveling Light.mp3',
+                        lrc    : '/music/lrc/Traveling Light.lrc'
+                    },
+                
+                    {
+                        name   : '痴心绝对',
+                        artist : '李圣杰',
+                        cover  : '/music/cover/痴心绝对.jpg',
+                        url    : '/music/song/痴心绝对.mp3',
+                        lrc    : '/music/lrc/痴心绝对.lrc'
+                    },
+                
+                    {
+                        name   : '好想大声说爱你',
+                        artist : 'BAAD（バード）',
+                        cover  : '/music/cover/好想大声说爱你.jpg',
+                        url    : '/music/song/好想大声说爱你.mp3',
+                        lrc    : '/music/lrc/好想大声说爱你.lrc'
+                    },
+                
+            ]
+        },
+        Meting : {
+            id       : '3778678', 
+            lrcshow  : false, 
+            server   : 'netease', 
+            type     : 'playlist', 
+            fixed    : true, 
+            autoplay : false, 
+            loop     : 'all', 
+            order    : 'random', 
+            preload  : 'auto', 
+            volume   : 0.67, 
+            mutex    : true
+        },
+
+        Mouse : {
+            enable  : true,
+            options : {
+                size  : 6,
+                sizeF : 24
+            }
+        },
+
+        LazyLoad : {
+            default : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/image/website/lazyload.svg'
+        },
+  
+        Style : {
+            aplayer          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/APlayer.css',
+            archive          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/archive.css',
+            donate           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/donate.css',
+            fancybox         : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/jquery.fancybox.css',
+            footer           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/footer.css',
+            iconfont         : 'https://at.alicdn.com/t/font_1546312_l3yohatebw.css',
+            index            : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/index.css',
+            menuBubble       : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/menu-bubble.css',
+            page             : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/page.css',
+            post             : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/post.css',
+            search           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/search.css',
+            tocbot           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/tocbot.css',
+            normal           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/normal.css',
+            night            : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/night.css',
+            clipboard        : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/clipboard.css'
+        },
+
+        Script: {
+            aplayer          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/APlayer.min.js',
+            config           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/require.config.js',
+            index            : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/index.js',
+            instantSearch    : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/instantsearch.min.js',
+            jQuery           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/jquery-3.4.1.min.js',
+            loading          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/loading.js',
+            meting           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/Meting.min.js',
+            iscroll          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/iscroll.js',
+            require          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/require.min.js'
+        },
+
+        Font: {
+            LongCang   : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/LongCang.css',
+            Monda      : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Monda.css',
+            NotoSansSC : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/NotoSansSC.css',
+            Playball   : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Playball.css',
+            PTMono     : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/PTMono.css',
+            RobotoSlab : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/RobotoSlab.css',
+            Rosario    : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Rosario.css',
+            UbuntuMono : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/UbuntuMono.css'
+        },
+
+        Suffix : {
+            about : '简单地活着, 肆意又精彩.'
+        },
+            
+        Theme : {
+            url  : 'https://github.com/first19326/Hexo-LiveForCode',
+            name : 'Hexo - Live For Code'
+        }  
+    };
+</script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/index.js"></script>
+</body>
+</html>

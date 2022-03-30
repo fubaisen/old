@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no">
+    <meta name="referrer" content="origin">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <title>12_模块和包</title>
+    <link rel="shortcut icon" href="#"/>
+
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/LongCang.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Monda.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/NotoSansSC.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Playball.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/PTMono.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/RobotoSlab.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Rosario.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/UbuntuMono.css">
+
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/post.css">
+    
+        <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/normal.css">
+    
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/jquery-3.4.1.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.1"></head>
+<body>
+    <a id="cover"></a>
+    <div id="header">
+    <div class="header">
+        <div class="vertical">
+            <div class="inner">
+                <h1 class="header-subtitle">12_模块和包</h1>
+                <div class="header-subinfo">
+                    <p class="article-info-text">
+                        <span>
+                            <i class="iconfont icon-time"></i> 发表时间：2022-03-27
+                        </span>
+                        
+                            <span id="/2022/03/27/python面对对象学习/12_模块和包/" class="leancloud_visitors" data-flag-title="12_模块和包">
+                                <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                            </span>
+                        
+                        <span>
+                            <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2022/03/27/python面对对象学习/12_模块和包/"></span>
+                        </span>  
+                    </p>                 
+                </div>
+            </div>
+        </div>
+        <canvas id="articleHeaderCanvas"></canvas>
+    </div>
+</div>
+    <div id="container">
+    <div id="content">
+        <div id="article">
+    <div class="toc"></div>
+    <div class="article-body">
+        <h1 id="模块和包"><a href="#模块和包" class="headerlink" title="模块和包"></a>模块和包</h1><h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ul>
+<li>模块</li>
+<li>包</li>
+<li>发布模块</li>
+</ul>
+<h2 id="01-模块"><a href="#01-模块" class="headerlink" title="01. 模块"></a>01. 模块</h2><h3 id="1-1-模块的概念"><a href="#1-1-模块的概念" class="headerlink" title="1.1 模块的概念"></a>1.1 模块的概念</h3><blockquote>
+<p><strong>模块是 Python 程序架构的一个核心概念</strong></p>
+</blockquote>
+<ul>
+<li>每一个以扩展名 <code>py</code> 结尾的 <code>Python</code> 源代码文件都是一个 <strong>模块</strong></li>
+<li><strong>模块名</strong> 同样也是一个 <strong>标识符</strong>，需要符合标识符的命名规则</li>
+<li>在模块中定义的 <strong>全局变量</strong> 、<strong>函数</strong>、<strong>类</strong> 都是提供给外界直接使用的 <strong>工具</strong></li>
+<li><strong>模块</strong> 就好比是 <strong>工具包</strong>，要想使用这个工具包中的工具，就需要先 <strong>导入</strong> 这个模块</li>
+</ul>
+<h3 id="1-2-模块的两种导入方式"><a href="#1-2-模块的两种导入方式" class="headerlink" title="1.2 模块的两种导入方式"></a>1.2 模块的两种导入方式</h3><h4 id="1）import-导入"><a href="#1）import-导入" class="headerlink" title="1）import 导入"></a>1）import 导入</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> 模块名<span class="number">1</span>, 模块名<span class="number">2</span> </span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>提示：在导入模块时，每个导入应该独占一行</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> 模块名<span class="number">1</span></span><br><span class="line"><span class="keyword">import</span> 模块名<span class="number">2</span> </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>导入之后<ul>
+<li>通过 <code>模块名.</code> 使用 <strong>模块提供的工具</strong> —— <strong>全局变量</strong>、<strong>函数</strong>、<strong>类</strong></li>
+</ul>
+</li>
+</ul>
+<h5 id="使用-as-指定模块的别名"><a href="#使用-as-指定模块的别名" class="headerlink" title="使用 as 指定模块的别名"></a>使用 <code>as</code> 指定模块的别名</h5><blockquote>
+<p><strong>如果模块的名字太长</strong>，可以使用 <code>as</code> 指定模块的名称，以方便在代码中的使用</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> 模块名<span class="number">1</span> <span class="keyword">as</span> 模块别名</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：<strong>模块别名</strong> 应该符合 <strong>大驼峰命名法</strong></p>
+</blockquote>
+<h4 id="2）from…import-导入"><a href="#2）from…import-导入" class="headerlink" title="2）from…import 导入"></a>2）from…import 导入</h4><ul>
+<li>如果希望 <strong>从某一个模块</strong> 中，导入 <strong>部分</strong> 工具，就可以使用 <code>from ... import</code> 的方式</li>
+<li><code>import 模块名</code> 是 <strong>一次性</strong> 把模块中 <strong>所有工具全部导入</strong>，并且通过 <strong>模块名/别名</strong> 访问</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 从 模块 导入 某一个工具</span></span><br><span class="line"><span class="keyword">from</span> 模块名<span class="number">1</span> <span class="keyword">import</span> 工具名</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>导入之后<ul>
+<li><strong>不需要</strong> 通过 <code>模块名.</code></li>
+<li>可以直接使用 <strong>模块提供的工具</strong> —— <strong>全局变量</strong>、<strong>函数</strong>、<strong>类</strong></li>
+</ul>
+</li>
+</ul>
+<p><strong>注意</strong></p>
+<blockquote>
+<p>如果 <strong>两个模块</strong>，存在 <strong>同名的函数</strong>，那么 <strong>后导入模块的函数</strong>，会 <strong>覆盖掉先导入的函数</strong></p>
+</blockquote>
+<ul>
+<li>开发时 <code>import</code> 代码应该统一写在 <strong>代码的顶部</strong>，更容易及时发现冲突</li>
+<li>一旦发现冲突，可以使用 <code>as</code> 关键字 <strong>给其中一个工具起一个别名</strong></li>
+</ul>
+<h5 id="from…import-（知道）"><a href="#from…import-（知道）" class="headerlink" title="from…import *（知道）"></a>from…import *（知道）</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 从 模块 导入 所有工具</span></span><br><span class="line"><span class="keyword">from</span> 模块名<span class="number">1</span> <span class="keyword">import</span> *</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意</strong></p>
+<blockquote>
+<p>这种方式不推荐使用，因为函数重名并没有任何的提示，出现问题不好排查</p>
+</blockquote>
+<h3 id="1-3-模块的搜索顺序-扩展"><a href="#1-3-模块的搜索顺序-扩展" class="headerlink" title="1.3 模块的搜索顺序[扩展]"></a>1.3 模块的搜索顺序[扩展]</h3><p><code>Python</code> 的解释器在 <strong>导入模块</strong> 时，会：</p>
+<ol>
+<li>搜索 <strong>当前目录</strong> 指定模块名的文件，<strong>如果有就直接导入</strong></li>
+<li>如果没有，再搜索 <strong>系统目录</strong></li>
+</ol>
+<blockquote>
+<p>在开发时，给文件起名，不要和 <strong>系统的模块文件</strong> <strong>重名</strong></p>
+</blockquote>
+<p><code>Python</code> 中每一个模块都有一个内置属性 <code>__file__</code> 可以 <strong>查看模块</strong> 的 <strong>完整路径</strong></p>
+<p><strong>示例</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成一个 0～10 的数字</span></span><br><span class="line">rand = random.randint(<span class="number">0</span>, <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(rand)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：如果当前目录下，存在一个 <code>random.py</code> 的文件，程序就无法正常执行了！</p>
+</blockquote>
+<ul>
+<li>这个时候，<code>Python</code> 的解释器会 <strong>加载当前目录</strong> 下的 <code>random.py</code> 而不会加载 <strong>系统的</strong> <code>random</code> 模块</li>
+</ul>
+<h3 id="1-4-原则-——-每一个文件都应该是可以被导入的"><a href="#1-4-原则-——-每一个文件都应该是可以被导入的" class="headerlink" title="1.4 原则 —— 每一个文件都应该是可以被导入的"></a>1.4 原则 —— 每一个文件都应该是可以被导入的</h3><ul>
+<li>一个 <strong>独立的 <code>Python</code> 文件</strong> 就是一个 <strong>模块</strong></li>
+<li>在导入文件时，文件中 <strong>所有没有任何缩进的代码</strong> 都会被执行一遍！</li>
+</ul>
+<p><strong>实际开发场景</strong></p>
+<ul>
+<li>在实际开发中，每一个模块都是独立开发的，大多都有专人负责</li>
+<li>开发人员通常会在模块下方增加一些测试代码<ul>
+<li>仅在模块内使用，而被导入到其他文件中不需要执行</li>
+</ul>
+</li>
+</ul>
+<h4 id="name-属性"><a href="#name-属性" class="headerlink" title="__name__ 属性"></a><code>__name__</code> 属性</h4><blockquote>
+<ul>
+<li><code>__name__</code> 属性可以做到，测试模块的代码 <strong>只在测试情况下被运行</strong>，而在 <strong>被导入时不会被执行</strong>！</li>
+</ul>
+</blockquote>
+<ul>
+<li><code>__name__</code> 是 <code>Python</code> 的一个内置属性，记录着一个 <strong>字符串</strong></li>
+<li>如果 <strong>是被其他文件导入的</strong>，<code>__name__</code> 就是 <strong>模块名</strong></li>
+<li>如果 <strong>是当前执行的程序</strong> <code>__name__</code> 是 <strong><code>__main__</code></strong></li>
+</ul>
+<p><strong>在很多 <code>Python</code> 文件中都会看到以下格式的代码</strong>：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入模块</span></span><br><span class="line"><span class="comment"># 定义全局变量</span></span><br><span class="line"><span class="comment"># 定义类</span></span><br><span class="line"><span class="comment"># 定义函数</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 在代码的最下方</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>():</span></span><br><span class="line">    <span class="comment"># ...</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 根据 __name__ 判断是否执行下方代码</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<h2 id="02-包（Package）"><a href="#02-包（Package）" class="headerlink" title="02. 包（Package）"></a>02. 包（Package）</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><ul>
+<li><strong>包</strong> 是一个 <strong>包含多个模块</strong> 的 <strong>特殊目录</strong></li>
+<li>目录下有一个 <strong>特殊的文件</strong> <code>__init__.py</code></li>
+<li>包名的 <strong>命名方式</strong> 和变量名一致，<strong>小写字母</strong> + <code>_</code></li>
+</ul>
+<p><strong>好处</strong></p>
+<ul>
+<li>使用 <code>import 包名</code> 可以一次性导入 <strong>包</strong> 中 <strong>所有的模块</strong></li>
+</ul>
+<h3 id="案例演练"><a href="#案例演练" class="headerlink" title="案例演练"></a>案例演练</h3><ol>
+<li>新建一个 <code>hm_message</code> 的 <strong>包</strong></li>
+<li>在目录下，新建两个文件 <code>send_message</code> 和 <code>receive_message</code></li>
+<li>在 <code>send_message</code> 文件中定义一个 <code>send</code> 函数</li>
+<li>在 <code>receive_message</code> 文件中定义一个 <code>receive</code> 函数</li>
+<li>在外部直接导入 <code>hm_message</code> 的包</li>
+</ol>
+<h3 id="init-py"><a href="#init-py" class="headerlink" title="__init__.py"></a><code>__init__.py</code></h3><ul>
+<li>要在外界使用 <strong>包</strong> 中的模块，需要在 <code>__init__.py</code> 中指定 <strong>对外界提供的模块列表</strong></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 从 当前目录 导入 模块列表</span></span><br><span class="line"><span class="keyword">from</span> . <span class="keyword">import</span> send_message</span><br><span class="line"><span class="keyword">from</span> . <span class="keyword">import</span> receive_message</span><br></pre></td></tr></table></figure>
+
+<h2 id="03-发布模块（知道）"><a href="#03-发布模块（知道）" class="headerlink" title="03. 发布模块（知道）"></a>03. 发布模块（知道）</h2><ul>
+<li>如果希望自己开发的模块，<strong>分享</strong> 给其他人，可以按照以下步骤操作</li>
+</ul>
+<h3 id="3-1-制作发布压缩包步骤"><a href="#3-1-制作发布压缩包步骤" class="headerlink" title="3.1 制作发布压缩包步骤"></a>3.1 制作发布压缩包步骤</h3><h4 id="1-创建-setup-py"><a href="#1-创建-setup-py" class="headerlink" title="1) 创建 setup.py"></a>1) 创建 setup.py</h4><ul>
+<li><code>setup.py</code> 的文件</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> distutils.core <span class="keyword">import</span> setup</span><br><span class="line"></span><br><span class="line">setup(name=<span class="string">&quot;hm_message&quot;</span>,  <span class="comment"># 包名</span></span><br><span class="line">      version=<span class="string">&quot;1.0&quot;</span>,  <span class="comment"># 版本</span></span><br><span class="line">      description=<span class="string">&quot;itheima&#x27;s 发送和接收消息模块&quot;</span>,  <span class="comment"># 描述信息</span></span><br><span class="line">      long_description=<span class="string">&quot;完整的发送和接收消息模块&quot;</span>,  <span class="comment"># 完整描述信息</span></span><br><span class="line">      author=<span class="string">&quot;itheima&quot;</span>,  <span class="comment"># 作者</span></span><br><span class="line">      author_email=<span class="string">&quot;itheima@itheima.com&quot;</span>,  <span class="comment"># 作者邮箱</span></span><br><span class="line">      url=<span class="string">&quot;www.itheima.com&quot;</span>,  <span class="comment"># 主页</span></span><br><span class="line">      py_modules=[<span class="string">&quot;hm_message.send_message&quot;</span>,</span><br><span class="line">                  <span class="string">&quot;hm_message.receive_message&quot;</span>])</span><br></pre></td></tr></table></figure>
+
+<p>有关字典参数的详细信息，可以参阅官方网站：</p>
+<p><a target="_blank" rel="noopener" href="https://docs.python.org/2/distutils/apiref.html">https://docs.python.org/2/distutils/apiref.html</a></p>
+<h4 id="2-构建模块"><a href="#2-构建模块" class="headerlink" title="2) 构建模块"></a>2) 构建模块</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ python3 setup.py build</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-生成发布压缩包"><a href="#3-生成发布压缩包" class="headerlink" title="3) 生成发布压缩包"></a>3) 生成发布压缩包</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ python3 setup.py sdist</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：要制作哪个版本的模块，就使用哪个版本的解释器执行！</p>
+</blockquote>
+<h3 id="3-2-安装模块"><a href="#3-2-安装模块" class="headerlink" title="3.2 安装模块"></a>3.2 安装模块</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ tar -zxvf hm_message-1.0.tar.gz </span><br><span class="line"></span><br><span class="line">$ sudo python3 setup.py install</span><br></pre></td></tr></table></figure>
+
+<p><strong>卸载模块</strong></p>
+<p>直接从安装目录下，把安装模块的 <strong>目录</strong> 删除就可以</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd /usr/local/lib/python3<span class="number">.5</span>/dist-packages/</span><br><span class="line">$ sudo rm -r hm_message*</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-3-pip-安装第三方模块"><a href="#3-3-pip-安装第三方模块" class="headerlink" title="3.3 pip 安装第三方模块"></a>3.3 <code>pip</code> 安装第三方模块</h3><ul>
+<li>第三方模块通常是指由知名的第三方团队开发的并且被程序员广泛使用的Python包 / 模块<ul>
+<li>例如 <code>pygame</code> 就是一套非常成熟的 <strong>游戏开发模块</strong></li>
+</ul>
+</li>
+<li><code>pip</code> 是一个现代的，通用的 <code>Python</code> 包管理工具</li>
+<li>提供了对 <code>Python</code> 包的查找、下载、安装、卸载等功能</li>
+</ul>
+<p>安装和卸载命令如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将模块安装到 Python 2.x 环境</span></span><br><span class="line">$ sudo pip install pygame</span><br><span class="line">$ sudo pip uninstall pygame</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将模块安装到 Python 3.x 环境</span></span><br><span class="line">$ sudo pip3 install pygame</span><br><span class="line">$ sudo pip3 uninstall pygame</span><br></pre></td></tr></table></figure>
+
+<h4 id="在-Mac-下安装-iPython"><a href="#在-Mac-下安装-iPython" class="headerlink" title="在 Mac 下安装 iPython"></a>在 <code>Mac</code> 下安装 <code>iPython</code></h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pip install ipython</span><br></pre></td></tr></table></figure>
+
+<h4 id="在-Linux-下安装-iPython"><a href="#在-Linux-下安装-iPython" class="headerlink" title="在 Linux 下安装 iPython"></a>在 <code>Linux</code> 下安装 <code>iPython</code></h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt install ipython</span><br><span class="line">$ sudo apt install ipython3</span><br></pre></td></tr></table></figure>
+        <p class="suffix-end">__END__</p>
+        <div class="suffix-box">
+            <div class="suffix-box-left">
+                <img src="https://gitee.com/lichaikui/picture/raw/master/tupian/20211222195800.png" alt="hero">
+            </div>
+            <div class="suffix-box-right">
+                <span class="suffix-box-title">文章作者</span>：hero
+                <br>
+                <span class="suffix-box-title">文章出处</span>：<a href="/2022/03/27/python%E9%9D%A2%E5%AF%B9%E5%AF%B9%E8%B1%A1%E5%AD%A6%E4%B9%A0/12_%E6%A8%A1%E5%9D%97%E5%92%8C%E5%8C%85/" target="_blank">12_模块和包</a>
+                <br>
+                <span class="suffix-box-title">作者签名</span>：简单地活着, 肆意又精彩.
+                <br>
+                <span class="suffix-box-title">关于主题</span>：<a href="https://github.com/first19326/Hexo-LiveForCode" target="_blank">Hexo - Live For Code</a>
+                <br>
+                <span class="suffix-box-title">版权声明</span>：文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" title="BY-NC-SA" target="_blank">BY-NC-SA</a> 许可协议，转载请注明出处
+                <br>
+            </div>
+            <div style="clear: both;"></div>
+        </div>
+    </div>
+    <div class="article-footer">
+        
+            <div class="category">
+                分类：
+                
+                    <a href="/category/python%E9%9D%A2%E5%AF%B9%E5%AF%B9%E8%B1%A1%E5%AD%A6%E4%B9%A0/">python面对对象学习</a>
+                
+            </div>
+        
+        
+            <div class="tag">
+                标签：
+                
+                    <a href="/tag/python%E5%AD%A6%E4%B9%A0/">python学习</a>
+                
+            </div>
+        
+        <div class="article-prev-next">
+            
+                <a href="/2022/03/28/python%E9%9D%A2%E5%AF%B9%E5%AF%B9%E8%B1%A1%E5%AD%A6%E4%B9%A0/13_%E6%96%87%E4%BB%B6/" class="prev-prefix">« </a> 上一篇：    <a href="/2022/03/28/python%E9%9D%A2%E5%AF%B9%E5%AF%B9%E8%B1%A1%E5%AD%A6%E4%B9%A0/13_%E6%96%87%E4%BB%B6/" title="发布于 2022-03-28 08:12">13_文件</a>
+                <br>
+            
+            
+                <a href="/2022/03/27/python%E9%9D%A2%E5%AF%B9%E5%AF%B9%E8%B1%A1%E5%AD%A6%E4%B9%A0/11_%E5%BC%82%E5%B8%B8/" class="next-prefix">» </a> 下一篇：    <a href="/2022/03/27/python%E9%9D%A2%E5%AF%B9%E5%AF%B9%E8%B1%A1%E5%AD%A6%E4%B9%A0/11_%E5%BC%82%E5%B8%B8/" title="发布于 2022-03-27 08:12">11_异常</a>
+            
+        </div>
+    </div>
+    
+    <div class="article-comments">
+        <div class="comments-title">
+            评论列表
+        </div>
+        <div class="comments-content">
+        </div>
+    </div>
+
+</div>
+
+    </div>
+</div>
+    <div id="footer"></div>
+    <div id="sidebar">
+    <div class="menu-wrap" style="display:none;">
+        <nav class="menu">
+            <div class="menu-introduce"> 
+                <div class="introduce-avatar"></div> 
+                <div class="introduce-info"> 
+                    <div class="introduce-user"><span></span></div>        
+                </div> 
+            </div> 
+            <div class="menu-list">
+                <ul></ul> 
+            </div> 
+            <div class="menu-link"></div> 
+        </nav>
+        <button class="menu-button-close"></button>
+        <div class="morph-shape" id="morph-shape" data-morph-open="M-7.312,0H15c0,0,66,113.339,66,399.5C81,664.006,15,800,15,800H-7.312V0z;M-7.312,0H100c0,0,0,113.839,0,400c0,264.506,0,400,0,400H-7.312V0z">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 800" preserveAspectRatio="none">
+                <path d="M-7.312,0H0c0,0,0,113.839,0,400c0,264.506,0,400,0,400h-7.312V0z"/>
+            </svg>
+        </div>
+    </div>
+    <button class="menu-button-open">MENU</button>
+    <div class="menu-cover"></div>
+</div>
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/search.css">
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/iscroll.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/instantsearch.min.js"></script>
+<div class="search-window">
+    <div class="search-content">
+        <div class="search-content-icon">
+            <i class="iconfont icon-search"></i>
+        </div>
+        <div id="search-input" class="search-input"></div>
+    </div>
+
+    <div class="search-scroll">
+        <div class="search-result">
+            <div id="search-stats" class="search-stats"></div>
+            <div id="search-hits"></div>
+            <div id="search-pagination" class="search-pagination"></div>
+        </div>
+    </div>
+
+    <span class="search-close-icon">
+        <i class="iconfont icon-close"></i>
+    </span>
+</div>
+    <div id="tools">
+    <div class="progressbar-top"></div>
+
+    
+        <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/APlayer.css">
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/APlayer.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/Meting.min.js"></script>
+        <meting-js id="3778678" lrcshow="false" server="netease" type="playlist" fixed="true" autoplay="false" loop="all" order="random" preload="auto" volume="0.67" mutex="true"></meting-js>
+    
+    
+    <div class="wrap-right"></div>
+    <div class="loading"></div>
+</div>
+    <script>
+    window.config = {
+        GitHubUserName     : 'fubaisen',
+        GitHubRepositories : 'fubaisen.github.io',
+
+        BlogUser      : 'hero',
+        BlogAvatar    : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222195800.png',
+        BlogStartDate : '2020-01-01',
+
+        WebsiteTitleBlur         : '(◍´꒳`◍) Hi, friend',
+        WebsiteTitleBlurTimeOut  : 500,
+        WebsiteTitleFocus        : '(*´∇｀*) 欢迎回来!',
+        WebsiteTitleFocusTimeOut : 1000,
+        WebsiteFavicon           : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222195607.png',
+
+        ProgressBar: {
+            id       : 'topProgressBar',
+            color    : '#77B6FF',
+            height   : '2px',
+            duration : 0.2
+        },
+
+        Loading: {
+            rebound: {
+                tension  : 16,
+                friction : 5
+            },
+            spinner: {
+                id     : 'spinner',
+                radius : 90,
+                sides  : 3,
+                depth  : 4,
+                colors : {
+                    background : '#F0F0F0',
+                    stroke     : '#272633',
+                    base       : '',
+                    child      : '#272633'
+                },
+                alwaysForward : true,
+                restAt        : 0.5,
+                renderBase    : false
+            }
+        },
+
+        HomeHeaderAnimationRendered : true,
+        HomeHeaderAnimation         : {
+            radius      : 15,
+            density     : 0.2,
+            color       : 'rgba(255, 255, 255, .2)',
+            clearOffset : 0.3
+        },
+
+        ArticleHeaderAnimationRendered : false,
+        ArticleHeaderAnimation         : {
+            triW                  : 14,
+            triH                  : 20,
+            neighbours            : [
+                
+                    'side',
+                
+                    'top',
+                
+                    'bottom',
+                
+            ],
+            speedTrailAppear      : 0.1,
+            speedTrailDisappear   : 0.1,
+            speedTriOpen          : 1,
+            trailMaxLength        : 30,
+            trailIntervalCreation : 100,
+            delayBeforeDisappear  : 2,
+            colors                : [
+                
+                    '#96EDA6',
+                
+                    '#5BC6A9',
+                
+                    '#38668C',
+                
+                    '#374D84',
+                
+                    '#BED5CB',
+                
+                    '#62ADC6',
+                
+                    '#8EE5DE',
+                
+                    '#304E7B',
+                
+            ]
+        },
+
+        BackAnimationRendered          : true,
+        IEBrowserBackAnimationRendered : false,
+        BackAnimation                  : {
+            colorSaturation  : '60%',
+            colorBrightness  : '50%',
+            colorAlpha       : 0.5,
+            colorCycleSpeed  : 5,
+            verticalPosition : 'random',
+            horizontalSpeed  : 200,
+            ribbonCount      : 3,
+            strokeSize       : 0,
+            parallaxAmount   : -0.2,
+            animateSections  : true
+        },
+
+        HomeHeaderImage : [
+            
+                'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/image/header/home.jpg',
+            
+                'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/image/header/home.jpeg',
+            
+        ],
+        HomeBannerText  : '',
+
+        ArticleHeaderImage : [
+            
+                'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/image/header/article.jpg',
+            
+        ],
+
+        OtherBannerText : '',
+
+        MenuList : [
+            
+                {
+                    name   : '首页',
+                    href   : '/',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '标签',
+                    href   : '/tag',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '分类',
+                    href   : '/category',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '归档',
+                    href   : '/archive',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '赞赏',
+                    href   : '/donate',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '关于',
+                    href   : '/about',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '订阅',
+                    href   : '/subscription',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '搜索',
+                    href   : '',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '留言板',
+                    href   : '/comment',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '友情链接',
+                    href   : '/friend',    
+                    target : '',
+                    class  : ''
+                },
+            
+        ],
+        MenuLink : [
+            
+                
+                    {
+                        icon : 'icon-weibo', 
+                        url  : 'https://weibo.com/u/7649528498'
+                    },
+                
+                    {
+                        icon : 'icon-wechat', 
+                        url  : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222190433.png'
+                    },
+                
+                    {
+                        icon : 'icon-qq', 
+                        url  : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222190324.png'
+                    },
+                
+                    {
+                        icon : 'icon-github', 
+                        url  : 'https://github.com/fubaisen'
+                    },
+                
+            
+        ],
+
+        FooterStyle : 2,
+        BottomText  : {
+            icon    : 'like-fill',
+            left    : '人生若只如初见',
+            right   : '何事秋风悲画扇'
+        },
+        ThemeInfo   : true,
+
+        ConsoleList : [
+            
+                
+                    [
+                        
+                            
+                                'Based on cnblogs theme SimpleMemory.',
+                            
+                                '',
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                'SimpleMemory Author:',
+                            
+                                'BNDong',
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                'Theme:',
+                            
+                                'LiveForCode',
+                            
+                        
+                    ],
+                
+            
+        ],
+
+        FontIconExtend : '',
+
+        Donate : {
+            paypal  : '',
+            bitcoin : '',
+            alipay  : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222200200.png',
+            wechat  : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222194957.png'
+        },
+
+        Code : {
+            style : 'normal'
+        },  
+
+        Search : {
+            applicationID : '010C3EANT8',
+            apiKey        : 'c7abab9f11b79102b9aff7fe6d41447d',
+            indexName     : 'Notes',
+            hits          : {
+                page : 10
+            },
+            labels        : {
+                placeholder : '搜索',
+                empty       : '未发现与 「${query}」 相关的内容',
+                stats       : '${hits} 条相关条目，使用了 ${time} 毫秒',
+            }
+        }, 
+
+        Valine : {
+            switch         : true,
+            el             : '.comments-content',
+            appId          : 'srhKtvWPQTWYKh3qX8G8M7v0-gzGzoHsz',
+            appKey         : '8uVSP1q6UlALVC5igYfIfv2h',
+            placeholder    : '你是我一生只会遇见一次的惊喜...',
+            avatar         : 'mm',
+            meta           : 'nick,mail,link',
+            requiredFields : 'nick,mail',
+            pageSize       : 5,
+            lang           : 'zh-cn',
+            visitor        : true,
+            enableQQ       : true
+        },
+
+        Tocbot : {
+            switch                : true,
+            tocSelector           : '.toc',
+            contentSelector       : '.article-body',
+            headingSelector       : 'h1, h2, h3, h4, h5',
+            headingsOffset        : 0,
+            scrollSmooth          : true,
+            scrollSmoothOffset    : -5,
+            positionFixedSelector : '.toc',
+            positionFixedClass    : 'toc-fixed',
+            fixedSidebarOffset    : '',
+        },
+
+        Require : {
+            baseUrl     : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/',
+            waitSeconds : 100
+        },
+
+        Music : {
+            type : 'Meting'
+        },
+        APlayer : {
+            container : '.aplayer',
+            fixed     : true,
+            autoplay  : false,
+            loop      : 'all',
+            order     : 'random',
+            preload   : 'auto',
+            volume    : 0.67,
+            mutex     : true,
+            lrcType   : 3,
+            audio     : [
+                
+                    {
+                        name   : 'aLIEz',
+                        artist : 'mizuki（瑞葵）',
+                        cover  : '/music/cover/aLIEz.jpg',
+                        url    : '/music/song/aLIEz.mp3',
+                        lrc    : '/music/lrc/aLIEz.lrc'
+                    },
+                
+                    {
+                        name   : 'Endless Tears',
+                        artist : 'CLIFF EDGE',
+                        cover  : '/music/cover/Endless Tears.jpg',
+                        url    : '/music/song/Endless Tears.mp3',
+                        lrc    : '/music/lrc/Endless Tears.lrc'
+                    },
+                
+                    {
+                        name   : 'Miracle',
+                        artist : 'Cascada',
+                        cover  : '/music/cover/Miracle.jpg',
+                        url    : '/music/song/Miracle.mp3',
+                        lrc    : '/music/lrc/Miracle.lrc'
+                    },
+                
+                    {
+                        name   : 'Roll The Dice',
+                        artist : '高珊',
+                        cover  : '/music/cover/Roll The Dice.jpg',
+                        url    : '/music/song/Roll The Dice.mp3',
+                        lrc    : '/music/lrc/Roll The Dice.lrc'
+                    },
+                
+                    {
+                        name   : 'See You Again',
+                        artist : 'Charlie Puth, Wiz Khalifa',
+                        cover  : '/music/cover/See You Again.jpg',
+                        url    : '/music/song/See You Again.mp3',
+                        lrc    : '/music/lrc/See You Again.lrc'
+                    },
+                
+                    {
+                        name   : 'Traveling Light',
+                        artist : 'Joel Hanson, Sara Groves',
+                        cover  : '/music/cover/Traveling Light.jpg',
+                        url    : '/music/song/Traveling Light.mp3',
+                        lrc    : '/music/lrc/Traveling Light.lrc'
+                    },
+                
+                    {
+                        name   : '痴心绝对',
+                        artist : '李圣杰',
+                        cover  : '/music/cover/痴心绝对.jpg',
+                        url    : '/music/song/痴心绝对.mp3',
+                        lrc    : '/music/lrc/痴心绝对.lrc'
+                    },
+                
+                    {
+                        name   : '好想大声说爱你',
+                        artist : 'BAAD（バード）',
+                        cover  : '/music/cover/好想大声说爱你.jpg',
+                        url    : '/music/song/好想大声说爱你.mp3',
+                        lrc    : '/music/lrc/好想大声说爱你.lrc'
+                    },
+                
+            ]
+        },
+        Meting : {
+            id       : '3778678', 
+            lrcshow  : false, 
+            server   : 'netease', 
+            type     : 'playlist', 
+            fixed    : true, 
+            autoplay : false, 
+            loop     : 'all', 
+            order    : 'random', 
+            preload  : 'auto', 
+            volume   : 0.67, 
+            mutex    : true
+        },
+
+        Mouse : {
+            enable  : true,
+            options : {
+                size  : 6,
+                sizeF : 24
+            }
+        },
+
+        LazyLoad : {
+            default : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/image/website/lazyload.svg'
+        },
+  
+        Style : {
+            aplayer          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/APlayer.css',
+            archive          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/archive.css',
+            donate           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/donate.css',
+            fancybox         : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/jquery.fancybox.css',
+            footer           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/footer.css',
+            iconfont         : 'https://at.alicdn.com/t/font_1546312_l3yohatebw.css',
+            index            : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/index.css',
+            menuBubble       : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/menu-bubble.css',
+            page             : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/page.css',
+            post             : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/post.css',
+            search           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/search.css',
+            tocbot           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/tocbot.css',
+            normal           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/normal.css',
+            night            : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/night.css',
+            clipboard        : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/clipboard.css'
+        },
+
+        Script: {
+            aplayer          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/APlayer.min.js',
+            config           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/require.config.js',
+            index            : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/index.js',
+            instantSearch    : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/instantsearch.min.js',
+            jQuery           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/jquery-3.4.1.min.js',
+            loading          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/loading.js',
+            meting           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/Meting.min.js',
+            iscroll          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/iscroll.js',
+            require          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/require.min.js'
+        },
+
+        Font: {
+            LongCang   : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/LongCang.css',
+            Monda      : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Monda.css',
+            NotoSansSC : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/NotoSansSC.css',
+            Playball   : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Playball.css',
+            PTMono     : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/PTMono.css',
+            RobotoSlab : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/RobotoSlab.css',
+            Rosario    : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Rosario.css',
+            UbuntuMono : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/UbuntuMono.css'
+        },
+
+        Suffix : {
+            about : '简单地活着, 肆意又精彩.'
+        },
+            
+        Theme : {
+            url  : 'https://github.com/first19326/Hexo-LiveForCode',
+            name : 'Hexo - Live For Code'
+        }  
+    };
+</script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/index.js"></script>
+</body>
+</html>

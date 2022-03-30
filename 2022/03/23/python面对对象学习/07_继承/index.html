@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no">
+    <meta name="referrer" content="origin">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <title>07_继承</title>
+    <link rel="shortcut icon" href="#"/>
+
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/LongCang.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Monda.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/NotoSansSC.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Playball.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/PTMono.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/RobotoSlab.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Rosario.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/UbuntuMono.css">
+
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/post.css">
+    
+        <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/normal.css">
+    
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/jquery-3.4.1.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.1"></head>
+<body>
+    <a id="cover"></a>
+    <div id="header">
+    <div class="header">
+        <div class="vertical">
+            <div class="inner">
+                <h1 class="header-subtitle">07_继承</h1>
+                <div class="header-subinfo">
+                    <p class="article-info-text">
+                        <span>
+                            <i class="iconfont icon-time"></i> 发表时间：2022-03-23
+                        </span>
+                        
+                            <span id="/2022/03/23/python面对对象学习/07_继承/" class="leancloud_visitors" data-flag-title="07_继承">
+                                <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                            </span>
+                        
+                        <span>
+                            <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2022/03/23/python面对对象学习/07_继承/"></span>
+                        </span>  
+                    </p>                 
+                </div>
+            </div>
+        </div>
+        <canvas id="articleHeaderCanvas"></canvas>
+    </div>
+</div>
+    <div id="container">
+    <div id="content">
+        <div id="article">
+    <div class="toc"></div>
+    <div class="article-body">
+        <h1 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h1><h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ul>
+<li>单继承</li>
+<li>多继承</li>
+</ul>
+<p><strong>面向对象三大特性</strong></p>
+<ol>
+<li><strong>封装</strong> 根据 <strong>职责</strong> 将 <strong>属性</strong> 和 <strong>方法</strong> <strong>封装</strong> 到一个抽象的 <strong>类</strong> 中</li>
+<li><strong>继承</strong> <strong>实现代码的重用</strong>，相同的代码不需要重复的编写</li>
+<li><strong>多态</strong> 不同的对象调用相同的方法，产生不同的执行结果，<strong>增加代码的灵活度</strong></li>
+</ol>
+<h2 id="01-单继承"><a href="#01-单继承" class="headerlink" title="01. 单继承"></a>01. 单继承</h2><h3 id="1-1-继承的概念、语法和特点"><a href="#1-1-继承的概念、语法和特点" class="headerlink" title="1.1 继承的概念、语法和特点"></a>1.1 继承的概念、语法和特点</h3><p><strong>继承的概念</strong>：<strong>子类</strong> 拥有 <strong>父类</strong> 的所有 <strong>方法</strong> 和 <strong>属性</strong></p>
+<p><img src="https://s2.loli.net/2022/03/20/w29N81CdsuxOPqI.png" alt="011_继承对比图示"></p>
+<h4 id="1-继承的语法"><a href="#1-继承的语法" class="headerlink" title="1) 继承的语法"></a>1) 继承的语法</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> 类名(<span class="params">父类名</span>):</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>子类</strong> 继承自 <strong>父类</strong>，可以直接 <strong>享受</strong> 父类中已经封装好的方法，不需要再次开发</li>
+<li><strong>子类</strong> 中应该根据 <strong>职责</strong>，封装 <strong>子类特有的</strong> <strong>属性和方法</strong></li>
+</ul>
+<h4 id="2-专业术语"><a href="#2-专业术语" class="headerlink" title="2) 专业术语"></a>2) 专业术语</h4><ul>
+<li><code>Dog</code> 类是 <code>Animal</code> 类的<strong>子类</strong>，<code>Animal</code> 类是 <code>Dog</code> 类的<strong>父类</strong>，<code>Dog</code> 类从 <code>Animal</code> 类<strong>继承</strong></li>
+<li><code>Dog</code> 类是 <code>Animal</code> 类的<strong>派生类</strong>，<code>Animal</code> 类是 <code>Dog</code> 类的<strong>基类</strong>，<code>Dog</code> 类从 <code>Animal</code> 类<strong>派生</strong></li>
+</ul>
+<h4 id="3-继承的传递性"><a href="#3-继承的传递性" class="headerlink" title="3) 继承的传递性"></a>3) 继承的传递性</h4><ul>
+<li><code>C</code> 类从 <code>B</code> 类继承，<code>B</code> 类又从 <code>A</code> 类继承</li>
+<li>那么 <code>C</code> 类就具有 <code>B</code> 类和 <code>A</code> 类的所有属性和方法</li>
+</ul>
+<p><strong>子类</strong> 拥有 <strong>父类</strong> 以及 <strong>父类的父类</strong> 中封装的所有 <strong>属性</strong> 和 <strong>方法</strong></p>
+<p><strong>提问</strong></p>
+<p><strong>哮天犬</strong> 能够调用 <code>Cat</code> 类中定义的 <code>catch</code> 方法吗？</p>
+<p><strong>答案</strong></p>
+<p><strong>不能</strong>，因为 <strong>哮天犬</strong> 和 <code>Cat</code> 之间没有 <strong>继承</strong> 关系</p>
+<h3 id="1-2-方法的重写"><a href="#1-2-方法的重写" class="headerlink" title="1.2 方法的重写"></a>1.2 方法的重写</h3><ul>
+<li><strong>子类</strong> 拥有 <strong>父类</strong> 的所有 <strong>方法</strong> 和 <strong>属性</strong></li>
+<li><strong>子类</strong> 继承自 <strong>父类</strong>，可以直接 <strong>享受</strong> 父类中已经封装好的方法，不需要再次开发</li>
+</ul>
+<p><strong>应用场景</strong></p>
+<ul>
+<li>当 <strong>父类</strong> 的方法实现不能满足子类需求时，可以对方法进行 <strong>重写(override)</strong></li>
+</ul>
+<p><img src="https://s2.loli.net/2022/03/20/EOzN2ZxCDJa9lLB.png" alt="012_继承方法的重写"></p>
+<p><strong>重写</strong> 父类方法有两种情况：</p>
+<ol>
+<li><strong>覆盖</strong> 父类的方法</li>
+<li>对父类方法进行 <strong>扩展</strong></li>
+</ol>
+<h4 id="1-覆盖父类的方法"><a href="#1-覆盖父类的方法" class="headerlink" title="1) 覆盖父类的方法"></a>1) 覆盖父类的方法</h4><ul>
+<li>如果在开发中，<strong>父类的方法实现</strong> 和 <strong>子类的方法实现</strong>，<strong>完全不同</strong></li>
+<li>就可以使用 <strong>覆盖</strong> 的方式，<strong>在子类中</strong> <strong>重新编写</strong> 父类的方法实现</li>
+</ul>
+<blockquote>
+<p>具体的实现方式，就相当于在 <strong>子类中</strong> 定义了一个 <strong>和父类同名的方法并且实现</strong></p>
+</blockquote>
+<p>重写之后，在运行时，<strong>只会调用</strong> 子类中重写的方法，而不再会调用 <strong>父类封装的方法</strong></p>
+<h4 id="2-对父类方法进行-扩展"><a href="#2-对父类方法进行-扩展" class="headerlink" title="2) 对父类方法进行 扩展"></a>2) 对父类方法进行 <strong>扩展</strong></h4><ul>
+<li>如果在开发中，子类的方法实现中包含父类的方法实现<ul>
+<li><strong>父类原本封装的方法实现</strong> 是 <strong>子类方法的一部分</strong></li>
+</ul>
+</li>
+<li>就可以使用扩展的方式<ol>
+<li><strong>在子类中</strong> <strong>重写</strong> 父类的方法</li>
+<li>在需要的位置使用 <code>super().父类方法</code> 来调用父类方法的执行</li>
+<li>代码其他的位置针对子类的需求，编写 <strong>子类特有的代码实现</strong></li>
+</ol>
+</li>
+</ul>
+<h5 id="关于-super"><a href="#关于-super" class="headerlink" title="关于 super"></a>关于 <code>super</code></h5><ul>
+<li>在 <code>Python</code> 中 <code>super</code> 是一个 <strong>特殊的类</strong></li>
+<li><code>super()</code> 就是使用 <code>super</code> 类创建出来的对象</li>
+<li><strong>最常</strong> 使用的场景就是在 <strong>重写父类方法时</strong>，调用 <strong>在父类中封装的方法实现</strong></li>
+</ul>
+<h5 id="调用父类方法的另外一种方式（知道）"><a href="#调用父类方法的另外一种方式（知道）" class="headerlink" title="调用父类方法的另外一种方式（知道）"></a>调用父类方法的另外一种方式（知道）</h5><blockquote>
+<p>在 <code>Python 2.x</code> 时，如果需要调用父类的方法，还可以使用以下方式：</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">父类名.方法(self)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>这种方式，目前在 <code>Python 3.x</code> 还支持这种方式</li>
+<li>这种方法 <strong>不推荐使用</strong>，因为一旦 <strong>父类发生变化</strong>，方法调用位置的 <strong>类名</strong> 同样需要修改</li>
+</ul>
+<p><strong>提示</strong></p>
+<ul>
+<li>在开发时，<code>父类名</code> 和 <code>super()</code> 两种方式不要混用</li>
+<li>如果使用 <strong>当前子类名</strong> 调用方法，会形成递归调用，<strong>出现死循环</strong></li>
+</ul>
+<h3 id="1-3-父类的-私有属性-和-私有方法"><a href="#1-3-父类的-私有属性-和-私有方法" class="headerlink" title="1.3 父类的 私有属性 和 私有方法"></a>1.3 父类的 私有属性 和 私有方法</h3><ol>
+<li><strong>子类对象</strong> <strong>不能</strong> 在自己的方法内部，<strong>直接</strong> 访问 父类的 <strong>私有属性</strong> 或 <strong>私有方法</strong></li>
+<li><strong>子类对象</strong> 可以通过 <strong>父类</strong> 的 <strong>公有方法</strong> <strong>间接</strong> 访问到 <strong>私有属性</strong> 或 <strong>私有方法</strong></li>
+</ol>
+<blockquote>
+<ul>
+<li><strong>私有属性、方法</strong> 是对象的隐私，不对外公开，<strong>外界</strong> 以及 <strong>子类</strong> 都不能直接访问</li>
+<li><strong>私有属性、方法</strong> 通常用于做一些内部的事情</li>
+</ul>
+</blockquote>
+<p><strong>示例</strong></p>
+<p><img src="https://s2.loli.net/2022/03/20/j2Hx9N7g6SEek8q.png" alt="013_父类的私有属性和私有方法"></p>
+<ul>
+<li><code>B</code> 的对象不能直接访问 <code>__num2</code> 属性</li>
+<li><code>B</code> 的对象不能在 <code>demo</code> 方法内访问 <code>__num2</code> 属性</li>
+<li><code>B</code> 的对象可以在 <code>demo</code> 方法内，调用父类的 <code>test</code> 方法</li>
+<li>父类的 <code>test</code> 方法内部，能够访问 <code>__num2</code> 属性和 <code>__test</code> 方法</li>
+<li><code>B</code>的对象不可以   以直接直接调用父类<code>text</code>方法，进而直接访问</li>
+</ul>
+<h2 id="02-多继承"><a href="#02-多继承" class="headerlink" title="02. 多继承"></a>02. 多继承</h2><p><strong>概念</strong></p>
+<ul>
+<li><strong>子类</strong> 可以拥有 <strong>多个父类</strong>，并且具有 <strong>所有父类</strong> 的 <strong>属性</strong> 和 <strong>方法</strong></li>
+<li>例如：<strong>孩子</strong> 会继承自己 <strong>父亲</strong> 和 <strong>母亲</strong> 的 <strong>特性</strong></li>
+</ul>
+<p><img src="https://s2.loli.net/2022/03/20/xzuibnWfoL6IUkj.png" alt="014_多继承"><strong>语法</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> 子类名(<span class="params">父类名<span class="number">1</span>, 父类名<span class="number">2.</span>..</span>)</span></span><br><span class="line"><span class="class">    <span class="title">pass</span></span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-1-多继承的使用注意事项"><a href="#2-1-多继承的使用注意事项" class="headerlink" title="2.1 多继承的使用注意事项"></a>2.1 多继承的使用注意事项</h3><p><strong>问题的提出</strong></p>
+<ul>
+<li>如果 <strong>不同的父类</strong> 中存在 <strong>同名的方法</strong>，<strong>子类对象</strong> 在调用方法时，会调用 <strong>哪一个父类中</strong>的方法呢？</li>
+</ul>
+<blockquote>
+<p>提示：<strong>开发时，应该尽量避免这种容易产生混淆的情况！</strong> —— 如果 <strong>父类之间</strong> 存在 <strong>同名的属性或者方法</strong>，应该 <strong>尽量避免</strong> 使用多继承</p>
+</blockquote>
+<p><img src="https://s2.loli.net/2022/03/20/MkCwRrghGNtfASL.png" alt="015_多继承II"></p>
+<h4 id="Python-中的-MRO-——-方法搜索顺序（知道）"><a href="#Python-中的-MRO-——-方法搜索顺序（知道）" class="headerlink" title="Python 中的 MRO —— 方法搜索顺序（知道）"></a>Python 中的 MRO —— 方法搜索顺序（知道）</h4><ul>
+<li><code>Python</code> 中针对 <strong>类</strong> 提供了一个 <strong>内置属性</strong> <code>__mro__</code> 可以查看 <strong>方法</strong> 搜索顺序</li>
+<li>MRO 是 <code>method resolution order</code>，主要用于 <strong>在多继承时判断 方法、属性 的调用 路径</strong></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(C.__mro__)</span><br></pre></td></tr></table></figure>
+
+<p><strong>输出结果</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(&lt;class &#x27;__main__.C&#x27;&gt;, &lt;class &#x27;__main__.A&#x27;&gt;, &lt;class &#x27;__main__.B&#x27;&gt;, &lt;class &#x27;object&#x27;&gt;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在搜索方法时，是按照 <code>__mro__</code> 的输出结果 <strong>从左至右</strong> 的顺序查找的</li>
+<li>如果在当前类中 <strong>找到方法，就直接执行，不再搜索</strong></li>
+<li>如果 <strong>没有找到，就查找下一个类</strong> 中是否有对应的方法，<strong>如果找到，就直接执行，不再搜索</strong></li>
+<li>如果找到最后一个类，还没有找到方法，程序报错</li>
+</ul>
+<h3 id="2-2-新式类与旧式（经典）类"><a href="#2-2-新式类与旧式（经典）类" class="headerlink" title="2.2 新式类与旧式（经典）类"></a>2.2 新式类与旧式（经典）类</h3><blockquote>
+<p><code>object</code> 是 <code>Python</code> 为所有对象提供的 <strong>基类</strong>，提供有一些内置的属性和方法，可以使用 <code>dir</code> 函数查看</p>
+</blockquote>
+<ul>
+<li><strong>新式类</strong>：以 <code>object</code> 为基类的类，<strong>推荐使用</strong></li>
+<li><strong>经典类</strong>：不以 <code>object</code> 为基类的类，<strong>不推荐使用</strong></li>
+<li>在 <code>Python 3.x</code> 中定义类时，如果没有指定父类，会 <strong>默认使用</strong> <code>object</code> 作为该类的 <strong>基类</strong> —— <code>Python 3.x</code> 中定义的类都是 <strong>新式类</strong></li>
+<li>在 <code>Python 2.x</code> 中定义类时，如果没有指定父类，则不会以 </li>
+<li><code>object</code> 作为 <strong>基类</strong></li>
+</ul>
+<blockquote>
+<p><strong>新式类</strong> 和 <strong>经典类</strong> 在多继承时 —— <strong>会影响到方法的搜索顺序</strong></p>
+</blockquote>
+<p>为了保证编写的代码能够同时在 <code>Python 2.x</code> 和 <code>Python 3.x</code> 运行！<br>今后在定义类时，<strong>如果没有父类，建议统一继承自 <code>object</code></strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> 类名(<span class="params"><span class="built_in">object</span></span>):</span></span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+        <p class="suffix-end">__END__</p>
+        <div class="suffix-box">
+            <div class="suffix-box-left">
+                <img src="https://gitee.com/lichaikui/picture/raw/master/tupian/20211222195800.png" alt="hero">
+            </div>
+            <div class="suffix-box-right">
+                <span class="suffix-box-title">文章作者</span>：hero
+                <br>
+                <span class="suffix-box-title">文章出处</span>：<a href="/2022/03/23/python%E9%9D%A2%E5%AF%B9%E5%AF%B9%E8%B1%A1%E5%AD%A6%E4%B9%A0/07_%E7%BB%A7%E6%89%BF/" target="_blank">07_继承</a>
+                <br>
+                <span class="suffix-box-title">作者签名</span>：简单地活着, 肆意又精彩.
+                <br>
+                <span class="suffix-box-title">关于主题</span>：<a href="https://github.com/first19326/Hexo-LiveForCode" target="_blank">Hexo - Live For Code</a>
+                <br>
+                <span class="suffix-box-title">版权声明</span>：文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" title="BY-NC-SA" target="_blank">BY-NC-SA</a> 许可协议，转载请注明出处
+                <br>
+            </div>
+            <div style="clear: both;"></div>
+        </div>
+    </div>
+    <div class="article-footer">
+        
+            <div class="category">
+                分类：
+                
+                    <a href="/category/python%E9%9D%A2%E5%AF%B9%E5%AF%B9%E8%B1%A1%E5%AD%A6%E4%B9%A0/">python面对对象学习</a>
+                
+            </div>
+        
+        
+            <div class="tag">
+                标签：
+                
+                    <a href="/tag/python%E5%AD%A6%E4%B9%A0/">python学习</a>
+                
+            </div>
+        
+        <div class="article-prev-next">
+            
+                <a href="/2022/03/24/python%E9%9D%A2%E5%AF%B9%E5%AF%B9%E8%B1%A1%E5%AD%A6%E4%B9%A0/08_%E5%A4%9A%E6%80%81/" class="prev-prefix">« </a> 上一篇：    <a href="/2022/03/24/python%E9%9D%A2%E5%AF%B9%E5%AF%B9%E8%B1%A1%E5%AD%A6%E4%B9%A0/08_%E5%A4%9A%E6%80%81/" title="发布于 2022-03-24 08:12">08_多态</a>
+                <br>
+            
+            
+                <a href="/2022/03/22/%E6%BA%90%E7%A0%81/%E5%A3%AB%E5%85%B5%E5%BC%80%E7%81%AB/" class="next-prefix">» </a> 下一篇：    <a href="/2022/03/22/%E6%BA%90%E7%A0%81/%E5%A3%AB%E5%85%B5%E5%BC%80%E7%81%AB/" title="发布于 2022-03-22 07:33">士兵开火</a>
+            
+        </div>
+    </div>
+    
+    <div class="article-comments">
+        <div class="comments-title">
+            评论列表
+        </div>
+        <div class="comments-content">
+        </div>
+    </div>
+
+</div>
+
+    </div>
+</div>
+    <div id="footer"></div>
+    <div id="sidebar">
+    <div class="menu-wrap" style="display:none;">
+        <nav class="menu">
+            <div class="menu-introduce"> 
+                <div class="introduce-avatar"></div> 
+                <div class="introduce-info"> 
+                    <div class="introduce-user"><span></span></div>        
+                </div> 
+            </div> 
+            <div class="menu-list">
+                <ul></ul> 
+            </div> 
+            <div class="menu-link"></div> 
+        </nav>
+        <button class="menu-button-close"></button>
+        <div class="morph-shape" id="morph-shape" data-morph-open="M-7.312,0H15c0,0,66,113.339,66,399.5C81,664.006,15,800,15,800H-7.312V0z;M-7.312,0H100c0,0,0,113.839,0,400c0,264.506,0,400,0,400H-7.312V0z">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 800" preserveAspectRatio="none">
+                <path d="M-7.312,0H0c0,0,0,113.839,0,400c0,264.506,0,400,0,400h-7.312V0z"/>
+            </svg>
+        </div>
+    </div>
+    <button class="menu-button-open">MENU</button>
+    <div class="menu-cover"></div>
+</div>
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/search.css">
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/iscroll.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/instantsearch.min.js"></script>
+<div class="search-window">
+    <div class="search-content">
+        <div class="search-content-icon">
+            <i class="iconfont icon-search"></i>
+        </div>
+        <div id="search-input" class="search-input"></div>
+    </div>
+
+    <div class="search-scroll">
+        <div class="search-result">
+            <div id="search-stats" class="search-stats"></div>
+            <div id="search-hits"></div>
+            <div id="search-pagination" class="search-pagination"></div>
+        </div>
+    </div>
+
+    <span class="search-close-icon">
+        <i class="iconfont icon-close"></i>
+    </span>
+</div>
+    <div id="tools">
+    <div class="progressbar-top"></div>
+
+    
+        <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/APlayer.css">
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/APlayer.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/Meting.min.js"></script>
+        <meting-js id="3778678" lrcshow="false" server="netease" type="playlist" fixed="true" autoplay="false" loop="all" order="random" preload="auto" volume="0.67" mutex="true"></meting-js>
+    
+    
+    <div class="wrap-right"></div>
+    <div class="loading"></div>
+</div>
+    <script>
+    window.config = {
+        GitHubUserName     : 'fubaisen',
+        GitHubRepositories : 'fubaisen.github.io',
+
+        BlogUser      : 'hero',
+        BlogAvatar    : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222195800.png',
+        BlogStartDate : '2020-01-01',
+
+        WebsiteTitleBlur         : '(◍´꒳`◍) Hi, friend',
+        WebsiteTitleBlurTimeOut  : 500,
+        WebsiteTitleFocus        : '(*´∇｀*) 欢迎回来!',
+        WebsiteTitleFocusTimeOut : 1000,
+        WebsiteFavicon           : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222195607.png',
+
+        ProgressBar: {
+            id       : 'topProgressBar',
+            color    : '#77B6FF',
+            height   : '2px',
+            duration : 0.2
+        },
+
+        Loading: {
+            rebound: {
+                tension  : 16,
+                friction : 5
+            },
+            spinner: {
+                id     : 'spinner',
+                radius : 90,
+                sides  : 3,
+                depth  : 4,
+                colors : {
+                    background : '#F0F0F0',
+                    stroke     : '#272633',
+                    base       : '',
+                    child      : '#272633'
+                },
+                alwaysForward : true,
+                restAt        : 0.5,
+                renderBase    : false
+            }
+        },
+
+        HomeHeaderAnimationRendered : true,
+        HomeHeaderAnimation         : {
+            radius      : 15,
+            density     : 0.2,
+            color       : 'rgba(255, 255, 255, .2)',
+            clearOffset : 0.3
+        },
+
+        ArticleHeaderAnimationRendered : false,
+        ArticleHeaderAnimation         : {
+            triW                  : 14,
+            triH                  : 20,
+            neighbours            : [
+                
+                    'side',
+                
+                    'top',
+                
+                    'bottom',
+                
+            ],
+            speedTrailAppear      : 0.1,
+            speedTrailDisappear   : 0.1,
+            speedTriOpen          : 1,
+            trailMaxLength        : 30,
+            trailIntervalCreation : 100,
+            delayBeforeDisappear  : 2,
+            colors                : [
+                
+                    '#96EDA6',
+                
+                    '#5BC6A9',
+                
+                    '#38668C',
+                
+                    '#374D84',
+                
+                    '#BED5CB',
+                
+                    '#62ADC6',
+                
+                    '#8EE5DE',
+                
+                    '#304E7B',
+                
+            ]
+        },
+
+        BackAnimationRendered          : true,
+        IEBrowserBackAnimationRendered : false,
+        BackAnimation                  : {
+            colorSaturation  : '60%',
+            colorBrightness  : '50%',
+            colorAlpha       : 0.5,
+            colorCycleSpeed  : 5,
+            verticalPosition : 'random',
+            horizontalSpeed  : 200,
+            ribbonCount      : 3,
+            strokeSize       : 0,
+            parallaxAmount   : -0.2,
+            animateSections  : true
+        },
+
+        HomeHeaderImage : [
+            
+                'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/image/header/home.jpg',
+            
+                'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/image/header/home.jpeg',
+            
+        ],
+        HomeBannerText  : '',
+
+        ArticleHeaderImage : [
+            
+                'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/image/header/article.jpg',
+            
+        ],
+
+        OtherBannerText : '',
+
+        MenuList : [
+            
+                {
+                    name   : '首页',
+                    href   : '/',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '标签',
+                    href   : '/tag',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '分类',
+                    href   : '/category',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '归档',
+                    href   : '/archive',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '赞赏',
+                    href   : '/donate',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '关于',
+                    href   : '/about',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '订阅',
+                    href   : '/subscription',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '搜索',
+                    href   : '',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '留言板',
+                    href   : '/comment',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '友情链接',
+                    href   : '/friend',    
+                    target : '',
+                    class  : ''
+                },
+            
+        ],
+        MenuLink : [
+            
+                
+                    {
+                        icon : 'icon-weibo', 
+                        url  : 'https://weibo.com/u/7649528498'
+                    },
+                
+                    {
+                        icon : 'icon-wechat', 
+                        url  : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222190433.png'
+                    },
+                
+                    {
+                        icon : 'icon-qq', 
+                        url  : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222190324.png'
+                    },
+                
+                    {
+                        icon : 'icon-github', 
+                        url  : 'https://github.com/fubaisen'
+                    },
+                
+            
+        ],
+
+        FooterStyle : 2,
+        BottomText  : {
+            icon    : 'like-fill',
+            left    : '人生若只如初见',
+            right   : '何事秋风悲画扇'
+        },
+        ThemeInfo   : true,
+
+        ConsoleList : [
+            
+                
+                    [
+                        
+                            
+                                'Based on cnblogs theme SimpleMemory.',
+                            
+                                '',
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                'SimpleMemory Author:',
+                            
+                                'BNDong',
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                'Theme:',
+                            
+                                'LiveForCode',
+                            
+                        
+                    ],
+                
+            
+        ],
+
+        FontIconExtend : '',
+
+        Donate : {
+            paypal  : '',
+            bitcoin : '',
+            alipay  : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222200200.png',
+            wechat  : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222194957.png'
+        },
+
+        Code : {
+            style : 'normal'
+        },  
+
+        Search : {
+            applicationID : '010C3EANT8',
+            apiKey        : 'c7abab9f11b79102b9aff7fe6d41447d',
+            indexName     : 'Notes',
+            hits          : {
+                page : 10
+            },
+            labels        : {
+                placeholder : '搜索',
+                empty       : '未发现与 「${query}」 相关的内容',
+                stats       : '${hits} 条相关条目，使用了 ${time} 毫秒',
+            }
+        }, 
+
+        Valine : {
+            switch         : true,
+            el             : '.comments-content',
+            appId          : 'srhKtvWPQTWYKh3qX8G8M7v0-gzGzoHsz',
+            appKey         : '8uVSP1q6UlALVC5igYfIfv2h',
+            placeholder    : '你是我一生只会遇见一次的惊喜...',
+            avatar         : 'mm',
+            meta           : 'nick,mail,link',
+            requiredFields : 'nick,mail',
+            pageSize       : 5,
+            lang           : 'zh-cn',
+            visitor        : true,
+            enableQQ       : true
+        },
+
+        Tocbot : {
+            switch                : true,
+            tocSelector           : '.toc',
+            contentSelector       : '.article-body',
+            headingSelector       : 'h1, h2, h3, h4, h5',
+            headingsOffset        : 0,
+            scrollSmooth          : true,
+            scrollSmoothOffset    : -5,
+            positionFixedSelector : '.toc',
+            positionFixedClass    : 'toc-fixed',
+            fixedSidebarOffset    : '',
+        },
+
+        Require : {
+            baseUrl     : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/',
+            waitSeconds : 100
+        },
+
+        Music : {
+            type : 'Meting'
+        },
+        APlayer : {
+            container : '.aplayer',
+            fixed     : true,
+            autoplay  : false,
+            loop      : 'all',
+            order     : 'random',
+            preload   : 'auto',
+            volume    : 0.67,
+            mutex     : true,
+            lrcType   : 3,
+            audio     : [
+                
+                    {
+                        name   : 'aLIEz',
+                        artist : 'mizuki（瑞葵）',
+                        cover  : '/music/cover/aLIEz.jpg',
+                        url    : '/music/song/aLIEz.mp3',
+                        lrc    : '/music/lrc/aLIEz.lrc'
+                    },
+                
+                    {
+                        name   : 'Endless Tears',
+                        artist : 'CLIFF EDGE',
+                        cover  : '/music/cover/Endless Tears.jpg',
+                        url    : '/music/song/Endless Tears.mp3',
+                        lrc    : '/music/lrc/Endless Tears.lrc'
+                    },
+                
+                    {
+                        name   : 'Miracle',
+                        artist : 'Cascada',
+                        cover  : '/music/cover/Miracle.jpg',
+                        url    : '/music/song/Miracle.mp3',
+                        lrc    : '/music/lrc/Miracle.lrc'
+                    },
+                
+                    {
+                        name   : 'Roll The Dice',
+                        artist : '高珊',
+                        cover  : '/music/cover/Roll The Dice.jpg',
+                        url    : '/music/song/Roll The Dice.mp3',
+                        lrc    : '/music/lrc/Roll The Dice.lrc'
+                    },
+                
+                    {
+                        name   : 'See You Again',
+                        artist : 'Charlie Puth, Wiz Khalifa',
+                        cover  : '/music/cover/See You Again.jpg',
+                        url    : '/music/song/See You Again.mp3',
+                        lrc    : '/music/lrc/See You Again.lrc'
+                    },
+                
+                    {
+                        name   : 'Traveling Light',
+                        artist : 'Joel Hanson, Sara Groves',
+                        cover  : '/music/cover/Traveling Light.jpg',
+                        url    : '/music/song/Traveling Light.mp3',
+                        lrc    : '/music/lrc/Traveling Light.lrc'
+                    },
+                
+                    {
+                        name   : '痴心绝对',
+                        artist : '李圣杰',
+                        cover  : '/music/cover/痴心绝对.jpg',
+                        url    : '/music/song/痴心绝对.mp3',
+                        lrc    : '/music/lrc/痴心绝对.lrc'
+                    },
+                
+                    {
+                        name   : '好想大声说爱你',
+                        artist : 'BAAD（バード）',
+                        cover  : '/music/cover/好想大声说爱你.jpg',
+                        url    : '/music/song/好想大声说爱你.mp3',
+                        lrc    : '/music/lrc/好想大声说爱你.lrc'
+                    },
+                
+            ]
+        },
+        Meting : {
+            id       : '3778678', 
+            lrcshow  : false, 
+            server   : 'netease', 
+            type     : 'playlist', 
+            fixed    : true, 
+            autoplay : false, 
+            loop     : 'all', 
+            order    : 'random', 
+            preload  : 'auto', 
+            volume   : 0.67, 
+            mutex    : true
+        },
+
+        Mouse : {
+            enable  : true,
+            options : {
+                size  : 6,
+                sizeF : 24
+            }
+        },
+
+        LazyLoad : {
+            default : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/image/website/lazyload.svg'
+        },
+  
+        Style : {
+            aplayer          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/APlayer.css',
+            archive          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/archive.css',
+            donate           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/donate.css',
+            fancybox         : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/jquery.fancybox.css',
+            footer           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/footer.css',
+            iconfont         : 'https://at.alicdn.com/t/font_1546312_l3yohatebw.css',
+            index            : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/index.css',
+            menuBubble       : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/menu-bubble.css',
+            page             : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/page.css',
+            post             : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/post.css',
+            search           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/search.css',
+            tocbot           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/tocbot.css',
+            normal           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/normal.css',
+            night            : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/night.css',
+            clipboard        : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/clipboard.css'
+        },
+
+        Script: {
+            aplayer          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/APlayer.min.js',
+            config           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/require.config.js',
+            index            : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/index.js',
+            instantSearch    : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/instantsearch.min.js',
+            jQuery           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/jquery-3.4.1.min.js',
+            loading          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/loading.js',
+            meting           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/Meting.min.js',
+            iscroll          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/iscroll.js',
+            require          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/require.min.js'
+        },
+
+        Font: {
+            LongCang   : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/LongCang.css',
+            Monda      : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Monda.css',
+            NotoSansSC : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/NotoSansSC.css',
+            Playball   : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Playball.css',
+            PTMono     : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/PTMono.css',
+            RobotoSlab : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/RobotoSlab.css',
+            Rosario    : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Rosario.css',
+            UbuntuMono : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/UbuntuMono.css'
+        },
+
+        Suffix : {
+            about : '简单地活着, 肆意又精彩.'
+        },
+            
+        Theme : {
+            url  : 'https://github.com/first19326/Hexo-LiveForCode',
+            name : 'Hexo - Live For Code'
+        }  
+    };
+</script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/index.js"></script>
+</body>
+</html>

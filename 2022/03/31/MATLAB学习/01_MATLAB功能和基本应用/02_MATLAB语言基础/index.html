@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no">
+    <meta name="referrer" content="origin">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <title>02_MATLAB语言基础</title>
+    <link rel="shortcut icon" href="#"/>
+
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/LongCang.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Monda.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/NotoSansSC.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Playball.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/PTMono.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/RobotoSlab.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Rosario.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/UbuntuMono.css">
+
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/post.css">
+    
+        <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/normal.css">
+    
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/jquery-3.4.1.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.1"></head>
+<body>
+    <a id="cover"></a>
+    <div id="header">
+    <div class="header">
+        <div class="vertical">
+            <div class="inner">
+                <h1 class="header-subtitle">02_MATLAB语言基础</h1>
+                <div class="header-subinfo">
+                    <p class="article-info-text">
+                        <span>
+                            <i class="iconfont icon-time"></i> 发表时间：2022-03-31
+                        </span>
+                        
+                            <span id="/2022/03/31/MATLAB学习/01_MATLAB功能和基本应用/02_MATLAB语言基础/" class="leancloud_visitors" data-flag-title="02_MATLAB语言基础">
+                                <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                            </span>
+                        
+                        <span>
+                            <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2022/03/31/MATLAB学习/01_MATLAB功能和基本应用/02_MATLAB语言基础/"></span>
+                        </span>  
+                    </p>                 
+                </div>
+            </div>
+        </div>
+        <canvas id="articleHeaderCanvas"></canvas>
+    </div>
+</div>
+    <div id="container">
+    <div id="content">
+        <div id="article">
+    <div class="toc"></div>
+    <div class="article-body">
+        <h1 id="二、MATLAB语言基础"><a href="#二、MATLAB语言基础" class="headerlink" title="二、MATLAB语言基础"></a>二、MATLAB语言基础</h1><h3 id="1-变量命名规则"><a href="#1-变量命名规则" class="headerlink" title="1.变量命名规则"></a>1.变量命名规则</h3><ul>
+<li><p>基本规则</p>
+<ul>
+<li><p>变量名和函数名对字母的大小写敏感，故而a与A是两个不同的变量名。</p>
+</li>
+<li><p>变量名必须以字母开头，其后可以是任意字母或下划线，但是不能有空格、中文或标点，例如_xy、a.b均是不合法的变量名，而classNum_x是一个合法的变量名。</p>
+</li>
+<li><p>不能使用<code>MATLAB</code>的关键字作为变量名。避免使用函数名作为变量名，如果你使用了函数名，则该函数失效。</p>
+<p>如果你使用<code>sin = 1</code>，则在未清理缓存的情况下，将会出现<code>sin(1) = 1</code>，所以不要使用，以免造成不必要的麻烦。</p>
+</li>
+<li><p>变量名最多可包含63个字符，从第64个字符开始之后的字符将会被忽略</p>
+</li>
+<li><p><strong>如果运算结果没有赋予任何变量，系统将其赋予 <code>ans</code>，它是特殊变量，只保留最新值</strong></p>
+</li>
+</ul>
+</li>
+<li><p>在<code>MATLAB</code>中，可以通过调用<code>isvarname</code>函数,来验证变量名是否符合<code>MATLAB</code>所接受的合法变量名。该函数值返回值为1或0,1代表合法，0代表不合法。</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; isvarname(<span class="string">&#x27;_xy&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">ans</span> =</span><br><span class="line">  logical</span><br><span class="line">   <span class="number">0</span></span><br><span class="line">   </span><br><span class="line">&gt;&gt; isvarname(<span class="string">&#x27;classNum_x&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">ans</span> =</span><br><span class="line">  logical</span><br><span class="line">   <span class="number">1</span></span><br></pre></td></tr></table></figure></li>
+<li><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/1Ecz8niMPCyXxJCj8pHZxQ">预定义变量</a></p>
+<p>预定义变量就是系统已经定义好了的变量，我们可以把它们当做常量来看待。有如下几种类型：</p>
+<table>
+<thead>
+<tr>
+<th align="left">预定义变量</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">ans</td>
+<td align="center">系统默认的用作保存运算结果的变量名</td>
+</tr>
+<tr>
+<td align="left">pi</td>
+<td align="center">圆周率</td>
+</tr>
+<tr>
+<td align="left">eps</td>
+<td align="center">机器零阈值，<code>MATLAB</code>中的最小数</td>
+</tr>
+<tr>
+<td align="left">inf</td>
+<td align="center">表示无穷大</td>
+</tr>
+<tr>
+<td align="left">NaN或nan</td>
+<td align="center">表示不定数</td>
+</tr>
+<tr>
+<td align="left">i或j</td>
+<td align="center">虚数单位</td>
+</tr>
+<tr>
+<td align="left">nargin</td>
+<td align="center">函数的输入参数个数</td>
+</tr>
+<tr>
+<td align="left">nargout</td>
+<td align="center">函数的输出参数个数</td>
+</tr>
+<tr>
+<td align="left">realmin</td>
+<td align="center">可用的最小正实数</td>
+</tr>
+<tr>
+<td align="left">realmax</td>
+<td align="center">可用的最大正实数</td>
+</tr>
+<tr>
+<td align="left">bitmax</td>
+<td align="center">可用的最大正整数（以双精度格式存储）</td>
+</tr>
+<tr>
+<td align="left">varargin</td>
+<td align="center">可变的函数输入参数</td>
+</tr>
+<tr>
+<td align="left">varargout</td>
+<td align="center">可变的函数输出参数</td>
+</tr>
+<tr>
+<td align="left">beep</td>
+<td align="center">使计算机发出“嘟嘟”的声音</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>举一个例子<br>根据<em>S</em>=<em>π**r</em>2，计算当<em>r</em>=3时，圆的面积。</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">pi</span>*(<span class="number">3</span>^<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ans</span> =</span><br><span class="line">   <span class="number">28.2743</span></span><br></pre></td></tr></table></figure></li>
+<li><p>关键字</p>
+<p>关键字是<code>MATLAB</code>程序设计中常用到的流程控制变量，共有20个，前面提到了不建议使用关键字作为变量的名字，因而在此列举出来，这些我们在后面还会提到。在命令行窗口输入命令<code>iskeyword</code>，即可查询到：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; iskeyword</span><br><span class="line"><span class="built_in">ans</span> =</span><br><span class="line">  <span class="number">20</span>×<span class="number">1</span> cell 数组</span><br><span class="line">    <span class="string">&#x27;break&#x27;</span></span><br><span class="line">    <span class="string">&#x27;case&#x27;</span></span><br><span class="line">    <span class="string">&#x27;catch&#x27;</span></span><br><span class="line">    <span class="string">&#x27;classdef&#x27;</span></span><br><span class="line">    <span class="string">&#x27;continue&#x27;</span></span><br><span class="line">    <span class="string">&#x27;else&#x27;</span></span><br><span class="line">    <span class="string">&#x27;elseif&#x27;</span></span><br><span class="line">    <span class="string">&#x27;end&#x27;</span></span><br><span class="line">    <span class="string">&#x27;for&#x27;</span></span><br><span class="line">    <span class="string">&#x27;function&#x27;</span></span><br><span class="line">    <span class="string">&#x27;global&#x27;</span></span><br><span class="line">    <span class="string">&#x27;if&#x27;</span></span><br><span class="line">    <span class="string">&#x27;otherwise&#x27;</span></span><br><span class="line">    <span class="string">&#x27;parfor&#x27;</span></span><br><span class="line">    <span class="string">&#x27;persistent&#x27;</span></span><br><span class="line">    <span class="string">&#x27;return&#x27;</span></span><br><span class="line">    <span class="string">&#x27;spmd&#x27;</span></span><br><span class="line">    <span class="string">&#x27;switch&#x27;</span></span><br><span class="line">    <span class="string">&#x27;try&#x27;</span></span><br><span class="line">    <span class="string">&#x27;while&#x27;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="2-全局变量和局部变量"><a href="#2-全局变量和局部变量" class="headerlink" title="2.全局变量和局部变量"></a>2.全局变量和局部变量</h3><ul>
+<li>各个函数之间以及命令行窗口的工作空间中，内存空间独立，不能相互访问</li>
+</ul>
+<ul>
+<li><p>初始化是仅需声明一次，用时需要声明一次</p>
+<ul>
+<li>（在一个内存空间里声明global，在另一个内存空间里使用这个global时需要再次声明global，各内存空间声明一次即可）</li>
+</ul>
+</li>
+<li><p>如果只在某个内存空间使用一次，在全局变量影响内存空间变量时，可使用clear命令清除变量名</p>
+</li>
+</ul>
+<ul>
+<li>如果一个函数内的边框没有特别声明，那么变量只在函数内部使用，即为全局变量</li>
+</ul>
+<ul>
+<li>子程序较多时，全局变量会给程序调试和维护带来不便，一般不使用全局变量，如果使用 原则上   全部用大写字母表示</li>
+</ul>
+<h3 id="3-数据类型"><a href="#3-数据类型" class="headerlink" title="3.数据类型"></a><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/OB4TKgoFEpo8W54W10xE0A">3.数据类型</a></h3><h4 id="——数值类型"><a href="#——数值类型" class="headerlink" title="——数值类型"></a>——数值类型</h4><p>​                            <a href="02_MATLAB%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80">见</a>         <code>1.变量命名规则</code></p>
+<h4 id="——数值类型-1"><a href="#——数值类型-1" class="headerlink" title="——数值类型"></a>——数值类型</h4><p><strong>整数型、单精度浮点型、双精度浮点型、字符串型、结构体型、函数句柄型、逻辑型和单元数组型</strong></p>
+<h5 id="1-整数"><a href="#1-整数" class="headerlink" title="1)整数:"></a>1)整数:</h5><ul>
+<li><p>有符号数和无符号数使用整型变量和单精度变量可以节约内存空间。</p>
+</li>
+<li><table>
+<thead>
+<tr>
+<th align="left">整数类型</th>
+<th align="center">数值范围</th>
+<th align="right">转换函数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">有符号8位整数</td>
+<td align="center">−27 ~27−1</td>
+<td align="right">int8</td>
+</tr>
+<tr>
+<td align="left">无符号8位整数</td>
+<td align="center">0 ~28−1</td>
+<td align="right">uint8</td>
+</tr>
+<tr>
+<td align="left">有符号16位整数</td>
+<td align="center">−215 ~215−1</td>
+<td align="right">int16</td>
+</tr>
+<tr>
+<td align="left">无符号16位整数</td>
+<td align="center">0 ~216−1</td>
+<td align="right">uint16</td>
+</tr>
+<tr>
+<td align="left">有符号32位整数</td>
+<td align="center">−231 ~231−1</td>
+<td align="right">int32</td>
+</tr>
+<tr>
+<td align="left">无符号32位整数</td>
+<td align="center">0 ~232−1</td>
+<td align="right">uint32</td>
+</tr>
+<tr>
+<td align="left">有符号64位整数</td>
+<td align="center">−263 ~263−1</td>
+<td align="right">int64</td>
+</tr>
+<tr>
+<td align="left">无符号64位整数</td>
+<td align="center">0 ~264−1</td>
+<td align="right">uint64</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<h5 id="2-浮点数"><a href="#2-浮点数" class="headerlink" title="2)浮点数:"></a>2)浮点数:</h5><ul>
+<li><p>在默认状态下，MATLAB将所有的数都看作是双精度的浮点数</p>
+<p>(单精度（single）和双精度（float，或者直接输入小数，因为matlab默认即为双精度）)</p>
+</li>
+<li><p>直接输人变量值创建的是<strong>double类型</strong>，创建<strong>single类型</strong>需要用输人类型<strong>转换函数</strong>。其他类型函数可以利用转换函数存储为需要的类型，如果有小数部分，自动四舍五入处理</p>
+</li>
+<li><table>
+<thead>
+<tr>
+<th align="left">浮点类型</th>
+<th align="center">存储位宽</th>
+<th align="right">各位数的意义</th>
+<th align="left">数值范围</th>
+<th align="left">转换函数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">单精度</td>
+<td align="center">32</td>
+<td align="right">0-22位表示小数部分，23-30位表示指数部分，31位表示符号（0正1负）</td>
+<td align="left">−3.4028238<del>−1.17549−38 1.17549−38</del>3.4028238</td>
+<td align="left">single</td>
+</tr>
+<tr>
+<td align="left">双精度</td>
+<td align="center">64</td>
+<td align="right">0-51位表示小数部分，52-62位表示指数部分，63位表示符号（0正1负）</td>
+<td align="left">−1.79769308<del>−2.22507−308 2.22507−308</del>1.79769308</td>
+<td align="left">double</td>
+</tr>
+</tbody></table>
+<p><img src="https://s2.loli.net/2022/02/26/opg2cBljI5WK6TZ.png" alt="image-20220226163136135"></p>
+</li>
+</ul>
+<h6 id="运算法则："><a href="#运算法则：" class="headerlink" title="运算法则："></a><strong>运算法则：</strong></h6><ul>
+<li><p><strong>单精度不能和整数类型进行计算</strong>，整数类型只能和整数和双精度进行计算</p>
+</li>
+<li><p>双精度和单精度或者整数计算结果为单精度或者整数</p>
+</li>
+<li><p>双精度和逻辑或者字符进行计算的时候，结果为双精度</p>
+</li>
+<li><p>其中和字符进行计算的时候，是用字符对应的ASCII 编码十进制进行对应计算的</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Str = <span class="string">&#x27;h&#x27;</span> - <span class="number">44.3</span>; Ans = <span class="number">59.7000</span>   #因为h对应的编码为<span class="number">104</span></span><br></pre></td></tr></table></figure></li>
+<li><p>双精度的精度要远高于单精度，用<strong>eps函数</strong>可以查看实际值与其浮点数的间隙</p>
+</li>
+<li><p>在不同的数值类型参与的运算中，返回的数值类型要看具体情况</p>
+<ul>
+<li>双精度浮点数参与运算时，返回值的类型依赖于参与运算的其他数据类型</li>
+<li>参与运算的其他数据为逻辑型、字符型时，返回结果为双精度浮点型</li>
+<li>参与运算的其他数据为整数型时，返回结果为相应的整数类型</li>
+<li>参与运算的其他数据为单精度浮点型时，返回结果为相应的单精度浮点型</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&gt;&gt; a = uint32(<span class="number">120</span>);</span><br><span class="line">&gt;&gt; b = single(<span class="number">22.809</span>);</span><br><span class="line">&gt;&gt; c = <span class="number">73.226</span>;</span><br><span class="line">&gt;&gt; ab = a*b</span><br><span class="line">错误使用  * </span><br><span class="line">整数只能与相同类的整数或标量双精度值组合使用。</span><br><span class="line"></span><br><span class="line">&gt;&gt; ac = a*c</span><br><span class="line"></span><br><span class="line">ac =</span><br><span class="line"></span><br><span class="line">        <span class="number">8787</span></span><br><span class="line"></span><br><span class="line">&gt;&gt; bc = b*c</span><br><span class="line"></span><br><span class="line">bc =</span><br><span class="line"></span><br><span class="line">  <span class="number">1.6702e+03</span></span><br><span class="line"></span><br><span class="line">&gt;&gt; str = <span class="string">&#x27;hello&#x27;</span>;</span><br><span class="line">&gt;&gt; newstr = str<span class="number">-44.3</span></span><br><span class="line"></span><br><span class="line">newstr =</span><br><span class="line"></span><br><span class="line">   <span class="number">59.7000</span>   <span class="number">56.7000</span>   <span class="number">63.7000</span>   <span class="number">63.7000</span>   <span class="number">66.7000</span></span><br><span class="line"></span><br><span class="line">&gt;&gt; whos #List variables in workspace, with sizes and types</span><br><span class="line">  Name        Size            Bytes  Class     Attributes</span><br><span class="line"></span><br><span class="line">  a           <span class="number">1</span>x1                 <span class="number">4</span>  uint32              </span><br><span class="line">  ac          <span class="number">1</span>x1                 <span class="number">4</span>  uint32              </span><br><span class="line">  b           <span class="number">1</span>x1                 <span class="number">4</span>  single              </span><br><span class="line">  bc          <span class="number">1</span>x1                 <span class="number">4</span>  single              </span><br><span class="line">  c           <span class="number">1</span>x1                 <span class="number">8</span>  double              </span><br><span class="line">  newstr      <span class="number">1</span>x5                <span class="number">40</span>  double              </span><br><span class="line">  str         <span class="number">1</span>x5                <span class="number">10</span>  char  </span><br><span class="line"></span><br><span class="line">&gt;&gt; <span class="built_in">eps</span>(<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">ans</span> =</span><br><span class="line"></span><br><span class="line">     <span class="number">4.440892098500626e-16</span></span><br><span class="line"></span><br><span class="line">&gt;&gt; <span class="built_in">eps</span>(single(<span class="number">3</span>))</span><br><span class="line"></span><br><span class="line"><span class="built_in">ans</span> =</span><br><span class="line"></span><br><span class="line">   <span class="number">2.3841858e-07</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><strong>数据类型的强制转换、数值范围</strong></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">shu=<span class="number">66</span>; </span><br><span class="line"></span><br><span class="line"><span class="comment">%双精度浮点型，强制转换成整型</span></span><br><span class="line"></span><br><span class="line">shu8=int8(shu)</span><br><span class="line"></span><br><span class="line">shu16=int16(shu)</span><br><span class="line"></span><br><span class="line">shu32=int32(shu)</span><br><span class="line"></span><br><span class="line">shu64=int64(shu)</span><br><span class="line"></span><br><span class="line">string=<span class="string">&#x27;Max&#x27;</span></span><br><span class="line"></span><br><span class="line">switch1=int8(string)</span><br></pre></td></tr></table></figure>
+
+<img src="https://mmbiz.qpic.cn/mmbiz_png/7fLgmsrLPNiblpD6dfbUsdcz5gMGlTicTUfmZmcb6ibkaIfeMUSsqibTEsYFn70pkZ8tzVRnMWqiaAmNW8icJayPtR8g/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片" style="zoom:50%;" />
+
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">fudian=<span class="number">14.89</span>             <span class="comment">%默认是双精度浮点型</span></span><br><span class="line"></span><br><span class="line">fusingle=single(fudian)  <span class="comment">%转换成单精度浮点型</span></span><br><span class="line"></span><br><span class="line">fudouble=double(fudian)  <span class="comment">%转换成双精度浮点型</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% 查看数据类型的数值范围</span></span><br><span class="line"></span><br><span class="line">singlefanwei=[<span class="built_in">realmin</span>(<span class="string">&#x27;single&#x27;</span>) <span class="built_in">realmax</span>(<span class="string">&#x27;single&#x27;</span>)]</span><br><span class="line"></span><br><span class="line">doublefanwei=[<span class="built_in">realmax</span>(<span class="string">&#x27;double&#x27;</span>) <span class="built_in">realmax</span>(<span class="string">&#x27;double&#x27;</span>)]</span><br><span class="line"></span><br><span class="line"><span class="comment">% 结果</span></span><br><span class="line"></span><br><span class="line">fudian =</span><br><span class="line"></span><br><span class="line">   <span class="number">14.8900</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">fusingle =</span><br><span class="line"></span><br><span class="line">  single</span><br><span class="line"></span><br><span class="line">   <span class="number">14.8900</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">fudouble =</span><br><span class="line"></span><br><span class="line">   <span class="number">14.8900</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">singlefanwei =</span><br><span class="line"></span><br><span class="line">  <span class="number">1</span>×<span class="number">2</span> single 行向量</span><br><span class="line"></span><br><span class="line">   <span class="number">1.0e+38</span> *</span><br><span class="line"></span><br><span class="line">    <span class="number">0.0000</span>    <span class="number">3.4028</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">doublefanwei =</span><br><span class="line"></span><br><span class="line">  <span class="number">1.0e+308</span> *</span><br><span class="line"></span><br><span class="line">    <span class="number">1.7977</span>    <span class="number">1.7977</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="——逻辑类型"><a href="#——逻辑类型" class="headerlink" title="——逻辑类型"></a>——逻辑类型</h4><p><strong>逻辑类型的数据类型</strong>是指布尔类型的数据及数据之间的逻辑关系，出现这些运算的目的是为了<strong>提供求解真/假命题的答案</strong>。作为所有关系和逻辑表达式的输入，逻辑类型数据类型进行运算时需要用到关系操作符和<strong>逻辑运算符</strong></p>
+<p><code>MATLAB</code>把任何非零数值当作真，把零当作假。所有关系和逻辑表达式的输出：</p>
+<ul>
+<li>对于真，输出为1；对于假，输出为0</li>
+</ul>
+<h4 id="——字符和字符串"><a href="#——字符和字符串" class="headerlink" title="——字符和字符串"></a>——<a href="../%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/%E5%AD%97%E7%AC%A6%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2">字符和字符串</a></h4><h4 id="——函数句柄"><a href="#——函数句柄" class="headerlink" title="——函数句柄"></a>——<a href="../%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/%E5%87%BD%E6%95%B0%E5%8F%A5%E6%9F%84">函数句柄</a></h4><h4 id="——结构体类型"><a href="#——结构体类型" class="headerlink" title="——结构体类型"></a>——<a href="../%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/%E7%BB%93%E6%9E%84%E4%BD%93%E7%B1%BB%E5%9E%8B">结构体类型</a></h4><h3 id="4-常用标点符号"><a href="#4-常用标点符号" class="headerlink" title="4.常用标点符号"></a>4.常用标点符号</h3><p><img src="https://s2.loli.net/2022/02/26/E7uyxSU4ZnzLgiB.png" alt="image-20220226214144162"></p>
+
+        <p class="suffix-end">__END__</p>
+        <div class="suffix-box">
+            <div class="suffix-box-left">
+                <img src="https://gitee.com/lichaikui/picture/raw/master/tupian/20211222195800.png" alt="hero">
+            </div>
+            <div class="suffix-box-right">
+                <span class="suffix-box-title">文章作者</span>：hero
+                <br>
+                <span class="suffix-box-title">文章出处</span>：<a href="/2022/03/31/MATLAB%E5%AD%A6%E4%B9%A0/01_MATLAB%E5%8A%9F%E8%83%BD%E5%92%8C%E5%9F%BA%E6%9C%AC%E5%BA%94%E7%94%A8/02_MATLAB%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/" target="_blank">02_MATLAB语言基础</a>
+                <br>
+                <span class="suffix-box-title">作者签名</span>：简单地活着, 肆意又精彩.
+                <br>
+                <span class="suffix-box-title">关于主题</span>：<a href="https://github.com/first19326/Hexo-LiveForCode" target="_blank">Hexo - Live For Code</a>
+                <br>
+                <span class="suffix-box-title">版权声明</span>：文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" title="BY-NC-SA" target="_blank">BY-NC-SA</a> 许可协议，转载请注明出处
+                <br>
+            </div>
+            <div style="clear: both;"></div>
+        </div>
+    </div>
+    <div class="article-footer">
+        
+            <div class="category">
+                分类：
+                
+                    <a href="/category/01-MATLAB%E5%8A%9F%E8%83%BD%E5%92%8C%E5%9F%BA%E6%9C%AC%E5%BA%94%E7%94%A8/">01_MATLAB功能和基本应用</a>
+                
+            </div>
+        
+        
+            <div class="tag">
+                标签：
+                
+                    <a href="/tag/MATLAB%E5%AD%A6%E4%B9%A0/">MATLAB学习</a>
+                
+            </div>
+        
+        <div class="article-prev-next">
+            
+                <a href="/2022/03/31/MATLAB%E5%AD%A6%E4%B9%A0/01_MATLAB%E5%8A%9F%E8%83%BD%E5%92%8C%E5%9F%BA%E6%9C%AC%E5%BA%94%E7%94%A8/03_%E4%BB%A3%E6%95%B0%E8%BF%90%E7%AE%97/" class="prev-prefix">« </a> 上一篇：    <a href="/2022/03/31/MATLAB%E5%AD%A6%E4%B9%A0/01_MATLAB%E5%8A%9F%E8%83%BD%E5%92%8C%E5%9F%BA%E6%9C%AC%E5%BA%94%E7%94%A8/03_%E4%BB%A3%E6%95%B0%E8%BF%90%E7%AE%97/" title="发布于 2022-03-31 08:14">03_代数运算</a>
+                <br>
+            
+            
+                <a href="/2022/03/31/MATLAB%E5%AD%A6%E4%B9%A0/01_MATLAB%E5%8A%9F%E8%83%BD%E5%92%8C%E5%9F%BA%E6%9C%AC%E5%BA%94%E7%94%A8/01_MATLAB%E5%B7%A5%E4%BD%9C%E7%8E%AF%E5%A2%83/" class="next-prefix">» </a> 下一篇：    <a href="/2022/03/31/MATLAB%E5%AD%A6%E4%B9%A0/01_MATLAB%E5%8A%9F%E8%83%BD%E5%92%8C%E5%9F%BA%E6%9C%AC%E5%BA%94%E7%94%A8/01_MATLAB%E5%B7%A5%E4%BD%9C%E7%8E%AF%E5%A2%83/" title="发布于 2022-03-31 08:12">01_MATLAB工作环境</a>
+            
+        </div>
+    </div>
+    
+    <div class="article-comments">
+        <div class="comments-title">
+            评论列表
+        </div>
+        <div class="comments-content">
+        </div>
+    </div>
+
+</div>
+
+    </div>
+</div>
+    <div id="footer"></div>
+    <div id="sidebar">
+    <div class="menu-wrap" style="display:none;">
+        <nav class="menu">
+            <div class="menu-introduce"> 
+                <div class="introduce-avatar"></div> 
+                <div class="introduce-info"> 
+                    <div class="introduce-user"><span></span></div>        
+                </div> 
+            </div> 
+            <div class="menu-list">
+                <ul></ul> 
+            </div> 
+            <div class="menu-link"></div> 
+        </nav>
+        <button class="menu-button-close"></button>
+        <div class="morph-shape" id="morph-shape" data-morph-open="M-7.312,0H15c0,0,66,113.339,66,399.5C81,664.006,15,800,15,800H-7.312V0z;M-7.312,0H100c0,0,0,113.839,0,400c0,264.506,0,400,0,400H-7.312V0z">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 800" preserveAspectRatio="none">
+                <path d="M-7.312,0H0c0,0,0,113.839,0,400c0,264.506,0,400,0,400h-7.312V0z"/>
+            </svg>
+        </div>
+    </div>
+    <button class="menu-button-open">MENU</button>
+    <div class="menu-cover"></div>
+</div>
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/search.css">
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/iscroll.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/instantsearch.min.js"></script>
+<div class="search-window">
+    <div class="search-content">
+        <div class="search-content-icon">
+            <i class="iconfont icon-search"></i>
+        </div>
+        <div id="search-input" class="search-input"></div>
+    </div>
+
+    <div class="search-scroll">
+        <div class="search-result">
+            <div id="search-stats" class="search-stats"></div>
+            <div id="search-hits"></div>
+            <div id="search-pagination" class="search-pagination"></div>
+        </div>
+    </div>
+
+    <span class="search-close-icon">
+        <i class="iconfont icon-close"></i>
+    </span>
+</div>
+    <div id="tools">
+    <div class="progressbar-top"></div>
+
+    
+        <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/APlayer.css">
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/APlayer.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/Meting.min.js"></script>
+        <meting-js id="3778678" lrcshow="false" server="netease" type="playlist" fixed="true" autoplay="false" loop="all" order="random" preload="auto" volume="0.67" mutex="true"></meting-js>
+    
+    
+    <div class="wrap-right"></div>
+    <div class="loading"></div>
+</div>
+    <script>
+    window.config = {
+        GitHubUserName     : 'fubaisen',
+        GitHubRepositories : 'fubaisen.github.io',
+
+        BlogUser      : 'hero',
+        BlogAvatar    : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222195800.png',
+        BlogStartDate : '2020-01-01',
+
+        WebsiteTitleBlur         : '(◍´꒳`◍) Hi, friend',
+        WebsiteTitleBlurTimeOut  : 500,
+        WebsiteTitleFocus        : '(*´∇｀*) 欢迎回来!',
+        WebsiteTitleFocusTimeOut : 1000,
+        WebsiteFavicon           : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222195607.png',
+
+        ProgressBar: {
+            id       : 'topProgressBar',
+            color    : '#77B6FF',
+            height   : '2px',
+            duration : 0.2
+        },
+
+        Loading: {
+            rebound: {
+                tension  : 16,
+                friction : 5
+            },
+            spinner: {
+                id     : 'spinner',
+                radius : 90,
+                sides  : 3,
+                depth  : 4,
+                colors : {
+                    background : '#F0F0F0',
+                    stroke     : '#272633',
+                    base       : '',
+                    child      : '#272633'
+                },
+                alwaysForward : true,
+                restAt        : 0.5,
+                renderBase    : false
+            }
+        },
+
+        HomeHeaderAnimationRendered : true,
+        HomeHeaderAnimation         : {
+            radius      : 15,
+            density     : 0.2,
+            color       : 'rgba(255, 255, 255, .2)',
+            clearOffset : 0.3
+        },
+
+        ArticleHeaderAnimationRendered : false,
+        ArticleHeaderAnimation         : {
+            triW                  : 14,
+            triH                  : 20,
+            neighbours            : [
+                
+                    'side',
+                
+                    'top',
+                
+                    'bottom',
+                
+            ],
+            speedTrailAppear      : 0.1,
+            speedTrailDisappear   : 0.1,
+            speedTriOpen          : 1,
+            trailMaxLength        : 30,
+            trailIntervalCreation : 100,
+            delayBeforeDisappear  : 2,
+            colors                : [
+                
+                    '#96EDA6',
+                
+                    '#5BC6A9',
+                
+                    '#38668C',
+                
+                    '#374D84',
+                
+                    '#BED5CB',
+                
+                    '#62ADC6',
+                
+                    '#8EE5DE',
+                
+                    '#304E7B',
+                
+            ]
+        },
+
+        BackAnimationRendered          : true,
+        IEBrowserBackAnimationRendered : false,
+        BackAnimation                  : {
+            colorSaturation  : '60%',
+            colorBrightness  : '50%',
+            colorAlpha       : 0.5,
+            colorCycleSpeed  : 5,
+            verticalPosition : 'random',
+            horizontalSpeed  : 200,
+            ribbonCount      : 3,
+            strokeSize       : 0,
+            parallaxAmount   : -0.2,
+            animateSections  : true
+        },
+
+        HomeHeaderImage : [
+            
+                'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/image/header/home.jpg',
+            
+                'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/image/header/home.jpeg',
+            
+        ],
+        HomeBannerText  : '',
+
+        ArticleHeaderImage : [
+            
+                'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/image/header/article.jpg',
+            
+        ],
+
+        OtherBannerText : '',
+
+        MenuList : [
+            
+                {
+                    name   : '首页',
+                    href   : '/',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '标签',
+                    href   : '/tag',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '分类',
+                    href   : '/category',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '归档',
+                    href   : '/archive',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '赞赏',
+                    href   : '/donate',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '关于',
+                    href   : '/about',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '订阅',
+                    href   : '/subscription',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '搜索',
+                    href   : '',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '留言板',
+                    href   : '/comment',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '友情链接',
+                    href   : '/friend',    
+                    target : '',
+                    class  : ''
+                },
+            
+        ],
+        MenuLink : [
+            
+                
+                    {
+                        icon : 'icon-weibo', 
+                        url  : 'https://weibo.com/u/7649528498'
+                    },
+                
+                    {
+                        icon : 'icon-wechat', 
+                        url  : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222190433.png'
+                    },
+                
+                    {
+                        icon : 'icon-qq', 
+                        url  : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222190324.png'
+                    },
+                
+                    {
+                        icon : 'icon-github', 
+                        url  : 'https://github.com/fubaisen'
+                    },
+                
+            
+        ],
+
+        FooterStyle : 2,
+        BottomText  : {
+            icon    : 'like-fill',
+            left    : '人生若只如初见',
+            right   : '何事秋风悲画扇'
+        },
+        ThemeInfo   : true,
+
+        ConsoleList : [
+            
+                
+                    [
+                        
+                            
+                                'Based on cnblogs theme SimpleMemory.',
+                            
+                                '',
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                'SimpleMemory Author:',
+                            
+                                'BNDong',
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                'Theme:',
+                            
+                                'LiveForCode',
+                            
+                        
+                    ],
+                
+            
+        ],
+
+        FontIconExtend : '',
+
+        Donate : {
+            paypal  : '',
+            bitcoin : '',
+            alipay  : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222200200.png',
+            wechat  : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222194957.png'
+        },
+
+        Code : {
+            style : 'normal'
+        },  
+
+        Search : {
+            applicationID : '010C3EANT8',
+            apiKey        : 'c7abab9f11b79102b9aff7fe6d41447d',
+            indexName     : 'Notes',
+            hits          : {
+                page : 10
+            },
+            labels        : {
+                placeholder : '搜索',
+                empty       : '未发现与 「${query}」 相关的内容',
+                stats       : '${hits} 条相关条目，使用了 ${time} 毫秒',
+            }
+        }, 
+
+        Valine : {
+            switch         : true,
+            el             : '.comments-content',
+            appId          : 'srhKtvWPQTWYKh3qX8G8M7v0-gzGzoHsz',
+            appKey         : '8uVSP1q6UlALVC5igYfIfv2h',
+            placeholder    : '你是我一生只会遇见一次的惊喜...',
+            avatar         : 'mm',
+            meta           : 'nick,mail,link',
+            requiredFields : 'nick,mail',
+            pageSize       : 5,
+            lang           : 'zh-cn',
+            visitor        : true,
+            enableQQ       : true
+        },
+
+        Tocbot : {
+            switch                : true,
+            tocSelector           : '.toc',
+            contentSelector       : '.article-body',
+            headingSelector       : 'h1, h2, h3, h4, h5',
+            headingsOffset        : 0,
+            scrollSmooth          : true,
+            scrollSmoothOffset    : -5,
+            positionFixedSelector : '.toc',
+            positionFixedClass    : 'toc-fixed',
+            fixedSidebarOffset    : '',
+        },
+
+        Require : {
+            baseUrl     : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/',
+            waitSeconds : 100
+        },
+
+        Music : {
+            type : 'Meting'
+        },
+        APlayer : {
+            container : '.aplayer',
+            fixed     : true,
+            autoplay  : false,
+            loop      : 'all',
+            order     : 'random',
+            preload   : 'auto',
+            volume    : 0.67,
+            mutex     : true,
+            lrcType   : 3,
+            audio     : [
+                
+                    {
+                        name   : 'aLIEz',
+                        artist : 'mizuki（瑞葵）',
+                        cover  : '/music/cover/aLIEz.jpg',
+                        url    : '/music/song/aLIEz.mp3',
+                        lrc    : '/music/lrc/aLIEz.lrc'
+                    },
+                
+                    {
+                        name   : 'Endless Tears',
+                        artist : 'CLIFF EDGE',
+                        cover  : '/music/cover/Endless Tears.jpg',
+                        url    : '/music/song/Endless Tears.mp3',
+                        lrc    : '/music/lrc/Endless Tears.lrc'
+                    },
+                
+                    {
+                        name   : 'Miracle',
+                        artist : 'Cascada',
+                        cover  : '/music/cover/Miracle.jpg',
+                        url    : '/music/song/Miracle.mp3',
+                        lrc    : '/music/lrc/Miracle.lrc'
+                    },
+                
+                    {
+                        name   : 'Roll The Dice',
+                        artist : '高珊',
+                        cover  : '/music/cover/Roll The Dice.jpg',
+                        url    : '/music/song/Roll The Dice.mp3',
+                        lrc    : '/music/lrc/Roll The Dice.lrc'
+                    },
+                
+                    {
+                        name   : 'See You Again',
+                        artist : 'Charlie Puth, Wiz Khalifa',
+                        cover  : '/music/cover/See You Again.jpg',
+                        url    : '/music/song/See You Again.mp3',
+                        lrc    : '/music/lrc/See You Again.lrc'
+                    },
+                
+                    {
+                        name   : 'Traveling Light',
+                        artist : 'Joel Hanson, Sara Groves',
+                        cover  : '/music/cover/Traveling Light.jpg',
+                        url    : '/music/song/Traveling Light.mp3',
+                        lrc    : '/music/lrc/Traveling Light.lrc'
+                    },
+                
+                    {
+                        name   : '痴心绝对',
+                        artist : '李圣杰',
+                        cover  : '/music/cover/痴心绝对.jpg',
+                        url    : '/music/song/痴心绝对.mp3',
+                        lrc    : '/music/lrc/痴心绝对.lrc'
+                    },
+                
+                    {
+                        name   : '好想大声说爱你',
+                        artist : 'BAAD（バード）',
+                        cover  : '/music/cover/好想大声说爱你.jpg',
+                        url    : '/music/song/好想大声说爱你.mp3',
+                        lrc    : '/music/lrc/好想大声说爱你.lrc'
+                    },
+                
+            ]
+        },
+        Meting : {
+            id       : '3778678', 
+            lrcshow  : false, 
+            server   : 'netease', 
+            type     : 'playlist', 
+            fixed    : true, 
+            autoplay : false, 
+            loop     : 'all', 
+            order    : 'random', 
+            preload  : 'auto', 
+            volume   : 0.67, 
+            mutex    : true
+        },
+
+        Mouse : {
+            enable  : true,
+            options : {
+                size  : 6,
+                sizeF : 24
+            }
+        },
+
+        LazyLoad : {
+            default : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/image/website/lazyload.svg'
+        },
+  
+        Style : {
+            aplayer          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/APlayer.css',
+            archive          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/archive.css',
+            donate           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/donate.css',
+            fancybox         : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/jquery.fancybox.css',
+            footer           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/footer.css',
+            iconfont         : 'https://at.alicdn.com/t/font_1546312_l3yohatebw.css',
+            index            : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/index.css',
+            menuBubble       : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/menu-bubble.css',
+            page             : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/page.css',
+            post             : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/post.css',
+            search           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/search.css',
+            tocbot           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/tocbot.css',
+            normal           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/normal.css',
+            night            : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/night.css',
+            clipboard        : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/clipboard.css'
+        },
+
+        Script: {
+            aplayer          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/APlayer.min.js',
+            config           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/require.config.js',
+            index            : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/index.js',
+            instantSearch    : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/instantsearch.min.js',
+            jQuery           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/jquery-3.4.1.min.js',
+            loading          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/loading.js',
+            meting           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/Meting.min.js',
+            iscroll          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/iscroll.js',
+            require          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/require.min.js'
+        },
+
+        Font: {
+            LongCang   : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/LongCang.css',
+            Monda      : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Monda.css',
+            NotoSansSC : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/NotoSansSC.css',
+            Playball   : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Playball.css',
+            PTMono     : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/PTMono.css',
+            RobotoSlab : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/RobotoSlab.css',
+            Rosario    : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Rosario.css',
+            UbuntuMono : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/UbuntuMono.css'
+        },
+
+        Suffix : {
+            about : '简单地活着, 肆意又精彩.'
+        },
+            
+        Theme : {
+            url  : 'https://github.com/first19326/Hexo-LiveForCode',
+            name : 'Hexo - Live For Code'
+        }  
+    };
+</script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/index.js"></script>
+</body>
+</html>

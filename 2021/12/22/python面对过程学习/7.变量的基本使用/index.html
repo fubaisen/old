@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no">
+    <meta name="referrer" content="origin">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <title>7.变量的基本使用</title>
+    <link rel="shortcut icon" href="#"/>
+
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/LongCang.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Monda.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/NotoSansSC.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Playball.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/PTMono.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/RobotoSlab.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Rosario.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/UbuntuMono.css">
+
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/post.css">
+    
+        <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/normal.css">
+    
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/jquery-3.4.1.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.1"></head>
+<body>
+    <a id="cover"></a>
+    <div id="header">
+    <div class="header">
+        <div class="vertical">
+            <div class="inner">
+                <h1 class="header-subtitle">7.变量的基本使用</h1>
+                <div class="header-subinfo">
+                    <p class="article-info-text">
+                        <span>
+                            <i class="iconfont icon-time"></i> 发表时间：2021-12-22
+                        </span>
+                        
+                            <span id="/2021/12/22/python面对过程学习/7.变量的基本使用/" class="leancloud_visitors" data-flag-title="7.变量的基本使用">
+                                <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                            </span>
+                        
+                        <span>
+                            <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2021/12/22/python面对过程学习/7.变量的基本使用/"></span>
+                        </span>  
+                    </p>                 
+                </div>
+            </div>
+        </div>
+        <canvas id="articleHeaderCanvas"></canvas>
+    </div>
+</div>
+    <div id="container">
+    <div id="content">
+        <div id="article">
+    <div class="toc"></div>
+    <div class="article-body">
+        <h1 id="变量的基本使用"><a href="#变量的基本使用" class="headerlink" title="变量的基本使用"></a>变量的基本使用</h1><blockquote>
+<p><strong>程序就是用来处理数据的，而变量就是用来存储数据的</strong></p>
+</blockquote>
+<h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ul>
+<li>变量定义</li>
+<li>变量的类型</li>
+<li>变量的命名</li>
+</ul>
+<h2 id="01-变量定义"><a href="#01-变量定义" class="headerlink" title="01. 变量定义"></a>01. 变量定义</h2><ul>
+<li>在 Python 中，每个变量 <strong>在使用前都必须赋值</strong>，变量 <strong>赋值以后</strong> 该变量 <strong>才会被创建</strong></li>
+<li>等号（=）用来给变量赋值<ul>
+<li><code>=</code> 左边是一个变量名</li>
+<li><code>=</code> 右边是存储在变量中的值</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">变量名 = 值</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>变量定义之后，后续就可以直接使用了</p>
+</blockquote>
+<h3 id="1-变量演练1-——-iPython"><a href="#1-变量演练1-——-iPython" class="headerlink" title="1) 变量演练1 —— iPython"></a>1) 变量演练1 —— iPython</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 定义 qq_number 的变量用来保存 qq 号码</span></span><br><span class="line">In [<span class="number">1</span>]: qq_number = <span class="string">&quot;1234567&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出 qq_number 中保存的内容</span></span><br><span class="line">In [<span class="number">2</span>]: qq_number</span><br><span class="line">Out[<span class="number">2</span>]: <span class="string">&#x27;1234567&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义 qq_password 的变量用来保存 qq 密码</span></span><br><span class="line">In [<span class="number">3</span>]: qq_password = <span class="string">&quot;123&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出 qq_password 中保存的内容</span></span><br><span class="line">In [<span class="number">4</span>]: qq_password</span><br><span class="line">Out[<span class="number">4</span>]: <span class="string">&#x27;123&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>使用交互式方式，如果要查看变量内容，直接输入变量名即可，不需要使用 <code>print</code> 函数</p>
+</blockquote>
+<h3 id="2-变量演练-2-——-PyCharm"><a href="#2-变量演练-2-——-PyCharm" class="headerlink" title="2) 变量演练 2 —— PyCharm"></a>2) 变量演练 2 —— PyCharm</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 定义 qq 号码变量</span></span><br><span class="line">qq_number = <span class="string">&quot;1234567&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义 qq 密码变量</span></span><br><span class="line">qq_password = <span class="string">&quot;123&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 在程序中，如果要输出变量的内容，需要使用 print 函数</span></span><br><span class="line"><span class="built_in">print</span>(qq_number)</span><br><span class="line"><span class="built_in">print</span>(qq_password)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>使用解释器执行，如果要输出变量的内容，必须要要使用 <code>print</code> 函数</p>
+</blockquote>
+<h3 id="3-变量演练-3-——-超市买苹果"><a href="#3-变量演练-3-——-超市买苹果" class="headerlink" title="3) 变量演练 3 —— 超市买苹果"></a>3) 变量演练 3 —— 超市买苹果</h3><blockquote>
+<ul>
+<li>可以用 <strong>其他变量的计算结果</strong> 来定义变量</li>
+<li>变量定义之后，后续就可以直接使用了</li>
+</ul>
+</blockquote>
+<p><strong>需求</strong></p>
+<ul>
+<li>苹果的价格是 <strong>8.5 元/斤</strong></li>
+<li>买了 <strong>7.5 斤</strong> 苹果</li>
+<li>计算付款金额</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 定义苹果价格变量</span></span><br><span class="line">price = <span class="number">8.5</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义购买重量</span></span><br><span class="line">weight = <span class="number">7.5</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算金额</span></span><br><span class="line">money = price * weight</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(money)</span><br></pre></td></tr></table></figure>
+
+<h4 id="思考题"><a href="#思考题" class="headerlink" title="思考题"></a>思考题</h4><ul>
+<li>如果 <strong>只要买苹果，就返 5 块钱</strong></li>
+<li>请重新计算购买金额</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 定义苹果价格变量</span></span><br><span class="line">price = <span class="number">8.5</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义购买重量</span></span><br><span class="line">weight = <span class="number">7.5</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算金额</span></span><br><span class="line">money = price * weight</span><br><span class="line"></span><br><span class="line"><span class="comment"># 只要买苹果就返 5 元</span></span><br><span class="line">money = money - <span class="number">5</span></span><br><span class="line"><span class="built_in">print</span>(money)</span><br></pre></td></tr></table></figure>
+
+<p><strong>提问</strong></p>
+<ul>
+<li>上述代码中，一共定义有几个变量？<ul>
+<li>三个：<code>price</code>／<code>weight</code>／<code>money</code></li>
+</ul>
+</li>
+<li><code>money = money - 5</code> 是在定义新的变量还是在使用变量？<ul>
+<li>直接使用之前已经定义的变量</li>
+<li>变量名 只有在 <strong>第一次出现</strong> 才是 <strong>定义变量</strong></li>
+<li>变量名 再次出现，不是定义变量，而是直接使用之前定义过的变量</li>
+</ul>
+</li>
+<li>在程序开发中，可以修改之前定义变量中保存的值吗？<ul>
+<li>可以</li>
+<li>变量中存储的值，就是可以 <strong>变</strong> 的</li>
+</ul>
+</li>
+</ul>
+<h2 id="02-变量的类型"><a href="#02-变量的类型" class="headerlink" title="02. 变量的类型"></a>02. 变量的类型</h2><ul>
+<li>在内存中创建一个变量，会包括：<ol>
+<li>变量的名称</li>
+<li>变量保存的数据</li>
+<li>变量存储数据的类型</li>
+<li>变量的地址（标示）</li>
+</ol>
+</li>
+</ul>
+<h3 id="2-1-变量类型的演练-——-个人信息"><a href="#2-1-变量类型的演练-——-个人信息" class="headerlink" title="2.1 变量类型的演练 —— 个人信息"></a>2.1 变量类型的演练 —— 个人信息</h3><p><strong>需求</strong></p>
+<ul>
+<li>定义变量保存小明的个人信息</li>
+<li>姓名：<strong>小明</strong></li>
+<li>年龄：<strong>18</strong> 岁</li>
+<li>性别：<strong>是</strong>男生</li>
+<li>身高：<strong>1.75</strong> 米</li>
+<li>体重：<strong>75.0</strong> 公斤</li>
+</ul>
+<blockquote>
+<p>利用 <strong>单步调试</strong> 确认变量中保存数据的类型</p>
+</blockquote>
+<p><strong>提问</strong></p>
+<ol>
+<li>在演练中，一共有几种数据类型？<ul>
+<li>4 种</li>
+<li><code>str</code> —— 字符串</li>
+<li><code>bool</code> —— 布尔（真假）</li>
+<li><code>int</code> —— 整数</li>
+<li><code>float</code> —— 浮点数（小数）</li>
+</ul>
+</li>
+<li>在 <code>Python</code> 中定义变量时需要指定类型吗？<ul>
+<li>不需要</li>
+<li><code>Python</code> 可以根据 <code>=</code> 等号右侧的值，自动推导出变量中存储数据的类型</li>
+</ul>
+</li>
+</ol>
+<h3 id="2-2-变量的类型"><a href="#2-2-变量的类型" class="headerlink" title="2.2 变量的类型"></a>2.2 变量的类型</h3><ul>
+<li>在 <code>Python</code> 中定义变量是 <strong>不需要指定类型</strong>（在其他很多高级语言中都需要）</li>
+<li>数据类型可以分为 <strong>数字型</strong> 和 <strong>非数字型</strong></li>
+<li>数字型<ul>
+<li>整型 (<code>int</code>)             ————没有小数点</li>
+<li>浮点型（<code>float</code>）————有小数点</li>
+<li>布尔型（<code>bool</code>） <ul>
+<li>真 <code>True</code> <code>非 0 数</code> —— <strong>非零即真</strong>（只要不是零的数字都会当成真）</li>
+<li>假 <code>False</code> <code>0</code></li>
+</ul>
+</li>
+<li>复数型 (<code>complex</code>)<ul>
+<li>主要用于科学计算，例如：平面场问题、波动问题、电感电容等问题</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>非数字型<ul>
+<li>字符串</li>
+<li>列表</li>
+<li>元组</li>
+<li>字典</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>提示：在 Python 2.x 中，<strong>整数</strong> 根据保存数值的长度还分为：</p>
+<ul>
+<li><p><code>int</code>（整数）</p>
+</li>
+<li><p><code>long</code>（长整数）</p>
+<p>​    <img src="https://gitee.com/lichaikui/picture/raw/master/tupian/image-20211213203103271.png" alt="image-20211213203103271" style="zoom:33%;" /></p>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li>使用 <code>type</code> 函数可以查看一个变量的类型</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">1</span>]: <span class="built_in">type</span>(name)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/image-20211213202532840.png" alt="image-20211213202532840"></p>
+<h3 id="2-3-不同类型变量之间的计算"><a href="#2-3-不同类型变量之间的计算" class="headerlink" title="2.3 不同类型变量之间的计算"></a>2.3 不同类型变量之间的计算</h3><h4 id="1-数字型变量-之间可以直接计算"><a href="#1-数字型变量-之间可以直接计算" class="headerlink" title="1) 数字型变量 之间可以直接计算"></a>1) <strong>数字型变量</strong> 之间可以直接计算</h4><ul>
+<li>在 Python 中，两个数字型变量是可以直接进行 算数运算的</li>
+<li>如果变量是 <code>bool</code> 型，在计算时<ul>
+<li><code>True</code> 对应的数字是 <code>1</code></li>
+<li><code>False</code> 对应的数字是 <code>0</code></li>
+</ul>
+</li>
+</ul>
+<p><strong>演练步骤</strong></p>
+<ol>
+<li>定义整数 <code>i = 10</code></li>
+<li>定义浮点数 <code>f = 10.5</code></li>
+<li>定义布尔型 <code>b = True</code></li>
+</ol>
+<ul>
+<li><p>在 iPython 中，使用上述三个变量相互进行算术运算</p>
+<img src="https://gitee.com/lichaikui/picture/raw/master/tupian/image-20211213210024379.png" alt="image-20211213210024379" style="zoom: 50%;" /></li>
+</ul>
+<h4 id="2-字符串变量-之间使用-拼接字符串"><a href="#2-字符串变量-之间使用-拼接字符串" class="headerlink" title="2) 字符串变量 之间使用 + 拼接字符串"></a>2) <strong>字符串变量</strong> 之间使用 <code>+</code> 拼接字符串</h4><ul>
+<li>在 Python 中，字符串之间可以使用 <code>+</code> 拼接生成新的字符串</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">1</span>]: first_name = <span class="string">&quot;三&quot;</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">2</span>]: last_name = <span class="string">&quot;张&quot;</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">3</span>]: first_name + last_name</span><br><span class="line">Out[<span class="number">3</span>]: <span class="string">&#x27;三张&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="3-字符串变量-可以和-整数-使用-重复拼接相同的字符串"><a href="#3-字符串变量-可以和-整数-使用-重复拼接相同的字符串" class="headerlink" title="3) 字符串变量 可以和 整数 使用 * 重复拼接相同的字符串"></a>3) <strong>字符串变量</strong> 可以和 <strong>整数</strong> 使用 <code>*</code> 重复拼接相同的字符串</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">1</span>]: <span class="string">&quot;-&quot;</span> * <span class="number">50</span></span><br><span class="line">Out[<span class="number">1</span>]: <span class="string">&#x27;--------------------------------------------------&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="4-数字型变量-和-字符串-之间-不能进行其他计算"><a href="#4-数字型变量-和-字符串-之间-不能进行其他计算" class="headerlink" title="4) 数字型变量 和 字符串 之间 不能进行其他计算"></a>4) <strong>数字型变量</strong> 和 <strong>字符串</strong> 之间 不能进行其他计算</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">1</span>]: first_name = <span class="string">&quot;zhang&quot;</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">2</span>]: x = <span class="number">10</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">3</span>]: x + first_name</span><br><span class="line">---------------------------------------------------------------------------</span><br><span class="line">TypeError: unsupported operand <span class="built_in">type</span>(s) <span class="keyword">for</span> +: <span class="string">&#x27;int&#x27;</span> <span class="keyword">and</span> <span class="string">&#x27;str&#x27;</span></span><br><span class="line">类型错误：`+` 不支持的操作类型：`<span class="built_in">int</span>` 和 `<span class="built_in">str</span>`</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/image-20211213210752530.png" alt="image-20211213210752530"></p>
+<h3 id="2-4-变量的输入"><a href="#2-4-变量的输入" class="headerlink" title="2.4 变量的输入"></a>2.4 变量的输入</h3><ul>
+<li>所谓 <strong>输入</strong>，就是 <strong>用代码</strong> <strong>获取</strong> 用户通过 <strong>键盘</strong> 输入的信息</li>
+<li>例如：去银行取钱，在 ATM 上输入密码</li>
+<li>在 Python 中，如果要获取用 户在 <strong>键盘</strong> 上的输入信息，需要使用到 <code>input</code> 函数</li>
+</ul>
+<h4 id="1-关于函数"><a href="#1-关于函数" class="headerlink" title="1) 关于函数"></a>1) 关于函数</h4><ul>
+<li>一个 <strong>提前准备好的功能</strong>(别人或者自己写的代码)，<strong>可以直接使用</strong>，而 <strong>不用关心内部的细节</strong></li>
+<li>目前已经学习过的函数</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>print(x)</td>
+<td>将 x 输出到控制台</td>
+</tr>
+<tr>
+<td>type(x)</td>
+<td>查看 x 的变量类型</td>
+</tr>
+</tbody></table>
+<h4 id="2-input-函数实现键盘输入"><a href="#2-input-函数实现键盘输入" class="headerlink" title="2) input 函数实现键盘输入"></a>2) input 函数实现键盘输入</h4><ul>
+<li>在 Python 中可以使用 <code>input</code> 函数从键盘等待用户的输入</li>
+<li><a href="">用户输入的 <strong>任何内容</strong> Python 都认为是一个 **字符串</a>**</li>
+<li>语法如下：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">字符串变量 = <span class="built_in">input</span>(<span class="string">&quot;提示信息：&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/image-20211213212544830.png" alt="image-20211213212544830">                        </p>
+<h4 id="3-类型转换函数"><a href="#3-类型转换函数" class="headerlink" title="3) 类型转换函数"></a>3) 类型转换函数</h4><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>int(x)</td>
+<td>将 x 转换为一个整数</td>
+</tr>
+<tr>
+<td>float(x)</td>
+<td>将 x 转换到一个浮点数</td>
+</tr>
+</tbody></table>
+<p><img src="https://gitee.com/lichaikui/picture/raw/master/tupian/image-20211213215004749.png" alt="image-20211213215004749"></p>
+<h4 id="4-变量输入演练-——-超市买苹果增强版"><a href="#4-变量输入演练-——-超市买苹果增强版" class="headerlink" title="4) 变量输入演练 —— 超市买苹果增强版"></a>4) 变量输入演练 —— 超市买苹果增强版</h4><p><strong>需求</strong></p>
+<ul>
+<li><strong>收银员输入</strong> 苹果的价格，单位：<strong>元／斤</strong></li>
+<li><strong>收银员输入</strong> 用户购买苹果的重量，单位：<strong>斤</strong></li>
+<li>计算并且 <strong>输出</strong> 付款金额</li>
+</ul>
+<h5 id="演练方式-1"><a href="#演练方式-1" class="headerlink" title="演练方式 1"></a>演练方式 1</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 输入苹果单价</span></span><br><span class="line">price_str = <span class="built_in">input</span>(<span class="string">&quot;请输入苹果价格：&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 要求苹果重量</span></span><br><span class="line">weight_str = <span class="built_in">input</span>(<span class="string">&quot;请输入苹果重量：&quot;</span>)</span><br><span class="line"><span class="comment"># 字符串之间不能相乘</span></span><br><span class="line"><span class="comment"># 3. 计算金额</span></span><br><span class="line"><span class="comment"># 1&gt; 将苹果单价转换成小数</span></span><br><span class="line">price = <span class="built_in">float</span>(price_str)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2&gt; 将苹果重量转换成小数</span></span><br><span class="line">weight = <span class="built_in">float</span>(weight_str)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3&gt; 计算付款金额</span></span><br><span class="line">money = price * weight</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(money)</span><br></pre></td></tr></table></figure>
+
+<p><strong>提问</strong></p>
+<ol>
+<li>演练中，针对 <strong>价格</strong> 定义了几个变量？<ul>
+<li><strong>两个</strong></li>
+<li><code>price_str</code> 记录用户输入的价格字符串</li>
+<li><code>price</code> 记录转换后的价格数值</li>
+</ul>
+</li>
+<li><strong>思考</strong> —— 如果开发中，需要用户通过控制台 输入 <strong>很多个 数字</strong>，针对每一个数字都要定义两个变量，<strong>方便吗</strong>？ </li>
+</ol>
+<h5 id="演练方式-2-——-买苹果改进版"><a href="#演练方式-2-——-买苹果改进版" class="headerlink" title="演练方式 2 —— 买苹果改进版"></a>演练方式 2 —— 买苹果改进版</h5><ol>
+<li><strong>定义</strong> 一个 <strong>浮点变量</strong> 接收用户输入的同时，就使用 <code>float</code> 函数进行转换</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">price = <span class="built_in">float</span>(<span class="built_in">input</span>(<span class="string">&quot;请输入价格:&quot;</span>))</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>改进后的好处：</li>
+</ul>
+<ol>
+<li>节约空间，只需要为一个变量分配空间</li>
+<li>起名字方便，不需要为中间变量起名字</li>
+</ol>
+<ul>
+<li>改进后的“缺点”：</li>
+</ul>
+<ol>
+<li>初学者需要知道，两个函数能够嵌套使用，稍微有一些难度</li>
+</ol>
+<p><strong>提示</strong></p>
+<ul>
+<li>如果输入的不是一个数字，程序执行时会出错，有关数据转换的高级话题，后续会讲！</li>
+</ul>
+<h3 id="2-5-变量的格式化输出"><a href="#2-5-变量的格式化输出" class="headerlink" title="2.5 变量的格式化输出"></a>2.5 变量的格式化输出</h3><blockquote>
+<p>苹果单价 <code>9.00</code> 元／斤，购买了 <code>5.00</code> 斤，需要支付 <code>45.00</code> 元</p>
+</blockquote>
+<ul>
+<li>在 Python 中可以使用 <code>print</code> 函数将信息输出到控制台</li>
+<li>如果希望输出文字信息的同时，<strong>一起输出</strong> <strong>数据</strong>，就需要使用到 <strong>格式化操作符</strong></li>
+<li><code>%</code> 被称为 <strong>格式化操作符</strong>，专门用于处理字符串中的格式<ul>
+<li>包含 <code>%</code> 的字符串，被称为 <strong>格式化字符串</strong></li>
+<li><code>%</code> 和不同的 <strong>字符</strong> 连用，<strong>不同类型的数据</strong> 需要使用 <strong>不同的格式化字符</strong></li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>格式化字符</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>%s</td>
+<td>字符串</td>
+</tr>
+<tr>
+<td>%d</td>
+<td><a href="">有符号十进制整数，<code>%06d</code> 表示输出的整数显示位数，不足的地方使用 <code>0</code> 补全</a></td>
+</tr>
+<tr>
+<td>%f</td>
+<td><a href="">浮点数，<code>%.2f</code> 表示小数点后只显示两位</a></td>
+</tr>
+<tr>
+<td>%%</td>
+<td>输出 <code>%</code></td>
+</tr>
+</tbody></table>
+<ul>
+<li>语法格式如下：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;格式化字符串&quot;</span> % 变量<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;格式化字符串&quot;</span> % (变量<span class="number">1</span>, 变量<span class="number">2.</span>..))</span><br></pre></td></tr></table></figure>
+
+<h4 id="格式化输出演练-——-基本练习"><a href="#格式化输出演练-——-基本练习" class="headerlink" title="格式化输出演练 —— 基本练习"></a>格式化输出演练 —— 基本练习</h4><p><strong>需求</strong></p>
+<ol>
+<li>定义字符串变量 <code>name</code>，输出 <strong>我的名字叫 小明，请多多关照！</strong></li>
+<li>定义整数变量 <code>student_no</code>，输出 <strong>我的学号是 000001</strong></li>
+<li>定义小数 <code>price</code>、<code>weight</code>、<code>money</code>，输出 <strong>苹果单价 9.00 元／斤，购买了 5.00 斤，需要支付 45.00 元</strong></li>
+<li>定义一个小数 <code>scale</code>，输出 <strong>数据比例是 10.00%</strong></li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;我的名字叫 %s，请多多关照！&quot;</span> % name)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;我的学号是 %06d&quot;</span> % student_no)</span><br><span class="line">	显示六位不够则用<span class="number">0</span>补位，超过六位无效</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;苹果单价 %.02f 元／斤，购买 %.02f 斤，需要支付 %.02f 元&quot;</span> % (price, weight, money))</span><br><span class="line">	显示两位小数</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;数据比例是 %.02f%%&quot;</span> % (scale * <span class="number">100</span>))</span><br></pre></td></tr></table></figure>
+
+<h4 id="课后练习-——-个人名片"><a href="#课后练习-——-个人名片" class="headerlink" title="课后练习 —— 个人名片"></a>课后练习 —— 个人名片</h4><p><strong>需求</strong></p>
+<ul>
+<li>在控制台依次提示用户输入：<strong>姓名</strong>、<strong>公司</strong>、<strong>职位</strong>、<strong>电话</strong>、<strong>邮箱</strong></li>
+<li>按照以下格式输出：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">**************************************************</span><br><span class="line">公司名称</span><br><span class="line"></span><br><span class="line">姓名 (职位)</span><br><span class="line"></span><br><span class="line">电话：电话</span><br><span class="line">邮箱：邮箱</span><br><span class="line">**************************************************</span><br></pre></td></tr></table></figure>
+
+<p>实现代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">在控制台依次提示用户输入：姓名、公司、职位、电话、电子邮箱</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">name = <span class="built_in">input</span>(<span class="string">&quot;请输入姓名：&quot;</span>)</span><br><span class="line">company = <span class="built_in">input</span>(<span class="string">&quot;请输入公司：&quot;</span>)</span><br><span class="line">title = <span class="built_in">input</span>(<span class="string">&quot;请输入职位：&quot;</span>)</span><br><span class="line">phone = <span class="built_in">input</span>(<span class="string">&quot;请输入电话：&quot;</span>)</span><br><span class="line">email = <span class="built_in">input</span>(<span class="string">&quot;请输入邮箱：&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;*&quot;</span> * <span class="number">50</span>)</span><br><span class="line"><span class="built_in">print</span>(company)</span><br><span class="line"><span class="built_in">print</span>()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;%s (%s)&quot;</span> % (name, title))</span><br><span class="line"><span class="built_in">print</span>()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;电话：%s&quot;</span> % phone)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;邮箱：%s&quot;</span> % email)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;*&quot;</span> * <span class="number">50</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+        <p class="suffix-end">__END__</p>
+        <div class="suffix-box">
+            <div class="suffix-box-left">
+                <img src="https://gitee.com/lichaikui/picture/raw/master/tupian/20211222195800.png" alt="hero">
+            </div>
+            <div class="suffix-box-right">
+                <span class="suffix-box-title">文章作者</span>：hero
+                <br>
+                <span class="suffix-box-title">文章出处</span>：<a href="/2021/12/22/python%E9%9D%A2%E5%AF%B9%E8%BF%87%E7%A8%8B%E5%AD%A6%E4%B9%A0/7.%E5%8F%98%E9%87%8F%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" target="_blank">7.变量的基本使用</a>
+                <br>
+                <span class="suffix-box-title">作者签名</span>：简单地活着, 肆意又精彩.
+                <br>
+                <span class="suffix-box-title">关于主题</span>：<a href="https://github.com/first19326/Hexo-LiveForCode" target="_blank">Hexo - Live For Code</a>
+                <br>
+                <span class="suffix-box-title">版权声明</span>：文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" title="BY-NC-SA" target="_blank">BY-NC-SA</a> 许可协议，转载请注明出处
+                <br>
+            </div>
+            <div style="clear: both;"></div>
+        </div>
+    </div>
+    <div class="article-footer">
+        
+            <div class="category">
+                分类：
+                
+                    <a href="/category/python%E9%9D%A2%E5%AF%B9%E8%BF%87%E7%A8%8B%E5%AD%A6%E4%B9%A0/">python面对过程学习</a>
+                
+            </div>
+        
+        
+            <div class="tag">
+                标签：
+                
+                    <a href="/tag/python%E5%AD%A6%E4%B9%A0/">python学习</a>
+                
+            </div>
+        
+        <div class="article-prev-next">
+            
+                <a href="/2021/12/23/python%E9%9D%A2%E5%AF%B9%E8%BF%87%E7%A8%8B%E5%AD%A6%E4%B9%A0/8.%E5%8F%98%E9%87%8F%E7%9A%84%E5%91%BD%E5%90%8D/" class="prev-prefix">« </a> 上一篇：    <a href="/2021/12/23/python%E9%9D%A2%E5%AF%B9%E8%BF%87%E7%A8%8B%E5%AD%A6%E4%B9%A0/8.%E5%8F%98%E9%87%8F%E7%9A%84%E5%91%BD%E5%90%8D/" title="发布于 2021-12-23 09:30">8.变量的命名</a>
+                <br>
+            
+            
+                <a href="/2021/12/22/python%E9%9D%A2%E5%AF%B9%E8%BF%87%E7%A8%8B%E5%AD%A6%E4%B9%A0/6.%E7%A8%8B%E5%BA%8F%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86%EF%BC%88%E7%A7%91%E6%99%AE%EF%BC%89/" class="next-prefix">» </a> 下一篇：    <a href="/2021/12/22/python%E9%9D%A2%E5%AF%B9%E8%BF%87%E7%A8%8B%E5%AD%A6%E4%B9%A0/6.%E7%A8%8B%E5%BA%8F%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86%EF%BC%88%E7%A7%91%E6%99%AE%EF%BC%89/" title="发布于 2021-12-22 08:19">6.程序执行原理（科普）</a>
+            
+        </div>
+    </div>
+    
+    <div class="article-comments">
+        <div class="comments-title">
+            评论列表
+        </div>
+        <div class="comments-content">
+        </div>
+    </div>
+
+</div>
+
+    </div>
+</div>
+    <div id="footer"></div>
+    <div id="sidebar">
+    <div class="menu-wrap" style="display:none;">
+        <nav class="menu">
+            <div class="menu-introduce"> 
+                <div class="introduce-avatar"></div> 
+                <div class="introduce-info"> 
+                    <div class="introduce-user"><span></span></div>        
+                </div> 
+            </div> 
+            <div class="menu-list">
+                <ul></ul> 
+            </div> 
+            <div class="menu-link"></div> 
+        </nav>
+        <button class="menu-button-close"></button>
+        <div class="morph-shape" id="morph-shape" data-morph-open="M-7.312,0H15c0,0,66,113.339,66,399.5C81,664.006,15,800,15,800H-7.312V0z;M-7.312,0H100c0,0,0,113.839,0,400c0,264.506,0,400,0,400H-7.312V0z">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 800" preserveAspectRatio="none">
+                <path d="M-7.312,0H0c0,0,0,113.839,0,400c0,264.506,0,400,0,400h-7.312V0z"/>
+            </svg>
+        </div>
+    </div>
+    <button class="menu-button-open">MENU</button>
+    <div class="menu-cover"></div>
+</div>
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/search.css">
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/iscroll.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/instantsearch.min.js"></script>
+<div class="search-window">
+    <div class="search-content">
+        <div class="search-content-icon">
+            <i class="iconfont icon-search"></i>
+        </div>
+        <div id="search-input" class="search-input"></div>
+    </div>
+
+    <div class="search-scroll">
+        <div class="search-result">
+            <div id="search-stats" class="search-stats"></div>
+            <div id="search-hits"></div>
+            <div id="search-pagination" class="search-pagination"></div>
+        </div>
+    </div>
+
+    <span class="search-close-icon">
+        <i class="iconfont icon-close"></i>
+    </span>
+</div>
+    <div id="tools">
+    <div class="progressbar-top"></div>
+
+    
+        <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/APlayer.css">
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/APlayer.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/Meting.min.js"></script>
+        <meting-js id="3778678" lrcshow="false" server="netease" type="playlist" fixed="true" autoplay="false" loop="all" order="random" preload="auto" volume="0.67" mutex="true"></meting-js>
+    
+    
+    <div class="wrap-right"></div>
+    <div class="loading"></div>
+</div>
+    <script>
+    window.config = {
+        GitHubUserName     : 'fubaisen',
+        GitHubRepositories : 'fubaisen.github.io',
+
+        BlogUser      : 'hero',
+        BlogAvatar    : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222195800.png',
+        BlogStartDate : '2020-01-01',
+
+        WebsiteTitleBlur         : '(◍´꒳`◍) Hi, friend',
+        WebsiteTitleBlurTimeOut  : 500,
+        WebsiteTitleFocus        : '(*´∇｀*) 欢迎回来!',
+        WebsiteTitleFocusTimeOut : 1000,
+        WebsiteFavicon           : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222195607.png',
+
+        ProgressBar: {
+            id       : 'topProgressBar',
+            color    : '#77B6FF',
+            height   : '2px',
+            duration : 0.2
+        },
+
+        Loading: {
+            rebound: {
+                tension  : 16,
+                friction : 5
+            },
+            spinner: {
+                id     : 'spinner',
+                radius : 90,
+                sides  : 3,
+                depth  : 4,
+                colors : {
+                    background : '#F0F0F0',
+                    stroke     : '#272633',
+                    base       : '',
+                    child      : '#272633'
+                },
+                alwaysForward : true,
+                restAt        : 0.5,
+                renderBase    : false
+            }
+        },
+
+        HomeHeaderAnimationRendered : true,
+        HomeHeaderAnimation         : {
+            radius      : 15,
+            density     : 0.2,
+            color       : 'rgba(255, 255, 255, .2)',
+            clearOffset : 0.3
+        },
+
+        ArticleHeaderAnimationRendered : false,
+        ArticleHeaderAnimation         : {
+            triW                  : 14,
+            triH                  : 20,
+            neighbours            : [
+                
+                    'side',
+                
+                    'top',
+                
+                    'bottom',
+                
+            ],
+            speedTrailAppear      : 0.1,
+            speedTrailDisappear   : 0.1,
+            speedTriOpen          : 1,
+            trailMaxLength        : 30,
+            trailIntervalCreation : 100,
+            delayBeforeDisappear  : 2,
+            colors                : [
+                
+                    '#96EDA6',
+                
+                    '#5BC6A9',
+                
+                    '#38668C',
+                
+                    '#374D84',
+                
+                    '#BED5CB',
+                
+                    '#62ADC6',
+                
+                    '#8EE5DE',
+                
+                    '#304E7B',
+                
+            ]
+        },
+
+        BackAnimationRendered          : true,
+        IEBrowserBackAnimationRendered : false,
+        BackAnimation                  : {
+            colorSaturation  : '60%',
+            colorBrightness  : '50%',
+            colorAlpha       : 0.5,
+            colorCycleSpeed  : 5,
+            verticalPosition : 'random',
+            horizontalSpeed  : 200,
+            ribbonCount      : 3,
+            strokeSize       : 0,
+            parallaxAmount   : -0.2,
+            animateSections  : true
+        },
+
+        HomeHeaderImage : [
+            
+                'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/image/header/home.jpg',
+            
+                'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/image/header/home.jpeg',
+            
+        ],
+        HomeBannerText  : '',
+
+        ArticleHeaderImage : [
+            
+                'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/image/header/article.jpg',
+            
+        ],
+
+        OtherBannerText : '',
+
+        MenuList : [
+            
+                {
+                    name   : '首页',
+                    href   : '/',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '标签',
+                    href   : '/tag',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '分类',
+                    href   : '/category',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '归档',
+                    href   : '/archive',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '赞赏',
+                    href   : '/donate',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '关于',
+                    href   : '/about',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '订阅',
+                    href   : '/subscription',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '搜索',
+                    href   : '',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '留言板',
+                    href   : '/comment',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '友情链接',
+                    href   : '/friend',    
+                    target : '',
+                    class  : ''
+                },
+            
+        ],
+        MenuLink : [
+            
+                
+                    {
+                        icon : 'icon-weibo', 
+                        url  : 'https://weibo.com/u/7649528498'
+                    },
+                
+                    {
+                        icon : 'icon-wechat', 
+                        url  : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222190433.png'
+                    },
+                
+                    {
+                        icon : 'icon-qq', 
+                        url  : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222190324.png'
+                    },
+                
+                    {
+                        icon : 'icon-github', 
+                        url  : 'https://github.com/fubaisen'
+                    },
+                
+            
+        ],
+
+        FooterStyle : 2,
+        BottomText  : {
+            icon    : 'like-fill',
+            left    : '人生若只如初见',
+            right   : '何事秋风悲画扇'
+        },
+        ThemeInfo   : true,
+
+        ConsoleList : [
+            
+                
+                    [
+                        
+                            
+                                'Based on cnblogs theme SimpleMemory.',
+                            
+                                '',
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                'SimpleMemory Author:',
+                            
+                                'BNDong',
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                'Theme:',
+                            
+                                'LiveForCode',
+                            
+                        
+                    ],
+                
+            
+        ],
+
+        FontIconExtend : '',
+
+        Donate : {
+            paypal  : '',
+            bitcoin : '',
+            alipay  : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222200200.png',
+            wechat  : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222194957.png'
+        },
+
+        Code : {
+            style : 'normal'
+        },  
+
+        Search : {
+            applicationID : '010C3EANT8',
+            apiKey        : 'c7abab9f11b79102b9aff7fe6d41447d',
+            indexName     : 'Notes',
+            hits          : {
+                page : 10
+            },
+            labels        : {
+                placeholder : '搜索',
+                empty       : '未发现与 「${query}」 相关的内容',
+                stats       : '${hits} 条相关条目，使用了 ${time} 毫秒',
+            }
+        }, 
+
+        Valine : {
+            switch         : true,
+            el             : '.comments-content',
+            appId          : 'srhKtvWPQTWYKh3qX8G8M7v0-gzGzoHsz',
+            appKey         : '8uVSP1q6UlALVC5igYfIfv2h',
+            placeholder    : '你是我一生只会遇见一次的惊喜...',
+            avatar         : 'mm',
+            meta           : 'nick,mail,link',
+            requiredFields : 'nick,mail',
+            pageSize       : 5,
+            lang           : 'zh-cn',
+            visitor        : true,
+            enableQQ       : true
+        },
+
+        Tocbot : {
+            switch                : true,
+            tocSelector           : '.toc',
+            contentSelector       : '.article-body',
+            headingSelector       : 'h1, h2, h3, h4, h5',
+            headingsOffset        : 0,
+            scrollSmooth          : true,
+            scrollSmoothOffset    : -5,
+            positionFixedSelector : '.toc',
+            positionFixedClass    : 'toc-fixed',
+            fixedSidebarOffset    : '',
+        },
+
+        Require : {
+            baseUrl     : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/',
+            waitSeconds : 100
+        },
+
+        Music : {
+            type : 'Meting'
+        },
+        APlayer : {
+            container : '.aplayer',
+            fixed     : true,
+            autoplay  : false,
+            loop      : 'all',
+            order     : 'random',
+            preload   : 'auto',
+            volume    : 0.67,
+            mutex     : true,
+            lrcType   : 3,
+            audio     : [
+                
+                    {
+                        name   : 'aLIEz',
+                        artist : 'mizuki（瑞葵）',
+                        cover  : '/music/cover/aLIEz.jpg',
+                        url    : '/music/song/aLIEz.mp3',
+                        lrc    : '/music/lrc/aLIEz.lrc'
+                    },
+                
+                    {
+                        name   : 'Endless Tears',
+                        artist : 'CLIFF EDGE',
+                        cover  : '/music/cover/Endless Tears.jpg',
+                        url    : '/music/song/Endless Tears.mp3',
+                        lrc    : '/music/lrc/Endless Tears.lrc'
+                    },
+                
+                    {
+                        name   : 'Miracle',
+                        artist : 'Cascada',
+                        cover  : '/music/cover/Miracle.jpg',
+                        url    : '/music/song/Miracle.mp3',
+                        lrc    : '/music/lrc/Miracle.lrc'
+                    },
+                
+                    {
+                        name   : 'Roll The Dice',
+                        artist : '高珊',
+                        cover  : '/music/cover/Roll The Dice.jpg',
+                        url    : '/music/song/Roll The Dice.mp3',
+                        lrc    : '/music/lrc/Roll The Dice.lrc'
+                    },
+                
+                    {
+                        name   : 'See You Again',
+                        artist : 'Charlie Puth, Wiz Khalifa',
+                        cover  : '/music/cover/See You Again.jpg',
+                        url    : '/music/song/See You Again.mp3',
+                        lrc    : '/music/lrc/See You Again.lrc'
+                    },
+                
+                    {
+                        name   : 'Traveling Light',
+                        artist : 'Joel Hanson, Sara Groves',
+                        cover  : '/music/cover/Traveling Light.jpg',
+                        url    : '/music/song/Traveling Light.mp3',
+                        lrc    : '/music/lrc/Traveling Light.lrc'
+                    },
+                
+                    {
+                        name   : '痴心绝对',
+                        artist : '李圣杰',
+                        cover  : '/music/cover/痴心绝对.jpg',
+                        url    : '/music/song/痴心绝对.mp3',
+                        lrc    : '/music/lrc/痴心绝对.lrc'
+                    },
+                
+                    {
+                        name   : '好想大声说爱你',
+                        artist : 'BAAD（バード）',
+                        cover  : '/music/cover/好想大声说爱你.jpg',
+                        url    : '/music/song/好想大声说爱你.mp3',
+                        lrc    : '/music/lrc/好想大声说爱你.lrc'
+                    },
+                
+            ]
+        },
+        Meting : {
+            id       : '3778678', 
+            lrcshow  : false, 
+            server   : 'netease', 
+            type     : 'playlist', 
+            fixed    : true, 
+            autoplay : false, 
+            loop     : 'all', 
+            order    : 'random', 
+            preload  : 'auto', 
+            volume   : 0.67, 
+            mutex    : true
+        },
+
+        Mouse : {
+            enable  : true,
+            options : {
+                size  : 6,
+                sizeF : 24
+            }
+        },
+
+        LazyLoad : {
+            default : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/image/website/lazyload.svg'
+        },
+  
+        Style : {
+            aplayer          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/APlayer.css',
+            archive          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/archive.css',
+            donate           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/donate.css',
+            fancybox         : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/jquery.fancybox.css',
+            footer           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/footer.css',
+            iconfont         : 'https://at.alicdn.com/t/font_1546312_l3yohatebw.css',
+            index            : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/index.css',
+            menuBubble       : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/menu-bubble.css',
+            page             : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/page.css',
+            post             : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/post.css',
+            search           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/search.css',
+            tocbot           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/tocbot.css',
+            normal           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/normal.css',
+            night            : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/night.css',
+            clipboard        : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/clipboard.css'
+        },
+
+        Script: {
+            aplayer          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/APlayer.min.js',
+            config           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/require.config.js',
+            index            : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/index.js',
+            instantSearch    : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/instantsearch.min.js',
+            jQuery           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/jquery-3.4.1.min.js',
+            loading          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/loading.js',
+            meting           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/Meting.min.js',
+            iscroll          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/iscroll.js',
+            require          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/require.min.js'
+        },
+
+        Font: {
+            LongCang   : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/LongCang.css',
+            Monda      : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Monda.css',
+            NotoSansSC : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/NotoSansSC.css',
+            Playball   : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Playball.css',
+            PTMono     : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/PTMono.css',
+            RobotoSlab : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/RobotoSlab.css',
+            Rosario    : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Rosario.css',
+            UbuntuMono : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/UbuntuMono.css'
+        },
+
+        Suffix : {
+            about : '简单地活着, 肆意又精彩.'
+        },
+            
+        Theme : {
+            url  : 'https://github.com/first19326/Hexo-LiveForCode',
+            name : 'Hexo - Live For Code'
+        }  
+    };
+</script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/index.js"></script>
+</body>
+</html>
