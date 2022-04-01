@@ -79,7 +79,7 @@
 <p>程序命令：</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">x=input(<span class="string">&#x27;亲输入x的值：&#x27;</span>);</span><br><span class="line"><span class="keyword">if</span> x==<span class="number">10</span></span><br><span class="line">    y=<span class="built_in">cos</span>(x+<span class="number">1</span>)+<span class="built_in">sqrt</span>(x*x+<span class="number">1</span>);         <span class="comment">% sqrt是平方根函数</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    y=x*<span class="built_in">sqrt</span>(x+<span class="built_in">sqrt</span>(x));</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">disp</span>([<span class="string">&#x27;x=&#x27;</span>,num2str(x)]);            <span class="comment">% num2str 将一个数值转换为字符串</span></span><br><span class="line"><span class="built_in">disp</span>([<span class="string">&#x27;y=&#x27;</span>,num2str(y)]);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p>2、条件嵌套结构</p>
+<p>（2）条件嵌套结构</p>
 <ul>
 <li>语法格式：</li>
 </ul>
@@ -103,7 +103,7 @@
 <p>程序命令：</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">price=input(<span class="string">&#x27;请输入商品价格&#x27;</span>);</span><br><span class="line"><span class="keyword">if</span> price&gt;=<span class="number">200</span>&amp;price &lt;<span class="number">500</span>			 <span class="comment">%价格大于等于200但小干500 </span></span><br><span class="line">	price=price*(<span class="number">1</span><span class="number">-3</span>/<span class="number">100</span>);</span><br><span class="line"><span class="keyword">elseif</span> price&gt;=<span class="number">500</span>&amp;price&lt;<span class="number">1000</span> 		 <span class="comment">%价格大于等于500但小于1000 </span></span><br><span class="line">	price=price*(<span class="number">1</span><span class="number">-5</span>/<span class="number">100</span>);</span><br><span class="line"><span class="keyword">elseif</span> price&gt;=<span class="number">1000</span>&amp;price&lt;<span class="number">2500</span>		 <span class="comment">%价格大于等于1000但小于2500 </span></span><br><span class="line">	price=price*(<span class="number">1</span><span class="number">-8</span>/<span class="number">100</span>);</span><br><span class="line"><span class="keyword">elseif</span> price&gt;=<span class="number">2500</span>&amp;price&lt;<span class="number">5000</span> 		 <span class="comment">%价格大于等于2500但小于5000 </span></span><br><span class="line">	price=price*(<span class="number">1</span><span class="number">-10</span>/<span class="number">100</span>); </span><br><span class="line"><span class="keyword">elseif</span> price&gt;=<span class="number">5000</span> 				 	 <span class="comment">%价格大于等于5000 </span></span><br><span class="line">	price=price*(<span class="number">1</span><span class="number">-14</span>/<span class="number">100</span>); </span><br><span class="line"><span class="keyword">else</span> 								 <span class="comment">%价格小于200 </span></span><br><span class="line">	price =price; </span><br><span class="line"><span class="keyword">end</span> </span><br><span class="line">	price</span><br></pre></td></tr></table></figure></li>
 </ul>
-<p>3、多分支选择结构</p>
+<p>（3）多分支选择结构</p>
 <p>多分支结构也称为多开关选择结构</p>
 <ul>
 <li><p>语法格式：</p>
@@ -114,7 +114,7 @@
 <ul>
 <li>在执行时，只执行一个<code>case</code>后的语句就会跳出<code>switch-case</code>结构</li>
 <li>case子句后面的表达式不仅可以为一个标量或一个字符串,还可以为一个单元矩阵</li>
-<li>如果<code>case</code>子语句后面的表达式为一个单元矩阵，则当表达式的值等于该单元矩阵中的某个元素时，执行相应的语句组case后常量的值必须互异</li>
+<li>如果<code>case</code>子语句后面的表达式为一个<a href="https://fubaisen.github.io/2022/03/31/MATLAB%E5%AD%A6%E4%B9%A0/%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/%E5%8A%A0%E6%B7%B1%E7%90%86%E8%A7%A3%E5%8D%95%E5%85%83%E7%9F%A9%E9%98%B5%E5%92%8C%E7%BB%93%E6%9E%84%E7%9F%A9%E9%98%B5">单元矩阵</a>，则当表达式的值等于该单元矩阵中的某个元素时，执行相应的语句组case后常量的值必须互异</li>
 <li><code>otherwise</code>为可选项，如果表达式的值与列出的每种情况都不相等，则<code>switch-case</code>结构中的语句将不被执行，程序继续向下运行。</li>
 </ul>
 </blockquote>
@@ -125,6 +125,48 @@
 <li><p>例：针对上一个例子，使用多分支选择结构，重新编写程序。</p>
 <p>程序命令：</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">price=input(<span class="string">&#x27;请输入商品价格&#x27;</span>);</span><br><span class="line"><span class="keyword">switch</span> <span class="built_in">fix</span>(price/<span class="number">100</span>)                   <span class="comment">% fix向0靠拢取整</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">case</span>&#123;<span class="number">0</span>,<span class="number">1</span>&#125;                           <span class="comment">% 价格小于200</span></span><br><span class="line">        rate=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">case</span>&#123;<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>&#125;                         <span class="comment">% 价格大于等于200，但小于500</span></span><br><span class="line">        rate=<span class="number">3</span>/<span class="number">100</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="built_in">num2cell</span>(<span class="number">2</span>:<span class="number">9</span>)                  <span class="comment">% 价格大于等于500，但小于1000</span></span><br><span class="line">        rate=<span class="number">5</span>/<span class="number">100</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="built_in">num2cell</span>(<span class="number">10</span>:<span class="number">24</span>)                <span class="comment">% 价格大于等于1000，但小于2500</span></span><br><span class="line">        rate=<span class="number">8</span>/<span class="number">100</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="built_in">num2cell</span>(<span class="number">25</span>:<span class="number">49</span>)                <span class="comment">% 价格大于等于2500,但小于5000</span></span><br><span class="line">        rate=<span class="number">10</span>/<span class="number">100</span>;</span><br><span class="line">    <span class="keyword">otherwise</span>                           <span class="comment">% 价格大于等于5000</span></span><br><span class="line">        rate=<span class="number">14</span>/<span class="number">100</span>;</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">price=price*(<span class="number">1</span>-rate)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>2、循环结构</p>
+<p>循环结构是指当前条件满足时被重复执行的一组语句。使用循环结构是计算机解决问题的主要手段之一</p>
+<p>循环结构体如图所示<img src="https://s2.loli.net/2022/04/01/XjMomdb6DNqHpLl.png" alt="image-20220401132821210" style="zoom:33%;" /></p>
+<p>（1）while循环</p>
+<ul>
+<li><p>语法格式：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> 条件表达式</span><br><span class="line">    循环体</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>说明：</p>
+<ul>
+<li>表达式一般由<code>逻辑运算</code>、<code>关系运算</code>以及<code>一般运算</code>组成，用于判断循环的进行或停止。</li>
+<li>表达式的值可以是标量或数组，其余的所有元素为 <strong>1（真）</strong>则继续循环，直到表达式值的某元素为0（假）时停止。</li>
+</ul>
+</blockquote>
+</li>
+<li><p>例：求      **n！    &lt;    **10^50   的最大值 n  ,并输出在该值下n！</p>
+<p>程序命令：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">r=<span class="number">1</span>;k=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">while</span> r&lt;<span class="number">1e50</span>         <span class="comment">% 在matlab中,e代表10的多少次方,后面接的是幂指数</span></span><br><span class="line">    r=r*k;k=k+<span class="number">1</span>;</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">k=k<span class="number">-1</span>;r=r./k;k=k<span class="number">-1</span>;</span><br><span class="line"><span class="built_in">disp</span>([<span class="string">&#x27;The &#x27;</span>,num2str(k),<span class="string">&#x27;! is &#x27;</span>,num2str(r)]);</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>（2）for循环语句</p>
+<ul>
+<li><p>语法格式：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> 循环变量=表达式<span class="number">1</span>：表达式<span class="number">2</span>：表达式<span class="number">3</span></span><br><span class="line">	循环体</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>说明：</p>
+<ul>
+<li><code>表达式1</code>为起始值；<code>表达式2</code>为步长，<code>步长为1</code>时，可以省略；<code>表达式3</code>位终值</li>
+<li>在每一次循环中，循环变量值被指定为数组的下一列，循环语句按数组中的每一个列执行一次，常以固定的或预定的次数循环</li>
+</ul>
+</blockquote>
+</li>
+<li><p>例；已知 4*3 的矩阵<img src="C:/Users/LICHAI~1/AppData/Local/Temp/WeChat Files/3ce9c508a7722454d51f7eb997fd093.jpg" alt="3ce9c508a7722454d51f7eb997fd093" style="zoom: 25%;" />，求矩阵对应列元素的和s1、对应元素的和s2 及整个矩阵元素的和s</p>
+<p>程序命令：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">clc;s1=<span class="number">0</span>;</span><br><span class="line">data=[<span class="number">12</span> <span class="number">14</span> <span class="number">14</span>;<span class="number">15</span> <span class="number">16</span> <span class="number">17</span>;<span class="number">18</span> <span class="number">19</span> <span class="number">20</span>;<span class="number">21</span> <span class="number">22</span> <span class="number">23</span>];</span><br><span class="line"><span class="keyword">for</span> k=data</span><br><span class="line">    s1=s1+k;</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">s1</span><br><span class="line">s2=sum(data)</span><br><span class="line">s=sum(sum(data))       </span><br></pre></td></tr></table></figure>
+
+<p>[关于sum](<a href="https://fubaisen.github.io/2022/03/31/MATLAB%E5%AD%A6%E4%B9%A0/%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/MATLAB">https://fubaisen.github.io/2022/03/31/MATLAB学习/补充文件/MATLAB</a> 函数sum的用法)</p>
+</li>
+<li><p>例：输出</p>
+</li>
 </ul>
 
         <p class="suffix-end">__END__</p>
@@ -165,6 +207,9 @@
             </div>
         
         <div class="article-prev-next">
+            
+                <a href="/2022/04/01/MATLAB%E5%AD%A6%E4%B9%A0/%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/MATLAB%20%E5%87%BD%E6%95%B0sum%E7%9A%84%E7%94%A8%E6%B3%95/" class="prev-prefix">« </a> 上一篇：    <a href="/2022/04/01/MATLAB%E5%AD%A6%E4%B9%A0/%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/MATLAB%20%E5%87%BD%E6%95%B0sum%E7%9A%84%E7%94%A8%E6%B3%95/" title="发布于 2022-04-01 02:04">MATLAB 函数sum的用法</a>
+                <br>
             
             
                 <a href="/2022/04/01/MATLAB%E5%AD%A6%E4%B9%A0/%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/%E5%8A%A0%E6%B7%B1%E7%90%86%E8%A7%A3%E5%8D%95%E5%85%83%E7%9F%A9%E9%98%B5%E5%92%8C%E7%BB%93%E6%9E%84%E7%9F%A9%E9%98%B5/" class="next-prefix">» </a> 下一篇：    <a href="/2022/04/01/MATLAB%E5%AD%A6%E4%B9%A0/%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/%E5%8A%A0%E6%B7%B1%E7%90%86%E8%A7%A3%E5%8D%95%E5%85%83%E7%9F%A9%E9%98%B5%E5%92%8C%E7%BB%93%E6%9E%84%E7%9F%A9%E9%98%B5/" title="发布于 2022-04-01 01:01">加深理解单元矩阵和结构矩阵</a>
