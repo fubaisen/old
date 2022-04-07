@@ -58,7 +58,63 @@
         <div id="article">
     <div class="toc"></div>
     <div class="article-body">
-        <h1 id="三、创建动画过程"><a href="#三、创建动画过程" class="headerlink" title="三、创建动画过程"></a>三、创建动画过程</h1><h2 id="1、三维图形不同姿态"><a href="#1、三维图形不同姿态" class="headerlink" title="1、三维图形不同姿态"></a>1、三维图形不同姿态</h2>
+        <h1 id="三、创建动画过程"><a href="#三、创建动画过程" class="headerlink" title="三、创建动画过程"></a>三、创建动画过程</h1><h2 id="1、三维图形不同姿态"><a href="#1、三维图形不同姿态" class="headerlink" title="1、三维图形不同姿态"></a>1、三维图形不同姿态</h2><p><strong>从不同角度观察物体所看到的物体形状是不一样的，同样从不同视点绘制的三维图形其形状也是不一样的。视点位置可由方位角和仰角表示，Matlab提供了设置视点的函数。</strong></p>
+<ul>
+<li><p>语法格式：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">view(az,el)  </span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<ul>
+<li> az 为方位角，el 为仰角，它们均以度为单位</li>
+<li>系统默认的视点定义为：<ul>
+<li>方位角 -37.5度，</li>
+<li>仰角  30度</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>例：从不同试点绘制多封函数曲面</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">1</span>);mesh(peaks);     <span class="comment">% subplot：在各个分块位置创建坐标区  mesh：网格曲面图 peaks：峰值函数</span></span><br><span class="line">view(<span class="number">-37.2</span>,<span class="number">30</span>);title(<span class="string">&#x27;方位角 = 37.5度 ，仰角 = 30度&#x27;</span>);<span class="comment">% view 相机曲线</span></span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>);mesh(peaks);</span><br><span class="line">view(<span class="number">0</span>,<span class="number">90</span>);title(<span class="string">&#x27;方位角 = 0度 ， 仰角 = 90度&#x27;</span>);</span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>);mesh(peaks);</span><br><span class="line">view(<span class="number">90</span>,<span class="number">0</span>);title(<span class="string">&#x27;方位角 = 90度 ， 仰角 = 0度&#x27;</span>);</span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">4</span>);mesh(peaks);</span><br><span class="line">view(<span class="number">-7</span>,<span class="number">-10</span>);title(<span class="string">&#x27;方位角 = -7度 ， 仰角 = -10度&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://s2.loli.net/2022/04/07/JPaZczdUChfTnIB.png" alt="image-20220407134447263"></p>
+<blockquote>
+<p><strong>peaks</strong>（峰值函数）是<strong>MATLAB</strong>自带的函数，<strong>peaks</strong> 函数是</p>
+<p>典型的多元函数，其本质是二元高斯分布的概率密度函数。</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="2、动画函数"><a href="#2、动画函数" class="headerlink" title="2、动画函数"></a>2、动画函数</h2><h4 id="（1）-getframe函数"><a href="#（1）-getframe函数" class="headerlink" title="（1） getframe函数"></a>（1） <code>getframe</code>函数</h4><ul>
+<li><p>语法格式：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">getframe(n)  </span><br><span class="line"><span class="comment">% 生成动画的数据矩阵，它截取每幅画面信息（动画中的一帧）并保存为一个n幅画面的列向量</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="（2）moviein函数"><a href="#（2）moviein函数" class="headerlink" title="（2）moviein函数"></a>（2）<code>moviein</code>函数</h4><ul>
+<li><p>语法格式：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">moviein(n)</span><br><span class="line"><span class="comment">% 用来建立一个足够大的n列矩阵。为保存n幅画面的数据创建一个空间，以备快速播放</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="（3）movie函数"><a href="#（3）movie函数" class="headerlink" title="（3）movie函数"></a>（3）<code>movie</code>函数</h4><ul>
+<li><p>语法格式：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">movie(m,n)</span><br><span class="line"><span class="comment">% 播放由矩阵m所定义的画面n次，默认是播放一次</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="（4）drawnow函数"><a href="#（4）drawnow函数" class="headerlink" title="（4）drawnow函数"></a>（4）<code>drawnow</code>函数</h4><ul>
+<li><p>语法格式：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">drawnow</span><br><span class="line"><span class="comment">% 刷新屏幕。当代码执行时间长，需要反复执行绘图，该函数可实现看到图像每一步的变化情况</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="3、创建动画步骤"><a href="#3、创建动画步骤" class="headerlink" title="3、创建动画步骤"></a>3、创建动画步骤</h2><p>（1）调用 <code>moviein</code> 函数对内存进行初始化，创建一个足够大的矩阵，使之能容纳基于当前坐标轴大小的一系列指定图形</p>
+<p>（2）调用 <code>getframe</code> 函数把捕捉的动画逐一生成帧。该函数返回一个列矢量，利用这个矢量创建一个电影动画矩阵。一般将该函数放到 <code>for循环</code> 中可得到一系类的动画帧</p>
+<ul>
+<li><p>语法格式：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">F = geffame    		<span class="comment">% 从当前图形框中得到动画帧</span></span><br><span class="line">F = geffame(f) 		<span class="comment">% 从图形句柄h中得到动画帧</span></span><br><span class="line">F = geffame(h,rect) <span class="comment">% 从图形句柄h中得指定区域 rect中得到动画帧</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>（3）调用 <code>movie</code>函数按照指定的速度和次数运行该动画。当创建了一系列的动画帧后，可以利用<code>movie 函数</code>播放这些动画帧</p>
+<ul>
+<li><p>语法格式：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">movie(M) 			<span class="comment">% 将矩阵M中的动画帧播放一次     movie 播放录制的影片帧</span></span><br><span class="line">movie(M,n)			<span class="comment">% 将矩阵M中的动画帧播放n次</span></span><br><span class="line">movie(M,n,fps)		<span class="comment">% 将矩阵M中的动画帧以每秒 fps 帧的速度播放n次</span></span><br></pre></td></tr></table></figure></li>
+<li><p>例：绘制peaks 函数曲面并且播放它绕z轴旋转的动画</p>
+<p>程序命令：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">clear;</span><br><span class="line">peaks(<span class="number">30</span>);axis off;              <span class="comment">% axis设置坐标轴范围和横纵比  axis visbility 坐标曲线条和背景的可见性</span></span><br><span class="line">shading interp;colormap(hot);    <span class="comment">% shading 设置颜色着色属性  colormap 查看并设置当前颜色图</span></span><br><span class="line">m = moviein(<span class="number">20</span>);                 <span class="comment">% 建立20列矩阵</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:<span class="number">20</span> </span><br><span class="line">    view(<span class="number">-27.5</span>+<span class="number">24</span>*(<span class="built_in">i</span> <span class="number">-1</span>),<span class="number">30</span>)</span><br><span class="line">    m(:,<span class="built_in">i</span>)=getframe;             <span class="comment">% 捕获坐标曲或图窗作为影片区</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">movie(m,<span class="number">2</span>)                       <span class="comment">% 播放画面两次</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+
         <p class="suffix-end">__END__</p>
         <div class="suffix-box">
             <div class="suffix-box-left">
