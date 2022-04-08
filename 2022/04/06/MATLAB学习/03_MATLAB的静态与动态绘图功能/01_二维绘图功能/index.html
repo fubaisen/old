@@ -417,7 +417,7 @@
 <td></td>
 </tr>
 <tr>
-<td><code>anis squre</code></td>
+<td><code>axis squre</code></td>
 <td><code>产生正方形坐标系</code></td>
 <td></td>
 </tr>
@@ -484,7 +484,7 @@
 </ul>
 </blockquote>
 </li>
-<li><p>例：利用曲线对象绘制曲线<img src="C:/Users/LICHAI~1/AppData/Local/Temp/WeChat Files/14066cf2e49811d529a3539a468a902.jpg" alt="14066cf2e49811d529a3539a468a902" style="zoom:33%;" /></p>
+<li><p>例：利用曲线对象绘制曲线<img src="https://s2.loli.net/2022/04/05/bka2JCdK9g7T1us.jpg" alt="image-20220407170001568" style="zoom:33%;" /></p>
 <p>程序命令：</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">t=<span class="number">0</span>:<span class="built_in">pi</span>/<span class="number">100</span>:<span class="built_in">pi</span>;</span><br><span class="line">y=<span class="built_in">sin</span>(<span class="number">2</span>*<span class="built_in">pi</span>*t).*<span class="built_in">exp</span>(-t);                               <span class="comment">% exp指数</span></span><br><span class="line">title(<span class="string">&quot;修改颜色和线宽&quot;</span>);                              <span class="comment">% title修改标题</span></span><br><span class="line">h1=line(<span class="string">&#x27;XData&#x27;</span>,t,<span class="string">&#x27;YData&#x27;</span>,y,<span class="string">&#x27;Marker&#x27;</span>,<span class="string">&#x27;*&#x27;</span>);            <span class="comment">% 创建基本线条</span></span><br><span class="line">text(<span class="number">1</span>,<span class="number">0.6</span>,<span class="string">&#x27;y=e^&#123;-t&#125;sin(2&#123;\pi&#125;t)&#x27;</span>,<span class="string">&#x27;FontSize&#x27;</span>,<span class="number">16</span>)      </span><br><span class="line"><span class="comment">%&#123; </span></span><br><span class="line"><span class="comment">text 在图形中指定的位置（1,0.6）上显示字符串【y=e^&#123;-t&#125;sin(2&#123;\pi&#125;t)】</span></span><br><span class="line"><span class="comment">【FontSize】为属性名:字符大小 属性值为【16】</span></span><br><span class="line"><span class="comment">%&#125;    </span></span><br><span class="line">set(h1,<span class="string">&#x27;Color&#x27;</span>,<span class="string">&#x27;r&#x27;</span>,<span class="string">&#x27;lineWidth&#x27;</span>,<span class="number">3</span>)                     <span class="comment">% 设置图形对象属性</span></span><br><span class="line">xlabel(<span class="string">&#x27;时间&#x27;</span>,<span class="string">&#x27;FontSize&#x27;</span>,<span class="number">20</span>)                          <span class="comment">% 为x轴添加标签</span></span><br><span class="line">ylabel(<span class="string">&#x27;幅度&#x27;</span>,<span class="string">&#x27;FontSize&#x27;</span>,<span class="number">20</span>)                          <span class="comment">% 为y轴添加标签</span></span><br><span class="line">grid on</span><br></pre></td></tr></table></figure>
 

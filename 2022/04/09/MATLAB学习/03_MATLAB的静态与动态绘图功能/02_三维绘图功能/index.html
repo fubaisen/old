@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no">
+    <meta name="referrer" content="origin">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <title>02_三维绘图功能</title>
+    <link rel="shortcut icon" href="#"/>
+
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/LongCang.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Monda.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/NotoSansSC.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Playball.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/PTMono.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/RobotoSlab.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Rosario.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/UbuntuMono.css">
+
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/post.css">
+    
+        <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/normal.css">
+    
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/jquery-3.4.1.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.1"></head>
+<body>
+    <a id="cover"></a>
+    <div id="header">
+    <div class="header">
+        <div class="vertical">
+            <div class="inner">
+                <h1 class="header-subtitle">02_三维绘图功能</h1>
+                <div class="header-subinfo">
+                    <p class="article-info-text">
+                        <span>
+                            <i class="iconfont icon-time"></i> 发表时间：2022-04-09
+                        </span>
+                        
+                            <span id="/2022/04/09/MATLAB学习/03_MATLAB的静态与动态绘图功能/02_三维绘图功能/" class="leancloud_visitors" data-flag-title="02_三维绘图功能">
+                                <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                            </span>
+                        
+                        <span>
+                            <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2022/04/09/MATLAB学习/03_MATLAB的静态与动态绘图功能/02_三维绘图功能/"></span>
+                        </span>  
+                    </p>                 
+                </div>
+            </div>
+        </div>
+        <canvas id="articleHeaderCanvas"></canvas>
+    </div>
+</div>
+    <div id="container">
+    <div id="content">
+        <div id="article">
+    <div class="toc"></div>
+    <div class="article-body">
+        <h1 id="二、三维绘图功能"><a href="#二、三维绘图功能" class="headerlink" title="二、三维绘图功能"></a>二、三维绘图功能</h1><h2 id="1、绘制三维空间曲线"><a href="#1、绘制三维空间曲线" class="headerlink" title="1、绘制三维空间曲线"></a>1、绘制三维空间曲线</h2><p><strong>与plot类似，可以使用<code>plot3函数</code>来绘制一条三维空间的曲线</strong></p>
+<ul>
+<li><p>语法格式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plot3(x,y,option)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>与 plot 函数 中，x、y和  option类似，多了一个 z 坐标轴。option 指定曲线的颜色、线形等</p>
+</blockquote>
+</li>
+<li><p>例：绘制三维曲线并标注坐标</p>
+<p>程序命令：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">close;</span><br><span class="line">t=<span class="number">0</span>:<span class="built_in">pi</span>/<span class="number">10</span>:<span class="number">20</span>*<span class="built_in">pi</span>;</span><br><span class="line">x=<span class="built_in">sin</span>(t);</span><br><span class="line">y=<span class="built_in">cos</span>(t);</span><br><span class="line">z=t.*<span class="built_in">sin</span>(t).*<span class="built_in">cos</span>(t);</span><br><span class="line"><span class="built_in">plot3</span>(x,y,z,<span class="string">&#x27;m:p&#x27;</span>);</span><br><span class="line">title(<span class="string">&#x27;线性三维空间&#x27;</span>);</span><br><span class="line">xlabel(<span class="string">&#x27;x轴&#x27;</span>);ylabel(<span class="string">&#x27;y轴&#x27;</span>);zlabel(<span class="string">&#x27;z轴&#x27;</span>);</span><br><span class="line">grid on</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://s2.loli.net/2022/04/08/5fYjDgIszH9UVWa.png" alt="image-20220408134048928"></p>
+</li>
+</ul>
+<h2 id="2、绘制网格矩阵"><a href="#2、绘制网格矩阵" class="headerlink" title="2、绘制网格矩阵"></a>2、绘制网格矩阵</h2><p><strong>meshgrid 函数 产生二维阵和三维阵列。使用该函数时，用户需要知道各个四边形顶点的三维坐标值</strong></p>
+<ul>
+<li><p>语法格式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[X,Y]=meshgrid(x,y)   % 向量x,y得别指定X轴和Y轴的数据点。当x为n维向量，y为m维向量时</span><br><span class="line">[X,Y,Z]=meshgrid(x,y,z)</span><br></pre></td></tr></table></figure></li>
+<li><p>例：利用meshgrid函数绘制三维函数曲线 z=tan(x/y)</p>
+<p>程序命令：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="number">-30</span>:<span class="number">1</span>:<span class="number">30</span>;</span><br><span class="line">b=<span class="number">-30</span>:<span class="number">1</span>:<span class="number">30</span>;</span><br><span class="line">[x,y]=<span class="built_in">meshgrid</span>(a,b);</span><br><span class="line">z=<span class="built_in">atan</span>(x./y);</span><br><span class="line"><span class="built_in">plot3</span>(x,y,z);</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://s2.loli.net/2022/04/08/kBYlbnTmFpq5AGw.png" alt="image-20220408161700205"></p>
+</li>
+<li><p>例：利用 plot3函数 绘制三维曲线</p>
+<p>程序命令：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">x=<span class="number">0</span>:<span class="number">0.1</span>:<span class="number">2</span>*<span class="built_in">pi</span>;</span><br><span class="line">[x,y]=<span class="built_in">meshgrid</span>(x);</span><br><span class="line">z=<span class="built_in">sin</span>(y).*<span class="built_in">cos</span>(x);</span><br><span class="line"><span class="built_in">plot3</span>(x,y,z);</span><br><span class="line">xlabel(<span class="string">&#x27;x-axis&#x27;</span>),ylabel(<span class="string">&#x27;y-axis&#x27;</span>);</span><br><span class="line">zlabel(<span class="string">&#x27;z-axis&#x27;</span>);</span><br><span class="line">title(<span class="string">&#x27;三维曲线&#x27;</span>);</span><br><span class="line">grid on;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://s2.loli.net/2022/04/08/Ncqwn2PRhGTsXEO.png" alt="image-20220408161740059"></p>
+</li>
+</ul>
+<h2 id="3、绘制常用三维图形"><a href="#3、绘制常用三维图形" class="headerlink" title="3、绘制常用三维图形"></a>3、绘制常用三维图形</h2><h4 id="（1）bar3"><a href="#（1）bar3" class="headerlink" title="（1）bar3"></a>（1）bar3</h4><ul>
+<li>bar3为绘制三维条形图，语法格式为：</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bar3(y)   	<span class="comment">% y的每个元素对应于一个条形图</span></span><br><span class="line">bar3(x,y)   <span class="comment">% 在x 指定的位置上绘制y中元素的条形图</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="（2）stem3"><a href="#（2）stem3" class="headerlink" title="（2）stem3"></a>（2）stem3</h4><ul>
+<li>stem3为绘制针状形图，语法格式为：</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">stem3(z)    <span class="comment">% 将数据序列z表示为从xy平面向上延伸的杆形图，x和y自动生成</span></span><br><span class="line">stem3(x,y)  <span class="comment">% 在x指定的位置上绘制y中元素的条形图</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="（3）pie3"><a href="#（3）pie3" class="headerlink" title="（3）pie3"></a>（3）pie3</h4><ul>
+<li>pie3为函数绘制三维饼图，语法格式为：</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pie3(x)     <span class="comment">% x为向量，用x 中的数据绘制一个三维饼图</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="（4）fill3"><a href="#（4）fill3" class="headerlink" title="（4）fill3"></a>（4）fill3</h4><ul>
+<li>fill3为函数可在三维空间内绘制出填充过的多边形，语法格式为：</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fill3(x,y,z,c)  <span class="comment">% 用x、y、z做多边形的顶点，而c指定了填充的颜色</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>例：绘制三维条形图和三维杆形图</p>
+<p>程序命令：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">t=<span class="number">0</span>:<span class="number">.1</span>:<span class="number">2</span>*<span class="built_in">pi</span>;</span><br><span class="line">x=t.^<span class="number">3.</span>*<span class="built_in">sin</span>(<span class="number">3</span>*t).*<span class="built_in">exp</span>(-t);</span><br><span class="line">y=t.^<span class="number">3.</span>*<span class="built_in">cos</span>(<span class="number">3</span>*t).*<span class="built_in">exp</span>(-t);</span><br><span class="line">z=t.^<span class="number">2</span>;</span><br><span class="line"><span class="built_in">plot3</span>(x,y,z);<span class="built_in">hold</span> on;<span class="comment">% 添加新绘制图时保留当前绘图</span></span><br><span class="line">stem3(x,y,z);<span class="built_in">hold</span> on;</span><br><span class="line">bar3(x,y,z);<span class="built_in">hold</span> on;</span><br><span class="line">xlabel(<span class="string">&#x27;x轴&#x27;</span>);ylabel(<span class="string">&#x27;y轴&#x27;</span>);zlabel(<span class="string">&#x27;z轴&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://s2.loli.net/2022/04/08/rbQhnz92BNkyqST.png" alt="image-20220408161902325"></p>
+</li>
+<li><p>例：子图的使用和绘制，有排球：</p>
+<ul>
+<li>绘制魔方矩阵的三维线形图；</li>
+<li>绘制曲线y=2sinx 的三维条形图</li>
+<li>已知 x=[2347,1827,2043,3025],绘制三维饼图</li>
+<li>用随机的顶点坐标值画出5个黄色三角形</li>
+</ul>
+<p>程序命令：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">1</span>);bar3(<span class="built_in">magic</span>(<span class="number">4</span>));</span><br><span class="line">title(<span class="string">&#x27;魔方矩阵的三维条形图&#x27;</span>);</span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>);y=<span class="number">2</span>*<span class="built_in">sin</span>(<span class="number">0</span>:<span class="built_in">pi</span>/<span class="number">6</span>:<span class="number">2</span>*<span class="built_in">pi</span>);</span><br><span class="line">stem3(y);title(<span class="string">&#x27;三维杆形图&#x27;</span>);<span class="comment">% 绘制三维离散序列数据</span></span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>);pie3([<span class="number">25</span>,<span class="number">20</span>,<span class="number">22</span>,<span class="number">23</span>]);</span><br><span class="line">title(<span class="string">&#x27;饼形图&#x27;</span>);subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">4</span>);</span><br><span class="line">fill3(<span class="built_in">rand</span>(<span class="number">3</span>,<span class="number">5</span>),<span class="built_in">rand</span>(<span class="number">3</span>,<span class="number">5</span>),<span class="built_in">rand</span>(<span class="number">3</span>,<span class="number">5</span>),<span class="string">&#x27;y&#x27;</span>);</span><br><span class="line">title(<span class="string">&#x27;随机数填充图&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://s2.loli.net/2022/04/08/k62HtpxbnNo5TzE.png" alt="image-20220408161801568"></p>
+</li>
+</ul>
+<h2 id="4、绘制三维曲面图"><a href="#4、绘制三维曲面图" class="headerlink" title="4、绘制三维曲面图"></a>4、绘制三维曲面图</h2><h4 id="（1）三维网格曲面图"><a href="#（1）三维网格曲面图" class="headerlink" title="（1）三维网格曲面图"></a>（1）三维网格曲面图</h4><p><strong>三维网格是有一些四边形相互连接在一起构建成的一种曲面图</strong></p>
+<ul>
+<li><p>语法格式：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mesh(x,y,z,c)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>说明：</p>
+<ul>
+<li>x、y、z 是维数同样的矩阵，x、y是网格坐标矩阵，z是网格电商的高度矩阵，c用于指定在不同高度下的颜色范围</li>
+<li>c省略时，c=z 即颜色的设定是正比于图形的高度</li>
+<li>当 x、y是向量时，要求 **<code>x 的长度必须等于z矩阵的列，y的长度必须等于z的行</code>**。x、y相邻两元素的组合构成网格点的 x、y坐标，z坐标则取自z矩阵，然后绘制三维曲线</li>
+</ul>
+</blockquote>
+</li>
+<li><p>例：根据函数 z= f(x,y)的x和y坐标找出z的高度，绘制<code>z=x^2+y^2</code>的三维网格图</p>
+<p>程序命令：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">x=<span class="number">-5</span>:<span class="number">5</span>;y=x;</span><br><span class="line">[x,y]=<span class="built_in">meshgrid</span>(x,y);   <span class="comment">% 只会返回绘图点的值而不绘图</span></span><br><span class="line">z=x.^<span class="number">2</span>+y.^<span class="number">2</span>;</span><br><span class="line">mesh(x,y,z)</span><br><span class="line">xlabel(<span class="string">&#x27;x轴&#x27;</span>);ylabel(<span class="string">&#x27;y轴&#x27;</span>);zlabel(<span class="string">&#x27;z轴&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://s2.loli.net/2022/04/08/MrsyDawqkHTBjXU.png" alt="image-20220408161830617"></p>
+</li>
+<li><p>例：利用 mesh( )函数 绘制 z=sin(x)cos(x) 的三维网格图</p>
+<p>程序命令：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">x=<span class="number">0</span>:<span class="number">0.1</span>:<span class="number">2</span>*<span class="built_in">pi</span>;</span><br><span class="line">[x,y]=<span class="built_in">meshgrid</span>(x);</span><br><span class="line">z=<span class="built_in">sin</span>(y).*<span class="built_in">cos</span>(x);</span><br><span class="line">mesh(x,y,z);</span><br><span class="line">xlabel(<span class="string">&#x27;x-axis&#x27;</span>);</span><br><span class="line">ylabel(<span class="string">&#x27;y-axis&#x27;</span>);</span><br><span class="line">zlabel(<span class="string">&#x27;z-axis&#x27;</span>);</span><br><span class="line">title(<span class="string">&#x27;mesh&#x27;</span>);pause  <span class="comment">% pause 暂时停止执行MATLAB</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://s2.loli.net/2022/04/08/FdT6UIlPygbGsfx.png" alt="image-20220408155742391"></p>
+</li>
+<li><p>例：绘制函数   z = sin(x+sin(y))-x/10 在 （0,4π) 的三维网格图</p>
+<p>程序命令：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">close;</span><br><span class="line">[x,y]=<span class="built_in">meshgrid</span>(<span class="number">0</span>:<span class="number">0.25</span>:<span class="number">4</span>*<span class="built_in">pi</span>);</span><br><span class="line">z=<span class="built_in">sin</span>(x+<span class="built_in">sin</span>(y))-x/<span class="number">10</span>;</span><br><span class="line">mesh(x,y,z);</span><br><span class="line">axis([<span class="number">0</span> <span class="number">4</span>*<span class="built_in">pi</span> <span class="number">0</span> <span class="number">4</span>*<span class="built_in">pi</span> <span class="number">-2.5</span> <span class="number">1</span>]);</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://s2.loli.net/2022/04/08/minar1OTb6kKwtj.png" alt="image-20220408163437395"></p>
+</li>
+</ul>
+<h4 id="（2）三维阴影曲面图"><a href="#（2）三维阴影曲面图" class="headerlink" title="（2）三维阴影曲面图"></a>（2）三维阴影曲面图</h4><ul>
+<li><p>语法格式：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">surf(x,y,z,c)  </span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<ul>
+<li>x、y、z 含义与mesh相同<ul>
+<li>x、y、z 是维数同样的矩阵，x、y是网格坐标矩阵，z是网格电商的高度矩阵，c用于指定在不同高度下的颜色范围</li>
+<li>c省略时，c=z 即颜色的设定是正比于图形的高度</li>
+<li>当 x、y是向量时，要求 **<code>x 的长度必须等于z矩阵的列，y的长度必须等于z的行</code>**。x、y相邻两元素的组合构成网格点的 x、y坐标，z坐标则取自z矩阵，然后绘制三维曲线</li>
+</ul>
+</li>
+<li>他们均使用网格矩阵 messhgrid 函数产生坐标，然后回图自动着色。</li>
+<li>其三维阴影曲面 surf 函数各个四边形的表面颜色分部通过 shading 命令指定</li>
+</ul>
+</blockquote>
+</li>
+<li><p>例：绘制函数 z=sin(x+sin(y))-x/10 在（0,4π）的三维曲面图</p>
+<p>程序命令：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[x,y]=<span class="built_in">meshgrid</span>(<span class="number">0</span>:<span class="number">0.25</span>:<span class="number">4</span>*<span class="built_in">pi</span>);</span><br><span class="line">z=<span class="built_in">sin</span>(x+<span class="built_in">sin</span>(y))-x/<span class="number">10</span>;</span><br><span class="line">surf(x,y,z);</span><br><span class="line">axis([<span class="number">0</span> <span class="number">4</span>*<span class="built_in">pi</span> <span class="number">0</span> <span class="number">4</span>*<span class="built_in">pi</span> <span class="number">-2.5</span> <span class="number">1</span>]);</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://s2.loli.net/2022/04/08/5lNgHO4eBiqn27j.png" alt="image-20220408164028266"></p>
+</li>
+<li><p>例：绘制马铃函数 z=f(x,y)=x^2-y^2的三维曲画图</p>
+<p>程序命令：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">x=<span class="number">-10</span>:<span class="number">0.1</span>:<span class="number">10</span>;</span><br><span class="line">[xx,yy]=<span class="built_in">meshgrid</span>(x);</span><br><span class="line">zz=xx.^<span class="number">2</span>-yy.^<span class="number">2</span>;</span><br><span class="line">surf(xx,yy,zz);</span><br><span class="line">title(<span class="string">&#x27;马铃面&#x27;</span>);xlable(<span class="string">&#x27;x轴&#x27;</span>)</span><br><span class="line">ylable(<span class="string">&#x27;y轴&#x27;</span>);zlable(<span class="string">&#x27;z轴&#x27;</span>);</span><br><span class="line">grid on;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://s2.loli.net/2022/04/08/UPqZIDfSGrvlYTy.png" alt="image-20220408165042125"></p>
+<p><img src="https://s2.loli.net/2022/04/08/I2hb4gYNWftZjnl.png" alt="image-20220408165153631"></p>
+</li>
+<li><p>例：绘制函数 z=f(x,y)=x+2y^2 的曲面函数</p>
+<p>程序命令：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">xx=<span class="built_in">linspace</span>(<span class="number">-1</span>,<span class="number">1</span>,<span class="number">50</span>); <span class="comment">% 生成线性间距变量</span></span><br><span class="line">yy=<span class="built_in">linspace</span>(<span class="number">-2</span>,<span class="number">2</span>,<span class="number">100</span>);</span><br><span class="line">[x,y]=<span class="built_in">meshgrid</span>(xx,yy);</span><br><span class="line">z=x.^<span class="number">2</span>+<span class="number">2</span>*y.^<span class="number">2</span>;</span><br><span class="line">surf(x,y,z);</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://s2.loli.net/2022/04/08/9kmN1PufMlOhHvp.png" alt="image-20220408170127534"></p>
+</li>
+<li><p>例：绘制 <img src="https://s2.loli.net/2022/04/08/v4ms7KtkiEZogdl.jpg" alt="35d2de6eb4eba4be362eadb377d8cbb" style="zoom:25%;" />函数的网格图与网格面</p>
+<p>程序命令：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">x=<span class="number">-10</span>:<span class="number">0.5</span>:<span class="number">10</span>;</span><br><span class="line">[xx,yy]=<span class="built_in">meshgrid</span>(x);</span><br><span class="line">R=<span class="built_in">sqrt</span>(xx.^<span class="number">2</span>+yy.^<span class="number">2</span>);</span><br><span class="line">zz=<span class="built_in">sin</span>(R)./R;</span><br><span class="line">subplot(<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>);mesh(xx,yy,zz);</span><br><span class="line">subplot(<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>);surf(xx,yy,zz);</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://s2.loli.net/2022/04/08/cqCoQ3zIib8hgJD.png" alt="image-20220408170458185"></p>
+<blockquote>
+<p>区别：</p>
+<p>　　　　（1）网线图：线条有颜色，内部是无颜色</p>
+<p>　　　　（2）曲面图：线条是黑色的，内部有颜色（把线条之间的空挡填充颜色，沿z轴按每一网格变化）</p>
+<p><img src="https://s2.loli.net/2022/04/09/MNi9qUH8goxXQvn.png" alt="image-20220409003850901.png"></p>
+</blockquote>
+</li>
+</ul>
+<h2 id="5、绘制三维立体图"><a href="#5、绘制三维立体图" class="headerlink" title="5、绘制三维立体图"></a>5、绘制三维立体图</h2><p><strong>MATLAB提供了球面和柱面等标准的三维曲面绘制函数，使用户可以很方便地得到标准三维曲面图</strong></p>
+<h4 id="（1）球曲面"><a href="#（1）球曲面" class="headerlink" title="（1）球曲面"></a>（1）球曲面</h4><ul>
+<li><p>语法格式：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">spere(n)   <span class="comment">% 画n等分球面，n表示球面绘制的精度，默认半径=1 ，n=20</span></span><br><span class="line">[x,y,z]=spere(n)   <span class="comment">% 获取球面 x、y、z空间坐标位置</span></span><br></pre></td></tr></table></figure></li>
+<li><p>例：绘制 当 n=4,6,20,40 时不同球面图</p>
+<p>程序命令：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">1</span>);sphere(<span class="number">4</span>);title(<span class="string">&#x27;n=4&#x27;</span>);</span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>);sphere(<span class="number">6</span>);title(<span class="string">&#x27;n=6&#x27;</span>);</span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>);sphere(<span class="number">20</span>);title(<span class="string">&#x27;n=20&#x27;</span>);</span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">4</span>);sphere(<span class="number">40</span>);title(<span class="string">&#x27;n=40&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://s2.loli.net/2022/04/08/1xpNtqHI7ahXzBS.png" alt="image-20220408231458781"></p>
+</li>
+</ul>
+<h4 id="（2）柱面图"><a href="#（2）柱面图" class="headerlink" title="（2）柱面图"></a>（2）柱面图</h4><ul>
+<li><p>语法格式：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cylinder(R,n)   <span class="comment">% R 为半径，n为煮面圆周等分数</span></span><br><span class="line">[x,y,z]=cylinder(R,n)  <span class="comment">% x,y,z代表空间坐标位置</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>说明：</p>
+<ul>
+<li>若在调用该函数是不带输入参数，则直接绘制所需柱面</li>
+<li>n决定了柱面的圆滑程度，其默认值为 20 。若 n 值取得比较小，则绘制出多面体的表面图</li>
+</ul>
+</blockquote>
+</li>
+<li><p>例：绘制当 n = 3,6,20,50时的不同柱面图</p>
+<p>程序命令：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">t=<span class="built_in">linspace</span>(<span class="built_in">pi</span>/<span class="number">2</span>,<span class="number">3.5</span>*<span class="built_in">pi</span>,<span class="number">50</span>);</span><br><span class="line">R=<span class="built_in">cos</span>(t)+<span class="number">2</span>;</span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">1</span>);cylinder(R,<span class="number">3</span>);title(<span class="string">&#x27;n=3&#x27;</span>);</span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>);cylinder(R,<span class="number">6</span>);title(<span class="string">&#x27;n=6&#x27;</span>);</span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>);cylinder(R,<span class="number">20</span>);title(<span class="string">&#x27;n=20&#x27;</span>);</span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">4</span>);cylinder(R,<span class="number">50</span>);title(<span class="string">&#x27;n=50&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://s2.loli.net/2022/04/08/bzmOkSGCEFWoxRa.png" alt="image-20220408231433535"></p>
+</li>
+<li><p>例：绘制函数 2+cos²t 的柱面图</p>
+<p>程序命令：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">figure</span>(<span class="number">2</span>)</span><br><span class="line">t=<span class="number">0</span>:<span class="built_in">pi</span>/<span class="number">10</span>:<span class="number">2</span>*<span class="built_in">pi</span>;</span><br><span class="line">[x,y,z]=cylinder(<span class="number">2</span>+(<span class="built_in">cos</span>(t).^<span class="number">2</span>));</span><br><span class="line">surf(x,y,z);</span><br><span class="line">axis square     <span class="comment">% 产生正方形坐标系</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://s2.loli.net/2022/04/08/umGFUWdyIJvTowe.png" alt="image-20220408231416721"></p>
+</li>
+</ul>
+<h4 id="（3）利用多峰函数绘图"><a href="#（3）利用多峰函数绘图" class="headerlink" title="（3）利用多峰函数绘图"></a>（3）利用多峰函数绘图</h4><ul>
+<li><p><strong>多峰函数为：</strong><img src="https://s2.loli.net/2022/04/08/j1FpfYE5RNDKWib.jpg" alt="088acea2090df91417d2a5944b4ad06"></p>
+</li>
+<li><p>语法格式：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">peaks(n)   		  <span class="comment">% 输出n×n 矩阵峰值函数图形</span></span><br><span class="line">[x,y,z]=peaks(n)  <span class="comment">% x,y,z代表空间坐标位置</span></span><br></pre></td></tr></table></figure></li>
+<li><p>例：绘制多峰函数</p>
+<p>程序命令：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[x,y,z]=peaks(<span class="number">30</span>);</span><br><span class="line">subplot(<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>);surf(x,y,z)</span><br><span class="line">subplot(<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>);surfc(x,y,z)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://s2.loli.net/2022/04/08/UDKlgwuW6P9mO8i.png" alt="image-20220408231340317"></p>
+</li>
+</ul>
+<h2 id="6、图形颜色的修饰"><a href="#6、图形颜色的修饰" class="headerlink" title="6、图形颜色的修饰"></a>6、图形颜色的修饰</h2><ul>
+<li><p>MATLAB有极好的颜色表现功能</p>
+</li>
+<li><p><strong>colormap实际上是一个 m×3 矩阵，m为颜色维数。</strong></p>
+</li>
+<li><p>用 MAP矩阵映射当前图形的色图，<strong>每一行的3个值都为 0~1 之间的数，分别代表颜色组成的 RGB 值，</strong></p>
+<ul>
+<li>如[0 0 1]代表蓝色。</li>
+</ul>
+</li>
+<li><p>系统自带了一些色图，例如输入 <strong>winter 就可以看到它是一个 63×3 的矩阵</strong>    </p>
+</li>
+<li><p>语法格式：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">clormap(MAP)   	   <span class="comment">% 色图设定函数，MAP为 m×3维色矩阵</span></span><br><span class="line">clolrmap([R,G,B])  <span class="comment">% 绘制当前颜色</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="（1）三基色调色"><a href="#（1）三基色调色" class="headerlink" title="（1）三基色调色"></a>（1）三基色调色</h4><table>
+<thead>
+<tr>
+<th>三基色比例</th>
+<th>颜色</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>[<code>0 0 0]</code></td>
+<td><code>黑色</code></td>
+</tr>
+<tr>
+<td><code>[0 0 1]</code></td>
+<td><code>蓝色</code></td>
+</tr>
+<tr>
+<td><code>[0 1 0]</code></td>
+<td><code>绿色</code></td>
+</tr>
+<tr>
+<td><code>[0 1 1]</code></td>
+<td><code>浅蓝色</code></td>
+</tr>
+<tr>
+<td><code>[1 0 0]</code></td>
+<td><code>红色</code></td>
+</tr>
+<tr>
+<td><code>[1 0 1]</code></td>
+<td><code>品红色</code></td>
+</tr>
+<tr>
+<td><code>[1 1 0]</code></td>
+<td><code>黄色</code></td>
+</tr>
+<tr>
+<td><code>[1 1 1]</code></td>
+<td><code>白色</code></td>
+</tr>
+<tr>
+<td><code>[0.5 0.5 0.5]</code></td>
+<td><code>灰色</code></td>
+</tr>
+<tr>
+<td><code>[0.5 0 0]</code></td>
+<td><code>暗红色</code></td>
+</tr>
+<tr>
+<td><code>[1 0.26 0.4]</code></td>
+<td><code>铜色</code></td>
+</tr>
+<tr>
+<td><code>[0.49 1 0.8]</code></td>
+<td><code>浅绿色</code></td>
+</tr>
+<tr>
+<td><code>[0.49 1 0.83]</code></td>
+<td><code>宝石蓝</code></td>
+</tr>
+<tr>
+<td><code>[1 0.5 0]</code></td>
+<td><code>橘色</code></td>
+</tr>
+<tr>
+<td><code>[0.667 0.667 1]</code></td>
+<td><code>天蓝</code></td>
+</tr>
+<tr>
+<td><code>[0.5 0 0.5]</code></td>
+<td><code>紫色</code></td>
+</tr>
+</tbody></table>
+<h4 id="（2）常见色图配置"><a href="#（2）常见色图配置" class="headerlink" title="（2）常见色图配置"></a>（2）常见色图配置</h4><table>
+<thead>
+<tr>
+<th>色图函数名</th>
+<th>颜色性质及说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>bone</code></td>
+<td><code>黑色渐变到白色</code></td>
+</tr>
+<tr>
+<td><code>cool</code></td>
+<td><code>青色渐变到品红色</code></td>
+</tr>
+<tr>
+<td><code>copper</code></td>
+<td><code>黑色渐变到亮铜色</code></td>
+</tr>
+<tr>
+<td><code>flag</code></td>
+<td><code>红-白-蓝-黑交错色</code></td>
+</tr>
+<tr>
+<td><code>gray</code></td>
+<td><code>线性灰度</code></td>
+</tr>
+<tr>
+<td><code>hot</code></td>
+<td><code>黑-红-黄-白交错色</code></td>
+</tr>
+<tr>
+<td><code>hsv(默认值)</code></td>
+<td><code>带饱和值的色图、颜色从红、黄、绿、青、蓝到品红，循环变化</code></td>
+</tr>
+<tr>
+<td><code>line</code></td>
+<td><code>产生由坐标系 ColoOrder特性和暗灰色指定的颜色</code></td>
+</tr>
+<tr>
+<td><code>jet</code></td>
+<td><code>色图是一种变体，颜色从蓝、红、青、黄到品红变化</code></td>
+</tr>
+<tr>
+<td><code>pink</code></td>
+<td><code>淡粉红色</code></td>
+</tr>
+<tr>
+<td><code>prism</code></td>
+<td><code>光谱，重复六种颜色：红、品红、黄、绿、蓝、雪青</code></td>
+</tr>
+<tr>
+<td><code>spring</code></td>
+<td><code>由品红和黄色构成的颜色</code></td>
+</tr>
+<tr>
+<td><code>summer</code></td>
+<td><code>由绿色和黄色构成的颜色</code></td>
+</tr>
+<tr>
+<td><code>autumn</code></td>
+<td><code>由红色渐变到黄色</code></td>
+</tr>
+<tr>
+<td><code>winter</code></td>
+<td><code>由蓝色和绿色构建的颜色</code></td>
+</tr>
+<tr>
+<td><code>while</code></td>
+<td><code>全白的单色色图</code></td>
+</tr>
+</tbody></table>
+<ul>
+<li><p>例：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">figure</span>;sphere(<span class="number">30</span>);colormap([<span class="number">1</span> <span class="number">1</span> <span class="number">0</span>])  <span class="comment">% colormap 查看并设置当前颜色图</span></span><br><span class="line"><span class="built_in">figure</span>;sphere(<span class="number">30</span>);colormap([<span class="number">0.5</span> <span class="number">0</span> <span class="number">0.5</span>])</span><br><span class="line"><span class="built_in">figure</span>;sphere(<span class="number">30</span>);colormap(hot)</span><br><span class="line"><span class="built_in">figure</span>;sphere(<span class="number">30</span>);colormap(winter)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="7、色彩的渲染"><a href="#7、色彩的渲染" class="headerlink" title="7、色彩的渲染"></a>7、色彩的渲染</h2><h4 id="（1）着色函数-shading"><a href="#（1）着色函数-shading" class="headerlink" title="（1）着色函数 shading"></a>（1）着色函数 <code>shading</code></h4><ul>
+<li>shading 是阴影函数 。控制图形对象着色及图形的渲染方式包括以下三种形式：<ul>
+<li>shading faceted :在曲线或图形对象上叠加黑色的网格线</li>
+<li>shading flat :在shading faceted 的基础上去掉图上的网格线</li>
+<li>shading interp :在图形对象的颜色进行色彩的插值处理，使色彩平滑过渡</li>
+</ul>
+</li>
+</ul>
+<h4 id="（2）关于着色的说明"><a href="#（2）关于着色的说明" class="headerlink" title="（2）关于着色的说明"></a>（2）关于着色的说明</h4><ul>
+<li><p>shading faceted 命令将每个网格片用其高度对应的颜色进行着色、但网格线仍保留，其颜色是黑色。这是系统的默认着色方式。</p>
+</li>
+<li><p>shading fat 命令将图形渲染为平坦状态，即每个小方块表面取一种颜色，其值由线段两端点或小方块四角的颜色值决定。</p>
+</li>
+<li><p>shading interp 命令表示每条线段或每个小方块面的颜色是线性渐变的，其值由两端点或小方块四角颜色的插值决定。</p>
+</li>
+<li><p>维表面图形的着色是在网格图的每一个网格片上涂上颜色。shading flat 命令将每个网格片用同一个颜色进行着色，且网格线也用相应的颜色，从而使得图形表面显得更加光滑。shading interp命令在网格片内采用颜色插值处理，得出的表面图显得最光滑。</p>
+</li>
+<li><p>surf 函数用默认的着色方式对网格片着色。除此之外，还可以用  shading 命令来改变着色方式</p>
+</li>
+<li><p>例：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">1</span>);peaks(<span class="number">30</span>);shading faceted 				<span class="comment">%默认的自动着色 </span></span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>);peaks(<span class="number">30</span>);shading flat 					<span class="comment">%去掉黑色线条，根据小方块的值确定色 </span></span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>);peaks(<span class="number">30</span>);shading interp 				<span class="comment">%每条线段或每个小方块表面的颜色是线性渐变的，其值曲线段两端点或小方块四角颜色的插值决定</span></span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">4</span>);peaks(<span class="number">30</span>);shading interp;colormap(hot)	<span class="comment">%在暖色基础上,将网格片内采用颜色插值处理，得出的表面图显得最光滑</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://s2.loli.net/2022/04/09/rcd8zgwZ9YVUTOP.png" alt="image-20220409002715171"></p>
+</li>
+<li><p>例：对球体进行不同着色处理</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[x,y,z]=sphere(<span class="number">20</span>);</span><br><span class="line">colormap(cool);</span><br><span class="line">subplot(<span class="number">1</span>,<span class="number">3</span>,<span class="number">1</span>);surf(x,y,z);</span><br><span class="line">axis equal;subplot(<span class="number">1</span>,<span class="number">3</span>,<span class="number">2</span>);</span><br><span class="line">surf(x,y,z);shading flat;</span><br><span class="line">anis equal;subplot(<span class="number">1</span>,<span class="number">3</span>,<span class="number">3</span>);</span><br><span class="line">surf(x,y,z);shading interp;</span><br><span class="line">anis equual;   <span class="comment">% axis equal将两坐标轴设为相等</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://s2.loli.net/2022/04/09/oT7t9qvGuHcQ6l1.png" alt="image-20220409003247984"></p>
+</li>
+</ul>
+
+        <p class="suffix-end">__END__</p>
+        <div class="suffix-box">
+            <div class="suffix-box-left">
+                <img src="https://s2.loli.net/2022/03/31/JpQ6lgGdXmtSZaC.png" alt="hero">
+            </div>
+            <div class="suffix-box-right">
+                <span class="suffix-box-title">文章作者</span>：hero
+                <br>
+                <span class="suffix-box-title">文章出处</span>：<a href="/2022/04/09/MATLAB%E5%AD%A6%E4%B9%A0/03_MATLAB%E7%9A%84%E9%9D%99%E6%80%81%E4%B8%8E%E5%8A%A8%E6%80%81%E7%BB%98%E5%9B%BE%E5%8A%9F%E8%83%BD/02_%E4%B8%89%E7%BB%B4%E7%BB%98%E5%9B%BE%E5%8A%9F%E8%83%BD/" target="_blank">02_三维绘图功能</a>
+                <br>
+                <span class="suffix-box-title">作者签名</span>：简单地活着, 肆意又精彩.
+                <br>
+                <span class="suffix-box-title">关于主题</span>：<a href="https://github.com/first19326/Hexo-LiveForCode" target="_blank">Hexo - Live For Code</a>
+                <br>
+                <span class="suffix-box-title">版权声明</span>：文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" title="BY-NC-SA" target="_blank">BY-NC-SA</a> 许可协议，转载请注明出处
+                <br>
+            </div>
+            <div style="clear: both;"></div>
+        </div>
+    </div>
+    <div class="article-footer">
+        
+            <div class="category">
+                分类：
+                
+                    <a href="/category/03-MATLAB%E7%9A%84%E9%9D%99%E6%80%81%E4%B8%8E%E5%8A%A8%E6%80%81%E7%BB%98%E5%9B%BE%E5%8A%9F%E8%83%BD/">03_MATLAB的静态与动态绘图功能</a>
+                
+            </div>
+        
+        
+            <div class="tag">
+                标签：
+                
+                    <a href="/tag/MATLAB%E5%AD%A6%E4%B9%A0/">MATLAB学习</a>
+                
+            </div>
+        
+        <div class="article-prev-next">
+            
+            
+                <a href="/2022/04/08/MATLAB%E5%AD%A6%E4%B9%A0/%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/%E7%9F%A9%E9%98%B5%E8%BF%90%E7%AE%97/" class="next-prefix">» </a> 下一篇：    <a href="/2022/04/08/MATLAB%E5%AD%A6%E4%B9%A0/%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/%E7%9F%A9%E9%98%B5%E8%BF%90%E7%AE%97/" title="发布于 2022-04-08 05:14">矩阵运算</a>
+            
+        </div>
+    </div>
+    
+    <div class="article-comments">
+        <div class="comments-title">
+            评论列表
+        </div>
+        <div class="comments-content">
+        </div>
+    </div>
+
+</div>
+
+    </div>
+</div>
+    <div id="footer"></div>
+    <div id="sidebar">
+    <div class="menu-wrap" style="display:none;">
+        <nav class="menu">
+            <div class="menu-introduce"> 
+                <div class="introduce-avatar"></div> 
+                <div class="introduce-info"> 
+                    <div class="introduce-user"><span></span></div>        
+                </div> 
+            </div> 
+            <div class="menu-list">
+                <ul></ul> 
+            </div> 
+            <div class="menu-link"></div> 
+        </nav>
+        <button class="menu-button-close"></button>
+        <div class="morph-shape" id="morph-shape" data-morph-open="M-7.312,0H15c0,0,66,113.339,66,399.5C81,664.006,15,800,15,800H-7.312V0z;M-7.312,0H100c0,0,0,113.839,0,400c0,264.506,0,400,0,400H-7.312V0z">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 800" preserveAspectRatio="none">
+                <path d="M-7.312,0H0c0,0,0,113.839,0,400c0,264.506,0,400,0,400h-7.312V0z"/>
+            </svg>
+        </div>
+    </div>
+    <button class="menu-button-open">MENU</button>
+    <div class="menu-cover"></div>
+</div>
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/search.css">
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/iscroll.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/instantsearch.min.js"></script>
+<div class="search-window">
+    <div class="search-content">
+        <div class="search-content-icon">
+            <i class="iconfont icon-search"></i>
+        </div>
+        <div id="search-input" class="search-input"></div>
+    </div>
+
+    <div class="search-scroll">
+        <div class="search-result">
+            <div id="search-stats" class="search-stats"></div>
+            <div id="search-hits"></div>
+            <div id="search-pagination" class="search-pagination"></div>
+        </div>
+    </div>
+
+    <span class="search-close-icon">
+        <i class="iconfont icon-close"></i>
+    </span>
+</div>
+    <div id="tools">
+    <div class="progressbar-top"></div>
+
+    
+        <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/APlayer.css">
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/APlayer.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/Meting.min.js"></script>
+        <meting-js id="3778678" lrcshow="false" server="netease" type="playlist" fixed="true" autoplay="false" loop="all" order="random" preload="auto" volume="0.67" mutex="true"></meting-js>
+    
+    
+    <div class="wrap-right"></div>
+    <div class="loading"></div>
+</div>
+    <script>
+    window.config = {
+        GitHubUserName     : 'fubaisen',
+        GitHubRepositories : 'fubaisen.github.io',
+
+        BlogUser      : 'hero',
+        BlogAvatar    : 'https://s2.loli.net/2022/03/31/JpQ6lgGdXmtSZaC.png',
+        BlogStartDate : '2020-01-01',
+
+        WebsiteTitleBlur         : '(◍´꒳`◍) Hi, friend',
+        WebsiteTitleBlurTimeOut  : 500,
+        WebsiteTitleFocus        : '(*´∇｀*) 欢迎回来!',
+        WebsiteTitleFocusTimeOut : 1000,
+        WebsiteFavicon           : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222195607.png',
+
+        ProgressBar: {
+            id       : 'topProgressBar',
+            color    : '#77B6FF',
+            height   : '2px',
+            duration : 0.2
+        },
+
+        Loading: {
+            rebound: {
+                tension  : 16,
+                friction : 5
+            },
+            spinner: {
+                id     : 'spinner',
+                radius : 90,
+                sides  : 3,
+                depth  : 4,
+                colors : {
+                    background : '#F0F0F0',
+                    stroke     : '#272633',
+                    base       : '',
+                    child      : '#272633'
+                },
+                alwaysForward : true,
+                restAt        : 0.5,
+                renderBase    : false
+            }
+        },
+
+        HomeHeaderAnimationRendered : true,
+        HomeHeaderAnimation         : {
+            radius      : 15,
+            density     : 0.2,
+            color       : 'rgba(255, 255, 255, .2)',
+            clearOffset : 0.3
+        },
+
+        ArticleHeaderAnimationRendered : false,
+        ArticleHeaderAnimation         : {
+            triW                  : 14,
+            triH                  : 20,
+            neighbours            : [
+                
+                    'side',
+                
+                    'top',
+                
+                    'bottom',
+                
+            ],
+            speedTrailAppear      : 0.1,
+            speedTrailDisappear   : 0.1,
+            speedTriOpen          : 1,
+            trailMaxLength        : 30,
+            trailIntervalCreation : 100,
+            delayBeforeDisappear  : 2,
+            colors                : [
+                
+                    '#96EDA6',
+                
+                    '#5BC6A9',
+                
+                    '#38668C',
+                
+                    '#374D84',
+                
+                    '#BED5CB',
+                
+                    '#62ADC6',
+                
+                    '#8EE5DE',
+                
+                    '#304E7B',
+                
+            ]
+        },
+
+        BackAnimationRendered          : true,
+        IEBrowserBackAnimationRendered : false,
+        BackAnimation                  : {
+            colorSaturation  : '60%',
+            colorBrightness  : '50%',
+            colorAlpha       : 0.5,
+            colorCycleSpeed  : 5,
+            verticalPosition : 'random',
+            horizontalSpeed  : 200,
+            ribbonCount      : 3,
+            strokeSize       : 0,
+            parallaxAmount   : -0.2,
+            animateSections  : true
+        },
+
+        HomeHeaderImage : [
+            
+                'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/image/header/home.jpg',
+            
+                'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/image/header/home.jpeg',
+            
+        ],
+        HomeBannerText  : '',
+
+        ArticleHeaderImage : [
+            
+                'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/image/header/article.jpg',
+            
+        ],
+
+        OtherBannerText : '',
+
+        MenuList : [
+            
+                {
+                    name   : '首页',
+                    href   : '/',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '标签',
+                    href   : '/tag',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '分类',
+                    href   : '/category',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '归档',
+                    href   : '/archive',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '赞赏',
+                    href   : '/donate',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '关于',
+                    href   : '/about',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '订阅',
+                    href   : '/subscription',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '搜索',
+                    href   : '',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '留言板',
+                    href   : '/comment',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '友情链接',
+                    href   : '/friend',    
+                    target : '',
+                    class  : ''
+                },
+            
+        ],
+        MenuLink : [
+            
+                
+                    {
+                        icon : 'icon-weibo', 
+                        url  : 'https://weibo.com/u/7649528498'
+                    },
+                
+                    {
+                        icon : 'icon-wechat', 
+                        url  : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222190433.png'
+                    },
+                
+                    {
+                        icon : 'icon-qq', 
+                        url  : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222190324.png'
+                    },
+                
+                    {
+                        icon : 'icon-github', 
+                        url  : 'https://github.com/fubaisen'
+                    },
+                
+            
+        ],
+
+        FooterStyle : 2,
+        BottomText  : {
+            icon    : 'like-fill',
+            left    : '人生若只如初见',
+            right   : '何事秋风悲画扇'
+        },
+        ThemeInfo   : true,
+
+        ConsoleList : [
+            
+                
+                    [
+                        
+                            
+                                'Based on cnblogs theme SimpleMemory.',
+                            
+                                '',
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                'SimpleMemory Author:',
+                            
+                                'BNDong',
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                'Theme:',
+                            
+                                'LiveForCode',
+                            
+                        
+                    ],
+                
+            
+        ],
+
+        FontIconExtend : '',
+
+        Donate : {
+            paypal  : '',
+            bitcoin : '',
+            alipay  : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222200200.png',
+            wechat  : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222194957.png'
+        },
+
+        Code : {
+            style : 'normal'
+        },  
+
+        Search : {
+            applicationID : '010C3EANT8',
+            apiKey        : 'c7abab9f11b79102b9aff7fe6d41447d',
+            indexName     : 'Notes',
+            hits          : {
+                page : 10
+            },
+            labels        : {
+                placeholder : '搜索',
+                empty       : '未发现与 「${query}」 相关的内容',
+                stats       : '${hits} 条相关条目，使用了 ${time} 毫秒',
+            }
+        }, 
+
+        Valine : {
+            switch         : true,
+            el             : '.comments-content',
+            appId          : 'srhKtvWPQTWYKh3qX8G8M7v0-gzGzoHsz',
+            appKey         : '8uVSP1q6UlALVC5igYfIfv2h',
+            placeholder    : '你是我一生只会遇见一次的惊喜...',
+            avatar         : 'mm',
+            meta           : 'nick,mail,link',
+            requiredFields : 'nick,mail',
+            pageSize       : 5,
+            lang           : 'zh-cn',
+            visitor        : true,
+            enableQQ       : true
+        },
+
+        Tocbot : {
+            switch                : true,
+            tocSelector           : '.toc',
+            contentSelector       : '.article-body',
+            headingSelector       : 'h1, h2, h3, h4, h5',
+            headingsOffset        : 0,
+            scrollSmooth          : true,
+            scrollSmoothOffset    : -5,
+            positionFixedSelector : '.toc',
+            positionFixedClass    : 'toc-fixed',
+            fixedSidebarOffset    : '',
+        },
+
+        Require : {
+            baseUrl     : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/',
+            waitSeconds : 100
+        },
+
+        Music : {
+            type : 'Meting'
+        },
+        APlayer : {
+            container : '.aplayer',
+            fixed     : true,
+            autoplay  : false,
+            loop      : 'all',
+            order     : 'random',
+            preload   : 'auto',
+            volume    : 0.67,
+            mutex     : true,
+            lrcType   : 3,
+            audio     : [
+                
+                    {
+                        name   : 'aLIEz',
+                        artist : 'mizuki（瑞葵）',
+                        cover  : '/music/cover/aLIEz.jpg',
+                        url    : '/music/song/aLIEz.mp3',
+                        lrc    : '/music/lrc/aLIEz.lrc'
+                    },
+                
+                    {
+                        name   : 'Endless Tears',
+                        artist : 'CLIFF EDGE',
+                        cover  : '/music/cover/Endless Tears.jpg',
+                        url    : '/music/song/Endless Tears.mp3',
+                        lrc    : '/music/lrc/Endless Tears.lrc'
+                    },
+                
+                    {
+                        name   : 'Miracle',
+                        artist : 'Cascada',
+                        cover  : '/music/cover/Miracle.jpg',
+                        url    : '/music/song/Miracle.mp3',
+                        lrc    : '/music/lrc/Miracle.lrc'
+                    },
+                
+                    {
+                        name   : 'Roll The Dice',
+                        artist : '高珊',
+                        cover  : '/music/cover/Roll The Dice.jpg',
+                        url    : '/music/song/Roll The Dice.mp3',
+                        lrc    : '/music/lrc/Roll The Dice.lrc'
+                    },
+                
+                    {
+                        name   : 'See You Again',
+                        artist : 'Charlie Puth, Wiz Khalifa',
+                        cover  : '/music/cover/See You Again.jpg',
+                        url    : '/music/song/See You Again.mp3',
+                        lrc    : '/music/lrc/See You Again.lrc'
+                    },
+                
+                    {
+                        name   : 'Traveling Light',
+                        artist : 'Joel Hanson, Sara Groves',
+                        cover  : '/music/cover/Traveling Light.jpg',
+                        url    : '/music/song/Traveling Light.mp3',
+                        lrc    : '/music/lrc/Traveling Light.lrc'
+                    },
+                
+                    {
+                        name   : '痴心绝对',
+                        artist : '李圣杰',
+                        cover  : '/music/cover/痴心绝对.jpg',
+                        url    : '/music/song/痴心绝对.mp3',
+                        lrc    : '/music/lrc/痴心绝对.lrc'
+                    },
+                
+                    {
+                        name   : '好想大声说爱你',
+                        artist : 'BAAD（バード）',
+                        cover  : '/music/cover/好想大声说爱你.jpg',
+                        url    : '/music/song/好想大声说爱你.mp3',
+                        lrc    : '/music/lrc/好想大声说爱你.lrc'
+                    },
+                
+            ]
+        },
+        Meting : {
+            id       : '3778678', 
+            lrcshow  : false, 
+            server   : 'netease', 
+            type     : 'playlist', 
+            fixed    : true, 
+            autoplay : false, 
+            loop     : 'all', 
+            order    : 'random', 
+            preload  : 'auto', 
+            volume   : 0.67, 
+            mutex    : true
+        },
+
+        Mouse : {
+            enable  : true,
+            options : {
+                size  : 6,
+                sizeF : 24
+            }
+        },
+
+        LazyLoad : {
+            default : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/image/website/lazyload.svg'
+        },
+  
+        Style : {
+            aplayer          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/APlayer.css',
+            archive          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/archive.css',
+            donate           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/donate.css',
+            fancybox         : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/jquery.fancybox.css',
+            footer           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/footer.css',
+            iconfont         : 'https://at.alicdn.com/t/font_1546312_l3yohatebw.css',
+            index            : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/index.css',
+            menuBubble       : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/menu-bubble.css',
+            page             : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/page.css',
+            post             : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/post.css',
+            search           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/search.css',
+            tocbot           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/tocbot.css',
+            normal           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/normal.css',
+            night            : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/night.css',
+            clipboard        : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/clipboard.css'
+        },
+
+        Script: {
+            aplayer          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/APlayer.min.js',
+            config           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/require.config.js',
+            index            : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/index.js',
+            instantSearch    : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/instantsearch.min.js',
+            jQuery           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/jquery-3.4.1.min.js',
+            loading          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/loading.js',
+            meting           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/Meting.min.js',
+            iscroll          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/iscroll.js',
+            require          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/require.min.js'
+        },
+
+        Font: {
+            LongCang   : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/LongCang.css',
+            Monda      : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Monda.css',
+            NotoSansSC : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/NotoSansSC.css',
+            Playball   : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Playball.css',
+            PTMono     : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/PTMono.css',
+            RobotoSlab : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/RobotoSlab.css',
+            Rosario    : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Rosario.css',
+            UbuntuMono : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/UbuntuMono.css'
+        },
+
+        Suffix : {
+            about : '简单地活着, 肆意又精彩.'
+        },
+            
+        Theme : {
+            url  : 'https://github.com/first19326/Hexo-LiveForCode',
+            name : 'Hexo - Live For Code'
+        }  
+    };
+</script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/index.js"></script>
+</body>
+</html>
