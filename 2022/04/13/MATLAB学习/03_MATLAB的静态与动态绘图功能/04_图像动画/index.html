@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no">
+    <meta name="referrer" content="origin">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <title>04_图像动画</title>
+    <link rel="shortcut icon" href="#"/>
+
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/LongCang.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Monda.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/NotoSansSC.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Playball.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/PTMono.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/RobotoSlab.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Rosario.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/UbuntuMono.css">
+
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/post.css">
+    
+        <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/normal.css">
+    
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/jquery-3.4.1.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.1"></head>
+<body>
+    <a id="cover"></a>
+    <div id="header">
+    <div class="header">
+        <div class="vertical">
+            <div class="inner">
+                <h1 class="header-subtitle">04_图像动画</h1>
+                <div class="header-subinfo">
+                    <p class="article-info-text">
+                        <span>
+                            <i class="iconfont icon-time"></i> 发表时间：2022-04-13
+                        </span>
+                        
+                            <span id="/2022/04/13/MATLAB学习/03_MATLAB的静态与动态绘图功能/04_图像动画/" class="leancloud_visitors" data-flag-title="04_图像动画">
+                                <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                            </span>
+                        
+                        <span>
+                            <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2022/04/13/MATLAB学习/03_MATLAB的静态与动态绘图功能/04_图像动画/"></span>
+                        </span>  
+                    </p>                 
+                </div>
+            </div>
+        </div>
+        <canvas id="articleHeaderCanvas"></canvas>
+    </div>
+</div>
+    <div id="container">
+    <div id="content">
+        <div id="article">
+    <div class="toc"></div>
+    <div class="article-body">
+        <h1 id="四、图像动画"><a href="#四、图像动画" class="headerlink" title="四、图像动画"></a>四、图像动画</h1><h2 id="1、图像文件操作"><a href="#1、图像文件操作" class="headerlink" title="1、图像文件操作"></a>1、图像文件操作</h2><h4 id="（1）imread-和-imwrite-函数"><a href="#（1）imread-和-imwrite-函数" class="headerlink" title="（1）imread  和 imwrite 函数"></a>（1）<code>imread</code>  和 <code>imwrite</code> 函数</h4><p><strong>imread 和 imwrite 函数分别用于将图像文件读入 MATLAB 工作空间，以及将图像数据和色图数据一起写入一定格式的图像文件。MATLAB支持多种图像文件格式，包括 <code>.bmp  .jpg  .jepg  .tif</code></strong></p>
+<h4 id="（2）image-和-imagesc-函数"><a href="#（2）image-和-imagesc-函数" class="headerlink" title="（2）image 和 imagesc 函数"></a>（2）<code>image</code> 和 <code>imagesc</code> 函数</h4><p><strong>image 和 imagesc 函数用于图像显示。为了保证图像效果，一般还应使用 colormap 函数设置图像色图</strong></p>
+<ul>
+<li><p>例：在图形窗口显示图像文件 bb.jpg</p>
+<p>程序命令：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[x,cmap]=imread(<span class="string">&#x27;D:\Users\lichaikui\Pictures\联想安卓照片\bb.jpg&#x27;</span>);  <span class="comment">% 读取图像的数据阵和色图阵</span></span><br><span class="line">image(x);title(<span class="string">&#x27;在图形窗口显示图像文件 bb.jpg&#x27;</span>)            <span class="comment">% 放图</span></span><br><span class="line">colormap(cmap);      <span class="comment">% 保持颜色</span></span><br><span class="line">axis image off       <span class="comment">% 保持高度比并取消坐标轴</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="2、播放电影动画"><a href="#2、播放电影动画" class="headerlink" title="2、播放电影动画"></a>2、播放电影动画</h2><p><strong>从不同的视角拍下一系列对象的图像，并保存到变量中，然后按照一定的顺序像电影一样播放</strong></p>
+<ul>
+<li><p>例：设图片文件是五幅圣诞老人图片，编写程序播放动画</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">close;theta=<span class="number">0</span>:<span class="number">0.1</span>:<span class="number">2</span>*<span class="built_in">pi</span>;</span><br><span class="line">r1 =<span class="number">3</span>;clear;clc;</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:<span class="number">4</span></span><br><span class="line">    c=strcat(<span class="string">&#x27;D:\Users\lichaikui\Pictures\2\old&#x27;</span>,num2str(<span class="built_in">i</span>),<span class="string">&#x27;.jpg&#x27;</span>);  <span class="comment">% strcat 水平串联字符串</span></span><br><span class="line">    [n,cmap]=imread(c);                             <span class="comment">% imread 从图形文件读取图片</span></span><br><span class="line">    image(n);colormap(cmap);                        <span class="comment">% image  从数组显示图像</span></span><br><span class="line">    axis off;                                       <span class="comment">% 隐藏图片坐标轴</span></span><br><span class="line">    m(:,<span class="built_in">i</span>)=getframe;                                <span class="comment">% getframe 捕获坐标区或图窗作为影片帧</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">movie(m,<span class="number">2</span>)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="3、电影动画文件保存"><a href="#3、电影动画文件保存" class="headerlink" title="3、电影动画文件保存"></a>3、电影动画文件保存</h2><ul>
+<li>保样电影动画是指将动画一帧一帧地保存下来，它可以脱离MTLAB环境运行</li>
+<li><code>videoWrite</code>与<code>open</code>、<code>writeVideo</code>和<code>close</code>函数配合，可从图像(figure)中创建视频和图片文件,也可以创建MPEG-4文件,在Window平台或其他平台上播故。</li>
+<li>Video-Write 函数支持大于2GB的视频文件。</li>
+<li>写人视频的前提是不断获取图像帧，而这一步骤则是每次更新<code>figure</code>上的图像来完成。即在绘图循环中，所有图像重绘结束后，使用<code>getframe</code>方法获取当前<code>figure</code>上的图像并写人打开的视频文件，VideoWrite函数可设置加上.avi 、.mj2、.mp4、m4v的拓展名，函数默认保存为.avi文件</li>
+</ul>
+<h4 id="（1）open-打开视频写人对象"><a href="#（1）open-打开视频写人对象" class="headerlink" title="（1）open:打开视频写人对象"></a>（1）open:打开视频写人对象</h4><ul>
+<li><p>调用格式：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">open(myObj)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="（2）clos-关闭视频写入对象，与open-对应"><a href="#（2）clos-关闭视频写入对象，与open-对应" class="headerlink" title="（2）clos:关闭视频写入对象，与open 对应"></a>（2）clos:关闭视频写入对象，与open 对应</h4><ul>
+<li><p>调用格式：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">close(myOnj)</span><br></pre></td></tr></table></figure>
+
+<p>这两个函数分别在写入视频对象前和写入完成后使用</p>
+</li>
+</ul>
+<h4 id="（3）getProfiles-获取在该系统平台下，VideoWriter-可以支持写入的视频类型"><a href="#（3）getProfiles-获取在该系统平台下，VideoWriter-可以支持写入的视频类型" class="headerlink" title="（3）getProfiles:获取在该系统平台下，VideoWriter 可以支持写入的视频类型"></a>（3）getProfiles:获取在该系统平台下，VideoWriter 可以支持写入的视频类型</h4><ul>
+<li><p>调用格式：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">profiles=VidepWriter.getProfiles()</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="（4）writerVideo-写入视频帧"><a href="#（4）writerVideo-写入视频帧" class="headerlink" title="（4）writerVideo:写入视频帧"></a>（4）writerVideo:写入视频帧</h4><ul>
+<li><p>调用格式：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">weriteVideo(myObj,frame)  <span class="comment">% 将以智能图像framre 写入视频对象中，frame可以通过getframe获得</span></span><br><span class="line">writeVideo(myObj,mov)     <span class="comment">% 将MATLAB对象写入视频中，mov是一个帧结构序列，每一个结构包括  mov.cadta 和 mov.colormap</span></span><br><span class="line">writeVideo(myObj,img)	  <span class="comment">% 将一个图像写入视频对象中</span></span><br><span class="line">writeVideo(myObj,images)  <span class="comment">% 将一序列图像写入视频对象中</span></span><br></pre></td></tr></table></figure></li>
+<li><p>例：保存上一个例子为视频文件</p>
+<p>程序命令：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">myObj=VideoWriter(<span class="string">&#x27;newfile.avi&#x27;</span>);</span><br><span class="line">open(myObj);</span><br><span class="line">t=<span class="number">0</span>:<span class="number">0.1</span>:<span class="built_in">pi</span>;</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:<span class="number">4</span></span><br><span class="line">    c=strcat(<span class="string">&#x27;D:\Users\lichaikui\Pictures\2\old&#x27;</span>,num2str(<span class="built_in">i</span>),<span class="string">&#x27;.jpg&#x27;</span>);  <span class="comment">% strcat 水平串联字符串</span></span><br><span class="line">    frame=imread(c);                             <span class="comment">% imread 从图形文件读取图片</span></span><br><span class="line">    newFrame = imresize(frame,[<span class="number">203</span> <span class="number">416</span>]);        <span class="comment">% 改变不同帧图片分辨路大小防止报错</span></span><br><span class="line">    writeVideo(myObj,newFrame)</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+
+        <p class="suffix-end">__END__</p>
+        <div class="suffix-box">
+            <div class="suffix-box-left">
+                <img src="https://s2.loli.net/2022/03/31/JpQ6lgGdXmtSZaC.png" alt="hero">
+            </div>
+            <div class="suffix-box-right">
+                <span class="suffix-box-title">文章作者</span>：hero
+                <br>
+                <span class="suffix-box-title">文章出处</span>：<a href="/2022/04/13/MATLAB%E5%AD%A6%E4%B9%A0/03_MATLAB%E7%9A%84%E9%9D%99%E6%80%81%E4%B8%8E%E5%8A%A8%E6%80%81%E7%BB%98%E5%9B%BE%E5%8A%9F%E8%83%BD/04_%E5%9B%BE%E5%83%8F%E5%8A%A8%E7%94%BB/" target="_blank">04_图像动画</a>
+                <br>
+                <span class="suffix-box-title">作者签名</span>：简单地活着, 肆意又精彩.
+                <br>
+                <span class="suffix-box-title">关于主题</span>：<a href="https://github.com/first19326/Hexo-LiveForCode" target="_blank">Hexo - Live For Code</a>
+                <br>
+                <span class="suffix-box-title">版权声明</span>：文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" title="BY-NC-SA" target="_blank">BY-NC-SA</a> 许可协议，转载请注明出处
+                <br>
+            </div>
+            <div style="clear: both;"></div>
+        </div>
+    </div>
+    <div class="article-footer">
+        
+            <div class="category">
+                分类：
+                
+                    <a href="/category/03-MATLAB%E7%9A%84%E9%9D%99%E6%80%81%E4%B8%8E%E5%8A%A8%E6%80%81%E7%BB%98%E5%9B%BE%E5%8A%9F%E8%83%BD/">03_MATLAB的静态与动态绘图功能</a>
+                
+            </div>
+        
+        
+            <div class="tag">
+                标签：
+                
+                    <a href="/tag/MATLAB%E5%AD%A6%E4%B9%A0/">MATLAB学习</a>
+                
+            </div>
+        
+        <div class="article-prev-next">
+            
+                <a href="/2022/04/17/MATLAB%E5%AD%A6%E4%B9%A0/07_Simulink%E5%9C%A8%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA%E4%B8%AD%E7%9A%84%E4%BB%BF%E7%9C%9F/01_Simulink%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%9D%97%E5%BA%93/" class="prev-prefix">« </a> 上一篇：    <a href="/2022/04/17/MATLAB%E5%AD%A6%E4%B9%A0/07_Simulink%E5%9C%A8%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA%E4%B8%AD%E7%9A%84%E4%BB%BF%E7%9C%9F/01_Simulink%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%9D%97%E5%BA%93/" title="发布于 2022-04-17 11:38">01_Simulink常用模块库</a>
+                <br>
+            
+            
+                <a href="/2022/04/11/MATLAB%E5%AD%A6%E4%B9%A0/%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/matlab%E8%A7%86%E9%A2%91%E5%88%86%E8%BE%A8%E7%8E%87%E6%9B%B4%E6%94%B9/" class="next-prefix">» </a> 下一篇：    <a href="/2022/04/11/MATLAB%E5%AD%A6%E4%B9%A0/%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/matlab%E8%A7%86%E9%A2%91%E5%88%86%E8%BE%A8%E7%8E%87%E6%9B%B4%E6%94%B9/" title="发布于 2022-04-11 09:55">matlab视频分辨率更改</a>
+            
+        </div>
+    </div>
+    
+    <div class="article-comments">
+        <div class="comments-title">
+            评论列表
+        </div>
+        <div class="comments-content">
+        </div>
+    </div>
+
+</div>
+
+    </div>
+</div>
+    <div id="footer"></div>
+    <div id="sidebar">
+    <div class="menu-wrap" style="display:none;">
+        <nav class="menu">
+            <div class="menu-introduce"> 
+                <div class="introduce-avatar"></div> 
+                <div class="introduce-info"> 
+                    <div class="introduce-user"><span></span></div>        
+                </div> 
+            </div> 
+            <div class="menu-list">
+                <ul></ul> 
+            </div> 
+            <div class="menu-link"></div> 
+        </nav>
+        <button class="menu-button-close"></button>
+        <div class="morph-shape" id="morph-shape" data-morph-open="M-7.312,0H15c0,0,66,113.339,66,399.5C81,664.006,15,800,15,800H-7.312V0z;M-7.312,0H100c0,0,0,113.839,0,400c0,264.506,0,400,0,400H-7.312V0z">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 800" preserveAspectRatio="none">
+                <path d="M-7.312,0H0c0,0,0,113.839,0,400c0,264.506,0,400,0,400h-7.312V0z"/>
+            </svg>
+        </div>
+    </div>
+    <button class="menu-button-open">MENU</button>
+    <div class="menu-cover"></div>
+</div>
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/search.css">
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/iscroll.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/instantsearch.min.js"></script>
+<div class="search-window">
+    <div class="search-content">
+        <div class="search-content-icon">
+            <i class="iconfont icon-search"></i>
+        </div>
+        <div id="search-input" class="search-input"></div>
+    </div>
+
+    <div class="search-scroll">
+        <div class="search-result">
+            <div id="search-stats" class="search-stats"></div>
+            <div id="search-hits"></div>
+            <div id="search-pagination" class="search-pagination"></div>
+        </div>
+    </div>
+
+    <span class="search-close-icon">
+        <i class="iconfont icon-close"></i>
+    </span>
+</div>
+    <div id="tools">
+    <div class="progressbar-top"></div>
+
+    
+        <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/APlayer.css">
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/APlayer.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/Meting.min.js"></script>
+        <meting-js id="3778678" lrcshow="false" server="netease" type="playlist" fixed="true" autoplay="false" loop="all" order="random" preload="auto" volume="0.67" mutex="true"></meting-js>
+    
+    
+    <div class="wrap-right"></div>
+    <div class="loading"></div>
+</div>
+    <script>
+    window.config = {
+        GitHubUserName     : 'fubaisen',
+        GitHubRepositories : 'fubaisen.github.io',
+
+        BlogUser      : 'hero',
+        BlogAvatar    : 'https://s2.loli.net/2022/03/31/JpQ6lgGdXmtSZaC.png',
+        BlogStartDate : '2020-01-01',
+
+        WebsiteTitleBlur         : '(◍´꒳`◍) Hi, friend',
+        WebsiteTitleBlurTimeOut  : 500,
+        WebsiteTitleFocus        : '(*´∇｀*) 欢迎回来!',
+        WebsiteTitleFocusTimeOut : 1000,
+        WebsiteFavicon           : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222195607.png',
+
+        ProgressBar: {
+            id       : 'topProgressBar',
+            color    : '#77B6FF',
+            height   : '2px',
+            duration : 0.2
+        },
+
+        Loading: {
+            rebound: {
+                tension  : 16,
+                friction : 5
+            },
+            spinner: {
+                id     : 'spinner',
+                radius : 90,
+                sides  : 3,
+                depth  : 4,
+                colors : {
+                    background : '#F0F0F0',
+                    stroke     : '#272633',
+                    base       : '',
+                    child      : '#272633'
+                },
+                alwaysForward : true,
+                restAt        : 0.5,
+                renderBase    : false
+            }
+        },
+
+        HomeHeaderAnimationRendered : true,
+        HomeHeaderAnimation         : {
+            radius      : 15,
+            density     : 0.2,
+            color       : 'rgba(255, 255, 255, .2)',
+            clearOffset : 0.3
+        },
+
+        ArticleHeaderAnimationRendered : false,
+        ArticleHeaderAnimation         : {
+            triW                  : 14,
+            triH                  : 20,
+            neighbours            : [
+                
+                    'side',
+                
+                    'top',
+                
+                    'bottom',
+                
+            ],
+            speedTrailAppear      : 0.1,
+            speedTrailDisappear   : 0.1,
+            speedTriOpen          : 1,
+            trailMaxLength        : 30,
+            trailIntervalCreation : 100,
+            delayBeforeDisappear  : 2,
+            colors                : [
+                
+                    '#96EDA6',
+                
+                    '#5BC6A9',
+                
+                    '#38668C',
+                
+                    '#374D84',
+                
+                    '#BED5CB',
+                
+                    '#62ADC6',
+                
+                    '#8EE5DE',
+                
+                    '#304E7B',
+                
+            ]
+        },
+
+        BackAnimationRendered          : true,
+        IEBrowserBackAnimationRendered : false,
+        BackAnimation                  : {
+            colorSaturation  : '60%',
+            colorBrightness  : '50%',
+            colorAlpha       : 0.5,
+            colorCycleSpeed  : 5,
+            verticalPosition : 'random',
+            horizontalSpeed  : 200,
+            ribbonCount      : 3,
+            strokeSize       : 0,
+            parallaxAmount   : -0.2,
+            animateSections  : true
+        },
+
+        HomeHeaderImage : [
+            
+                'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/image/header/home.jpg',
+            
+                'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/image/header/home.jpeg',
+            
+        ],
+        HomeBannerText  : '',
+
+        ArticleHeaderImage : [
+            
+                'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/image/header/article.jpg',
+            
+        ],
+
+        OtherBannerText : '',
+
+        MenuList : [
+            
+                {
+                    name   : '首页',
+                    href   : '/',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '标签',
+                    href   : '/tag',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '分类',
+                    href   : '/category',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '归档',
+                    href   : '/archive',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '赞赏',
+                    href   : '/donate',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '关于',
+                    href   : '/about',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '订阅',
+                    href   : '/subscription',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '搜索',
+                    href   : '',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '留言板',
+                    href   : '/comment',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '友情链接',
+                    href   : '/friend',    
+                    target : '',
+                    class  : ''
+                },
+            
+        ],
+        MenuLink : [
+            
+                
+                    {
+                        icon : 'icon-weibo', 
+                        url  : 'https://weibo.com/u/7649528498'
+                    },
+                
+                    {
+                        icon : 'icon-wechat', 
+                        url  : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222190433.png'
+                    },
+                
+                    {
+                        icon : 'icon-qq', 
+                        url  : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222190324.png'
+                    },
+                
+                    {
+                        icon : 'icon-github', 
+                        url  : 'https://github.com/fubaisen'
+                    },
+                
+            
+        ],
+
+        FooterStyle : 2,
+        BottomText  : {
+            icon    : 'like-fill',
+            left    : '人生若只如初见',
+            right   : '何事秋风悲画扇'
+        },
+        ThemeInfo   : true,
+
+        ConsoleList : [
+            
+                
+                    [
+                        
+                            
+                                'Based on cnblogs theme SimpleMemory.',
+                            
+                                '',
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                'SimpleMemory Author:',
+                            
+                                'BNDong',
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                'Theme:',
+                            
+                                'LiveForCode',
+                            
+                        
+                    ],
+                
+            
+        ],
+
+        FontIconExtend : '',
+
+        Donate : {
+            paypal  : '',
+            bitcoin : '',
+            alipay  : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222200200.png',
+            wechat  : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222194957.png'
+        },
+
+        Code : {
+            style : 'normal'
+        },  
+
+        Search : {
+            applicationID : '010C3EANT8',
+            apiKey        : 'c7abab9f11b79102b9aff7fe6d41447d',
+            indexName     : 'Notes',
+            hits          : {
+                page : 10
+            },
+            labels        : {
+                placeholder : '搜索',
+                empty       : '未发现与 「${query}」 相关的内容',
+                stats       : '${hits} 条相关条目，使用了 ${time} 毫秒',
+            }
+        }, 
+
+        Valine : {
+            switch         : true,
+            el             : '.comments-content',
+            appId          : 'srhKtvWPQTWYKh3qX8G8M7v0-gzGzoHsz',
+            appKey         : '8uVSP1q6UlALVC5igYfIfv2h',
+            placeholder    : '你是我一生只会遇见一次的惊喜...',
+            avatar         : 'mm',
+            meta           : 'nick,mail,link',
+            requiredFields : 'nick,mail',
+            pageSize       : 5,
+            lang           : 'zh-cn',
+            visitor        : true,
+            enableQQ       : true
+        },
+
+        Tocbot : {
+            switch                : true,
+            tocSelector           : '.toc',
+            contentSelector       : '.article-body',
+            headingSelector       : 'h1, h2, h3, h4, h5',
+            headingsOffset        : 0,
+            scrollSmooth          : true,
+            scrollSmoothOffset    : -5,
+            positionFixedSelector : '.toc',
+            positionFixedClass    : 'toc-fixed',
+            fixedSidebarOffset    : '',
+        },
+
+        Require : {
+            baseUrl     : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/',
+            waitSeconds : 100
+        },
+
+        Music : {
+            type : 'Meting'
+        },
+        APlayer : {
+            container : '.aplayer',
+            fixed     : true,
+            autoplay  : false,
+            loop      : 'all',
+            order     : 'random',
+            preload   : 'auto',
+            volume    : 0.67,
+            mutex     : true,
+            lrcType   : 3,
+            audio     : [
+                
+                    {
+                        name   : 'aLIEz',
+                        artist : 'mizuki（瑞葵）',
+                        cover  : '/music/cover/aLIEz.jpg',
+                        url    : '/music/song/aLIEz.mp3',
+                        lrc    : '/music/lrc/aLIEz.lrc'
+                    },
+                
+                    {
+                        name   : 'Endless Tears',
+                        artist : 'CLIFF EDGE',
+                        cover  : '/music/cover/Endless Tears.jpg',
+                        url    : '/music/song/Endless Tears.mp3',
+                        lrc    : '/music/lrc/Endless Tears.lrc'
+                    },
+                
+                    {
+                        name   : 'Miracle',
+                        artist : 'Cascada',
+                        cover  : '/music/cover/Miracle.jpg',
+                        url    : '/music/song/Miracle.mp3',
+                        lrc    : '/music/lrc/Miracle.lrc'
+                    },
+                
+                    {
+                        name   : 'Roll The Dice',
+                        artist : '高珊',
+                        cover  : '/music/cover/Roll The Dice.jpg',
+                        url    : '/music/song/Roll The Dice.mp3',
+                        lrc    : '/music/lrc/Roll The Dice.lrc'
+                    },
+                
+                    {
+                        name   : 'See You Again',
+                        artist : 'Charlie Puth, Wiz Khalifa',
+                        cover  : '/music/cover/See You Again.jpg',
+                        url    : '/music/song/See You Again.mp3',
+                        lrc    : '/music/lrc/See You Again.lrc'
+                    },
+                
+                    {
+                        name   : 'Traveling Light',
+                        artist : 'Joel Hanson, Sara Groves',
+                        cover  : '/music/cover/Traveling Light.jpg',
+                        url    : '/music/song/Traveling Light.mp3',
+                        lrc    : '/music/lrc/Traveling Light.lrc'
+                    },
+                
+                    {
+                        name   : '痴心绝对',
+                        artist : '李圣杰',
+                        cover  : '/music/cover/痴心绝对.jpg',
+                        url    : '/music/song/痴心绝对.mp3',
+                        lrc    : '/music/lrc/痴心绝对.lrc'
+                    },
+                
+                    {
+                        name   : '好想大声说爱你',
+                        artist : 'BAAD（バード）',
+                        cover  : '/music/cover/好想大声说爱你.jpg',
+                        url    : '/music/song/好想大声说爱你.mp3',
+                        lrc    : '/music/lrc/好想大声说爱你.lrc'
+                    },
+                
+            ]
+        },
+        Meting : {
+            id       : '3778678', 
+            lrcshow  : false, 
+            server   : 'netease', 
+            type     : 'playlist', 
+            fixed    : true, 
+            autoplay : false, 
+            loop     : 'all', 
+            order    : 'random', 
+            preload  : 'auto', 
+            volume   : 0.67, 
+            mutex    : true
+        },
+
+        Mouse : {
+            enable  : true,
+            options : {
+                size  : 6,
+                sizeF : 24
+            }
+        },
+
+        LazyLoad : {
+            default : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/image/website/lazyload.svg'
+        },
+  
+        Style : {
+            aplayer          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/APlayer.css',
+            archive          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/archive.css',
+            donate           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/donate.css',
+            fancybox         : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/jquery.fancybox.css',
+            footer           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/footer.css',
+            iconfont         : 'https://at.alicdn.com/t/font_1546312_l3yohatebw.css',
+            index            : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/index.css',
+            menuBubble       : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/menu-bubble.css',
+            page             : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/page.css',
+            post             : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/post.css',
+            search           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/search.css',
+            tocbot           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/tocbot.css',
+            normal           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/normal.css',
+            night            : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/night.css',
+            clipboard        : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/clipboard.css'
+        },
+
+        Script: {
+            aplayer          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/APlayer.min.js',
+            config           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/require.config.js',
+            index            : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/index.js',
+            instantSearch    : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/instantsearch.min.js',
+            jQuery           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/jquery-3.4.1.min.js',
+            loading          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/loading.js',
+            meting           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/Meting.min.js',
+            iscroll          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/iscroll.js',
+            require          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/require.min.js'
+        },
+
+        Font: {
+            LongCang   : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/LongCang.css',
+            Monda      : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Monda.css',
+            NotoSansSC : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/NotoSansSC.css',
+            Playball   : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Playball.css',
+            PTMono     : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/PTMono.css',
+            RobotoSlab : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/RobotoSlab.css',
+            Rosario    : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Rosario.css',
+            UbuntuMono : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/UbuntuMono.css'
+        },
+
+        Suffix : {
+            about : '简单地活着, 肆意又精彩.'
+        },
+            
+        Theme : {
+            url  : 'https://github.com/first19326/Hexo-LiveForCode',
+            name : 'Hexo - Live For Code'
+        }  
+    };
+</script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no">
+    <meta name="referrer" content="origin">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <title>02_Simulink连续模块库</title>
+    <link rel="shortcut icon" href="#"/>
+
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/LongCang.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Monda.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/NotoSansSC.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Playball.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/PTMono.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/RobotoSlab.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Rosario.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/UbuntuMono.css">
+
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/post.css">
+    
+        <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/normal.css">
+    
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/jquery-3.4.1.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.1"></head>
+<body>
+    <a id="cover"></a>
+    <div id="header">
+    <div class="header">
+        <div class="vertical">
+            <div class="inner">
+                <h1 class="header-subtitle">02_Simulink连续模块库</h1>
+                <div class="header-subinfo">
+                    <p class="article-info-text">
+                        <span>
+                            <i class="iconfont icon-time"></i> 发表时间：2022-04-18
+                        </span>
+                        
+                            <span id="/2022/04/18/MATLAB学习/07_Simulink在自动控制理论中的仿真/02_Simulink连续模块库/" class="leancloud_visitors" data-flag-title="02_Simulink连续模块库">
+                                <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                            </span>
+                        
+                        <span>
+                            <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2022/04/18/MATLAB学习/07_Simulink在自动控制理论中的仿真/02_Simulink连续模块库/"></span>
+                        </span>  
+                    </p>                 
+                </div>
+            </div>
+        </div>
+        <canvas id="articleHeaderCanvas"></canvas>
+    </div>
+</div>
+    <div id="container">
+    <div id="content">
+        <div id="article">
+    <div class="toc"></div>
+    <div class="article-body">
+        <h1 id="连续模块库"><a href="#连续模块库" class="headerlink" title="连续模块库"></a>连续模块库</h1><ul>
+<li><p>连续时间线系统模块库</p>
+<p><img src="file://C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220417233113812.png?lastModify=1650209764" alt="image-20220417233113812"></p>
+</li>
+<li><p>连续时间延迟模块库</p>
+<p><img src="file://C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220417233107137.png?lastModify=1650209764" alt="image-20220417233107137"></p>
+</li>
+</ul>
+<h2 id="Derivative微分模块"><a href="#Derivative微分模块" class="headerlink" title="Derivative微分模块"></a><img src="https://www.mathworks.com/help/releases/R2022a/simulink/slref/derivative_block_icon.png" alt="Derivative block">Derivative微分模块</h2><p>输出是输入信号的时间导数</p>
+<p>适用输入信号为连续信号</p>
+<p>对离散信号 进行微分：</p>
+<ul>
+<li>离散信号保持不变  采用连续信号微分 对应的结果是零值</li>
+<li>离散信号变化           采用连续微分模块  输出为一系列的脉冲波形</li>
+</ul>
+<blockquote>
+<p>当信号为非连续信号  使用<img src="https://www.mathworks.com/help/releases/R2022a/simulink/slref/difference_block_icon.png" alt="Difference block">模块</p>
+</blockquote>
+<blockquote>
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>Derivative 模块可近似计算输入信号 u 相对于仿真时间 t 的导数。您将获得以下算式的近似值：<img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220418085857978.png" alt="image-20220418085857978"></p>
+<p>方法是计算数值差异 Δ<em>u</em>/Δ<em>t</em>,其中 Δ<em>u</em> 是输入值的变化，Δ<em>t</em> 是自上一个仿真（主要）时间步以来的时间变化。</p>
+<p>此模块接受一个输入并生成一个输出。模块的初始输出为零。</p>
+<p>此模块的输入和输出之间的精确关系是：</p>
+<p><img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220418085922414.png" alt="image-20220418085922414"></p>
+<p>其中 t 是当前仿真时间，<em>T<strong>p</strong>r<strong>e</strong>v<strong>i</strong>o<strong>u</strong>s</em> 是上次仿真输出的时间。后者与上次主时间步的时间相同。</p>
+<p>Derivative 模块的输出可能对整个模型的动态比较敏感。</p>
+<p>步长越小，此模块的输出曲线就越平滑和准确。</p>
+<p>与具有连续状态的模块不同，当此模块的输入快速变化时，求解器不会采用较小的步长。根据驱动信号和模型的动态，此模块的输出信号可能包含意外波动。这些波动主要是由驱动信号输出和求解器步长导致的。</p>
+<p>由于存在这种敏感度，因此请将模型构造为使用积分器模块（例如 <a target="_blank" rel="noopener" href="https://www.mathworks.com/help/releases/R2022a/simulink/slref/integrator.html">Integrator</a> 模块）而不是 Derivative 模块。Integrator 模块的状态允许求解器调整步长并改进仿真的准确性。请参阅<a target="_blank" rel="noopener" href="https://www.mathworks.com/help/releases/R2022a/simulink/ug/best-form-mathematical-models.html#bra6aje">电路模型</a>来获取如何选择最佳形式的数学模型的示例，以避免在模型中使用 Derivative 模块。</p>
+<p>如果必须将 Derivative 模块与变步长求解器结合使用，请将求解器最大步长设置为可以使 Derivative 模块生成的回应具有足够准确度的值。为了确定此值，您可能需要使用不同的求解器设置重复运行仿真。</p>
+<p>如果此模块的输入为离散信号，则当输入值发生变化时，输入的连续导数会显示一个脉冲。否则为 0。或者，您可以使用信号最后两个值之间的差异定义离散信号的离散导数：</p>
+<p><img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220418085946449.png" alt="image-20220418085946449"></p>
+<p>对此方程进行 <em>z</em> 变换会得到：</p>
+<p><img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220418085955758.png" alt="image-20220418085955758"></p>
+<p><a target="_blank" rel="noopener" href="https://www.mathworks.com/help/releases/R2022a/simulink/slref/discretederivative.html">Discrete Derivative</a> 模块可对此行为进行建模。使用此模块而不是 Derivative 模块可以近似计算离散信号的离散时间导数。</p>
+</blockquote>
+<h2 id="三种传递模块及相互转化"><a href="#三种传递模块及相互转化" class="headerlink" title="三种传递模块及相互转化"></a>三种传递模块及相互转化</h2><h3 id="State-Space状态空间模块"><a href="#State-Space状态空间模块" class="headerlink" title="State-Space状态空间模块"></a><img src="https://www.mathworks.com/help/releases/R2022a/simulink/slref/state_space_block_icon.png" alt="State-Space block">State-Space状态空间模块</h3><ul>
+<li>Simulink / Continuous</li>
+</ul>
+<img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220418090419906.png" alt="image-20220418090419906" style="zoom:67%;" />
+
+<p>例：<img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220418090630323.png" alt="image-20220418090630323"></p>
+<p>得：<img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220418090715256.png" alt="image-20220418090715256" style="zoom:80%;" /><img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220418090747180.png" alt="image-20220418090747180" style="zoom:67%;" /></p>
+<p>​        <img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220418090840230.png" alt="image-20220418090840230"></p>
+<p><img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220418091559651.png" alt="image-20220418091559651"></p>
+<p><img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220418091630528.png" alt="image-20220418091630528"></p>
+<h4 id="利用-linmod-函数提取状态矩阵"><a href="#利用-linmod-函数提取状态矩阵" class="headerlink" title="利用 linmod 函数提取状态矩阵"></a>利用 linmod 函数提取状态矩阵</h4><p>提取   连续系统状态空间模型 （linmod）、离散系统状态空间模型（dlinmod）</p>
+<blockquote>
+<p>解决了上一步中 手动求解  状态矩阵</p>
+</blockquote>
+<p>✎   linmod 适用于连续系统 ，离散系统请使用 dinmod</p>
+<p>✎   使用linmod 时系统中不应该包括  <strong>连续微分模块</strong> ，若存在微分环节 ，可以使用         Switch derivative 模块代替连续微分模块</p>
+<ul>
+<li><p>Simulink / Simulink Extras / Linearization</p>
+<ul>
+<li><p>例：<img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220418093111963.png" alt="image-20220418093111963">以传递函数为例</p>
+<blockquote>
+<p>ps:</p>
+<ul>
+<li><p>无论是传递函数 还是状态矩阵 它描述的都是这个系统本身的控制特性，与系统的输入和输出是没有关系的  ，则系统无论输入什么函数、信号、输出是什么样子，均不影响状态函数（矩阵）的形式  ——&gt;  输入输出必须以 <code>in</code>  与 <code>out </code> 模块 来代替，使他与实际的输入输出信号无关</p>
+<p>传递函数：<img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220418093804689.png" alt="image-20220418093804689"></p>
+</li>
+<li><p><img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220418094317411.png" alt="image-20220418094317411"></p>
+</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220418101155635.png" alt="image-20220418101155635" style="zoom:150%;" />
+
+<h5 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h5><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">argout = linmod(<span class="string">&#x27;sys&#x27;</span>);</span><br><span class="line">argout = linmod(<span class="string">&#x27;sys&#x27;</span>, x, u);</span><br><span class="line">argout = linmod(<span class="string">&#x27;sys&#x27;</span>, x, u, para);</span><br><span class="line">argout = linmod(<span class="string">&#x27;sys&#x27;</span>, x, u, <span class="string">&#x27;v5&#x27;</span>);</span><br><span class="line">argout = linmod(<span class="string">&#x27;sys&#x27;</span>, x, u, para, <span class="string">&#x27;v5&#x27;</span>);</span><br><span class="line">argout = linmod(<span class="string">&#x27;sys&#x27;</span>, x, u, para, xpert, upert, <span class="string">&#x27;v5&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h5 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h5><table>
+<thead>
+<tr>
+<th><code>sys</code></th>
+<th>从中提取线性模型的 Simulink® 系统的名称。</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>x</code> 和 <code>u</code></td>
+<td>状态 (<code>x</code>) 和输入 (<code>u</code>) 向量。如果指定，它们会设置提取线性模型的工作点。当模型具有使用 Model 模块的模型引用时，您必须使用 Simulink 结构体格式来指定 <code>x</code>。要从模型中提取 <code>x</code> 结构体，请使用以下命令：<code>x = Simulink.BlockDiagram.getInitialState(&#39;sys&#39;);</code>然后，您可以通过编辑 <code>x.signals.values</code> 更改此结构体中的工作点值。如果状态包含不同的数据类型（例如，<code>&#39;double&#39;</code> 和 <code>&#39;uint8&#39;</code>），则您不能使用向量指定此状态。必须改为使用结构体。此外，如果状态数据类型为 <code>&#39;double&#39;</code>，则只能以向量形式指定状态。</td>
+</tr>
+<tr>
+<td><code>Ts</code></td>
+<td>离散时间线性化模型的采样时间</td>
+</tr>
+<tr>
+<td><code>&#39;v5&#39;</code></td>
+<td>可选参数，用于调用在 MATLAB® 5.3 版之前创建的扰动算法。调用此可选参数等效于调用 <code>linmodv5</code>。</td>
+</tr>
+<tr>
+<td><code>para</code></td>
+<td>可选参数的三元素向量：<code>para(1)</code> - 扰动增量值，用于对模型的状态和输入执行扰动。此参数对使用 <code>&#39;v5&#39;</code> 标志的线性化有效。默认值为 1e-05。<code>para(2)</code> - 线性化时间。对于作为时间函数的模块，您可以将此参数设置为非负值，以指定线性化模型时 Simulink 计算模块的时间 (<code>t</code>)。默认值为 0。<code>para(3)</code> - 设置为 <code>para(3)=1</code>，可删除在输入与输出之间没有路径的模块所关联的多余状态。默认值为 0。</td>
+</tr>
+<tr>
+<td><code>xpert</code> 和 <code>upert</code></td>
+<td>扰动值用于对模型的所有状态和输入执行扰动。默认值为<code>xpert = para(1) + 1e-3*para(1)*abs(x) upert = para(1) + 1e-3*para(1)*abs(u) </code>当模型具有使用 <a target="_blank" rel="noopener" href="https://www.mathworks.com/help/releases/R2022a/simulink/slref/model.html">Model</a> 模块的模型引用时，您必须使用 Simulink 结构体格式来指定 <code>xpert</code>。要提取 <code>xpert</code> 结构体，请使用以下命令：<code>xpert = Simulink.BlockDiagram.getInitialState(&#39;sys&#39;);</code>然后，您可以通过编辑 <code>xpert.signals.values</code> 来更改此结构体中的扰动值。仅当通过调用 <code>linmodv5</code> 或为 <code>linmod</code> 指定 <code>&#39;v5&#39;</code> 输入参数来调用在 MATLAB 5.3 版之前创建的扰动算法时，扰动输入参数才可用。</td>
+</tr>
+<tr>
+<td><code>argout</code></td>
+<td>如果您指定如下的等式输出（左侧）端，<code>linmod</code>、<code>dlinmod</code> 和 <code>linmod2</code> 将返回状态空间表示形式：<code>[A,B,C,D] = linmod(&#39;sys&#39;, x, u)</code> 根据指定的状态变量 <code>x</code> 和输入 <code>u</code> 围绕某个工作点获取 <code>sys</code> 的线性化模型。如果您省略 <code>x</code> 和 <code>u</code>，则默认值为零。<code>linmod</code> 和 <code>dlinmod</code> 还会返回线性化系统的传递函数和 MATLAB 数据结构体表示形式，具体取决于您如何指定该方程的输出（左侧）端。使用 <code>linmod</code> 作为示例：<code>[num, den] = linmod(&#39;sys&#39;, x, u)</code> 以传递函数形式返回线性化模型。<code>sys_struc = linmod(&#39;sys&#39;, x, u)</code> 返回包含线性化模型的结构体，其中包括状态名称、输入和输出名称以及有关工作点的信息。</td>
+</tr>
+</tbody></table>
+<blockquote>
+<h2 id="说明-1"><a href="#说明-1" class="headerlink" title="说明"></a>说明</h2><p><code>linmod</code> 通过对模型中的每个模块分别进行线性化来计算线性状态空间模型。</p>
+<p><code>linmod</code> 从以 Simulink 模型描述的常微分方程组中获取线性模型。<strong>使用 Inport 和 Outport 模块在 Simulink 模块图中表示输入和输出。</strong></p>
+<p>默认算法对大多数模块使用预编程的分析模块 Jacobian 矩阵，这样生成的线性化应该比通过对模块输入和状态进行数值扰动更准确。Simulink Control Design™ 文档中提供了具有预编程分析 Jacobian 矩阵的模块列表，还按模块讨论了用来进行线性化的分析算法。</p>
+<p>默认算法还允许对有问题的模块（如 <a target="_blank" rel="noopener" href="https://www.mathworks.com/help/releases/R2022a/simulink/slref/transportdelay.html">Transport Delay</a> 和 <a target="_blank" rel="noopener" href="https://www.mathworks.com/help/releases/R2022a/simulink/slref/quantizer.html">Quantizer</a>）进行特殊处理。有关这些模块的详细信息和选项，请参阅这些模块的封装对话框。</p>
+<h2 id="附注"><a href="#附注" class="headerlink" title="附注"></a>附注</h2><p>默认情况下，系统时间设置为零。对于依赖于时间的系统，您可以将变量 <code>para</code> 设置为二元素向量，其中第二个元素用于设置要获取线性模型的 <code>t</code> 值。</p>
+<p>从非线性模型到线性模型的状态顺序保持不变。对于 Simulink 系统，可以使用以下等式获取包含每个状态关联的模块名称的字符向量变量：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[sizes,x0,xstring] = sys</span><br></pre></td></tr></table></figure>
+
+<p>其中 <code>xstring</code> 是字符串向量，它的第 <em>i</em> 行是与第 <code>i</code> 个状态关联的模块名称。图中的输入和输出按顺序编号。</p>
+<p>对于单输入多输出系统，您可以使用例程 <code>ss2tf</code> 将它们转换为传递函数形式，或者使用 <code>ss2zp</code> 转换为零极点形式。您也可以使用 <code>ss</code> 将线性化模型转换为 LTI 对象。此函数生成状态空间形式的 LTI 对象，然后可以使用 <code>tf</code> 或 <code>zpk</code> 将该对象进一步转换为传递函数或零极点增益形式。</p>
+</blockquote>
+<h3 id="Transfer-Fcn传递函数模块"><a href="#Transfer-Fcn传递函数模块" class="headerlink" title="Transfer Fcn传递函数模块"></a><img src="https://www.mathworks.com/help/releases/R2022a/simulink/slref/transfer_fcn_block_icon.png" alt="Transfer Fcn block">Transfer Fcn传递函数模块</h3><p>通过传递函数为线性系统建模</p>
+<ul>
+<li>Simulink / Continuous</li>
+</ul>
+<p><img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220418093804689.png" alt="image-20220418093804689"></p>
+<blockquote>
+<p>Transfer Fcn 模块通过拉普拉斯域变量 <code>s</code> 的传递函数为线性系统建模。此模块可为单输入单输出 (SISO) 和单输入多输出 (SIMO) 系统建模。</p>
+<h3 id="使用此模块的条件"><a href="#使用此模块的条件" class="headerlink" title="使用此模块的条件"></a>使用此模块的条件</h3><p>Transfer Fcn 模块假定满足以下条件：</p>
+<ul>
+<li><p>传递函数的格式为</p>
+<p><em>H</em>(<em>s</em>)=<em>y</em>(<em>s</em>)<em>u</em>(<em>s</em>)=<em>n<strong>u</strong>m</em>(<em>s</em>)<em>d<strong>e</strong>n</em>(<em>s</em>)=<em>n<strong>u</strong>m</em>(1)<em>s<strong>n</strong>n</em>−1+<em>n<strong>u</strong>m</em>(2)<em>s<strong>n</strong>n</em>−2+…+<em>n<strong>u</strong>m</em>(<em>n**n</em>)<em>d<strong>e</strong>n</em>(1)<em>s<strong>n</strong>d</em>−1+<em>d<strong>e</strong>n</em>(2)<em>s<strong>n</strong>d</em>−2+…+<em>d<strong>e</strong>n</em>(<em>n**d</em>),</p>
+<p>其中 u 和 y 分别代表系统输入和输出，nn 和 nd 分别是分子和分母系数。num(s) 和 den(s) 包含分子和分母的 s 降幂系数。</p>
+</li>
+<li><p>分母的阶必须大于或等于分子的阶。</p>
+</li>
+<li><p>对于多输出系统，所有传递函数具有相同的分母，而所有分子具有相同的阶次。</p>
+</li>
+</ul>
+<h3 id="为单输出系统建模"><a href="#为单输出系统建模" class="headerlink" title="为单输出系统建模"></a>为单输出系统建模</h3><p>对于单输出系统，模块的输入和输出是标量时域信号。要为此系统建模，请执行以下操作：</p>
+<ol>
+<li>在<strong>分子系数</strong>字段中输入传递函数的分子系数向量。</li>
+<li>在<strong>分母系数</strong>字段中输入传递函数的分母系数向量。</li>
+</ol>
+<h3 id="为多输出系统建模"><a href="#为多输出系统建模" class="headerlink" title="为多输出系统建模"></a>为多输出系统建模</h3><p>对于多输出系统，模块输入为标量，输出为向量，其中每个元素都是系统的一个输出。要为此系统建模，请执行以下操作：</p>
+<ol>
+<li><p>在<strong>分子系数</strong>字段中输入矩阵。</p>
+<p>此矩阵的每一<em>行</em>包含确定一个模块输出的传递函数的分子系数。</p>
+</li>
+<li><p>在<strong>分母系数</strong>字段中输入系统所有传递函数的公分母系数向量。</p>
+</li>
+</ol>
+<h3 id="指定初始条件"><a href="#指定初始条件" class="headerlink" title="指定初始条件"></a>指定初始条件</h3><p>传递函数描述了输入和输出在拉普拉斯（频率）域中的关系。具体而言，它被定义为零初始条件的系统对脉冲输入的响应（输出）的拉普拉斯变换。</p>
+<p>传递函数的乘法和除法等运算依赖于零初始状态。例如，您可以将一个复杂的传递函数分解为一系列简单的传递函数。按顺序应用它们可获得与原始传递函数相同的响应。如果其中一个传递函数采用非零初始状态，结果将不正确。而且，一个传递函数有无限多个时域实现，大多数状态并没有任何物理意义。</p>
+<p>由于这些原因，Simulink® 将 Transfer Fcn 模块的初始条件预设为零。要指定给定传递函数的初始条件，请使用 <code>tf2ss</code> 将传递函数转换为可控制的典型状态空间实现。然后，使用 State-Space 模块。<code>tf2ss</code> 实用工具为系统提供了 <code>A</code>、<code>B</code>、<code>C</code> 和 <code>D</code> 矩阵。</p>
+<p>有关详细信息，请键入 <code>help tf2ss</code>，或者参阅 Control System Toolbox™ 文档。</p>
+<h3 id="传递函数在模块上的显示"><a href="#传递函数在模块上的显示" class="headerlink" title="传递函数在模块上的显示"></a>传递函数在模块上的显示</h3><p>Transfer Fcn 模块根据指定的分子和分母参数来显示传递函数。</p>
+<ul>
+<li><p>如果这两个参数指定为表达式或向量，模块将显示具有指定系数和 <em>s</em> 幂数的传递函数。如果在括号中指定变量，模块将计算变量。</p>
+<p>例如，如果将<strong>分子系数</strong>指定为 <code>[3,2,1]</code> 并将<strong>分母系数</strong>指定为 <code>(den)</code>，其中 <code>den</code> 为 <code>[7,5,3,1]</code>，则模块的显示如下：</p>
+<p><img src="https://www.mathworks.com/help/releases/R2022a/simulink/slref/transfer_fcn_ex1.png" alt="img"></p>
+</li>
+<li><p>如果将这两个参数指定为变量，模块将显示后跟 <code>(s)</code> 的变量名称。</p>
+<p>例如，如果将<strong>分子系数</strong>指定为 <code>num</code> 并将<strong>分母系数</strong>指定为 <code>den</code>，则模块的显示如下：</p>
+<p><img src="https://www.mathworks.com/help/releases/R2022a/simulink/slref/transfer_fcn_ex2.png" alt="img"></p>
+</li>
+</ul>
+</blockquote>
+<h3 id="Zero-Pole零极点增益模块"><a href="#Zero-Pole零极点增益模块" class="headerlink" title="Zero-Pole零极点增益模块"></a><img src="https://www.mathworks.com/help/releases/R2022a/simulink/slref/zero_pole_block_icon.png" alt="Zero-Pole block">Zero-Pole零极点增益模块</h3><p>通过零极点增益传递函数进行系统建模</p>
+<blockquote>
+<p>也是用来描述传递模块的，可以和   传递模块      相互转化</p>
+<p>区别：零极点增益方式 表达传递函数，能更方便看出  对应传递函数 的零点、极点、增益</p>
+</blockquote>
+<ul>
+<li>Simulink / Continuous</li>
+</ul>
+<p><img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220418123306289.png" alt="image-20220418123306289"></p>
+<blockquote>
+<p>Zero-Pole 模块可以为您使用零点、极点和拉普拉斯域传递函数增益定义的系统进行建模。此模块可为单输入单输出 (SISO) 和单输入多输出 (SIMO) 系统建模。</p>
+<h3 id="使用此模块的条件-1"><a href="#使用此模块的条件-1" class="headerlink" title="使用此模块的条件"></a>使用此模块的条件</h3><p>Zero-Pole 模块假定满足以下条件：</p>
+<ul>
+<li><p>传递函数的格式为</p>
+<p><em>H</em>(<em>s</em>)=<em>K**Z</em>(<em>s</em>)<em>P</em>(<em>s</em>)=<em>K</em>(<em>s</em>−<em>Z</em>(1))(<em>s</em>−<em>Z</em>(2))…(<em>s</em>−<em>Z</em>(<em>m</em>))(<em>s</em>−<em>P</em>(1))(<em>s</em>−<em>P</em>(2))…(<em>s</em>−<em>P</em>(<em>n</em>)),</p>
+<p>其中 Z 表示零点，P 表示极点，K 表示传递函数增益。</p>
+</li>
+<li><p>极点数必须大于或等于零点数。</p>
+</li>
+<li><p>如果极点和零点为复数，它们必须是复共轭对组。</p>
+</li>
+<li><p>对于多输出系统，所有传递函数必须具有相同的极点。零点的值可以不同，但每个传递函数的零点数必须相同。</p>
+</li>
+</ul>
+<blockquote>
+<p><strong>注意</strong></p>
+<p>当传递函数具有不同的零点数或者每个传递函数只有一个零点时，不能使用一个 Zero-Pole 模块建立多输出系统模型。使用多个 Zero-Pole 模块建立此类系统模型。</p>
+</blockquote>
+<ul>
+<li><h2 id="为单输出系统建模-1"><a href="#为单输出系统建模-1" class="headerlink" title="为单输出系统建模"></a>为单输出系统建模</h2><p>对于单输出系统，模块的输入和输出是标量时域信号。要为此系统建模，请执行以下操作：</p>
+<ol>
+<li>在<strong>零点</strong>字段中输入传递函数的零点向量。</li>
+<li>在<strong>极点</strong>字段中输入传递函数的极点向量。</li>
+<li>在<strong>增益</strong>字段中输入传递函数的 1×1 增益向量</li>
+</ol>
+</li>
+<li><h2 id="为多输出系统建模-1"><a href="#为多输出系统建模-1" class="headerlink" title="为多输出系统建模"></a>为多输出系统建模</h2><p>对于多输出系统，模块输入为标量，输出为向量，其中每个元素都是系统的一个输出。要为此系统建模，请执行以下操作：</p>
+<ol>
+<li><p>在<strong>零点</strong>字段中输入全零矩阵。</p>
+<p>此矩阵的每一<em>列</em>包含一个传递函数（将系统输入与一个输出相关联）的零点。</p>
+</li>
+<li><p>在<strong>极点</strong>字段中输入对系统的所有传递函数都通用的极点向量。</p>
+</li>
+<li><p>在<strong>增益</strong>字段中输入增益向量。</p>
+<p>每个元素代表对应的传递函数在<strong>零点</strong>中的增益。</p>
+</li>
+</ol>
+<p>输出向量的每个元素对应于<strong>零点</strong>中的一列。</p>
+</li>
+<li><h2 id="传递函数在模块上的显示-1"><a href="#传递函数在模块上的显示-1" class="headerlink" title="传递函数在模块上的显示"></a>传递函数在模块上的显示</h2><p>Zero-Pole 模块根据您如何指定零点、极点和增益参数来显示传递函数。</p>
+<ul>
+<li><p>如果这两个参数指定为表达式或向量，模块将显示具有指定的零点、极点和增益的传递函数。如果在括号中指定变量，模块将计算变量。</p>
+<p>例如，如果您将<strong>零点</strong>指定为 <code>[3,2,1]</code>，将<strong>极点</strong>指定为 <code>(poles)</code>（其中 <code>poles</code> 为 <code>[7,5,3,1]</code>），并将<strong>增益</strong>指定为 <code>gain</code>，则模块将如下所示。</p>
+<p><img src="https://www.mathworks.com/help/releases/R2022a/simulink/slref/zeropole_ex1.png" alt="img"></p>
+</li>
+<li><p>如果将这两个参数指定为变量，模块将根据需要显示后跟 <code>(s)</code> 的变量名称。</p>
+</li>
+</ul>
+<p>例如，如果您将<strong>零点</strong>指定为 <code>zeros</code>，将<strong>极点</strong>指定为 <code>poles</code>，并将<strong>增益</strong>指定为 <code>gain</code>，则模块将如下所示：</p>
+<p><img src="https://www.mathworks.com/help/releases/R2022a/simulink/slref/zeropole_ex2.png" alt="img"></p>
+</li>
+</ul>
+</blockquote>
+<h3 id="✍tf、zpk、ss-函数实现相互转化"><a href="#✍tf、zpk、ss-函数实现相互转化" class="headerlink" title="✍tf、zpk、ss 函数实现相互转化"></a><strong>✍<code>tf、zpk、ss</code> 函数实现相互转化</strong></h3><p>通过 <code>tf、zpk、ss</code> 函数可以实现     <strong>一个传递函数</strong>  在  </p>
+<p><code>零极点增益表达模式</code> 、 <code>普通传递函数表达模式</code>  、<code>状态空间表达模式</code>  之间互相切换</p>
+<ul>
+<li><p>tf函数：</p>
+<p><img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220418123952381.png" alt="image-20220418123952381"></p>
+</li>
+<li><p>zpk函数:<img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220418191927385.png" alt="image-20220418191927385"></p>
+</li>
+<li><p>ss函数：</p>
+<p>将传递函数  表达式  转化为  状态空间方式表达的传递函数</p>
+<p><img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220418193010695.png" alt="image-20220418193010695"></p>
+<p><img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220418193214820.png" alt="image-20220418193214820"></p>
+</li>
+</ul>
+
+        <p class="suffix-end">__END__</p>
+        <div class="suffix-box">
+            <div class="suffix-box-left">
+                <img src="https://s2.loli.net/2022/03/31/JpQ6lgGdXmtSZaC.png" alt="hero">
+            </div>
+            <div class="suffix-box-right">
+                <span class="suffix-box-title">文章作者</span>：hero
+                <br>
+                <span class="suffix-box-title">文章出处</span>：<a href="/2022/04/18/MATLAB%E5%AD%A6%E4%B9%A0/07_Simulink%E5%9C%A8%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA%E4%B8%AD%E7%9A%84%E4%BB%BF%E7%9C%9F/02_Simulink%E8%BF%9E%E7%BB%AD%E6%A8%A1%E5%9D%97%E5%BA%93/" target="_blank">02_Simulink连续模块库</a>
+                <br>
+                <span class="suffix-box-title">作者签名</span>：简单地活着, 肆意又精彩.
+                <br>
+                <span class="suffix-box-title">关于主题</span>：<a href="https://github.com/first19326/Hexo-LiveForCode" target="_blank">Hexo - Live For Code</a>
+                <br>
+                <span class="suffix-box-title">版权声明</span>：文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" title="BY-NC-SA" target="_blank">BY-NC-SA</a> 许可协议，转载请注明出处
+                <br>
+            </div>
+            <div style="clear: both;"></div>
+        </div>
+    </div>
+    <div class="article-footer">
+        
+            <div class="category">
+                分类：
+                
+                    <a href="/category/07-Simulink%E5%9C%A8%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA%E4%B8%AD%E7%9A%84%E4%BB%BF%E7%9C%9F/">07_Simulink在自动控制理论中的仿真</a>
+                
+            </div>
+        
+        
+            <div class="tag">
+                标签：
+                
+                    <a href="/tag/MATLAB%E5%AD%A6%E4%B9%A0/">MATLAB学习</a>
+                
+            </div>
+        
+        <div class="article-prev-next">
+            
+            
+                <a href="/2022/04/18/MATLAB%E5%AD%A6%E4%B9%A0/draft/" class="next-prefix">» </a> 下一篇：    <a href="/2022/04/18/MATLAB%E5%AD%A6%E4%B9%A0/draft/" title="发布于 2022-04-18 07:52"></a>
+            
+        </div>
+    </div>
+    
+    <div class="article-comments">
+        <div class="comments-title">
+            评论列表
+        </div>
+        <div class="comments-content">
+        </div>
+    </div>
+
+</div>
+
+    </div>
+</div>
+    <div id="footer"></div>
+    <div id="sidebar">
+    <div class="menu-wrap" style="display:none;">
+        <nav class="menu">
+            <div class="menu-introduce"> 
+                <div class="introduce-avatar"></div> 
+                <div class="introduce-info"> 
+                    <div class="introduce-user"><span></span></div>        
+                </div> 
+            </div> 
+            <div class="menu-list">
+                <ul></ul> 
+            </div> 
+            <div class="menu-link"></div> 
+        </nav>
+        <button class="menu-button-close"></button>
+        <div class="morph-shape" id="morph-shape" data-morph-open="M-7.312,0H15c0,0,66,113.339,66,399.5C81,664.006,15,800,15,800H-7.312V0z;M-7.312,0H100c0,0,0,113.839,0,400c0,264.506,0,400,0,400H-7.312V0z">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 800" preserveAspectRatio="none">
+                <path d="M-7.312,0H0c0,0,0,113.839,0,400c0,264.506,0,400,0,400h-7.312V0z"/>
+            </svg>
+        </div>
+    </div>
+    <button class="menu-button-open">MENU</button>
+    <div class="menu-cover"></div>
+</div>
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/search.css">
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/iscroll.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/instantsearch.min.js"></script>
+<div class="search-window">
+    <div class="search-content">
+        <div class="search-content-icon">
+            <i class="iconfont icon-search"></i>
+        </div>
+        <div id="search-input" class="search-input"></div>
+    </div>
+
+    <div class="search-scroll">
+        <div class="search-result">
+            <div id="search-stats" class="search-stats"></div>
+            <div id="search-hits"></div>
+            <div id="search-pagination" class="search-pagination"></div>
+        </div>
+    </div>
+
+    <span class="search-close-icon">
+        <i class="iconfont icon-close"></i>
+    </span>
+</div>
+    <div id="tools">
+    <div class="progressbar-top"></div>
+
+    
+        <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/APlayer.css">
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/APlayer.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/Meting.min.js"></script>
+        <meting-js id="3778678" lrcshow="false" server="netease" type="playlist" fixed="true" autoplay="false" loop="all" order="random" preload="auto" volume="0.67" mutex="true"></meting-js>
+    
+    
+    <div class="wrap-right"></div>
+    <div class="loading"></div>
+</div>
+    <script>
+    window.config = {
+        GitHubUserName     : 'fubaisen',
+        GitHubRepositories : 'fubaisen.github.io',
+
+        BlogUser      : 'hero',
+        BlogAvatar    : 'https://s2.loli.net/2022/03/31/JpQ6lgGdXmtSZaC.png',
+        BlogStartDate : '2020-01-01',
+
+        WebsiteTitleBlur         : '(◍´꒳`◍) Hi, friend',
+        WebsiteTitleBlurTimeOut  : 500,
+        WebsiteTitleFocus        : '(*´∇｀*) 欢迎回来!',
+        WebsiteTitleFocusTimeOut : 1000,
+        WebsiteFavicon           : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222195607.png',
+
+        ProgressBar: {
+            id       : 'topProgressBar',
+            color    : '#77B6FF',
+            height   : '2px',
+            duration : 0.2
+        },
+
+        Loading: {
+            rebound: {
+                tension  : 16,
+                friction : 5
+            },
+            spinner: {
+                id     : 'spinner',
+                radius : 90,
+                sides  : 3,
+                depth  : 4,
+                colors : {
+                    background : '#F0F0F0',
+                    stroke     : '#272633',
+                    base       : '',
+                    child      : '#272633'
+                },
+                alwaysForward : true,
+                restAt        : 0.5,
+                renderBase    : false
+            }
+        },
+
+        HomeHeaderAnimationRendered : true,
+        HomeHeaderAnimation         : {
+            radius      : 15,
+            density     : 0.2,
+            color       : 'rgba(255, 255, 255, .2)',
+            clearOffset : 0.3
+        },
+
+        ArticleHeaderAnimationRendered : false,
+        ArticleHeaderAnimation         : {
+            triW                  : 14,
+            triH                  : 20,
+            neighbours            : [
+                
+                    'side',
+                
+                    'top',
+                
+                    'bottom',
+                
+            ],
+            speedTrailAppear      : 0.1,
+            speedTrailDisappear   : 0.1,
+            speedTriOpen          : 1,
+            trailMaxLength        : 30,
+            trailIntervalCreation : 100,
+            delayBeforeDisappear  : 2,
+            colors                : [
+                
+                    '#96EDA6',
+                
+                    '#5BC6A9',
+                
+                    '#38668C',
+                
+                    '#374D84',
+                
+                    '#BED5CB',
+                
+                    '#62ADC6',
+                
+                    '#8EE5DE',
+                
+                    '#304E7B',
+                
+            ]
+        },
+
+        BackAnimationRendered          : true,
+        IEBrowserBackAnimationRendered : false,
+        BackAnimation                  : {
+            colorSaturation  : '60%',
+            colorBrightness  : '50%',
+            colorAlpha       : 0.5,
+            colorCycleSpeed  : 5,
+            verticalPosition : 'random',
+            horizontalSpeed  : 200,
+            ribbonCount      : 3,
+            strokeSize       : 0,
+            parallaxAmount   : -0.2,
+            animateSections  : true
+        },
+
+        HomeHeaderImage : [
+            
+                'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/image/header/home.jpg',
+            
+                'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/image/header/home.jpeg',
+            
+        ],
+        HomeBannerText  : '',
+
+        ArticleHeaderImage : [
+            
+                'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/image/header/article.jpg',
+            
+        ],
+
+        OtherBannerText : '',
+
+        MenuList : [
+            
+                {
+                    name   : '首页',
+                    href   : '/',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '标签',
+                    href   : '/tag',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '分类',
+                    href   : '/category',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '归档',
+                    href   : '/archive',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '赞赏',
+                    href   : '/donate',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '关于',
+                    href   : '/about',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '订阅',
+                    href   : '/subscription',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '搜索',
+                    href   : '',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '留言板',
+                    href   : '/comment',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '友情链接',
+                    href   : '/friend',    
+                    target : '',
+                    class  : ''
+                },
+            
+        ],
+        MenuLink : [
+            
+                
+                    {
+                        icon : 'icon-weibo', 
+                        url  : 'https://weibo.com/u/7649528498'
+                    },
+                
+                    {
+                        icon : 'icon-wechat', 
+                        url  : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222190433.png'
+                    },
+                
+                    {
+                        icon : 'icon-qq', 
+                        url  : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222190324.png'
+                    },
+                
+                    {
+                        icon : 'icon-github', 
+                        url  : 'https://github.com/fubaisen'
+                    },
+                
+            
+        ],
+
+        FooterStyle : 2,
+        BottomText  : {
+            icon    : 'like-fill',
+            left    : '人生若只如初见',
+            right   : '何事秋风悲画扇'
+        },
+        ThemeInfo   : true,
+
+        ConsoleList : [
+            
+                
+                    [
+                        
+                            
+                                'Based on cnblogs theme SimpleMemory.',
+                            
+                                '',
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                'SimpleMemory Author:',
+                            
+                                'BNDong',
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                'Theme:',
+                            
+                                'LiveForCode',
+                            
+                        
+                    ],
+                
+            
+        ],
+
+        FontIconExtend : '',
+
+        Donate : {
+            paypal  : '',
+            bitcoin : '',
+            alipay  : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222200200.png',
+            wechat  : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222194957.png'
+        },
+
+        Code : {
+            style : 'normal'
+        },  
+
+        Search : {
+            applicationID : '010C3EANT8',
+            apiKey        : 'c7abab9f11b79102b9aff7fe6d41447d',
+            indexName     : 'Notes',
+            hits          : {
+                page : 10
+            },
+            labels        : {
+                placeholder : '搜索',
+                empty       : '未发现与 「${query}」 相关的内容',
+                stats       : '${hits} 条相关条目，使用了 ${time} 毫秒',
+            }
+        }, 
+
+        Valine : {
+            switch         : true,
+            el             : '.comments-content',
+            appId          : 'srhKtvWPQTWYKh3qX8G8M7v0-gzGzoHsz',
+            appKey         : '8uVSP1q6UlALVC5igYfIfv2h',
+            placeholder    : '你是我一生只会遇见一次的惊喜...',
+            avatar         : 'mm',
+            meta           : 'nick,mail,link',
+            requiredFields : 'nick,mail',
+            pageSize       : 5,
+            lang           : 'zh-cn',
+            visitor        : true,
+            enableQQ       : true
+        },
+
+        Tocbot : {
+            switch                : true,
+            tocSelector           : '.toc',
+            contentSelector       : '.article-body',
+            headingSelector       : 'h1, h2, h3, h4, h5',
+            headingsOffset        : 0,
+            scrollSmooth          : true,
+            scrollSmoothOffset    : -5,
+            positionFixedSelector : '.toc',
+            positionFixedClass    : 'toc-fixed',
+            fixedSidebarOffset    : '',
+        },
+
+        Require : {
+            baseUrl     : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/',
+            waitSeconds : 100
+        },
+
+        Music : {
+            type : 'Meting'
+        },
+        APlayer : {
+            container : '.aplayer',
+            fixed     : true,
+            autoplay  : false,
+            loop      : 'all',
+            order     : 'random',
+            preload   : 'auto',
+            volume    : 0.67,
+            mutex     : true,
+            lrcType   : 3,
+            audio     : [
+                
+                    {
+                        name   : 'aLIEz',
+                        artist : 'mizuki（瑞葵）',
+                        cover  : '/music/cover/aLIEz.jpg',
+                        url    : '/music/song/aLIEz.mp3',
+                        lrc    : '/music/lrc/aLIEz.lrc'
+                    },
+                
+                    {
+                        name   : 'Endless Tears',
+                        artist : 'CLIFF EDGE',
+                        cover  : '/music/cover/Endless Tears.jpg',
+                        url    : '/music/song/Endless Tears.mp3',
+                        lrc    : '/music/lrc/Endless Tears.lrc'
+                    },
+                
+                    {
+                        name   : 'Miracle',
+                        artist : 'Cascada',
+                        cover  : '/music/cover/Miracle.jpg',
+                        url    : '/music/song/Miracle.mp3',
+                        lrc    : '/music/lrc/Miracle.lrc'
+                    },
+                
+                    {
+                        name   : 'Roll The Dice',
+                        artist : '高珊',
+                        cover  : '/music/cover/Roll The Dice.jpg',
+                        url    : '/music/song/Roll The Dice.mp3',
+                        lrc    : '/music/lrc/Roll The Dice.lrc'
+                    },
+                
+                    {
+                        name   : 'See You Again',
+                        artist : 'Charlie Puth, Wiz Khalifa',
+                        cover  : '/music/cover/See You Again.jpg',
+                        url    : '/music/song/See You Again.mp3',
+                        lrc    : '/music/lrc/See You Again.lrc'
+                    },
+                
+                    {
+                        name   : 'Traveling Light',
+                        artist : 'Joel Hanson, Sara Groves',
+                        cover  : '/music/cover/Traveling Light.jpg',
+                        url    : '/music/song/Traveling Light.mp3',
+                        lrc    : '/music/lrc/Traveling Light.lrc'
+                    },
+                
+                    {
+                        name   : '痴心绝对',
+                        artist : '李圣杰',
+                        cover  : '/music/cover/痴心绝对.jpg',
+                        url    : '/music/song/痴心绝对.mp3',
+                        lrc    : '/music/lrc/痴心绝对.lrc'
+                    },
+                
+                    {
+                        name   : '好想大声说爱你',
+                        artist : 'BAAD（バード）',
+                        cover  : '/music/cover/好想大声说爱你.jpg',
+                        url    : '/music/song/好想大声说爱你.mp3',
+                        lrc    : '/music/lrc/好想大声说爱你.lrc'
+                    },
+                
+            ]
+        },
+        Meting : {
+            id       : '3778678', 
+            lrcshow  : false, 
+            server   : 'netease', 
+            type     : 'playlist', 
+            fixed    : true, 
+            autoplay : false, 
+            loop     : 'all', 
+            order    : 'random', 
+            preload  : 'auto', 
+            volume   : 0.67, 
+            mutex    : true
+        },
+
+        Mouse : {
+            enable  : true,
+            options : {
+                size  : 6,
+                sizeF : 24
+            }
+        },
+
+        LazyLoad : {
+            default : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/image/website/lazyload.svg'
+        },
+  
+        Style : {
+            aplayer          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/APlayer.css',
+            archive          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/archive.css',
+            donate           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/donate.css',
+            fancybox         : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/jquery.fancybox.css',
+            footer           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/footer.css',
+            iconfont         : 'https://at.alicdn.com/t/font_1546312_l3yohatebw.css',
+            index            : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/index.css',
+            menuBubble       : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/menu-bubble.css',
+            page             : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/page.css',
+            post             : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/post.css',
+            search           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/search.css',
+            tocbot           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/tocbot.css',
+            normal           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/normal.css',
+            night            : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/night.css',
+            clipboard        : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/clipboard.css'
+        },
+
+        Script: {
+            aplayer          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/APlayer.min.js',
+            config           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/require.config.js',
+            index            : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/index.js',
+            instantSearch    : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/instantsearch.min.js',
+            jQuery           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/jquery-3.4.1.min.js',
+            loading          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/loading.js',
+            meting           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/Meting.min.js',
+            iscroll          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/iscroll.js',
+            require          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/require.min.js'
+        },
+
+        Font: {
+            LongCang   : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/LongCang.css',
+            Monda      : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Monda.css',
+            NotoSansSC : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/NotoSansSC.css',
+            Playball   : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Playball.css',
+            PTMono     : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/PTMono.css',
+            RobotoSlab : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/RobotoSlab.css',
+            Rosario    : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Rosario.css',
+            UbuntuMono : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/UbuntuMono.css'
+        },
+
+        Suffix : {
+            about : '简单地活着, 肆意又精彩.'
+        },
+            
+        Theme : {
+            url  : 'https://github.com/first19326/Hexo-LiveForCode',
+            name : 'Hexo - Live For Code'
+        }  
+    };
+</script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/index.js"></script>
+</body>
+</html>
