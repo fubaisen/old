@@ -112,7 +112,7 @@
 </ul>
 <p>（标量  向量 《矩阵MATLAB程序设计语言》）</p>
 </blockquote>
-<p><img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220416130310651.png" alt="image-20220416130310651"></p>
+<p><img src="https://s2.loli.net/2022/04/18/7RcpQUx9jGNzPmL.png" alt="image-20220416130310651"></p>
 <ul>
 <li><input checked="" disabled="" type="checkbox"> 将向量看做是一维的 ——数组</li>
 <li><input disabled="" type="checkbox"> 将向量看做是矩阵  按矩阵规则进行计算</li>
@@ -168,16 +168,16 @@
 </tr>
 </tbody></table>
 </blockquote>
-<p><img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220416131518374.png" alt="image-20220416131518374"></p>
+<p><img src="https://s2.loli.net/2022/04/18/U9NS5iTot7zMOdB.png" alt="image-20220416131518374"></p>
 <blockquote>
 <ul>
 <li><p>如果有一个量是标量，另一个量是矩阵/向量 ：标量会自动实现扩展和对应的 矩阵/向量进行匹配</p>
 <p>例 ：[1 1 ; 1 1] 矩阵 与  标量  1 相加</p>
-<p><img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220416131936148.png" alt="image-20220416131936148"></p>
+<p><img src="https://s2.loli.net/2022/04/18/VpZNDqOzEuC5LSQ.png" alt="image-20220416131936148"></p>
 </li>
 <li><p>如果所有输入都是非标量的输入 必须要有相应的维度</p>
 <p>例： 两个不同维度的 矩阵相乘  ——报错</p>
-<p><img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220416132610012.png" alt="image-20220416132610012"></p>
+<p><img src="https://s2.loli.net/2022/04/18/21JU8jQh4YcaTrA.png" alt="image-20220416132610012.png"></p>
 </li>
 </ul>
 </blockquote>
@@ -249,12 +249,12 @@
 </thead>
 <tbody><tr>
 <td align="left"><code>2</code>          <code>[1 1]</code></td>
-<td align="left"><img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220416135124585.png" alt="image-20220416135124585"></td>
+<td align="left"><img src="https://s2.loli.net/2022/04/18/zQIVwseJn6XLBvT.png" alt="image-20220416135124585"></td>
 <td>在2016a后无论将<code>[1 1]</code>看做 一维数组或矩阵都表示为 <strong>行矩阵形式</strong></td>
 </tr>
 <tr>
 <td align="left"><code>[1 1][1 1]</code></td>
-<td align="left"><img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220416135541957.png" alt="image-20220416135541957"></td>
+<td align="left"><img src="https://s2.loli.net/2022/04/18/3CByQuwcSnArRhI.png" alt="image-20220416135541957"></td>
 <td></td>
 </tr>
 </tbody></table>
@@ -274,19 +274,19 @@
 </thead>
 <tbody><tr>
 <td><code>[1 1]</code>          <code>[1 1]</code></td>
-<td><img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220416135800513.png" alt="image-20220416135800513"></td>
-<td><img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220416135817568.png" alt="image-20220416135817568">[1 1] * [1 1] 两个1×1矩阵不满足矩阵相乘规</td>
+<td><img src="https://s2.loli.net/2022/04/18/ibFkCzlGsetDcJg.png" alt="image-20220416135800513"></td>
+<td><img src="https://s2.loli.net/2022/04/18/6rfYUuMvGzBt58N.png" alt="image-20220416135817568">[1 1] * [1 1] 两个1×1矩阵不满足矩阵相乘规</td>
 <td>会报错</td>
 </tr>
 <tr>
 <td><code>[1 1]</code>          <code>[1 1]</code></td>
-<td><img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220416140313656.png" alt="image-20220416140313656"></td>
+<td><img src="https://s2.loli.net/2022/04/18/kuiGyP5jfMRObg3.png" alt="image-20220416140313656"></td>
 <td>将 <strong>第一个[1 1] 看做一维数组</strong>                        【数组×矩阵】</td>
 <td>不会报错                  （视频中2016版本前simulink将[1 1]一维数组默认表示为2×1的列矩阵，满足矩阵相乘改规则，但新版本默认为1×1的列矩阵 相乘任然不报错  【未知原因】）</td>
 </tr>
 <tr>
 <td><code>[1 1]</code>          <code>[1 1]</code></td>
-<td><img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220416142918589.png" alt="image-20220416142918589"></td>
+<td><img src="https://s2.loli.net/2022/04/18/6XfeF4lWHzqZBnY.png" alt="image-20220416142918589"></td>
 <td>将 <strong>第二个[1 1] 看做一维数组</strong>                    【矩阵×数组】</td>
 <td>不会报错</td>
 </tr>
@@ -385,7 +385,7 @@
 <blockquote>
 <ul>
 <li><p>-1 表示自动分配</p>
-<p><img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220416154052585.png" alt="image-20220416154052585"></p>
+<p><img src="https://s2.loli.net/2022/04/18/K9Sj6tOYoP28iXm.png" alt="image-20220416154052585.png"></p>
 </li>
 <li><p>Demux 模块提取输入向量信号的分量，再将它们输出为单独的信号。输出信号端口从上到下排列</p>
 </li>
@@ -396,7 +396,7 @@
 <li>Simulink / Commonly Used Blocks</li>
 <li>Simulink / Signal Routing</li>
 </ul>
-<p><img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220416155518138.png" alt="image-20220416155518138"></p>
+<p><img src="https://s2.loli.net/2022/04/18/GpvymQeaHUP7xYr.png" alt="image-20220416155518138"></p>
 <h2 id="Gain增益模块"><a href="#Gain增益模块" class="headerlink" title="Gain增益模块"></a><img src="https://ww2.mathworks.cn/help/simulink/slref/gain_block_icon.png" alt="Gain block">Gain增益模块</h2><p>将输入乘以常量</p>
 <ul>
 <li>Simulink / Commonly Used Blocks</li>
@@ -407,8 +407,8 @@
 <p>在<strong>增益</strong>参数中指定增益的值。<strong>乘法</strong>参数用于指定按元素还是矩阵乘法。对于矩阵乘法，此参数还用于指示被乘数的阶。</p>
 <p>通过舍入到最接近的值和饱和操作将增益从双精度型离线转换为模块封装中指定的数据类型。然后将输入和增益相乘，结果通过指定的舍入和溢出模式转换为输出数据类型。</p>
 </blockquote>
-<p><img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220416163402335.png" alt="image-20220416163402335"></p>
-<p><img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220416164624240.png" alt="image-20220416164624240"></p>
+<p><img src="https://s2.loli.net/2022/04/18/HbOhF82RlsxavNT.png" alt="image-20220416163402335.png"></p>
+<p><img src="https://s2.loli.net/2022/04/18/qyR5jH2IhLuDwxb.png" alt="image-20220416164624240"></p>
 <h2 id="Relational-Operator关系运算"><a href="#Relational-Operator关系运算" class="headerlink" title="Relational Operator关系运算"></a><img src="https://ww2.mathworks.cn/help/simulink/slref/relational_operator_block_icon.png" alt="Relational Operator block">Relational Operator关系运算</h2><p>对输入执行指定的关系运算</p>
 <ul>
 <li>Simulink / Commonly Used Blocks</li>
@@ -466,7 +466,7 @@
 <td align="left">如果输入为有限值，则为 TRUE</td>
 </tr>
 </tbody></table>
-<p><img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220416170920516.png" alt="image-20220416170920516"></p>
+<p><img src="https://s2.loli.net/2022/04/18/XBWGfVo6j1xwmdN.png" alt="image-20220416170920516"></p>
 <h2 id="Logical-Operator逻辑运算"><a href="#Logical-Operator逻辑运算" class="headerlink" title="Logical Operator逻辑运算"></a><img src="https://ww2.mathworks.cn/help/simulink/slref/logical_operator_block_icon.png" alt="Logical Operator block">Logical Operator逻辑运算</h2><p>对输入进行指定的逻辑运算</p>
 <ul>
 <li>Simulink / Commonly Used Blocks</li>
@@ -523,6 +523,7 @@
 <p>如果选择“<code>不同</code>”作为<strong>图标形状</strong>，则模块的外观会指示其功能。Simulink® 软件将按照 IEEE® 逻辑函数的图形符号标准，显示所选运算符的独特形状。</p>
 <p><img src="https://ww2.mathworks.cn/help/simulink/slref/logical_operator_shapes.png" alt="img"></p>
 <p>要指定输入端口的数量，请使用<strong>输入端口数目</strong>参数。使用<strong>输出数据类型</strong>参数指定输出类型。如果为 TRUE，则输出值为 <code>1</code>，如果为 FALSE，则输出值为 <code>0</code>。</p>
+<blockquote>
 <p><strong>注意</strong></p>
 <p>输出数据类型应该准确表示零。满足此条件的数据类型包括有符号整数和无符号整数，以及所有浮点数据类型。</p>
 <p>输出大小取决于输入向量大小和所选运算符：</p>
@@ -538,6 +539,7 @@
 </ul>
 <p>当配置为多输入 XOR 门时，此模块将按照 IEEE 逻辑元素标准的规定执行加法双模运算。</p>
 </blockquote>
+</blockquote>
 <h2 id="Integrator积分模块"><a href="#Integrator积分模块" class="headerlink" title="Integrator积分模块"></a><img src="https://www.mathworks.com/help/releases/R2022a/simulink/slref/integrator_block_icon.png" alt="Integrator block">Integrator积分模块</h2><p>对信号求积分</p>
 <ul>
 <li>Simulink / Commonly Used Blocks</li>
@@ -546,7 +548,7 @@
 <blockquote>
 <ul>
 <li><h6 id="输出其-输入信号-相对于-时间-的积分值"><a href="#输出其-输入信号-相对于-时间-的积分值" class="headerlink" title="输出其   输入信号   相对于  时间  的积分值"></a>输出其   输入信号   相对于  时间  的积分值</h6></li>
-<li><h6 id="Simulink®-将-Integrator-模块作为具有一种状态的动态系统进行处理。模块动态由以下方程指定："><a href="#Simulink®-将-Integrator-模块作为具有一种状态的动态系统进行处理。模块动态由以下方程指定：" class="headerlink" title="Simulink® 将 Integrator 模块作为具有一种状态的动态系统进行处理。模块动态由以下方程指定："></a>Simulink® 将 Integrator 模块作为具有一种状态的动态系统进行处理。模块动态由以下方程指定：</h6><p><img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220417085622410.png" alt="image-20220417085622410"></p>
+<li><h6 id="Simulink®-将-Integrator-模块作为具有一种状态的动态系统进行处理。模块动态由以下方程指定："><a href="#Simulink®-将-Integrator-模块作为具有一种状态的动态系统进行处理。模块动态由以下方程指定：" class="headerlink" title="Simulink® 将 Integrator 模块作为具有一种状态的动态系统进行处理。模块动态由以下方程指定："></a>Simulink® 将 Integrator 模块作为具有一种状态的动态系统进行处理。模块动态由以下方程指定：</h6><p><img src="https://s2.loli.net/2022/04/18/vpuIhKq8Ejxtrc4.png" alt="image-20220417085622410"></p>
 <ul>
 <li>u 是模块输入。</li>
 <li>y 是模块输出。</li>
@@ -568,7 +570,7 @@
 </li>
 <li><p>要从外部源提供初始条件，请将<strong>初始条件来源</strong>参数指定为“<code>外部</code>”。模块输入下会显示一个额外输入端口。</p>
 <p><img src="https://www.mathworks.com/help/releases/R2022a/simulink/slref/intx0.png" alt="img"></p>
-<p><strong>注意</strong></p>
+<p>注意</p>
 <p>如果积分器限制其输出（请参阅<a target="_blank" rel="noopener" href="https://www.mathworks.com/help/releases/R2022a/simulink/slref/integrator.html#f7-890704_sep_f7-1739821">限制积分</a>），则初始条件必须在积分器的饱和界限范围内。如果初始条件在模块饱和界限范围之外，该模块会显示错误消息。</p>
 </li>
 </ul>
@@ -594,13 +596,13 @@
 </blockquote>
 </li>
 <li><h6 id="重置状态"><a href="#重置状态" class="headerlink" title="重置状态"></a>重置状态</h6><p>模块可以根据外部信号将其状态重置为指定的初始条件。要使模块重置其状态，选中<strong>外部重置</strong>选项</p>
-<p><img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220417093202891.png" alt="image-20220417093202891"></p>
+<p><img src="https://s2.loli.net/2022/04/18/cySXQiukv3Yx7nH.png" alt="image-20220417093202891"></p>
 <p>模块输入端口下方将显示一个触发端口，并指示触发类型。</p>
 <p><img src="https://www.mathworks.com/help/releases/R2022a/simulink/slref/intreset.png" alt="img"></p>
 <ul>
 <li><p>选择“<code>上升沿</code>”可在重置信号从负值或零上升到正值时重置状态。</p>
 <p>✍例：</p>
-<p>​            <img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220417094919561.png" alt="image-20220417094919561"></p>
+<p>​            <img src="https://s2.loli.net/2022/04/18/DXPzBxN1SMHh8FT.png" alt="image-20220417094919561"></p>
 </li>
 <li><p>选择“<code>下降沿</code>”可在重置信号从正值下降到零或负值时重置状态。</p>
 </li>
@@ -638,7 +640,7 @@
 <p>此方法可改进正弦和余弦计算的准确性，并缩短角度减小时间。但该方法还需要过零检测，并引入了求解器重置，这会减慢变步长求解器的仿真，尤其是在大型模型中</p>
 <p><img src="https://www.mathworks.com/help/releases/R2022a/simulink/slref/wrappedintegrator.png" alt="img"></p>
 <p>Simulink 允许以绕回状态上限和下限值参数为边界的绕回状态。下面的方程给出了确定绕回状态的算法：</p>
-<p><img src="file://C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220417090407004.png?lastModify=1650159125" alt="image-20220417090407004"></p>
+<p><img src="https://s2.loli.net/2022/04/18/Hj7wSPhkOt9v3Va.png" alt="image-20220417090407004.png"></p>
 <p>其中：</p>
 <ul>
 <li>xl 是绕回状态的下限值。</li>
@@ -675,7 +677,7 @@
 <td align="left">上限</td>
 </tr>
 </tbody></table>
-<p><img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220417092049477.png" alt="image-20220417092049477"  /><img src="https://s2.loli.net/2022/04/17/a61nO2iBljPHUsK.png" alt="image-20220417092753929"></p>
+<p><img src="https://s2.loli.net/2022/04/18/iq6aEtDIjTbwdWX.png" alt="image-20220417092049477.png"><img src="https://s2.loli.net/2022/04/17/a61nO2iBljPHUsK.png" alt="image-20220417092753929"></p>
 </blockquote>
 <h2 id="Unit-Delat单位延迟模块"><a href="#Unit-Delat单位延迟模块" class="headerlink" title="Unit Delat单位延迟模块"></a><img src="https://www.mathworks.com/help/releases/R2022a/simulink/slref/unit_delay_block_icon.png" alt="Unit Delay block">Unit Delat单位延迟模块</h2><p>将信号延迟一个采样周期</p>
 <ul>
@@ -692,26 +694,26 @@
 <li>Simulink / Commonly Used Blocks</li>
 <li>Simulink / Signal Attributes</li>
 </ul>
-<p><img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220417222147778.png" alt="image-20220417222147778"></p>
+<p><img src="https://s2.loli.net/2022/04/18/m4rQlegkWMwCv1F.png" alt="image-20220417222147778.png"></p>
 <blockquote>
 <p>采用Inherit via internal rule</p>
 <p><img src="https://www.ilovematlab.cn/data/attachment/forum/201811/14/150728p95979jydrnmi051.jpg" alt="采用Inherit via internal rule"></p>
 <p>采用定义输出类型的方式<img src="https://www.ilovematlab.cn/data/attachment/forum/201811/14/150837lv329j3hj2hywwd3.jpg" alt="采用定义输出类型的方式"></p>
 </blockquote>
 <blockquote>
-<p><img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220417220102608.png" alt="image-20220417220102608"></p>
+<p><img src="https://s2.loli.net/2022/04/18/zCBelTvV4MYXSA6.png" alt="image-20220417220102608.png"></p>
 <p>其中有3类用fixdt表示的定点数类型。</p>
 <p>其中fixdt(1,16,0)中的“1”表示“有符号数”，“16”表示16位二进制，“0”表示0位小数（即整数）。fixdt(1,16,0)等效于int16。fixdt(1,16,0)中的最后一个0可以省略，即为fixdt(1,16)。</p>
 <p>当表示n位小数位时，n可以为正数，也可以为负数。比如n=1时，所表示的小数的最小精度为0.5；当n=-1时，所表示的“小数”的最小精度为2</p>
 <p><strong><a href="%5B(4%E6%9D%A1%E6%B6%88%E6%81%AF">更多</a> 深入研究simulink建模与仿真之定点数据类型fixdt_booksyhay的博客-CSDN博客_fixdt(0,16,0.1,0)](<a target="_blank" rel="noopener" href="https://blog.csdn.net/booksyhay/article/details/88032743">https://blog.csdn.net/booksyhay/article/details/88032743</a>))</strong></p>
 </blockquote>
-<p><img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220417165003063.png" alt="image-20220417165003063"></p>
+<p><img src="https://s2.loli.net/2022/04/18/XudeO6loD8cSUMJ.png" alt="image-20220417165003063.png"></p>
 <p>rwv方式以浮点数进行存储</p>
 <p>si 方式会将浮点数转换成相应的定点数</p>
 <p><strong>ி涉及二进制移位运算，再转换设计小数点的丢失</strong></p>
 <ul>
 <li><p>例1：</p>
-<p><img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220417163409353.png" alt="image-20220417163409353"></p>
+<p><img src="https://s2.loli.net/2022/04/18/G3P2EbwOajhVLYQ.png" alt="image-20220417163409353.png"></p>
 <blockquote>
 <p>转换比例  (En2) :  2^-2    </p>
 <p>将15 转换位相应的二进制数   ——&gt;  001111  由于比例  转换为  <code>001111.00</code></p>
@@ -719,7 +721,7 @@
 </blockquote>
 <p>丢失2个二进制小数点，相当于乘以2的平方 所以15×4=60</p>
 </li>
-<li><p>例2：<img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220417232646881.png" alt="image-20220417232646881"></p>
+<li><p>例2：<img src="https://s2.loli.net/2022/04/18/MpTcbI4JowPdxDg.png" alt="image-20220417232646881.png"></p>
 <blockquote>
 <p><code>sfix8_En2</code></p>
 <ul>

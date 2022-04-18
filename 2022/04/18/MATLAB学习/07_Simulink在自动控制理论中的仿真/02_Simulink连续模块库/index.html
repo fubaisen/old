@@ -60,10 +60,10 @@
     <div class="article-body">
         <h1 id="连续模块库"><a href="#连续模块库" class="headerlink" title="连续模块库"></a>连续模块库</h1><ul>
 <li><p>连续时间线系统模块库</p>
-<p><img src="file://C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220417233113812.png?lastModify=1650209764" alt="image-20220417233113812"></p>
+<p><img src="https://s2.loli.net/2022/04/18/L94ArZuqj3fzS58.png" alt="image-20220417233107137.png"></p>
 </li>
 <li><p>连续时间延迟模块库</p>
-<p><img src="file://C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220417233107137.png?lastModify=1650209764" alt="image-20220417233107137"></p>
+<p><img src="file://C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220417233107137.png?lastModify=1650209764" alt="![image-20220417233113812.png](https://s2.loli.net/2022/04/18/9iIUfxv5GhLbZnz.png)"></p>
 </li>
 </ul>
 <h2 id="Derivative微分模块"><a href="#Derivative微分模块" class="headerlink" title="Derivative微分模块"></a><img src="https://www.mathworks.com/help/releases/R2022a/simulink/slref/derivative_block_icon.png" alt="Derivative block">Derivative微分模块</h2><p>输出是输入信号的时间导数</p>
@@ -77,11 +77,11 @@
 <p>当信号为非连续信号  使用<img src="https://www.mathworks.com/help/releases/R2022a/simulink/slref/difference_block_icon.png" alt="Difference block">模块</p>
 </blockquote>
 <blockquote>
-<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>Derivative 模块可近似计算输入信号 u 相对于仿真时间 t 的导数。您将获得以下算式的近似值：<img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220418085857978.png" alt="image-20220418085857978"></p>
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>Derivative 模块可近似计算输入信号 u 相对于仿真时间 t 的导数。您将获得以下算式的近似值：<img src="https://s2.loli.net/2022/04/18/OkJNgptb6YCq5U3.png" alt="image-20220418085857978.png"></p>
 <p>方法是计算数值差异 Δ<em>u</em>/Δ<em>t</em>,其中 Δ<em>u</em> 是输入值的变化，Δ<em>t</em> 是自上一个仿真（主要）时间步以来的时间变化。</p>
 <p>此模块接受一个输入并生成一个输出。模块的初始输出为零。</p>
 <p>此模块的输入和输出之间的精确关系是：</p>
-<p><img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220418085922414.png" alt="image-20220418085922414"></p>
+<p><img src="https://s2.loli.net/2022/04/18/EyMzF6qLUVNZJGu.png" alt="image-20220418085922414.png"></p>
 <p>其中 t 是当前仿真时间，<em>T<strong>p</strong>r<strong>e</strong>v<strong>i</strong>o<strong>u</strong>s</em> 是上次仿真输出的时间。后者与上次主时间步的时间相同。</p>
 <p>Derivative 模块的输出可能对整个模型的动态比较敏感。</p>
 <p>步长越小，此模块的输出曲线就越平滑和准确。</p>
@@ -89,21 +89,20 @@
 <p>由于存在这种敏感度，因此请将模型构造为使用积分器模块（例如 <a target="_blank" rel="noopener" href="https://www.mathworks.com/help/releases/R2022a/simulink/slref/integrator.html">Integrator</a> 模块）而不是 Derivative 模块。Integrator 模块的状态允许求解器调整步长并改进仿真的准确性。请参阅<a target="_blank" rel="noopener" href="https://www.mathworks.com/help/releases/R2022a/simulink/ug/best-form-mathematical-models.html#bra6aje">电路模型</a>来获取如何选择最佳形式的数学模型的示例，以避免在模型中使用 Derivative 模块。</p>
 <p>如果必须将 Derivative 模块与变步长求解器结合使用，请将求解器最大步长设置为可以使 Derivative 模块生成的回应具有足够准确度的值。为了确定此值，您可能需要使用不同的求解器设置重复运行仿真。</p>
 <p>如果此模块的输入为离散信号，则当输入值发生变化时，输入的连续导数会显示一个脉冲。否则为 0。或者，您可以使用信号最后两个值之间的差异定义离散信号的离散导数：</p>
-<p><img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220418085946449.png" alt="image-20220418085946449"></p>
+<p><img src="https://s2.loli.net/2022/04/18/BjbDHUCqr2kdpaQ.png" alt="image-20220418085946449.png"></p>
 <p>对此方程进行 <em>z</em> 变换会得到：</p>
-<p><img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220418085955758.png" alt="image-20220418085955758"></p>
+<p><img src="https://s2.loli.net/2022/04/18/xkAtUJlszybgqBW.png" alt="image-20220418085955758.png"></p>
 <p><a target="_blank" rel="noopener" href="https://www.mathworks.com/help/releases/R2022a/simulink/slref/discretederivative.html">Discrete Derivative</a> 模块可对此行为进行建模。使用此模块而不是 Derivative 模块可以近似计算离散信号的离散时间导数。</p>
 </blockquote>
 <h2 id="三种传递模块及相互转化"><a href="#三种传递模块及相互转化" class="headerlink" title="三种传递模块及相互转化"></a>三种传递模块及相互转化</h2><h3 id="State-Space状态空间模块"><a href="#State-Space状态空间模块" class="headerlink" title="State-Space状态空间模块"></a><img src="https://www.mathworks.com/help/releases/R2022a/simulink/slref/state_space_block_icon.png" alt="State-Space block">State-Space状态空间模块</h3><ul>
 <li>Simulink / Continuous</li>
 </ul>
-<img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220418090419906.png" alt="image-20220418090419906" style="zoom:67%;" />
-
-<p>例：<img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220418090630323.png" alt="image-20220418090630323"></p>
-<p>得：<img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220418090715256.png" alt="image-20220418090715256" style="zoom:80%;" /><img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220418090747180.png" alt="image-20220418090747180" style="zoom:67%;" /></p>
-<p>​        <img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220418090840230.png" alt="image-20220418090840230"></p>
-<p><img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220418091559651.png" alt="image-20220418091559651"></p>
-<p><img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220418091630528.png" alt="image-20220418091630528"></p>
+<p><img src="https://s2.loli.net/2022/04/18/HEkV6Jv7RZ9LOIX.png" alt="image-20220418090419906.png"></p>
+<p>例：<img src="https://s2.loli.net/2022/04/18/cb8i7jmgfBNqzQa.png" alt="image-20220418090630323.png"></p>
+<p>得：<img src="https://s2.loli.net/2022/04/18/FAImywQP3XqdJCf.png" alt="image-20220418090715256.png" style="zoom:80%;" /><img src="https://s2.loli.net/2022/04/18/sJlZNP5m8fcDVOW.png" alt="image-20220418090747180" style="zoom:67%;" /></p>
+<p>​        <img src="https://s2.loli.net/2022/04/18/Jb7IE9eBpwjkcDn.png" alt="image-20220418090840230"></p>
+<p><img src="https://s2.loli.net/2022/04/18/PyThY1RUG2NlFaE.png" alt="image-20220418091559651"></p>
+<p><img src="https://s2.loli.net/2022/04/18/xLRQDMyEmo6i154.png" alt="image.png"></p>
 <h4 id="利用-linmod-函数提取状态矩阵"><a href="#利用-linmod-函数提取状态矩阵" class="headerlink" title="利用 linmod 函数提取状态矩阵"></a>利用 linmod 函数提取状态矩阵</h4><p>提取   连续系统状态空间模型 （linmod）、离散系统状态空间模型（dlinmod）</p>
 <blockquote>
 <p>解决了上一步中 手动求解  状态矩阵</p>
@@ -113,14 +112,14 @@
 <ul>
 <li><p>Simulink / Simulink Extras / Linearization</p>
 <ul>
-<li><p>例：<img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220418093111963.png" alt="image-20220418093111963">以传递函数为例</p>
+<li><p>例：<img src="https://s2.loli.net/2022/04/18/BY62t9ExacICwmQ.png" alt="image-20220418093111963">以传递函数为例</p>
 <blockquote>
 <p>ps:</p>
 <ul>
 <li><p>无论是传递函数 还是状态矩阵 它描述的都是这个系统本身的控制特性，与系统的输入和输出是没有关系的  ，则系统无论输入什么函数、信号、输出是什么样子，均不影响状态函数（矩阵）的形式  ——&gt;  输入输出必须以 <code>in</code>  与 <code>out </code> 模块 来代替，使他与实际的输入输出信号无关</p>
-<p>传递函数：<img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220418093804689.png" alt="image-20220418093804689"></p>
+<p>传递函数：<img src="https://s2.loli.net/2022/04/18/po4wIbMyxEznGm5.png" alt="image-20220418093804689.png"></p>
 </li>
-<li><p><img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220418094317411.png" alt="image-20220418094317411"></p>
+<li><p><img src="https://s2.loli.net/2022/04/18/weVAzkn9NTuS5yd.png" alt="image-20220418094317411.png"></p>
 </li>
 </ul>
 </blockquote>
@@ -128,8 +127,7 @@
 </ul>
 </li>
 </ul>
-<img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220418101155635.png" alt="image-20220418101155635" style="zoom:150%;" />
-
+<p><img src="https://s2.loli.net/2022/04/18/pjxCdhSEXsY4TJR.png" alt="image-20220418101155635.png"></p>
 <h5 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h5><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">argout = linmod(<span class="string">&#x27;sys&#x27;</span>);</span><br><span class="line">argout = linmod(<span class="string">&#x27;sys&#x27;</span>, x, u);</span><br><span class="line">argout = linmod(<span class="string">&#x27;sys&#x27;</span>, x, u, para);</span><br><span class="line">argout = linmod(<span class="string">&#x27;sys&#x27;</span>, x, u, <span class="string">&#x27;v5&#x27;</span>);</span><br><span class="line">argout = linmod(<span class="string">&#x27;sys&#x27;</span>, x, u, para, <span class="string">&#x27;v5&#x27;</span>);</span><br><span class="line">argout = linmod(<span class="string">&#x27;sys&#x27;</span>, x, u, para, xpert, upert, <span class="string">&#x27;v5&#x27;</span>);</span><br></pre></td></tr></table></figure>
 
 <h5 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h5><table>
@@ -180,7 +178,7 @@
 <ul>
 <li>Simulink / Continuous</li>
 </ul>
-<p><img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220418093804689.png" alt="image-20220418093804689"></p>
+<p><img src="https://s2.loli.net/2022/04/18/po4wIbMyxEznGm5.png" alt="image-20220418093804689.png"></p>
 <blockquote>
 <p>Transfer Fcn 模块通过拉普拉斯域变量 <code>s</code> 的传递函数为线性系统建模。此模块可为单输入单输出 (SISO) 和单输入多输出 (SIMO) 系统建模。</p>
 <h3 id="使用此模块的条件"><a href="#使用此模块的条件" class="headerlink" title="使用此模块的条件"></a>使用此模块的条件</h3><p>Transfer Fcn 模块假定满足以下条件：</p>
@@ -231,7 +229,7 @@
 <ul>
 <li>Simulink / Continuous</li>
 </ul>
-<p><img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220418123306289.png" alt="image-20220418123306289"></p>
+<p><img src="https://s2.loli.net/2022/04/18/1tkcmfZHSTDuMjg.png" alt="image-20220418123306289.png"></p>
 <blockquote>
 <p>Zero-Pole 模块可以为您使用零点、极点和拉普拉斯域传递函数增益定义的系统进行建模。此模块可为单输入单输出 (SISO) 和单输入多输出 (SIMO) 系统建模。</p>
 <h3 id="使用此模块的条件-1"><a href="#使用此模块的条件-1" class="headerlink" title="使用此模块的条件"></a>使用此模块的条件</h3><p>Zero-Pole 模块假定满足以下条件：</p>
@@ -290,14 +288,14 @@
 <p><code>零极点增益表达模式</code> 、 <code>普通传递函数表达模式</code>  、<code>状态空间表达模式</code>  之间互相切换</p>
 <ul>
 <li><p>tf函数：</p>
-<p><img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220418123952381.png" alt="image-20220418123952381"></p>
+<p><img src="https://s2.loli.net/2022/04/18/CpQTAqsbUZnvGLH.png" alt="image-20220418123952381.png"></p>
 </li>
-<li><p>zpk函数:<img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220418191927385.png" alt="image-20220418191927385"></p>
+<li><p>zpk函数:<img src="https://s2.loli.net/2022/04/18/UY3iJE1MDPgjaoH.png" alt="image-20220418191927385.png"></p>
 </li>
 <li><p>ss函数：</p>
 <p>将传递函数  表达式  转化为  状态空间方式表达的传递函数</p>
-<p><img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220418193010695.png" alt="image-20220418193010695"></p>
-<p><img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220418193214820.png" alt="image-20220418193214820"></p>
+<p><img src="https://s2.loli.net/2022/04/18/Iubfan1rOlzKMdp.png" alt="image-20220418193005228.png"></p>
+<p><img src="https://s2.loli.net/2022/04/18/y3TR9NGblL4Pm1D.png" alt="image-20220418193214820.png"></p>
 </li>
 </ul>
 
