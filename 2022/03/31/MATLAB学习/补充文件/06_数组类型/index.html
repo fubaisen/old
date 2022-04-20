@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no">
+    <meta name="referrer" content="origin">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <title>数组类型</title>
+    <link rel="shortcut icon" href="#"/>
+
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/LongCang.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Monda.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/NotoSansSC.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Playball.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/PTMono.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/RobotoSlab.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Rosario.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/UbuntuMono.css">
+
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/post.css">
+    
+        <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/normal.css">
+    
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/jquery-3.4.1.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.1"></head>
+<body>
+    <a id="cover"></a>
+    <div id="header">
+    <div class="header">
+        <div class="vertical">
+            <div class="inner">
+                <h1 class="header-subtitle">数组类型</h1>
+                <div class="header-subinfo">
+                    <p class="article-info-text">
+                        <span>
+                            <i class="iconfont icon-time"></i> 发表时间：2022-03-31
+                        </span>
+                        
+                            <span id="/2022/03/31/MATLAB学习/补充文件/06_数组类型/" class="leancloud_visitors" data-flag-title="数组类型">
+                                <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                            </span>
+                        
+                        <span>
+                            <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2022/03/31/MATLAB学习/补充文件/06_数组类型/"></span>
+                        </span>  
+                    </p>                 
+                </div>
+            </div>
+        </div>
+        <canvas id="articleHeaderCanvas"></canvas>
+    </div>
+</div>
+    <div id="container">
+    <div id="content">
+        <div id="article">
+    <div class="toc"></div>
+    <div class="article-body">
+        <h1 id="数组类型"><a href="#数组类型" class="headerlink" title="数组类型"></a>数组类型</h1><p>在<code>MATLAB</code>中进行运算的所有数据类型，<strong>都是按照数组及矩阵的形式进行存储和运算</strong>的，但是两者在性质上有着些许区别</p>
+<ul>
+<li>数组强调元素对元素的运算</li>
+<li>矩阵则采用线性代数的运算法则</li>
+</ul>
+<p>数组的属性及数组之间的逻辑关系，是在编写程序中两个非常重要的方面</p>
+<p>在<code>MATLAB</code>中，数组的定义是广泛的，<strong>数组中的数据类型元素</strong>可以是<strong>任意的数据类型</strong>，如<code>数值、字符串、指针</code>等。</p>
+<p>本次主要介绍数据的构建方式</p>
+<blockquote>
+<ul>
+<li>直接赋值</li>
+<li>函数构造</li>
+<li>空数组</li>
+</ul>
+</blockquote>
+<h2 id="一、直接赋值"><a href="#一、直接赋值" class="headerlink" title="一、直接赋值"></a>一、直接赋值</h2><p>可以通过直接对变量进行赋值来构建数组。如下：<br><code>code:</code></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; Array = [<span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span>]</span><br><span class="line"></span><br><span class="line">Array =</span><br><span class="line"></span><br><span class="line">     <span class="number">1</span>     <span class="number">2</span>     <span class="number">3</span>     <span class="number">4</span>     <span class="number">5</span>     <span class="number">6</span></span><br></pre></td></tr></table></figure>
+
+<p>在<code>MATLAB</code>中还可以通过冒号<code>:</code>来代替一系列的数值，可以用来定义数组。语法格式如下：<br><code>code:</code></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; Array = <span class="built_in">i</span>:<span class="built_in">j</span>:k</span><br></pre></td></tr></table></figure>
+
+<p>表示的含义为：创建从<code>i</code>开始，步长为<code>j</code>，到<code>k</code>结束的数字序列。其中<code>j</code>可以省略，如果省略代表创建从<code>i</code>开始，步长为<code>1</code>，到<code>k</code>结束的数字序列。如下：<br><code>code:</code></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; Array = <span class="number">1</span>:<span class="number">6</span></span><br><span class="line"></span><br><span class="line">Array =</span><br><span class="line"></span><br><span class="line">     <span class="number">1</span>     <span class="number">2</span>     <span class="number">3</span>     <span class="number">4</span>     <span class="number">5</span>     <span class="number">6</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="二、函数构造"><a href="#二、函数构造" class="headerlink" title="二、函数构造"></a>二、函数构造</h2><p>还可以通过一些预定义的函数来构建线性序列和逻辑序列。如下：<br><code>code:</code></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; Array = <span class="built_in">linspace</span>(<span class="number">1</span>,<span class="number">10</span>,<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">Array =</span><br><span class="line"></span><br><span class="line">    <span class="number">1.0000</span>    <span class="number">3.2500</span>    <span class="number">5.5000</span>    <span class="number">7.7500</span>   <span class="number">10.000</span></span><br></pre></td></tr></table></figure>
+
+<p>在区间<code>[1,10]</code>上等距离的创建了<code>5</code>个数字序列。</p>
+<h2 id="三、空数组"><a href="#三、空数组" class="headerlink" title="三、空数组"></a>三、空数组</h2><p>空数组，是十分有用的，表达的意思是数组的元素个数为<code>0</code>个，主要用于逻辑运算、数组声明、数组的清空等。如：<br><code>code:</code></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; Array_Empty = []</span><br><span class="line"></span><br><span class="line">Array_Empty =</span><br><span class="line"></span><br><span class="line">     []</span><br></pre></td></tr></table></figure>
+
+<h1 id="单元数组"><a href="#单元数组" class="headerlink" title="单元数组"></a>单元数组</h1><p>介绍了<strong>数组类型</strong>，本次简述一种广义的“数组”——单元数组（<code>cell</code>）</p>
+<p><strong>单元数组是一种无所不包的广义矩阵</strong>，其中<code>可以包括各种数据类型的数组</code></p>
+<ul>
+<li>如数值数组</li>
+<li>字符串数组</li>
+<li>结构体数组</li>
+<li>另外一个单元数组</li>
+</ul>
+<p>组成单元数组的每一个元素称为一个单元。和一般的数值数组一样，单元数组可以是一维、二维或者多维的。使用单元数组的目的主要在于，<code>把不同的数据类型放在一起管理</code>。</p>
+<p>本文将主要从单元数组的创建、寻访和操作三个方面做出简单介绍。</p>
+<blockquote>
+<ul>
+<li>创建</li>
+<li>寻访</li>
+<li>操作</li>
+</ul>
+</blockquote>
+<h2 id="一、创建"><a href="#一、创建" class="headerlink" title="一、创建"></a>一、创建</h2><p>单元数组的创建主要有两种方法，使用赋值语句创建单元数组和利用<code>cell</code>函数创建数组。下面分别作出介绍。</p>
+<h4 id="1-使用赋值语句创建"><a href="#1-使用赋值语句创建" class="headerlink" title="1.使用赋值语句创建"></a>1.使用赋值语句创建</h4><p>与一般数组有所不同的是，单元数组使用<code>&#123;&#125;</code>来创建，使用<code>,</code>或者空格来分割每一个单元，使用<code>;</code>来分行。<br>例如：<br><code>code:</code></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; C = &#123;<span class="string">&#x27;x&#x27;</span>,[<span class="number">1</span>;<span class="number">3</span>;<span class="number">6</span>];<span class="number">10</span>,<span class="built_in">pi</span>&#125;;</span><br><span class="line">&gt;&gt; whos C</span><br><span class="line">  Name      Size            Bytes  Class    Attributes</span><br><span class="line"></span><br><span class="line">  C         <span class="number">2</span>x2               <span class="number">490</span>  cell               </span><br></pre></td></tr></table></figure>
+
+<h4 id="2-使用cell函数创建"><a href="#2-使用cell函数创建" class="headerlink" title="2.使用cell函数创建"></a>2.使用cell函数创建</h4><p>cell函数的调用格式如下：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cellName = cell(m,n)</span><br></pre></td></tr></table></figure>
+
+<p>表示的意思维创建一个<code>m</code>×<code>n</code>的单元数组，其每一个单元均为空矩阵。<br>例如：<br><code>code:</code></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; a = cell(<span class="number">2</span>,<span class="number">2</span>);</span><br><span class="line">&gt;&gt; b = cell(<span class="number">1</span>,<span class="number">1</span>);</span><br><span class="line">&gt;&gt; whos</span><br><span class="line">  Name      Size            Bytes  Class    Attributes</span><br><span class="line"></span><br><span class="line">  a         <span class="number">2</span>x2                <span class="number">32</span>  cell               </span><br><span class="line">  b         <span class="number">1</span>x1                 <span class="number">8</span>  cell               </span><br><span class="line"></span><br><span class="line">&gt;&gt; a</span><br><span class="line"></span><br><span class="line">a =</span><br><span class="line"></span><br><span class="line">  <span class="number">2</span>×<span class="number">2</span> cell 数组</span><br><span class="line"></span><br><span class="line">    []    []</span><br><span class="line">    []    []</span><br><span class="line"></span><br><span class="line">&gt;&gt; b</span><br><span class="line"></span><br><span class="line">b =</span><br><span class="line"></span><br><span class="line">  cell</span><br><span class="line"></span><br><span class="line">    &#123;[]&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>最后再说明一点，同一般的数值数组一样，单元数组内存空间也是动态分配的。因而，使用<code>cell</code>函数创建空单元数组的主要目的为了让单元数组预先分配连续的存储空间，以节约内存，提高执行效率</p>
+</blockquote>
+<h2 id="二、寻访"><a href="#二、寻访" class="headerlink" title="二、寻访"></a>二、寻访</h2><p>在单元数组中，一定要区分单元和单元中的内容，不然很容易出错</p>
+<p><code>MATLAB</code>中对此设计了两种操作对象：单元外标识符和单元内编制</p>
+<p>对于单元数组<code>C</code></p>
+<ul>
+<li><code>C(m,n)</code>指的是单元数组中第m行第n列的单元</li>
+<li><code>C&#123;m,n&#125;</code>指的是单元数组中第<code>m</code>行第<code>n</code>列的单元中的内容</li>
+</ul>
+<p>例如：</p>
+<p><code>code:</code></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; C = &#123;<span class="number">3</span>,[<span class="number">4</span> <span class="number">7</span>;<span class="number">6</span> <span class="number">6</span>;<span class="number">80</span> <span class="number">9</span>],<span class="string">&#x27;String&#x27;</span>;<span class="built_in">sin</span>(<span class="built_in">pi</span>/<span class="number">8</span>),<span class="number">3</span>&gt;<span class="number">10</span>,<span class="string">&#x27;code&#x27;</span>&#125;;</span><br><span class="line">&gt;&gt; unitVal_1 = C(<span class="number">2</span>,<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">unitVal_1 =</span><br><span class="line"></span><br><span class="line">  cell</span><br><span class="line"></span><br><span class="line">    [<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">&gt;&gt; class(unitVal_1)</span><br><span class="line"></span><br><span class="line"><span class="built_in">ans</span> =</span><br><span class="line"></span><br><span class="line">cell</span><br><span class="line"></span><br><span class="line">&gt;&gt; unitVal_2 = C&#123;<span class="number">2</span>,<span class="number">2</span>&#125;</span><br><span class="line"></span><br><span class="line">unitVal_2 =</span><br><span class="line"></span><br><span class="line">  logical</span><br><span class="line"></span><br><span class="line">   <span class="number">0</span></span><br><span class="line"></span><br><span class="line">&gt;&gt; class(unitVal_2)</span><br><span class="line"></span><br><span class="line"><span class="built_in">ans</span> =</span><br><span class="line"></span><br><span class="line">logical</span><br></pre></td></tr></table></figure>
+
+<h2 id="三、操作"><a href="#三、操作" class="headerlink" title="三、操作"></a>三、操作</h2><p>单元数组的操作包括</p>
+<ul>
+<li><strong>合并</strong></li>
+<li><strong>删除指定单元</strong></li>
+<li><strong>改变形状</strong></li>
+</ul>
+<h4 id="1、合并"><a href="#1、合并" class="headerlink" title="1、合并"></a>1、合并</h4><p>单元数组的合并<br><code>code:</code></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; a&#123;<span class="number">1</span>,<span class="number">1</span>&#125; = <span class="string">&#x27;cellclass&#x27;</span>;</span><br><span class="line">a&#123;<span class="number">1</span>,<span class="number">2</span>&#125; = [<span class="number">1</span> <span class="number">2</span> <span class="number">2</span>];</span><br><span class="line">a&#123;<span class="number">2</span>,<span class="number">1</span>&#125; = [<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>];</span><br><span class="line">a&#123;<span class="number">2</span>,<span class="number">2</span>&#125; = [<span class="number">9</span> <span class="number">4</span> <span class="number">5</span>];</span><br><span class="line">a</span><br><span class="line">b = &#123;<span class="string">&#x27;jan&#x27;</span>&#125;</span><br><span class="line">C = &#123;a,b&#125;</span><br><span class="line"></span><br><span class="line">a =</span><br><span class="line"></span><br><span class="line">  <span class="number">2</span>×<span class="number">2</span> cell 数组</span><br><span class="line"></span><br><span class="line">    <span class="string">&#x27;cellclass&#x27;</span>    [<span class="number">1</span>×<span class="number">3</span> double]</span><br><span class="line">    <span class="string">&#x27;abc&#x27;</span>          [<span class="number">1</span>×<span class="number">3</span> double]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">b =</span><br><span class="line"></span><br><span class="line">  cell</span><br><span class="line"></span><br><span class="line">    <span class="string">&#x27;jan&#x27;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">C =</span><br><span class="line"></span><br><span class="line">  <span class="number">1</span>×<span class="number">2</span> cell 数组</span><br><span class="line"></span><br><span class="line">    &#123;<span class="number">2</span>×<span class="number">2</span> cell&#125;    &#123;<span class="number">1</span>×<span class="number">1</span> cell&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2、删除"><a href="#2、删除" class="headerlink" title="2、删除"></a>2、删除</h4><p>如果要删除的话，那就用空矩阵把其给替换掉。</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C&#123;m,n&#125; = []</span><br></pre></td></tr></table></figure>
+
+<p>例如：<br><code>code:</code></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; C = &#123;<span class="built_in">ones</span>(<span class="number">3</span>),<span class="string">&#x27;Hello CN&#x27;</span>,<span class="built_in">zeros</span>(<span class="number">5</span>),[<span class="number">20</span>,<span class="number">4</span>,<span class="number">6</span>]&#125;</span><br><span class="line"></span><br><span class="line">C =</span><br><span class="line"></span><br><span class="line">  <span class="number">1</span>×<span class="number">4</span> cell 数组</span><br><span class="line"></span><br><span class="line">    [<span class="number">3</span>×<span class="number">3</span> double]    <span class="string">&#x27;Hello CN&#x27;</span>    [<span class="number">5</span>×<span class="number">5</span> double]    [<span class="number">1</span>×<span class="number">3</span> double]</span><br><span class="line"></span><br><span class="line">&gt;&gt; C&#123;<span class="number">1</span>,<span class="number">4</span>&#125; = []</span><br><span class="line"></span><br><span class="line">C =</span><br><span class="line"></span><br><span class="line">  <span class="number">1</span>×<span class="number">4</span> cell 数组</span><br><span class="line"></span><br><span class="line">    [<span class="number">3</span>×<span class="number">3</span> double]    <span class="string">&#x27;Hello CN&#x27;</span>    [<span class="number">5</span>×<span class="number">5</span> double]    []</span><br></pre></td></tr></table></figure>
+
+<h4 id="3、变形"><a href="#3、变形" class="headerlink" title="3、变形"></a>3、变形</h4><p>改变形状的要使用reshape函数，调用格式为：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">trimC = <span class="built_in">reshape</span>(C,M,N)</span><br></pre></td></tr></table></figure>
+
+<p>意思是把单元数组<code>C</code>变成一个具有<code>M</code>行和<code>N</code>列的新的单元数组。<br>例如：<br><code>code:</code></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; C = &#123;<span class="built_in">ones</span>(<span class="number">3</span>),<span class="string">&#x27;Hello CN&#x27;</span>,<span class="built_in">zeros</span>(<span class="number">5</span>),[<span class="number">20</span>,<span class="number">4</span>,<span class="number">6</span>]&#125;</span><br><span class="line"></span><br><span class="line">C =</span><br><span class="line"></span><br><span class="line">  <span class="number">1</span>×<span class="number">4</span> cell 数组</span><br><span class="line"></span><br><span class="line">    [<span class="number">3</span>×<span class="number">3</span> double]    <span class="string">&#x27;Hello CN&#x27;</span>    [<span class="number">5</span>×<span class="number">5</span> double]    [<span class="number">1</span>×<span class="number">3</span> double]</span><br><span class="line"></span><br><span class="line">&gt;&gt; newC = <span class="built_in">reshape</span>(C,<span class="number">4</span>,<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">newC =</span><br><span class="line"></span><br><span class="line">  <span class="number">4</span>×<span class="number">1</span> cell 数组</span><br><span class="line"></span><br><span class="line">    [<span class="number">3</span>×<span class="number">3</span> double]</span><br><span class="line">    <span class="string">&#x27;Hello CN&#x27;</span></span><br><span class="line">    [<span class="number">5</span>×<span class="number">5</span> double]</span><br><span class="line">    [<span class="number">1</span>×<span class="number">3</span> double]</span><br></pre></td></tr></table></figure>
+        <p class="suffix-end">__END__</p>
+        <div class="suffix-box">
+            <div class="suffix-box-left">
+                <img src="https://s2.loli.net/2022/03/31/JpQ6lgGdXmtSZaC.png" alt="hero">
+            </div>
+            <div class="suffix-box-right">
+                <span class="suffix-box-title">文章作者</span>：hero
+                <br>
+                <span class="suffix-box-title">文章出处</span>：<a href="/2022/03/31/MATLAB%E5%AD%A6%E4%B9%A0/%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/06_%E6%95%B0%E7%BB%84%E7%B1%BB%E5%9E%8B/" target="_blank">数组类型</a>
+                <br>
+                <span class="suffix-box-title">作者签名</span>：简单地活着, 肆意又精彩.
+                <br>
+                <span class="suffix-box-title">关于主题</span>：<a href="https://github.com/first19326/Hexo-LiveForCode" target="_blank">Hexo - Live For Code</a>
+                <br>
+                <span class="suffix-box-title">版权声明</span>：文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" title="BY-NC-SA" target="_blank">BY-NC-SA</a> 许可协议，转载请注明出处
+                <br>
+            </div>
+            <div style="clear: both;"></div>
+        </div>
+    </div>
+    <div class="article-footer">
+        
+        
+        <div class="article-prev-next">
+            
+                <a href="/2022/03/31/MATLAB%E5%AD%A6%E4%B9%A0/%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/07_%E7%BB%93%E6%9E%84%E4%BD%93%E7%B1%BB%E5%9E%8B/" class="prev-prefix">« </a> 上一篇：    <a href="/2022/03/31/MATLAB%E5%AD%A6%E4%B9%A0/%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/07_%E7%BB%93%E6%9E%84%E4%BD%93%E7%B1%BB%E5%9E%8B/" title="发布于 2022-03-31 12:13">结构体类型</a>
+                <br>
+            
+            
+                <a href="/2022/03/31/MATLAB%E5%AD%A6%E4%B9%A0/%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/08_rand%E5%87%BD%E6%95%B0/" class="next-prefix">» </a> 下一篇：    <a href="/2022/03/31/MATLAB%E5%AD%A6%E4%B9%A0/%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/08_rand%E5%87%BD%E6%95%B0/" title="发布于 2022-03-31 12:13">rand函数</a>
+            
+        </div>
+    </div>
+    
+    <div class="article-comments">
+        <div class="comments-title">
+            评论列表
+        </div>
+        <div class="comments-content">
+        </div>
+    </div>
+
+</div>
+
+    </div>
+</div>
+    <div id="footer"></div>
+    <div id="sidebar">
+    <div class="menu-wrap" style="display:none;">
+        <nav class="menu">
+            <div class="menu-introduce"> 
+                <div class="introduce-avatar"></div> 
+                <div class="introduce-info"> 
+                    <div class="introduce-user"><span></span></div>        
+                </div> 
+            </div> 
+            <div class="menu-list">
+                <ul></ul> 
+            </div> 
+            <div class="menu-link"></div> 
+        </nav>
+        <button class="menu-button-close"></button>
+        <div class="morph-shape" id="morph-shape" data-morph-open="M-7.312,0H15c0,0,66,113.339,66,399.5C81,664.006,15,800,15,800H-7.312V0z;M-7.312,0H100c0,0,0,113.839,0,400c0,264.506,0,400,0,400H-7.312V0z">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 800" preserveAspectRatio="none">
+                <path d="M-7.312,0H0c0,0,0,113.839,0,400c0,264.506,0,400,0,400h-7.312V0z"/>
+            </svg>
+        </div>
+    </div>
+    <button class="menu-button-open">MENU</button>
+    <div class="menu-cover"></div>
+</div>
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/search.css">
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/iscroll.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/instantsearch.min.js"></script>
+<div class="search-window">
+    <div class="search-content">
+        <div class="search-content-icon">
+            <i class="iconfont icon-search"></i>
+        </div>
+        <div id="search-input" class="search-input"></div>
+    </div>
+
+    <div class="search-scroll">
+        <div class="search-result">
+            <div id="search-stats" class="search-stats"></div>
+            <div id="search-hits"></div>
+            <div id="search-pagination" class="search-pagination"></div>
+        </div>
+    </div>
+
+    <span class="search-close-icon">
+        <i class="iconfont icon-close"></i>
+    </span>
+</div>
+    <div id="tools">
+    <div class="progressbar-top"></div>
+
+    
+        <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/APlayer.css">
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/APlayer.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/Meting.min.js"></script>
+        <meting-js id="3778678" lrcshow="false" server="netease" type="playlist" fixed="true" autoplay="false" loop="all" order="random" preload="auto" volume="0.67" mutex="true"></meting-js>
+    
+    
+    <div class="wrap-right"></div>
+    <div class="loading"></div>
+</div>
+    <script>
+    window.config = {
+        GitHubUserName     : 'fubaisen',
+        GitHubRepositories : 'fubaisen.github.io',
+
+        BlogUser      : 'hero',
+        BlogAvatar    : 'https://s2.loli.net/2022/03/31/JpQ6lgGdXmtSZaC.png',
+        BlogStartDate : '2020-01-01',
+
+        WebsiteTitleBlur         : '(◍´꒳`◍) Hi, friend',
+        WebsiteTitleBlurTimeOut  : 500,
+        WebsiteTitleFocus        : '(*´∇｀*) 欢迎回来!',
+        WebsiteTitleFocusTimeOut : 1000,
+        WebsiteFavicon           : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222195607.png',
+
+        ProgressBar: {
+            id       : 'topProgressBar',
+            color    : '#77B6FF',
+            height   : '2px',
+            duration : 0.2
+        },
+
+        Loading: {
+            rebound: {
+                tension  : 16,
+                friction : 5
+            },
+            spinner: {
+                id     : 'spinner',
+                radius : 90,
+                sides  : 3,
+                depth  : 4,
+                colors : {
+                    background : '#F0F0F0',
+                    stroke     : '#272633',
+                    base       : '',
+                    child      : '#272633'
+                },
+                alwaysForward : true,
+                restAt        : 0.5,
+                renderBase    : false
+            }
+        },
+
+        HomeHeaderAnimationRendered : true,
+        HomeHeaderAnimation         : {
+            radius      : 15,
+            density     : 0.2,
+            color       : 'rgba(255, 255, 255, .2)',
+            clearOffset : 0.3
+        },
+
+        ArticleHeaderAnimationRendered : false,
+        ArticleHeaderAnimation         : {
+            triW                  : 14,
+            triH                  : 20,
+            neighbours            : [
+                
+                    'side',
+                
+                    'top',
+                
+                    'bottom',
+                
+            ],
+            speedTrailAppear      : 0.1,
+            speedTrailDisappear   : 0.1,
+            speedTriOpen          : 1,
+            trailMaxLength        : 30,
+            trailIntervalCreation : 100,
+            delayBeforeDisappear  : 2,
+            colors                : [
+                
+                    '#96EDA6',
+                
+                    '#5BC6A9',
+                
+                    '#38668C',
+                
+                    '#374D84',
+                
+                    '#BED5CB',
+                
+                    '#62ADC6',
+                
+                    '#8EE5DE',
+                
+                    '#304E7B',
+                
+            ]
+        },
+
+        BackAnimationRendered          : true,
+        IEBrowserBackAnimationRendered : false,
+        BackAnimation                  : {
+            colorSaturation  : '60%',
+            colorBrightness  : '50%',
+            colorAlpha       : 0.5,
+            colorCycleSpeed  : 5,
+            verticalPosition : 'random',
+            horizontalSpeed  : 200,
+            ribbonCount      : 3,
+            strokeSize       : 0,
+            parallaxAmount   : -0.2,
+            animateSections  : true
+        },
+
+        HomeHeaderImage : [
+            
+                'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/image/header/home.jpg',
+            
+                'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/image/header/home.jpeg',
+            
+        ],
+        HomeBannerText  : '',
+
+        ArticleHeaderImage : [
+            
+                'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/image/header/article.jpg',
+            
+        ],
+
+        OtherBannerText : '',
+
+        MenuList : [
+            
+                {
+                    name   : '首页',
+                    href   : '/',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '标签',
+                    href   : '/tag',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '分类',
+                    href   : '/category',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '归档',
+                    href   : '/archive',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '赞赏',
+                    href   : '/donate',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '关于',
+                    href   : '/about',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '订阅',
+                    href   : '/subscription',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '搜索',
+                    href   : '',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '留言板',
+                    href   : '/comment',    
+                    target : '',
+                    class  : ''
+                },
+            
+                {
+                    name   : '友情链接',
+                    href   : '/friend',    
+                    target : '',
+                    class  : ''
+                },
+            
+        ],
+        MenuLink : [
+            
+                
+                    {
+                        icon : 'icon-weibo', 
+                        url  : 'https://weibo.com/u/7649528498'
+                    },
+                
+                    {
+                        icon : 'icon-wechat', 
+                        url  : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222190433.png'
+                    },
+                
+                    {
+                        icon : 'icon-qq', 
+                        url  : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222190324.png'
+                    },
+                
+                    {
+                        icon : 'icon-github', 
+                        url  : 'https://github.com/fubaisen'
+                    },
+                
+            
+        ],
+
+        FooterStyle : 2,
+        BottomText  : {
+            icon    : 'like-fill',
+            left    : '人生若只如初见',
+            right   : '何事秋风悲画扇'
+        },
+        ThemeInfo   : true,
+
+        ConsoleList : [
+            
+                
+                    [
+                        
+                            
+                                'Based on cnblogs theme SimpleMemory.',
+                            
+                                '',
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                'SimpleMemory Author:',
+                            
+                                'BNDong',
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                'Theme:',
+                            
+                                'LiveForCode',
+                            
+                        
+                    ],
+                
+            
+        ],
+
+        FontIconExtend : '',
+
+        Donate : {
+            paypal  : '',
+            bitcoin : '',
+            alipay  : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222200200.png',
+            wechat  : 'https://gitee.com/lichaikui/picture/raw/master/tupian/20211222194957.png'
+        },
+
+        Code : {
+            style : 'normal'
+        },  
+
+        Search : {
+            applicationID : '010C3EANT8',
+            apiKey        : 'c7abab9f11b79102b9aff7fe6d41447d',
+            indexName     : 'Notes',
+            hits          : {
+                page : 10
+            },
+            labels        : {
+                placeholder : '搜索',
+                empty       : '未发现与 「${query}」 相关的内容',
+                stats       : '${hits} 条相关条目，使用了 ${time} 毫秒',
+            }
+        }, 
+
+        Valine : {
+            switch         : true,
+            el             : '.comments-content',
+            appId          : 'srhKtvWPQTWYKh3qX8G8M7v0-gzGzoHsz',
+            appKey         : '8uVSP1q6UlALVC5igYfIfv2h',
+            placeholder    : '你是我一生只会遇见一次的惊喜...',
+            avatar         : 'mm',
+            meta           : 'nick,mail,link',
+            requiredFields : 'nick,mail',
+            pageSize       : 5,
+            lang           : 'zh-cn',
+            visitor        : true,
+            enableQQ       : true
+        },
+
+        Tocbot : {
+            switch                : true,
+            tocSelector           : '.toc',
+            contentSelector       : '.article-body',
+            headingSelector       : 'h1, h2, h3, h4, h5',
+            headingsOffset        : 0,
+            scrollSmooth          : true,
+            scrollSmoothOffset    : -5,
+            positionFixedSelector : '.toc',
+            positionFixedClass    : 'toc-fixed',
+            fixedSidebarOffset    : '',
+        },
+
+        Require : {
+            baseUrl     : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/',
+            waitSeconds : 100
+        },
+
+        Music : {
+            type : 'Meting'
+        },
+        APlayer : {
+            container : '.aplayer',
+            fixed     : true,
+            autoplay  : false,
+            loop      : 'all',
+            order     : 'random',
+            preload   : 'auto',
+            volume    : 0.67,
+            mutex     : true,
+            lrcType   : 3,
+            audio     : [
+                
+                    {
+                        name   : 'aLIEz',
+                        artist : 'mizuki（瑞葵）',
+                        cover  : '/music/cover/aLIEz.jpg',
+                        url    : '/music/song/aLIEz.mp3',
+                        lrc    : '/music/lrc/aLIEz.lrc'
+                    },
+                
+                    {
+                        name   : 'Endless Tears',
+                        artist : 'CLIFF EDGE',
+                        cover  : '/music/cover/Endless Tears.jpg',
+                        url    : '/music/song/Endless Tears.mp3',
+                        lrc    : '/music/lrc/Endless Tears.lrc'
+                    },
+                
+                    {
+                        name   : 'Miracle',
+                        artist : 'Cascada',
+                        cover  : '/music/cover/Miracle.jpg',
+                        url    : '/music/song/Miracle.mp3',
+                        lrc    : '/music/lrc/Miracle.lrc'
+                    },
+                
+                    {
+                        name   : 'Roll The Dice',
+                        artist : '高珊',
+                        cover  : '/music/cover/Roll The Dice.jpg',
+                        url    : '/music/song/Roll The Dice.mp3',
+                        lrc    : '/music/lrc/Roll The Dice.lrc'
+                    },
+                
+                    {
+                        name   : 'See You Again',
+                        artist : 'Charlie Puth, Wiz Khalifa',
+                        cover  : '/music/cover/See You Again.jpg',
+                        url    : '/music/song/See You Again.mp3',
+                        lrc    : '/music/lrc/See You Again.lrc'
+                    },
+                
+                    {
+                        name   : 'Traveling Light',
+                        artist : 'Joel Hanson, Sara Groves',
+                        cover  : '/music/cover/Traveling Light.jpg',
+                        url    : '/music/song/Traveling Light.mp3',
+                        lrc    : '/music/lrc/Traveling Light.lrc'
+                    },
+                
+                    {
+                        name   : '痴心绝对',
+                        artist : '李圣杰',
+                        cover  : '/music/cover/痴心绝对.jpg',
+                        url    : '/music/song/痴心绝对.mp3',
+                        lrc    : '/music/lrc/痴心绝对.lrc'
+                    },
+                
+                    {
+                        name   : '好想大声说爱你',
+                        artist : 'BAAD（バード）',
+                        cover  : '/music/cover/好想大声说爱你.jpg',
+                        url    : '/music/song/好想大声说爱你.mp3',
+                        lrc    : '/music/lrc/好想大声说爱你.lrc'
+                    },
+                
+            ]
+        },
+        Meting : {
+            id       : '3778678', 
+            lrcshow  : false, 
+            server   : 'netease', 
+            type     : 'playlist', 
+            fixed    : true, 
+            autoplay : false, 
+            loop     : 'all', 
+            order    : 'random', 
+            preload  : 'auto', 
+            volume   : 0.67, 
+            mutex    : true
+        },
+
+        Mouse : {
+            enable  : true,
+            options : {
+                size  : 6,
+                sizeF : 24
+            }
+        },
+
+        LazyLoad : {
+            default : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/image/website/lazyload.svg'
+        },
+  
+        Style : {
+            aplayer          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/APlayer.css',
+            archive          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/archive.css',
+            donate           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/donate.css',
+            fancybox         : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/jquery.fancybox.css',
+            footer           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/footer.css',
+            iconfont         : 'https://at.alicdn.com/t/font_1546312_l3yohatebw.css',
+            index            : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/index.css',
+            menuBubble       : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/menu-bubble.css',
+            page             : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/page.css',
+            post             : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/post.css',
+            search           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/search.css',
+            tocbot           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/tocbot.css',
+            normal           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/normal.css',
+            night            : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/night.css',
+            clipboard        : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/clipboard.css'
+        },
+
+        Script: {
+            aplayer          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/APlayer.min.js',
+            config           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/require.config.js',
+            index            : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/index.js',
+            instantSearch    : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/instantsearch.min.js',
+            jQuery           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/jquery-3.4.1.min.js',
+            loading          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/loading.js',
+            meting           : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/Meting.min.js',
+            iscroll          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/iscroll.js',
+            require          : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/require.min.js'
+        },
+
+        Font: {
+            LongCang   : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/LongCang.css',
+            Monda      : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Monda.css',
+            NotoSansSC : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/NotoSansSC.css',
+            Playball   : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Playball.css',
+            PTMono     : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/PTMono.css',
+            RobotoSlab : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/RobotoSlab.css',
+            Rosario    : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Rosario.css',
+            UbuntuMono : 'https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/UbuntuMono.css'
+        },
+
+        Suffix : {
+            about : '简单地活着, 肆意又精彩.'
+        },
+            
+        Theme : {
+            url  : 'https://github.com/first19326/Hexo-LiveForCode',
+            name : 'Hexo - Live For Code'
+        }  
+    };
+</script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/index.js"></script>
+</body>
+</html>

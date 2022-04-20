@@ -109,7 +109,7 @@
 <ul>
 <li>在执行时，只执行一个<code>case</code>后的语句就会跳出<code>switch-case</code>结构</li>
 <li>case子句后面的表达式不仅可以为一个标量或一个字符串,还可以为一个单元矩阵</li>
-<li>如果<code>case</code>子语句后面的表达式为一个<a href="https://fubaisen.github.io/2022/03/31/MATLAB%E5%AD%A6%E4%B9%A0/%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/%E5%8A%A0%E6%B7%B1%E7%90%86%E8%A7%A3%E5%8D%95%E5%85%83%E7%9F%A9%E9%98%B5%E5%92%8C%E7%BB%93%E6%9E%84%E7%9F%A9%E9%98%B5">单元矩阵</a>，则当表达式的值等于该单元矩阵中的某个元素时，执行相应的语句组case后常量的值必须互异</li>
+<li>如果<code>case</code>子语句后面的表达式为一个<a href="https://fubaisen.github.io/2022/03/31/MATLAB%E5%AD%A6%E4%B9%A0/%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/11_%E5%8A%A0%E6%B7%B1%E7%90%86%E8%A7%A3%E5%8D%95%E5%85%83%E7%9F%A9%E9%98%B5%E5%92%8C%E7%BB%93%E6%9E%84%E7%9F%A9%E9%98%B5">单元矩阵</a>，则当表达式的值等于该单元矩阵中的某个元素时，执行相应的语句组case后常量的值必须互异</li>
 <li><code>otherwise</code>为可选项，如果表达式的值与列出的每种情况都不相等，则<code>switch-case</code>结构中的语句将不被执行，程序继续向下运行。</li>
 </ul>
 </blockquote>
@@ -151,11 +151,11 @@
 </ul>
 </blockquote>
 </li>
-<li><p>例；已知 4*3 的矩阵<img src="C:/Users/LICHAI~1/AppData/Local/Temp/WeChat Files/3ce9c508a7722454d51f7eb997fd093.jpg" alt="3ce9c508a7722454d51f7eb997fd093" style="zoom: 25%;" />，求矩阵对应列元素的和s1、对应元素的和s2 及整个矩阵元素的和s</p>
+<li><p>例；已知 4×3 矩阵<img src="https://s2.loli.net/2022/04/01/W12umzYLO7AJSaV.jpg" alt="3ce9c508a7722454d51f7eb997fd093.jpg" style="zoom:33%;" />，求矩阵对应列元素的和s1、对应元素的和s2 及整个矩阵元素的和s</p>
 <p>程序命令：</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">clc;s1=<span class="number">0</span>;</span><br><span class="line">data=[<span class="number">12</span> <span class="number">14</span> <span class="number">14</span>;<span class="number">15</span> <span class="number">16</span> <span class="number">17</span>;<span class="number">18</span> <span class="number">19</span> <span class="number">20</span>;<span class="number">21</span> <span class="number">22</span> <span class="number">23</span>];</span><br><span class="line"><span class="keyword">for</span> k=data</span><br><span class="line">    s1=s1+k;</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">s1</span><br><span class="line">s2=sum(data)</span><br><span class="line">s=sum(sum(data))       </span><br></pre></td></tr></table></figure>
 
-<p>[关于sum](<a href="https://fubaisen.github.io/2022/03/31/MATLAB%E5%AD%A6%E4%B9%A0/%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/MATLAB">https://fubaisen.github.io/2022/03/31/MATLAB学习/补充文件/MATLAB</a> 函数sum的用法)</p>
+<p><a href="https://fubaisen.github.io/2022/03/31/MATLAB%E5%AD%A6%E4%B9%A0/%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/09_sum%E5%87%BD%E6%95%B0">关于sum</a></p>
 </li>
 <li><p>例：已知若一个三位整数，<code>各位数字的立方和等于该数本身</code>，则称该数为水仙花数。要求输出100~999的全部水仙花数</p>
 <p>程序命令：</p>
@@ -260,7 +260,7 @@
         
         <div class="article-prev-next">
             
-                <a href="/2022/04/01/MATLAB%E5%AD%A6%E4%B9%A0/%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/sum%E5%87%BD%E6%95%B0%E7%9A%84%E7%94%A8%E6%B3%95/" class="prev-prefix">« </a> 上一篇：    <a href="/2022/04/01/MATLAB%E5%AD%A6%E4%B9%A0/%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/sum%E5%87%BD%E6%95%B0%E7%9A%84%E7%94%A8%E6%B3%95/" title="发布于 2022-04-01 02:04">sum函数的用法</a>
+                <a href="/2022/04/01/MATLAB%E5%AD%A6%E4%B9%A0/%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/09_sum%E5%87%BD%E6%95%B0/" class="prev-prefix">« </a> 上一篇：    <a href="/2022/04/01/MATLAB%E5%AD%A6%E4%B9%A0/%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/09_sum%E5%87%BD%E6%95%B0/" title="发布于 2022-04-01 02:04">sum函数</a>
                 <br>
             
             
