@@ -6,7 +6,7 @@
     <meta name="referrer" content="origin">
     <meta http-equiv="Cache-Control" content="no-transform">
     <meta http-equiv="Cache-Control" content="no-siteapp">
-    <title></title>
+    <title>linspace用法</title>
     <link rel="shortcut icon" href="#"/>
 
     <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/LongCang.css">
@@ -32,19 +32,19 @@
     <div class="header">
         <div class="vertical">
             <div class="inner">
-                <h1 class="header-subtitle"></h1>
+                <h1 class="header-subtitle">linspace用法</h1>
                 <div class="header-subinfo">
                     <p class="article-info-text">
                         <span>
-                            <i class="iconfont icon-time"></i> 发表时间：2022-04-20
+                            <i class="iconfont icon-time"></i> 发表时间：2022-03-31
                         </span>
                         
-                            <span id="/2022/04/20/MATLAB学习/补充文件/16_EraseMode代替方法/" class="leancloud_visitors" data-flag-title="">
+                            <span id="/2022/03/31/MATLAB学习/补充文件/15_linspace用法/" class="leancloud_visitors" data-flag-title="linspace用法">
                                 <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
                             </span>
                         
                         <span>
-                            <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2022/04/20/MATLAB学习/补充文件/16_EraseMode代替方法/"></span>
+                            <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2022/03/31/MATLAB学习/补充文件/15_linspace用法/"></span>
                         </span>  
                     </p>                 
                 </div>
@@ -58,49 +58,23 @@
         <div id="article">
     <div class="toc"></div>
     <div class="article-body">
-        <h1 id="1"><a href="#1" class="headerlink" title="1"></a>1</h1><h4 id="程序动画"><a href="#程序动画" class="headerlink" title="程序动画"></a>程序动画</h4><p>在MATLAB中，可以采用重绘图形对象的方法来创建程序动画。改变对象的方法可以触发MATLAB对该对象进行重绘。</p>
-<pre><code>    创建程序动画的典型步骤是：
+        <h1 id="linspace-x1-x2-N-用法"><a href="#linspace-x1-x2-N-用法" class="headerlink" title="linspace(x1,x2,N)用法"></a>linspace(x1,x2,N)用法</h1><p>功能：linspace是<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=Matlab&spm=1001.2101.3001.7020">Matlab</a>中的一个指令，用于产生x1,x2之间的N点行矢量。其中x1、x2、N分别为起始值、中止值、元素个数。若缺省N，默认点数为100。在matlab的命令窗口下输入help linspace或者doc linspace可以获得该函数的帮助信息。</p>
+<h4 id="例一："><a href="#例一：" class="headerlink" title="例一："></a>例一：</h4><p>　　在matlab的命令窗口输入：</p>
+<p>​    <code>X=linspace(1,100)</code></p>
+<p>　　将产生从1到100步长为1的数组。类似于在命令窗口中输入：</p>
+<p>　　<code>X=[1:1:100]</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;  X=linspace(1,100)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">X =</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> Columns 1 through 21</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">   1   2   3   4   5   6   7   8   9   10   11   12   13   14   15   16   17   18   19   20   21</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> Columns 22 through 42</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  22   23   24   25   26   27   28   29   30   31   32   33   34   35   36   37   38   39   40   41   42</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> Columns 43 through 63</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  43   44   45   46   47   48   49   50   51   52   53   54   55   56   57   58   59   60   61   62   63</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> Columns 64 through 84</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  64   65   66   67   68   69   70   71   72   73   74   75   76   77   78   79   80   81   82   83   84</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> Columns 85 through 100</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  85   86   87   88   89   90   91   92   93   94   95   96   97   98   99  100</span><br></pre></td></tr></table></figure>
 
-    1、绘制一个图形对象；
 
-    2、通过在一个程序循环中改变该对象的x，y和z坐标值来实现该对象的移动，从而形成动画。
 
-    在创建MATLAB的程序动画时，图形擦除也是非常重要的。
 
-    图形动态绘画中三种重要的擦除模式：（通过没置“EraseMode”属性来完成）
 
-    1、None：在移动图形对象时，MATLAB不进行擦除；
+<p>在命令窗口中输入：</p>
+<p>　　<code>X=linspace(5,100,20)</code></p>
+<p>　　将输出：</p>
+<p>　　</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">X =</span><br><span class="line"></span><br><span class="line">　　5 10 15 20 25 30 35 40 45 50 55 60 65 70 75 80 85 90 95 100</span><br><span class="line"></span><br><span class="line">　　这和X=[5:5:100]的效果是一样的。</span><br></pre></td></tr></table></figure>
 
-    2、Background：在图形对象移走以后，MATLAB在原来的位置用背景色进行重绘。在这种模式下，MATLAB将原来的对象完全擦除，包括该对象下面的所有图形，如栅格线等；
-
-    3、Xor：与Background模式相比，这种模式只擦除对象本身。大多数的MATLAB程序动画都采用这种擦除模式。
-</code></pre>
-<h1 id="2"><a href="#2" class="headerlink" title="2"></a>2</h1><h6 id="使用EraseMode来向figure中不断添加图像内容（incremental-drawing）已经是过时的方法了。具体到你这个例子，你有三个替代方案："><a href="#使用EraseMode来向figure中不断添加图像内容（incremental-drawing）已经是过时的方法了。具体到你这个例子，你有三个替代方案：" class="headerlink" title="使用EraseMode来向figure中不断添加图像内容（incremental drawing）已经是过时的方法了。具体到你这个例子，你有三个替代方案："></a>使用EraseMode来向figure中不断添加图像内容（incremental drawing）已经是过时的方法了。具体到你这个例子，你有三个替代方案：</h6><ul>
-<li>1.在循环中用set不是仅改变 h 中的那一个点的位置，而是每次都向 h 中多添加一个点。</li>
-<li>2.在axes上画一个image对象，每次循环设置image中某一点像素的值</li>
-<li>3.如提示，使用r2014b中新加的animatedline。原理基本同方法1.</li>
-</ul>
-<p>方法1的缺点是在h中点数很多的情况下，越到后面绘制速度会越慢。如果你只是希望得到一个动画过程，那么我推荐使用方法2.</p>
-<h1 id="3"><a href="#3" class="headerlink" title="3"></a>3</h1><h6 id="目前新版本的Matlab已经不支持EraseMode属性了，坐标图的动画显示实现要依赖animatedline对象，配合drawnow函数使用。"><a href="#目前新版本的Matlab已经不支持EraseMode属性了，坐标图的动画显示实现要依赖animatedline对象，配合drawnow函数使用。" class="headerlink" title="目前新版本的Matlab已经不支持EraseMode属性了，坐标图的动画显示实现要依赖animatedline对象，配合drawnow函数使用。"></a>目前新版本的Matlab已经不支持EraseMode属性了，坐标图的动画显示实现要依赖animatedline对象，配合drawnow函数使用。</h6><p> animatedline：创建动画行，使用的语法格式及说明如下：</p>
-<pre><code>    h = animatedline：创建一个没有数据的动画行，并将其添加到当前轴。在循环中添加点以创建线条动画。
-
-    h = animatedline(x, y)：创建由初始数据点x和y定义的动画线。
-
-    h = animatedline(x, y, z)：创建由初始数据点x、y和z定义的动画线。
-
-    h = animatedline(___, Name, Value)：使用一个或多个Name, Value对参数指定动画行属性。例如，&#39;Color&#39;, &#39;r&#39;将线条颜色设置为红色。需要在输入成对的参数组合之后使用此选项。
-
-    h = animatedline(ax, ___)：在轴指定的轴ax上创建动画线，而不是在当前轴gca中。如果不指定轴对象，则animatedline使用当前轴。
-
-    如果有另一个函数想从当前图形中获得数据，用animateline的getpoints方法：[xdata, ydata] = getpoints(h);
-</code></pre>
-<p>animatedline动画线属性<br>        animatedline动画可以指定可选的逗号分隔的Name,Value参数对。 Name是参数名称，Value是相应的值。Name必须出现在单引号（’ ‘）中。你可以按照任何顺序指定多个名称和值对参数Name1,Value1, …, NameN, ValueN。</p>
-<p><img src="C:\Users\lichaikui\AppData\Roaming\Typora\typora-user-images\image-20220412124856423.png" alt="image-20220412124856423"></p>
-<p><img src="C:\Users\lichaikui\AppData\Roaming\Typora\typora-user-images\image-20220412124916611.png" alt="image-20220412124916611"></p>
-<p>颜色属性常用取值</p>
-<p><img src="C:\Users\lichaikui\AppData\Roaming\Typora\typora-user-images\image-20220412124933156.png" alt="image-20220412124933156"></p>
-<p>标记符号取值</p>
-<p><img src="C:\Users\lichaikui\AppData\Roaming\Typora\typora-user-images\image-20220412124952564.png" alt="image-20220412124952564"></p>
 
         <p class="suffix-end">__END__</p>
         <div class="suffix-box">
@@ -110,7 +84,7 @@
             <div class="suffix-box-right">
                 <span class="suffix-box-title">文章作者</span>：hero
                 <br>
-                <span class="suffix-box-title">文章出处</span>：<a href="/2022/04/20/MATLAB%E5%AD%A6%E4%B9%A0/%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/16_EraseMode%E4%BB%A3%E6%9B%BF%E6%96%B9%E6%B3%95/" target="_blank"></a>
+                <span class="suffix-box-title">文章出处</span>：<a href="/2022/03/31/MATLAB%E5%AD%A6%E4%B9%A0/%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/15_linspace%E7%94%A8%E6%B3%95/" target="_blank">linspace用法</a>
                 <br>
                 <span class="suffix-box-title">作者签名</span>：简单地活着, 肆意又精彩.
                 <br>
@@ -127,8 +101,11 @@
         
         <div class="article-prev-next">
             
+                <a href="/2022/04/01/MATLAB%E5%AD%A6%E4%B9%A0/%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/10_%E7%AE%80%E8%AE%B0%E6%8B%AC%E5%8F%B7/" class="prev-prefix">« </a> 上一篇：    <a href="/2022/04/01/MATLAB%E5%AD%A6%E4%B9%A0/%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/10_%E7%AE%80%E8%AE%B0%E6%8B%AC%E5%8F%B7/" title="发布于 2022-04-01 12:57">简记括号</a>
+                <br>
             
-                <a href="/2022/04/20/MATLAB%E5%AD%A6%E4%B9%A0/%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/15_linspace%E7%94%A8%E6%B3%95/" class="next-prefix">» </a> 下一篇：    <a href="/2022/04/20/MATLAB%E5%AD%A6%E4%B9%A0/%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/15_linspace%E7%94%A8%E6%B3%95/" title="发布于 2022-04-20 11:06"></a>
+            
+                <a href="/2022/03/31/MATLAB%E5%AD%A6%E4%B9%A0/%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/16_EraseMode%E4%BB%A3%E6%9B%BF%E6%96%B9%E6%B3%95/" class="next-prefix">» </a> 下一篇：    <a href="/2022/03/31/MATLAB%E5%AD%A6%E4%B9%A0/%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/16_EraseMode%E4%BB%A3%E6%9B%BF%E6%96%B9%E6%B3%95/" title="发布于 2022-03-31 12:14">EraseMode代替方法</a>
             
         </div>
     </div>
