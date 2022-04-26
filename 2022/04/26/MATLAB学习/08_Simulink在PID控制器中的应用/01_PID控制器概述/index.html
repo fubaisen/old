@@ -6,7 +6,7 @@
     <meta name="referrer" content="origin">
     <meta http-equiv="Cache-Control" content="no-transform">
     <meta http-equiv="Cache-Control" content="no-siteapp">
-    <title>归档</title>
+    <title>01_PID控制器概述</title>
     <link rel="shortcut icon" href="#"/>
 
     <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/LongCang.css">
@@ -18,91 +18,145 @@
     <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Rosario.css">
     <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/UbuntuMono.css">
 
-    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/archive.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/post.css">
+    
+        <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/normal.css">
+    
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/jquery-3.4.1.min.js"></script>
+
 <meta name="generator" content="Hexo 5.4.1"></head>
 <body>
     <a id="cover"></a>
     <div id="header">
-    <div class="header" >
+    <div class="header">
         <div class="vertical">
             <div class="inner">
-                <h1 class="header-title"></h1>
-                <h2 class="header-description" id="hitokoto"></h2>
-                <h3 class="header-info" id="hitokotoAuthor"></h3>
-                <!--
-                <h1 class="header-subtitle"></h1>
-                <p class="header-subinfo"></p>
-                -->
+                <h1 class="header-subtitle">01_PID控制器概述</h1>
+                <div class="header-subinfo">
+                    <p class="article-info-text">
+                        <span>
+                            <i class="iconfont icon-time"></i> 发表时间：2022-04-26
+                        </span>
+                        
+                            <span id="/2022/04/26/MATLAB学习/08_Simulink在PID控制器中的应用/01_PID控制器概述/" class="leancloud_visitors" data-flag-title="01_PID控制器概述">
+                                <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                            </span>
+                        
+                        <span>
+                            <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2022/04/26/MATLAB学习/08_Simulink在PID控制器中的应用/01_PID控制器概述/"></span>
+                        </span>  
+                    </p>                 
+                </div>
             </div>
         </div>
-        <a class="scroll-down" href="javascript:;" target="_self" data-offset="-45">
-            <span class="hidden">Scroll Down</span>
-            <i class="scroll-down-icon iconfont icon-return"></i>
-        </a>
+        <canvas id="articleHeaderCanvas"></canvas>
     </div>
 </div>
     <div id="container">
     <div id="content">
-          
-    <div class="articles-year">
-        <h2>2022</h2>
-        <ul class="list">
-            
-                <li>
-                    <span class="date">2022/04/01</span>
-                    <a href="/2022/04/01/MATLAB%E5%AD%A6%E4%B9%A0/%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/09_sum%E5%87%BD%E6%95%B0/" title="sum函数">    
-                        <span>sum函数</span>
-                    </a>
-                </li>
-            
-                <li>
-                    <span class="date">2022/04/01</span>
-                    <a href="/2022/04/01/MATLAB%E5%AD%A6%E4%B9%A0/02_MATLAB%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/02_%E7%A8%8B%E5%BA%8F%E7%BB%93%E6%9E%84/" title="02_程序结构">    
-                        <span>02_程序结构</span>
-                    </a>
-                </li>
-            
-                <li>
-                    <span class="date">2022/04/01</span>
-                    <a href="/2022/04/01/MATLAB%E5%AD%A6%E4%B9%A0/%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/%E5%8A%A0%E6%B7%B1%E7%90%86%E8%A7%A3%E5%8D%95%E5%85%83%E7%9F%A9%E9%98%B5%E5%92%8C%E7%BB%93%E6%9E%84%E7%9F%A9%E9%98%B5/" title="加深理解单元矩阵和结构矩阵">    
-                        <span>加深理解单元矩阵和结构矩阵</span>
-                    </a>
-                </li>
-            
-                <li>
-                    <span class="date">2022/04/01</span>
-                    <a href="/2022/04/01/MATLAB%E5%AD%A6%E4%B9%A0/%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/11_%E5%8A%A0%E6%B7%B1%E7%90%86%E8%A7%A3%E5%8D%95%E5%85%83%E7%9F%A9%E9%98%B5%E5%92%8C%E7%BB%93%E6%9E%84%E7%9F%A9%E9%98%B5/" title="加深理解单元矩阵和结构矩阵">    
-                        <span>加深理解单元矩阵和结构矩阵</span>
-                    </a>
-                </li>
-            
-                <li>
-                    <span class="date">2022/04/01</span>
-                    <a href="/2022/04/01/MATLAB%E5%AD%A6%E4%B9%A0/%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/%E7%AE%80%E8%AE%B0%E6%8B%AC%E5%8F%B7/" title="简记括号">    
-                        <span>简记括号</span>
-                    </a>
-                </li>
-            
-                <li>
-                    <span class="date">2022/04/01</span>
-                    <a href="/2022/04/01/MATLAB%E5%AD%A6%E4%B9%A0/%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/10_%E7%AE%80%E8%AE%B0%E6%8B%AC%E5%8F%B7/" title="简记括号">    
-                        <span>简记括号</span>
-                    </a>
-                </li>
-            
-        </ul>
+        <div id="article">
+    <div class="toc"></div>
+    <div class="article-body">
+        <h1 id="一、PID控制器概述"><a href="#一、PID控制器概述" class="headerlink" title="一、PID控制器概述"></a>一、PID控制器概述</h1><blockquote>
+<p>在工业过程控制中，按被控对象的实时数据采集的信息与给定值比较产生的误差的比例、积分和微分进行控制的控制系统，简称PID控制系统。PID控制具有原理简单，鲁棒性强和实用面广等优点，是一种技术成熟、应用最为广泛的控制系统</p>
+</blockquote>
+<p>1、控制系统包括  <code>控制器、执行器、传感器、变送器、输入、输出接口</code></p>
+<p>控制器的输出经过执行机构加到被控制对象上，控制系统的输出经传感器、变送器，再通过输入接口返回到控制器，组成闭环控制系统。不同的控制对象，其传感器、执行器不同，如：电加热系统控制使用温度传感器、锅炉水位控制使用液位传感器。一个简单的PID控制系统的组成  如图</p>
+<p>![7b37eb4f4e3267cba06c3a8b39ead74](C:/Users/LICHAI~1/AppData/Local/Temp/WeChat Files/7b37eb4f4e3267cba06c3a8b39ead74.jpg)    </p>
+<p>系统控制质量取决于被控制对象的动态特性。控制器目的是通过调整控制参，改善系统的动态和静态指标，实现最佳控制效果</p>
+<p>2、PID控制器的表示方法及仿真</p>
+<p>（1）PID控制器表示方法</p>
+<p>![fba63799c5aed66e4f65aca3ddc7b1d](C:/Users/LICHAI~1/AppData/Local/Temp/WeChat Files/fba63799c5aed66e4f65aca3ddc7b1d.jpg)</p>
+<p>对式 （8-1）PID的时域表达式进行拉普拉斯变换得：</p>
+<p>![2c7589c136b4806ec06251ce61c6fd7](C:/Users/LICHAI~1/AppData/Local/Temp/WeChat Files/2c7589c136b4806ec06251ce61c6fd7.jpg)</p>
+<p>式中：</p>
+<ul>
+<li>u(t) 为控制器的输出信号；</li>
+<li>e(t)为控制器的偏差信号（它等于给定值与测量值之差）；</li>
+<li>T i 为控制积分时间；</li>
+<li>T d 为控制器微分时间；</li>
+<li>K p 为控制器比例系数；</li>
+<li>K i 为控制器积分时间系数；</li>
+<li>K d 为控制器的微分时间系数；</li>
+</ul>
+<p>（2）PID 控制器仿真表示</p>
+<p>PID控制器仿真框图如图所示</p>
+<p>![6737034b7585204f89547b55aa45f86](C:/Users/LICHAI~1/AppData/Local/Temp/WeChat Files/6737034b7585204f89547b55aa45f86.jpg)</p>
+<p>3、PID控制器的作用</p>
+<p>（1）不同比例系数控制仿真</p>
+<p>增大比例系数 K p 一般将加快系统的响应，并有利于减小稳态误差，但是过大的比例系数会使系统由比较大的超调量，并产生振荡，是稳定性变坏。例如，设被控制对像传递函数为</p>
+<p>![957d6bf6ec68200e294cc456c01ad4b](C:/Users/LICHAI~1/AppData/Local/Temp/WeChat Files/957d6bf6ec68200e294cc456c01ad4b.jpg)</p>
+<p>输入月结信号，选取 K p = 1.3 、2.3 、3.3 ，控制系统仿真框图及阶跃响应曲线，如图所示</p>
+<p>![37e6e6517fd54b27db4de384fa72a55](C:/Users/LICHAI~1/AppData/Local/Temp/WeChat Files/37e6e6517fd54b27db4de384fa72a55.jpg)</p>
+<p>结论：系统的超调量会随着K p 的增大而增大，K p 偏大时，系统震荡系数增多，幅度增大，且调节时间加长</p>
+<p>（2）不同积分系数控制仿真</p>
+<p>增大积分系数 K i 有利于减小超调量和稳态误差，但是系统稳态误差消除时间变长。例如，设被控制对象传递函数为</p>
+<p>![c15fa67ca51683c30d2d2aa26bdf385](C:/Users/LICHAI~1/AppData/Local/Temp/WeChat Files/c15fa67ca51683c30d2d2aa26bdf385.jpg)</p>
+<p>输入月结信号，选取 T i = 1、5、15  ,控制系IT噢NG仿真框图及越阶响应曲线如图所示</p>
+<p><img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220426194014044.png" alt="image-20220426194014044"></p>
+<p>结论：系统的超调量会随着T i 的增大而减小，系统响应速度随着 T i的增大会略微变慢</p>
+<p>（3）不同积分系统控制仿真</p>
+<p>增大积分系数K D 有利于加快系统的响应速度，使系统超调量减小，稳定性加强，但系统对扰动的抑制能力减弱。对于式（8-4）表示的被控制对象，输入阶跃信号没选取 T d = 1、5、10 ,控制系统仿真框图及阶跃响应曲线如图所示</p>
+<p>![12c2c064956aa8cc1f6dee3d4b47a82](C:/Users/LICHAI~1/AppData/Local/Temp/WeChat Files/12c2c064956aa8cc1f6dee3d4b47a82.jpg)</p>
+
+        <p class="suffix-end">__END__</p>
+        <div class="suffix-box">
+            <div class="suffix-box-left">
+                <img src="https://s2.loli.net/2022/03/31/JpQ6lgGdXmtSZaC.png" alt="hero">
+            </div>
+            <div class="suffix-box-right">
+                <span class="suffix-box-title">文章作者</span>：hero
+                <br>
+                <span class="suffix-box-title">文章出处</span>：<a href="/2022/04/26/MATLAB%E5%AD%A6%E4%B9%A0/08_Simulink%E5%9C%A8PID%E6%8E%A7%E5%88%B6%E5%99%A8%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/01_PID%E6%8E%A7%E5%88%B6%E5%99%A8%E6%A6%82%E8%BF%B0/" target="_blank">01_PID控制器概述</a>
+                <br>
+                <span class="suffix-box-title">作者签名</span>：简单地活着, 肆意又精彩.
+                <br>
+                <span class="suffix-box-title">关于主题</span>：<a href="https://github.com/first19326/Hexo-LiveForCode" target="_blank">Hexo - Live For Code</a>
+                <br>
+                <span class="suffix-box-title">版权声明</span>：文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" title="BY-NC-SA" target="_blank">BY-NC-SA</a> 许可协议，转载请注明出处
+                <br>
+            </div>
+            <div style="clear: both;"></div>
+        </div>
     </div>
-
-
-    <div class="pagination-bottom">
-        <div class="pagination">
+    <div class="article-footer">
+        
+            <div class="category">
+                分类：
+                
+                    <a href="/category/08-Simulink%E5%9C%A8PID%E6%8E%A7%E5%88%B6%E5%99%A8%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/">08_Simulink在PID控制器中的应用</a>
+                
+            </div>
+        
+        
+            <div class="tag">
+                标签：
+                
+                    <a href="/tag/MATLAB%E5%AD%A6%E4%B9%A0/">MATLAB学习</a>
+                
+            </div>
+        
+        <div class="article-prev-next">
             
-                <a class="extend prev" rel="prev" href="/archive/2022/04/page/2/">上一页</a><a class="page-number" href="/archive/2022/04/">1</a><a class="page-number" href="/archive/2022/04/page/2/">2</a><span class="page-number current">3</span>
+                <a href="/2022/04/26/MATLAB%E5%AD%A6%E4%B9%A0/08_Simulink%E5%9C%A8PID%E6%8E%A7%E5%88%B6%E5%99%A8%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/02_%E4%BD%BF%E7%94%A8%E8%AF%95%E5%87%91%E6%B3%95%E8%AE%BE%E8%AE%A1PID%E5%8F%82%E6%95%B0/" class="prev-prefix">« </a> 上一篇：    <a href="/2022/04/26/MATLAB%E5%AD%A6%E4%B9%A0/08_Simulink%E5%9C%A8PID%E6%8E%A7%E5%88%B6%E5%99%A8%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/02_%E4%BD%BF%E7%94%A8%E8%AF%95%E5%87%91%E6%B3%95%E8%AE%BE%E8%AE%A1PID%E5%8F%82%E6%95%B0/" title="发布于 2022-04-26 10:51"></a>
+                <br>
+            
+            
+                <a href="/2022/04/25/MATLAB%E5%AD%A6%E4%B9%A0/%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/17_Simulink%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="next-prefix">» </a> 下一篇：    <a href="/2022/04/25/MATLAB%E5%AD%A6%E4%B9%A0/%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/17_Simulink%E5%BF%AB%E6%8D%B7%E9%94%AE/" title="发布于 2022-04-25 10:33">Simulink快捷键</a>
             
         </div>
     </div>
+    
+    <div class="article-comments">
+        <div class="comments-title">
+            评论列表
+        </div>
+        <div class="comments-content">
+        </div>
+    </div>
+
+</div>
 
     </div>
 </div>
