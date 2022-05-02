@@ -6,7 +6,7 @@
     <meta name="referrer" content="origin">
     <meta http-equiv="Cache-Control" content="no-transform">
     <meta http-equiv="Cache-Control" content="no-siteapp">
-    <title>PID矫正环节详解.md</title>
+    <title>02_设计PID参数</title>
     <link rel="shortcut icon" href="#"/>
 
     <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/LongCang.css">
@@ -32,19 +32,19 @@
     <div class="header">
         <div class="vertical">
             <div class="inner">
-                <h1 class="header-subtitle">PID矫正环节详解.md</h1>
+                <h1 class="header-subtitle">02_设计PID参数</h1>
                 <div class="header-subinfo">
                     <p class="article-info-text">
                         <span>
-                            <i class="iconfont icon-time"></i> 发表时间：2022-05-02
+                            <i class="iconfont icon-time"></i> 发表时间：2022-04-26
                         </span>
                         
-                            <span id="/2022/05/02/MATLAB学习/补充文件/18_PID矫正环节详解/" class="leancloud_visitors" data-flag-title="PID矫正环节详解.md">
+                            <span id="/2022/04/26/MATLAB学习/08_Simulink在PID控制器中的应用/02_设计PID参数/" class="leancloud_visitors" data-flag-title="02_设计PID参数">
                                 <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
                             </span>
                         
                         <span>
-                            <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2022/05/02/MATLAB学习/补充文件/18_PID矫正环节详解/"></span>
+                            <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2022/04/26/MATLAB学习/08_Simulink在PID控制器中的应用/02_设计PID参数/"></span>
                         </span>  
                     </p>                 
                 </div>
@@ -58,52 +58,151 @@
         <div id="article">
     <div class="toc"></div>
     <div class="article-body">
-        <p><img src="https://s2.loli.net/2022/05/02/4c6xsVgrqwpYPXv.png" alt="img"></p>
+        <h1 id="一、使用试凑法设计PID参数"><a href="#一、使用试凑法设计PID参数" class="headerlink" title="一、使用试凑法设计PID参数"></a>一、使用<code>试凑法</code>设计PID参数</h1><p>1、<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42249050/article/details/106077541">试凑法</a></p>
+<p>（1）整定比例控制<br>将比例控制作用由小变到大，观察各次响应，直至得到反应快、超调小的响应曲线。<br>（2）整定积分环节<br>若在比例控制下稳态误差不能满足要求，需加入积分控制。先将步骤（1）中选择的比例系数减小为原来的50~80%，再将积分时间置一个较大值，观测响应曲线。然后减小积分时间，加大积分作用，并相应调整比例系数，反复试凑至得到较满意的响应，确定比例和积分的参数。<br>（3）整定微分环节<br>若经过步骤（2），Pl控制只能消除稳态误差，而动态过程不能令人满意，则应加入微分控制，构成PID控制。先置微分时间TD=0，逐渐加大TD，同时相应地改变比例系数和积分时间，反复试凑至获得满意的控制效果和PID控制参数。</p>
+<p>在试凑时，可参考表8-1的参数添加初始值，然后再进行微调，微调时遵循先比例、后积分、再微分的整定步骤。使用试凑法设计PID参数的过程如下：</p>
+<p><img src="https://s2.loli.net/2022/04/29/O1vMEhXZzqTUSbk.jpg" alt="e38e486761e17b95c44fb4a3695f0b5"></p>
 <ul>
-<li><p>比例环节：即时成比例地反应控制系统的偏差信号e(t)，偏差一旦产生，控制器立即产生控制作用以减小误差。当偏差e=0时，控制作用也为0。因此，比例控制是基于偏差进行调节的，即有差调节。</p>
-</li>
-<li><p>积分环节：能对误差进行记忆，主要用于消除静差，提高系统的无差度，积分作用的强弱取决于积分时间常数Ti，Ti越大，积分作用越弱，反之则越强。</p>
-</li>
-<li><p>微分环节：能反映偏差信号的变化趋势(变化速率)，并能在偏差信号值变得太大之前，在系统中引入一个有效的早期修正信号，从而加快系统的动作速度，减小调节时间。</p>
-</li>
-</ul>
-<p><strong>从时间的角度讲，比例作用是针对系统当前误差进行控制，积分作用则针对系统误差的历史，而微分作用则反映了系统误差的变化趋势，这三者的组合是“过去、现在、未来”的完美结合  。</strong></p>
-<p>当被放入较重的物体时，PID控制器可以消除未来的误差，会立刻顶回去，而PI控制器必定会有被压下去的过程，慢慢回去。</p>
-<ul>
-<li><p>加大kp可以产生更刚性和更快的响应</p>
-</li>
-<li><p>加大ki可以减少震荡 </p>
-</li>
-<li><p>加大kd可以</p>
-</li>
+<li>先调K p 让系统闭环，使积分和微分不起作用    (K i =0，K d =0)，观察系统的响应，若反应快、超调小，静差满足要求，则就用纯比例控制器。</li>
+<li>调K i 若静差太大，则加入Kp，且同时使K;略增曾加(如至原来的120%，因加人积分会使系统稳定性下降，故减小Kp)，Ki;由小到大，直到满足静差要求。</li>
+<li>调K d 若系统动态特性不好，则加入Kd，同时使 Kp,稍微提升一点，Kp，由小到大，直到动态满意。</li>
 </ul>
 <blockquote>
-<p>例如自动控制汽车加速到指定速度，要是一加速，踩100%油门，很容易就超了，超速了立即踩100%刹车。。。自然是不行的，最好就是让它缓慢加速，这就是比例控制器参数的意义。</p>
-<p>kp一般小于1，这样不会剧烈震荡了。但是仍然还会抖动，狂抖。</p>
+<p>结论：</p>
+<ul>
+<li>采用试凑法调整PID参数，对标准的二阶系数可以得到较好的控制效果</li>
+<li>采用试凑法调整PID参数，不仅能应用于标准二阶系统，对于延迟环节的系统也同样适用。试凑法可以扩展到任意的高阶系统中。在控制工程实际应用时，可以先进行讨论藩镇再将试凑好的参数添加到系统中</li>
+</ul>
 </blockquote>
+<h1 id="二、使用Ziegler-Nichols-法设计PID-参数"><a href="#二、使用Ziegler-Nichols-法设计PID-参数" class="headerlink" title="二、使用Ziegler-Nichols 法设计PID 参数"></a>二、使用<code>Ziegler-Nichols</code> 法设计PID 参数</h1><p>1、<code>Ziegler-Nichols</code>法介绍</p>
+<p>使用Ziegler-Nichols（ZN）法世界 PID 参数属于工程整定的方法之一针对过程控制对象特征，控制系统可以分为有<strong>自平衡和无自平衡能力系统</strong>，因大部分属于有自平衡能力系统，这里仅讨论针对有自平衡能力系统使用ZN法设计PID 参数。有自平衡能力系统对应传递函数为 <img src="https://s2.loli.net/2022/04/29/R9z8UZbVi73EOTx.jpg" alt="76012aaf97a7c9a609f46e6337dd2a7"></p>
 <blockquote>
-<p>整个系统不是特别稳定，总是在“抖动”。</p>
-<p>你心里设想一个弹簧：现在在平衡位置上。拉它一下，然后松手。这时它会震荡起来。因为阻力很小，它可能会震荡很长时间，才会重新停在平衡位置。</p>
-<p>请想象一下：要是把上图所示的系统浸没在水里，同样拉它一下 ：这种情况下，重新停在平衡位置的时间就短得多。</p>
-<p>我们需要一个控制作用，让被控制的物理量的“变化速度”趋于0，即类似于“阻尼”的作用。越接近目标，P的作用越温柔。有很多内在的或者外部的因素，使控制量发生小范围的摆动。D的作用就是让物理量的速度趋于0，只要什么时候，这个量具有了速度，D就向相反的方向用力，尽力刹住这个变化。kD参数越大，向速度相反方向刹车的力道就越强。究竟怎么刹的细节，不是很清楚。</p>
+<ul>
+<li><p>K为比例系数</p>
+</li>
+<li><p>T<a target="_blank" rel="noopener" href="https://www.codetd.com/article/11562224">为惯性时间常数</a></p>
+<p><img src="https://s2.loli.net/2022/05/02/jqrRME6sDP2xKHY.png" alt="在这里插入图片描述"></p>
+</li>
+<li><p>τ为纯延迟时间常数 :惯性时间常数是表征系统的阶越响应时间的一个时间常数</p>
+</li>
+<li><p>对于惯性常数T及纯时间延迟常数τ则需要根据图所示各自的含义求取</p>
+<ul>
+<li><p>纯时间延迟常数τ即为曲线的拐点的切线在X轴上的交点</p>
+</li>
+<li><p>惯性常数T即为曲线的拐点处的切线在幅值为K时对应的X轴的坐标减去纯时间延迟常数τ</p>
+</li>
+</ul>
+<p><img src="https://s2.loli.net/2022/05/02/lf41FyBOtMSujAX.png" alt="img"></p>
+</li>
+</ul>
 </blockquote>
+<p><img src="C:/Users/lichaikui/AppData/Roaming/Typora/typora-user-images/image-20220429200439744.png" alt="image-20220429200439744"></p>
+<p><img src="https://s2.loli.net/2022/05/01/Us3RMP9wAVNBctH.png" alt="image-20220501230636803"></p>
+<p>式中，δk为临界比例度，Ti为积分时间，TD为微分时间</p>
+<p>   Ziegler-Nlichols方法是根据给定对象的临界状态参数K和T来确定PID控制器的参数，整定公式如表1-l所示。其中，如果单位阶跃响应曲线为S形曲线，则可用此法，否则不能用。此外，适用于临界振幅不大、振荡周期较长的过程控制系统，但有些系统从安全性考虑不允许进行稳定边界试验，如锅炉汽包水位控制系统。还有某些时间常数较大的单容对象，用纯比例控制时系统始终是稳定的，对于这些系统也是无法用临界比例度法来进行参数整定的。</p>
 <blockquote>
-<p>还有静误差，例如电机的静摩檫力大于动摩擦力，调微的功率不够怎么办？(只要有误差，就能检测的到)。</p>
-<p>在P的作用下，水温慢慢升高。直到升高到45℃时，他发现了一个不好的事情：天气太冷，水散热的速度，和P控制的加热的速度相等了。</p>
-<p>这可怎么办？</p>
-<p>P兄这样想：我和目标已经很近了，只需要轻轻加热就可以了。但是轻轻加热完全不起作用。<br>D兄这样想：加热和散热相等，温度没有波动，我好像不用调整什么。<br>于是，水温永远地停留在45℃，永远到不了50℃。</p>
-<p>作为一个人，根据常识，我们知道，应该进一步增加加热的功率。可是增加多少该如何计算呢？</p>
-<p>设置一个积分量。只要偏差存在，就不断地对偏差进行积分（累加），并反应在调节力度上。</p>
-<p>什么意思呢？这样一来，即使45℃和50℃相差不太大，但是随着时间的推移，只要没达到目标温度，这个积分量就不断增加。系统就会慢慢意识到：还没有到达目标温度，该增加功率啦！在微分完全不起作用的情况下，功率就会越来越大。</p>
-<p>到了目标温度后，假设温度没有波动，积分值就不会再变动。这时，加热功率仍然等于散热功率。但是，温度是稳稳的50℃。</p>
+<p>  我们在Ziegler-Nlichols方法整定中，首先需要得到的就是临界参数，即在临界状态下，被控量y来回振荡一次所用时间，称为临界周期Tk。被调参数处于临界状态时的比例度，称为临界比例度δk。其次，在上图中的临界振荡过程，可以得到我们所需要的临界比例度δk和临界周期Tk的数值。再次，根据控制器的结果结合表选定经验公式，最后根据经验公式计算出PID控制器各参数的具体数值。具体的实现步骤如下：</p>
+<p>Step 1 寻找临界振荡状态，求取临界比例度δk和临界周期Tk。</p>
+<p>   先把积分时间放至最大，微分时间放至零，比例度放至较大的适当值。“纯P控制参数”，就是使控制系统按纯比例作用的方式投入运行。然后，慢慢地减少比例度，在外界干扰的作用下，细心观察控制器的输出信号和被调参数的变化情况。如果控制过程的曲线波动是衰减的，则把比例度继续调大，如果控制过程的曲线波动是发散的，则应把比例度调小些，直到曲线波动呈等幅振荡为止，从而得到临界比例度δk和临界周期Tk值。即整定口诀说的“等幅振荡出现时，δk值Tk值为临界”。</p>
+<p>Step 2 结合控制器的结构形式，按表选定参数计算公式。</p>
+<p>         表 Ziegler-Nlichols方法的参数整定计算表<img src="https://img-blog.csdnimg.cn/2021060611200382.png" alt="在这里插入图片描述"></p>
+<p>  “按照公式乘系数”即根据得到的δk和Tk值按下表临界比例度法参数计算公式表，来计算调节器的各参数值。</p>
+<p>Step 3 先比例调节，后积分调节，最后微分调节。</p>
+<p>  求得具体的数值后，将比例度调在比计算数值大一些的刻度上，然后把积分时间放至计算值上，然后从大到小地调整积分时间，最后把微分时间放至计算值上，从小到大地调整微分时间。这样的调整次序就是口诀中的“PID顺序不能错”。</p>
+<p>Step 4 多次调节参数，观察最佳响应曲线的输出。</p>
+<p>  最后把比例度减小到计算值上，通过观察曲线，也就是“静观运行勤调整，细心寻求最佳值”。即适当地进行各参数的微调，以达到满意的控制效果。</p>
 </blockquote>
-<p>kI的值越大，积分时乘的系数就越大，积分效果越明显。</p>
-<p>所以，I的作用就是，减小静态情况下的误差，让受控物理量尽可能接近目标值。</p>
-<p>I在使用时还有个问题：需要设定积分限制。防止在刚开始加热时，就把积分量积得太大，难以控制。</p>
-<p>三者并不是依次关系，谁先开始都没有问题。(当然kp最先。)</p>
-<p><img src="https://s2.loli.net/2022/05/02/Xua7d2e4onJlLbN.gif" alt="img"></p>
-<hr>
-<p>版权声明：本文为CSDN博主「才大难为用」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。<br>原文链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/HeroIsUseless/article/details/108634876">https://blog.csdn.net/HeroIsUseless/article/details/108634876</a></p>
+<p>  整定的口诀：</p>
+<ul>
+<li>临界整定应用多，纯P运转减参数；</li>
+<li>等幅振荡出现时，δk值Tk值为临界；</li>
+<li>按照公式乘系数，P、I、D顺序不能错；</li>
+<li>静观运行勤调整，细心寻求最佳值。</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42249050/article/details/117620736?ops_request_misc=%7B%22request_id%22:%22165140580416781818799154%22,%22scm%22:%2220140713.130102334.pc_all.%22%7D&request_id=165140580416781818799154&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-3-117620736.142%5Ev9%5Epc_search_result_control_group,157%5Ev4%5Econtrol&utm_term=PID%E5%8F%82%E6%95%B0%E6%95%B4%E5%AE%9A%E2%80%94%E2%80%94Z-N%E6%96%B9%E6%B3%95&spm=1018.2226.3001.4187">基于Ziegler-Nlichols方法的参数整定与PID仿真_昔时扬尘处的博客-CSDN博客</a></p>
+<h1 id="三、使用科恩-库恩法设计PID-参数"><a href="#三、使用科恩-库恩法设计PID-参数" class="headerlink" title="三、使用科恩-库恩法设计PID 参数"></a>三、使用<code>科恩-库恩法</code>设计PID 参数</h1><p>1、<code>科恩-库恩法</code>简介<br>对于带延迟环节的一阶系统，可以使用科恩-库恩法实现PID参数设计。带延迟环节的一阶系统仿真框图如图8.13所示。</p>
+<p><img src="https://s2.loli.net/2022/04/30/WXJCxLgEDjGTwsa.jpg" alt="15bfc2b52390502b52d6403a2fe6ded"></p>
+<p>和 ZN 法相似，利用原系统的时间常数 T、比例列系统K可求得比例、积分、微分参数它提供了一个参数校正的基准，然后在此基础上根据据实际需要对参数进行微调以达到目的</p>
+<p><img src="https://s2.loli.net/2022/04/30/HYGieDXdNJfypOP.png" alt="bfb946c1b7c501e5a61050d343e92a8"></p>
+<blockquote>
+<p>结论：使用<code>科恩-库恩法</code>整定控制参数时，可以得到初始值，然后进行调整试凑法才能找到最佳控制效果。和试凑法相比。该方法能尽快确定控制参数初始值，减少试凑时间</p>
+</blockquote>
+<h1 id="四、使用-衰减曲线法设计PID参数"><a href="#四、使用-衰减曲线法设计PID参数" class="headerlink" title="四、使用 衰减曲线法设计PID参数"></a>四、使用 <code>衰减曲线法</code>设计PID参数</h1><p>1、衰减曲线法简介</p>
+<p>其衰减曲线法是通过调整衰减比对控制参数进行整定的一种方法，如图所示，衰减比即为阶跃响应的第一个波峰与第二个波峰的比值，即 y1/y2</p>
+<p><img src="https://s2.loli.net/2022/04/30/zPkdLOpy1uvsIQZ.jpg" alt="8f045690c5cd73bcefe45e55c77f62f"></p>
+<p>衰减曲线法在工程中常用的衰减比有两种，一种是4:1，另一种是10：1。对于衰减比为4:1的系统，首先将调节器设置成纯比例控制（Ki=Kd=0）,并构建仿真框图，如图所示</p>
+<p><img src="https://s2.loli.net/2022/04/30/VIixHUwTFtb9PJp.jpg" alt="9b9ebc800b341262b12274c1c6ee97f"></p>
+<p>再将比例系数由小变大，加扰动观察响应过程，直到响应曲线出现4:1的衰减比，将此时的比带（比例系数的倒数）定义为衰减比例带&amp;s=1/Kp，两波峰之间的时间定义为周期Ts，如图所示</p>
+<p><img src="https://s2.loli.net/2022/04/30/4fsKjhdDGcmt2H5.jpg" alt="b536a8cdbaf868465a0e2c45ef19ab9"></p>
+<p>根据Tn及设定的Kp值，确定控制器参数如表所示</p>
+<p><img src="https://s2.loli.net/2022/04/30/W8cPlHGxp64NB1X.jpg" alt="ee129aacf0e7bb6e04818522c1e11b7"></p>
+<p>同理，对于衰减比10:1,由衰减比例带&amp;r=1/Kp和两波峰之间的时间Ti，确定控制器参数如图所示</p>
+<p><img src="https://s2.loli.net/2022/04/30/vcUlOXNfogG2Waz.jpg" alt="81f4f4096073bc1ebe19285b02cef90"></p>
+<h1 id="五、使用临界比例度法设计PID参数"><a href="#五、使用临界比例度法设计PID参数" class="headerlink" title="五、使用临界比例度法设计PID参数"></a>五、使用<code>临界比例度法</code>设计PID参数</h1><p>1、<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42249050/article/details/106077541">临界比例度法简介</a></p>
+<p>临界比例度法整定PID参数也是一种常用调节器参数整定方法。<br>控制系统在外界干扰作用后，不能恢复到稳定的平衡状态，而出现一种既不衰减，也不发散的等幅振荡过程，这样的过渡过程就称为临界振荡过程，如图所示。我们在临界比例度法整定中，首先需要得到的就是临界参数，即在临界状态下，被控量y来回振荡一次所用时间，称为临界周期Tk；被调参数处于临界状态时的比例度，称为临界比例度δk。</p>
+<p>临界比例度法   </p>
+<ul>
+<li>设置积分时间Ti=∞,微分时间Td=0</li>
+<li>调节器设为纯比例环节，将比例系数从小到大逐步调整</li>
+</ul>
+<p>来诱发出过程控制回路中的等幅振荡，得到如图所示的临界振荡过程，以得到我们所需要的临界比例度δk和临界周期Tk的数值。然后再根据经验公式，计算出调节器各参数的具体数值。</p>
+<p><img src="https://s2.loli.net/2022/05/02/P45sdleSAubmXw6.png" alt="在这里插入图片描述"></p>
+<p>记下 这时的比例系数Kcr，再记录振荡的两个波峰之间时间为临界振荡周期Tcr，最后根据表8-8的经验公式，计算出各参数的整定值。</p>
+<p><img src="https://s2.loli.net/2022/05/01/NLHbREqolpnuUIP.jpg" alt="4f7d79fd7bf1ca62e2795c4f914e8f2"></p>
+<blockquote>
+<p>临界比例度法整定步骤如下：<br>            ①先把积分时间放至最大微分时间放至零，比例度放至较大的适当值。“纯P转减参数”，就是使控制系统按纯比例作用的方式投入运行。然后慢慢地减少比例度，在外界干扰的作用下，细心观察调节器的输出信号和被调参数的变化情况；如果控制过程的曲线波动是衰减的，则把比例度继续调小，如果控制过程的曲线波动是发散的，则应把比例度调大些，直到曲线波动呈等幅振荡为止，以此得到临界振荡过程，从而得到临界比例度δk和临界周期Tk值。即口诀说的“等幅振荡出现时，δk值Tk值为临界”。<br>            ②“按照公式乘系数”即根据得到的δk和Tk值按下表临界比例度法参数计算公式表，来计算调节器的各参数值。<img src="https://s2.loli.net/2022/05/02/mK34tOZEld5MuIS.png" alt="在这里插入图片描述"></p>
+<p>​            ③求得具体的数值后，将比例度调在比计算数值大一些的刻度上，然后把积分时间放至计算值上，然后从大到小地调整积分时间，最后把微分时间放至计算值上，从小到大地调整微分时间。这样的调整次序就是口诀中的“PID顺序不能错”。<br>​            ④最后把比例度减小到计算值上，通过观察曲线，也就是“静观运行勤调整，细心寻求最佳值”。即适当地进行各参数的微调，以达到满意的控制效果。</p>
+</blockquote>
+<h1 id="六、简单总结"><a href="#六、简单总结" class="headerlink" title="六、简单总结"></a>六、简单总结</h1><p>1)试凑法(经验法):简单可靠，能够应用于各种控制系统，特别是扰动频繁，响应曲线不太规则的控制系统。缺点是需反复试凑，花费时间长。试凑法适合现场经验较丰富、技术水平较高的工程技术人员使用。</p>
+<p>2)ZN 法(动态特性参数法):是通过系统开环实马险得到典型传递函数后进行整定的方法。此方法理论性相对较强，适应性也较广，并为调节器器参数的最优整定提供了可能。</p>
+<p>3)科恩-库恩法:采用了一种经验整定公式，该方法是依据某个特定的对象进行总结出来的，对不同系统可能存在一定的误差。</p>
+<p>4)衰减曲线法:衰减曲线法呈现振荡的时间比较知短，且衰减振荡易实现。这种整定方法应用比较广泛。缺点是有时4:1衰减不太好确定，只能近似。</p>
+<p>5)临界比例度法:简便而易于判断， 整定质量较好，适用于一般的温度、压力、流量和 液位控制系统。但对于临界比例度很小，或或者工艺生产约束条件严格、对过渡过程不允许出现等幅振荡的控制系统则不适用。</p>
+<h1 id="七、使用Smith预估器设计PID参数"><a href="#七、使用Smith预估器设计PID参数" class="headerlink" title="七、使用Smith预估器设计PID参数"></a>七、使用<code>Smith预估器</code>设计PID参数</h1><p>1、Smith预估器控制的的基本原理</p>
+<p>对于工程控制中的大延迟系统，使用一般的工程指定法没有效果。</p>
+<p>Smith 预估器控制的原理就是在PID控制回路上再并联一个补偿回路，以此抵消被控制对象的<a href="https://fubaisen.github.io/2022/05/02/MATLAB%E5%AD%A6%E4%B9%A0/%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/19_PID%E5%87%A0%E4%B8%AA%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98">纯滞后</a>因素。该方法是预先估计出过程在基本扰动下的动态特性，然后由预估器进行补偿控制，力图使被延迟了的被调量提前反应到调节器，并使之动作，以此来减小超调量了。若果预估模型准确，该方法能获得较好的控制效果，从而消除纯滞后对系统的不利影响，使系统品质与被控制过程无纯滞后时相同。</p>
+<p>若被控制系统的传递函数为<img src="https://s2.loli.net/2022/05/02/aDHNSOFQGuWrRvM.jpg" alt="42502f3e5c3f159f365d51b66572ebb" style="zoom:25%;" /> ，其中<img src="https://s2.loli.net/2022/05/02/PiTDqrNnuyd8b6O.jpg" alt="07393dba0f1233527ccc8ec48175061" style="zoom:25%;" />  为除去纯滞后部分对系统的特性，控制器的传递函数为<img src="https://s2.loli.net/2022/05/02/WuHIMp134rFzfAe.jpg" alt="12a73b95742b4395fa343f041dfafd2" style="zoom: 33%;" /> ，预估补偿器的传递函数为<img src="https://s2.loli.net/2022/05/02/YEoeznrsmOCvD8g.jpg" alt="f801d086e5d702917391b461058038c" style="zoom:25%;" /> ，则Smith 预估器控制原理框图如图所示</p>
+<p>经补偿后的等效被控制对象的传递函数为</p>
+<img src="https://s2.loli.net/2022/05/02/hC4FTfWSlt7Ybdx.jpg" alt="b6b58d3d63f20f5cf82082b021cee35" style="zoom:33%;" />
+
+<p>选择<img src="https://s2.loli.net/2022/05/02/tQqo8cJb6XfZHUg.jpg" alt="22869369dcf3c08a0dee741fef7a5de" style="zoom:33%;" /></p>
+<p>由此看出补偿器完全补偿了被控制对象纯滞后特性  </p>
+<p>传递函数等效为<img src="https://s2.loli.net/2022/05/02/Nnyh9vUtk3eTxS1.jpg" alt="c9a079f80be8e8afb62e42cd77bbb2d" style="zoom:33%;" /></p>
+<p>Smith 预估器的数学模型为</p>
+<img src="https://s2.loli.net/2022/05/02/lqbhuTnvPyD6HVw.jpg" alt="c4a9d7aaa8d7e723f95c80d8a5dec5b" style="zoom: 67%;" />
+
+<p>等效的系统框图如图所示</p>
+<p><img src="https://s2.loli.net/2022/05/02/WNvyfRIcYhugGd7.jpg" alt="7cd86f92f0a069233b40b2bcea6defc" style="zoom: 33%;" /><img src="https://s2.loli.net/2022/05/02/AJp9tF32ZeH7R5D.jpg" alt="70c8844f31325ee4e0fa1087b96f6b4" style="zoom: 33%;" /></p>
+<p>2、Smith 预估器控制仿真</p>
+<p>根据Smith 预估器原理构建的仿真图如图所示</p>
+<img src="https://s2.loli.net/2022/05/02/W9apKlqL3TCHvDc.jpg" alt="208e388a6f66a42600f52e65f209a94" style="zoom: 50%;" />
+
+<p>八、使用串级控制仿真PID控制参数</p>
+<p>1、串级控制分析</p>
+<p>在某些控制系统中，由于存在二次扰动，简单控制系统的控制作用不及时，控制偏差大，控制质量差。串级控制系统通过引入副回路，用副回路控制器克服二次扰动，用副环路之外的控制器克服一次扰动，大幅提高了控制质量。串级控制的系统框图如图所示</p>
+<p><img src="https://s2.loli.net/2022/05/03/BQTLGIaMDHfNeKC.jpg" alt="bf197aec822987bcc965b2005c9bef5"></p>
+<blockquote>
+<p>结论：对于简单控制和串级控制都能消除系统稳定误差，但串级控制对于系扰动有更好的抵抗作用</p>
+</blockquote>
+<h1 id="九、使用前馈-反馈控制仿真PID参数"><a href="#九、使用前馈-反馈控制仿真PID参数" class="headerlink" title="九、使用前馈-反馈控制仿真PID参数"></a>九、使用前馈-反馈控制仿真PID参数</h1><p>1、前馈-反馈控制分析</p>
+<p>工程上将前端和反馈结合起来使用，构建前馈-反馈控制系统。这样既发挥了·前馈控制的优势，又继承了但可以控制系统能克服多种扰动以及对控制变量进行检测的优点。前馈控制的缺点是在使用时需要对系统有精确的了解，只有了解系统模型才能有针对性的给出预测补偿。但在实际工程中，并不是所有的干扰都是可测的，并不是所有的对象都能得到精确模型，而且大多数控制对象在运行的同时自身结构也在发生变化。实际应用中的前馈控制系统几乎都采用前馈控制和反馈相结合的形式。前端-反馈控制系统框图如图所示</p>
+<p><img src="https://s2.loli.net/2022/05/03/tgC8EyMhVme1rPK.jpg" alt="20726322ecba874fb2720a384e1403e"></p>
+<ul>
+<li> <img src="https://s2.loli.net/2022/05/02/WuHIMp134rFzfAe.jpg" alt="12a73b95742b4395fa343f041dfafd2" style="zoom: 33%;" />为返哭调节器；</li>
+<li><img src="C:/Users/LICHAI~1/AppData/Local/Temp/WeChat Files/d3e229d0701b23b452c3e6b98a03981.jpg" alt="d3e229d0701b23b452c3e6b98a03981" style="zoom:33%;" />为前馈补偿器；</li>
+<li><img src="https://s2.loli.net/2022/05/03/T5aIeDv1tM4bVmS.jpg" alt="1f069267482a4710ddacc531005233f" style="zoom:33%;" />为被控制对象；</li>
+<li><img src="https://s2.loli.net/2022/05/03/MprsfzV5WYhwtRv.jpg" alt="9cf0f0bfb6ec8a7532b5e1e7cd9d77d" style="zoom:33%;" />为扰动传递函数；</li>
+</ul>
+<p><img src="https://s2.loli.net/2022/05/02/WuHIMp134rFzfAe.jpg" alt="12a73b95742b4395fa343f041dfafd2" style="zoom: 33%;" />的输出和<img src="C:/Users/LICHAI~1/AppData/Local/Temp/WeChat Files/d3e229d0701b23b452c3e6b98a03981.jpg" alt="d3e229d0701b23b452c3e6b98a03981" style="zoom:33%;" />的输出相叠加，因此该系统实质上是一种偏差控制和扰动控制的结合，有时也称为符合控制系统，其输入和扰动对输出的影响可表示为</p>
+<img src="https://s2.loli.net/2022/05/03/Yk8GTW7HQL6cwvX.jpg" alt="262e57dea16f95b0b16b174e616c063" style="zoom:25%;" />
+
+<p>式中，第一项为输入对输出的影响，第二项为扰动对输出的影响。根据不要变性原理，即系统的输出不受扰动的影响，与扰动无关，令第二项干扰为零。则由扰动对输出变量Y(s)的闭环传递函数可推导出前馈控制器的传递函数为</p>
+<img src="https://s2.loli.net/2022/05/03/PYUHRVm7eKGNcIO.jpg" alt="1f40baff699ad064f33bc6432b8a93d" style="zoom: 33%;" />
+
+<p>前馈-反馈控制系统中，由于有反馈回路，可以降低对前馈的要求，为工程上实际较简单的前馈创造了条件。前馈-反馈控制系统对扰动完全补偿的条件和前馈控制完全相同，而反馈回路中间进了前馈控制也不会对反馈调节器所需整定的参数代开多大的变化，只是反馈调节器所完成的工作量显著地减小了</p>
+<blockquote>
+<p>结论：前馈控制是一种预测控制，通过提前对系统给出控制信号，使干扰获得补偿并消除误差。前馈控制的缺点是需要指导控制通道和干扰通道模型才有针对性地给出预测补偿。反馈是根据偏差来控制的，有偏差就进行纠正。反馈控制一般采用通用PID调节器，常用  二  ~ 六 介绍的的方法进行设计。一个系统如果要求精确控制，一定需要加反馈，如果要求系统响应速度快，那就需要前馈</p>
+</blockquote>
 
         <p class="suffix-end">__END__</p>
         <div class="suffix-box">
@@ -113,7 +212,7 @@
             <div class="suffix-box-right">
                 <span class="suffix-box-title">文章作者</span>：hero
                 <br>
-                <span class="suffix-box-title">文章出处</span>：<a href="/2022/05/02/MATLAB%E5%AD%A6%E4%B9%A0/%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/18_PID%E7%9F%AB%E6%AD%A3%E7%8E%AF%E8%8A%82%E8%AF%A6%E8%A7%A3/" target="_blank">PID矫正环节详解.md</a>
+                <span class="suffix-box-title">文章出处</span>：<a href="/2022/04/26/MATLAB%E5%AD%A6%E4%B9%A0/08_Simulink%E5%9C%A8PID%E6%8E%A7%E5%88%B6%E5%99%A8%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/02_%E8%AE%BE%E8%AE%A1PID%E5%8F%82%E6%95%B0/" target="_blank">02_设计PID参数</a>
                 <br>
                 <span class="suffix-box-title">作者签名</span>：简单地活着, 肆意又精彩.
                 <br>
@@ -130,7 +229,7 @@
             <div class="category">
                 分类：
                 
-                    <a href="/category/00-MATLAB%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/">00_MATLAB补充文件</a>
+                    <a href="/category/08-Simulink%E5%9C%A8PID%E6%8E%A7%E5%88%B6%E5%99%A8%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/">08_Simulink在PID控制器中的应用</a>
                 
             </div>
         
@@ -144,11 +243,11 @@
         
         <div class="article-prev-next">
             
-                <a href="/2022/05/02/MATLAB%E5%AD%A6%E4%B9%A0/%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/19_PID%E5%87%A0%E4%B8%AA%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/" class="prev-prefix">« </a> 上一篇：    <a href="/2022/05/02/MATLAB%E5%AD%A6%E4%B9%A0/%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/19_PID%E5%87%A0%E4%B8%AA%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/" title="发布于 2022-05-02 02:24">PID几个相关问题</a>
+                <a href="/2022/04/26/MATLAB%E5%AD%A6%E4%B9%A0/08_Simulink%E5%9C%A8PID%E6%8E%A7%E5%88%B6%E5%99%A8%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/02_%E4%BD%BF%E7%94%A8%E8%AF%95%E5%87%91%E6%B3%95%E8%AE%BE%E8%AE%A1PID%E5%8F%82%E6%95%B0/" class="prev-prefix">« </a> 上一篇：    <a href="/2022/04/26/MATLAB%E5%AD%A6%E4%B9%A0/08_Simulink%E5%9C%A8PID%E6%8E%A7%E5%88%B6%E5%99%A8%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/02_%E4%BD%BF%E7%94%A8%E8%AF%95%E5%87%91%E6%B3%95%E8%AE%BE%E8%AE%A1PID%E5%8F%82%E6%95%B0/" title="发布于 2022-04-26 07:48">02_使用试凑法设计PID参数</a>
                 <br>
             
             
-                <a href="/2022/04/26/MATLAB%E5%AD%A6%E4%B9%A0/draft/" class="next-prefix">» </a> 下一篇：    <a href="/2022/04/26/MATLAB%E5%AD%A6%E4%B9%A0/draft/" title="发布于 2022-04-26 10:59">draft</a>
+                <a href="/2022/04/25/MATLAB%E5%AD%A6%E4%B9%A0/%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/17_Simulink%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="next-prefix">» </a> 下一篇：    <a href="/2022/04/25/MATLAB%E5%AD%A6%E4%B9%A0/%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/17_Simulink%E5%BF%AB%E6%8D%B7%E9%94%AE/" title="发布于 2022-04-25 10:33">Simulink快捷键</a>
             
         </div>
     </div>
