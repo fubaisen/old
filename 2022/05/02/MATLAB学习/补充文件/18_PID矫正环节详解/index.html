@@ -6,7 +6,7 @@
     <meta name="referrer" content="origin">
     <meta http-equiv="Cache-Control" content="no-transform">
     <meta http-equiv="Cache-Control" content="no-siteapp">
-    <title>归档</title>
+    <title>PID矫正环节详解.md</title>
     <link rel="shortcut icon" href="#"/>
 
     <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/LongCang.css">
@@ -18,181 +18,147 @@
     <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Rosario.css">
     <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/UbuntuMono.css">
 
-    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/archive.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/post.css">
+    
+        <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/normal.css">
+    
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/jquery-3.4.1.min.js"></script>
+
 <meta name="generator" content="Hexo 5.4.1"></head>
 <body>
     <a id="cover"></a>
     <div id="header">
-    <div class="header" >
+    <div class="header">
         <div class="vertical">
             <div class="inner">
-                <h1 class="header-title"></h1>
-                <h2 class="header-description" id="hitokoto"></h2>
-                <h3 class="header-info" id="hitokotoAuthor"></h3>
-                <!--
-                <h1 class="header-subtitle"></h1>
-                <p class="header-subinfo"></p>
-                -->
+                <h1 class="header-subtitle">PID矫正环节详解.md</h1>
+                <div class="header-subinfo">
+                    <p class="article-info-text">
+                        <span>
+                            <i class="iconfont icon-time"></i> 发表时间：2022-05-02
+                        </span>
+                        
+                            <span id="/2022/05/02/MATLAB学习/补充文件/18_PID矫正环节详解/" class="leancloud_visitors" data-flag-title="PID矫正环节详解.md">
+                                <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                            </span>
+                        
+                        <span>
+                            <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2022/05/02/MATLAB学习/补充文件/18_PID矫正环节详解/"></span>
+                        </span>  
+                    </p>                 
+                </div>
             </div>
         </div>
-        <a class="scroll-down" href="javascript:;" target="_self" data-offset="-45">
-            <span class="hidden">Scroll Down</span>
-            <i class="scroll-down-icon iconfont icon-return"></i>
-        </a>
+        <canvas id="articleHeaderCanvas"></canvas>
     </div>
 </div>
     <div id="container">
     <div id="content">
-        
-    <div class="articles">
-        
-        
-            
-                
-                    
-                    <div class="archives-wrap">      
-                        <div class="archive-year-wrap">
-                            <a href="/archive/2022" class="archive-year">
-                                2022
-                            </a>
-                        </div>
-                        <div class="archives">
-            
-                            <div class="archive">
-                                <div class="article">
-                                    <a href="javascript:;">
-                                        <span>04/08</span>
-                                    </a>
-                                    <h2>
-                                        <a class="article-title" href="/2022/04/08/MATLAB%E5%AD%A6%E4%B9%A0/%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/13_%E7%9F%A9%E9%98%B5%E8%BF%90%E7%AE%97/">矩阵运算</a> 
-                                    </h2>
-                                </div>
-                            </div>     
-        
-            
-                            <div class="archive">
-                                <div class="article">
-                                    <a href="javascript:;">
-                                        <span>04/08</span>
-                                    </a>
-                                    <h2>
-                                        <a class="article-title" href="/2022/04/08/MATLAB%E5%AD%A6%E4%B9%A0/%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/12_%E7%9F%A9%E9%98%B5%E6%96%B0%E8%A7%A3/">矩阵新解</a> 
-                                    </h2>
-                                </div>
-                            </div>     
-        
-            
-                            <div class="archive">
-                                <div class="article">
-                                    <a href="javascript:;">
-                                        <span>04/06</span>
-                                    </a>
-                                    <h2>
-                                        <a class="article-title" href="/2022/04/06/MATLAB%E5%AD%A6%E4%B9%A0/03_MATLAB%E7%9A%84%E9%9D%99%E6%80%81%E4%B8%8E%E5%8A%A8%E6%80%81%E7%BB%98%E5%9B%BE%E5%8A%9F%E8%83%BD/03_%E5%88%9B%E5%BB%BA%E5%8A%A8%E7%94%BB%E8%BF%87%E7%A8%8B/">03_创建动画过程</a> 
-                                    </h2>
-                                </div>
-                            </div>     
-        
-            
-                            <div class="archive">
-                                <div class="article">
-                                    <a href="javascript:;">
-                                        <span>04/06</span>
-                                    </a>
-                                    <h2>
-                                        <a class="article-title" href="/2022/04/06/MATLAB%E5%AD%A6%E4%B9%A0/03_MATLAB%E7%9A%84%E9%9D%99%E6%80%81%E4%B8%8E%E5%8A%A8%E6%80%81%E7%BB%98%E5%9B%BE%E5%8A%9F%E8%83%BD/01_%E4%BA%8C%E7%BB%B4%E7%BB%98%E5%9B%BE%E5%8A%9F%E8%83%BD/">01_二维绘图功能</a> 
-                                    </h2>
-                                </div>
-                            </div>     
-        
-            
-                            <div class="archive">
-                                <div class="article">
-                                    <a href="javascript:;">
-                                        <span>04/04</span>
-                                    </a>
-                                    <h2>
-                                        <a class="article-title" href="/2022/04/04/MATLAB%E5%AD%A6%E4%B9%A0/02_MATLAB%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/04_%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/">04_文件操作</a> 
-                                    </h2>
-                                </div>
-                            </div>     
-        
-            
-                            <div class="archive">
-                                <div class="article">
-                                    <a href="javascript:;">
-                                        <span>04/03</span>
-                                    </a>
-                                    <h2>
-                                        <a class="article-title" href="/2022/04/03/MATLAB%E5%AD%A6%E4%B9%A0/02_MATLAB%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/03_M%E6%96%87%E4%BB%B6/">03_M文件</a> 
-                                    </h2>
-                                </div>
-                            </div>     
-        
-            
-                            <div class="archive">
-                                <div class="article">
-                                    <a href="javascript:;">
-                                        <span>04/01</span>
-                                    </a>
-                                    <h2>
-                                        <a class="article-title" href="/2022/04/01/MATLAB%E5%AD%A6%E4%B9%A0/%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/09_sum%E5%87%BD%E6%95%B0/">sum函数</a> 
-                                    </h2>
-                                </div>
-                            </div>     
-        
-            
-                            <div class="archive">
-                                <div class="article">
-                                    <a href="javascript:;">
-                                        <span>04/01</span>
-                                    </a>
-                                    <h2>
-                                        <a class="article-title" href="/2022/04/01/MATLAB%E5%AD%A6%E4%B9%A0/02_MATLAB%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/02_%E7%A8%8B%E5%BA%8F%E7%BB%93%E6%9E%84/">02_程序结构</a> 
-                                    </h2>
-                                </div>
-                            </div>     
-        
-            
-                            <div class="archive">
-                                <div class="article">
-                                    <a href="javascript:;">
-                                        <span>04/01</span>
-                                    </a>
-                                    <h2>
-                                        <a class="article-title" href="/2022/04/01/MATLAB%E5%AD%A6%E4%B9%A0/%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/11_%E5%8A%A0%E6%B7%B1%E7%90%86%E8%A7%A3%E5%8D%95%E5%85%83%E7%9F%A9%E9%98%B5%E5%92%8C%E7%BB%93%E6%9E%84%E7%9F%A9%E9%98%B5/">加深理解单元矩阵和结构矩阵</a> 
-                                    </h2>
-                                </div>
-                            </div>     
-        
-            
-                            <div class="archive">
-                                <div class="article">
-                                    <a href="javascript:;">
-                                        <span>04/01</span>
-                                    </a>
-                                    <h2>
-                                        <a class="article-title" href="/2022/04/01/MATLAB%E5%AD%A6%E4%B9%A0/%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/10_%E7%AE%80%E8%AE%B0%E6%8B%AC%E5%8F%B7/">简记括号</a> 
-                                    </h2>
-                                </div>
-                            </div>     
-        
-        
+        <div id="article">
+    <div class="toc"></div>
+    <div class="article-body">
+        <p><img src="https://s2.loli.net/2022/05/02/4c6xsVgrqwpYPXv.png" alt="img"></p>
+<ul>
+<li><p>比例环节：即时成比例地反应控制系统的偏差信号e(t)，偏差一旦产生，控制器立即产生控制作用以减小误差。当偏差e=0时，控制作用也为0。因此，比例控制是基于偏差进行调节的，即有差调节。</p>
+</li>
+<li><p>积分环节：能对误差进行记忆，主要用于消除静差，提高系统的无差度，积分作用的强弱取决于积分时间常数Ti，Ti越大，积分作用越弱，反之则越强。</p>
+</li>
+<li><p>微分环节：能反映偏差信号的变化趋势(变化速率)，并能在偏差信号值变得太大之前，在系统中引入一个有效的早期修正信号，从而加快系统的动作速度，减小调节时间。</p>
+</li>
+</ul>
+<p><strong>从时间的角度讲，比例作用是针对系统当前误差进行控制，积分作用则针对系统误差的历史，而微分作用则反映了系统误差的变化趋势，这三者的组合是“过去、现在、未来”的完美结合  。</strong></p>
+<p>当被放入较重的物体时，PID控制器可以消除未来的误差，会立刻顶回去，而PI控制器必定会有被压下去的过程，慢慢回去。</p>
+<ul>
+<li><p>加大kp可以产生更刚性和更快的响应</p>
+</li>
+<li><p>加大ki可以减少震荡 </p>
+</li>
+<li><p>加大kd可以</p>
+</li>
+</ul>
+<blockquote>
+<p>例如自动控制汽车加速到指定速度，要是一加速，踩100%油门，很容易就超了，超速了立即踩100%刹车。。。自然是不行的，最好就是让它缓慢加速，这就是比例控制器参数的意义。</p>
+<p>kp一般小于1，这样不会剧烈震荡了。但是仍然还会抖动，狂抖。</p>
+</blockquote>
+<blockquote>
+<p>整个系统不是特别稳定，总是在“抖动”。</p>
+<p>你心里设想一个弹簧：现在在平衡位置上。拉它一下，然后松手。这时它会震荡起来。因为阻力很小，它可能会震荡很长时间，才会重新停在平衡位置。</p>
+<p>请想象一下：要是把上图所示的系统浸没在水里，同样拉它一下 ：这种情况下，重新停在平衡位置的时间就短得多。</p>
+<p>我们需要一个控制作用，让被控制的物理量的“变化速度”趋于0，即类似于“阻尼”的作用。越接近目标，P的作用越温柔。有很多内在的或者外部的因素，使控制量发生小范围的摆动。D的作用就是让物理量的速度趋于0，只要什么时候，这个量具有了速度，D就向相反的方向用力，尽力刹住这个变化。kD参数越大，向速度相反方向刹车的力道就越强。究竟怎么刹的细节，不是很清楚。</p>
+</blockquote>
+<blockquote>
+<p>还有静误差，例如电机的静摩檫力大于动摩擦力，调微的功率不够怎么办？(只要有误差，就能检测的到)。</p>
+<p>在P的作用下，水温慢慢升高。直到升高到45℃时，他发现了一个不好的事情：天气太冷，水散热的速度，和P控制的加热的速度相等了。</p>
+<p>这可怎么办？</p>
+<p>P兄这样想：我和目标已经很近了，只需要轻轻加热就可以了。但是轻轻加热完全不起作用。<br>D兄这样想：加热和散热相等，温度没有波动，我好像不用调整什么。<br>于是，水温永远地停留在45℃，永远到不了50℃。</p>
+<p>作为一个人，根据常识，我们知道，应该进一步增加加热的功率。可是增加多少该如何计算呢？</p>
+<p>设置一个积分量。只要偏差存在，就不断地对偏差进行积分（累加），并反应在调节力度上。</p>
+<p>什么意思呢？这样一来，即使45℃和50℃相差不太大，但是随着时间的推移，只要没达到目标温度，这个积分量就不断增加。系统就会慢慢意识到：还没有到达目标温度，该增加功率啦！在微分完全不起作用的情况下，功率就会越来越大。</p>
+<p>到了目标温度后，假设温度没有波动，积分值就不会再变动。这时，加热功率仍然等于散热功率。但是，温度是稳稳的50℃。</p>
+</blockquote>
+<p>kI的值越大，积分时乘的系数就越大，积分效果越明显。</p>
+<p>所以，I的作用就是，减小静态情况下的误差，让受控物理量尽可能接近目标值。</p>
+<p>I在使用时还有个问题：需要设定积分限制。防止在刚开始加热时，就把积分量积得太大，难以控制。</p>
+<p>三者并不是依次关系，谁先开始都没有问题。(当然kp最先。)</p>
+<p><img src="https://s2.loli.net/2022/05/02/Xua7d2e4onJlLbN.gif" alt="img"></p>
+<hr>
+<p>版权声明：本文为CSDN博主「才大难为用」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。<br>原文链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/HeroIsUseless/article/details/108634876">https://blog.csdn.net/HeroIsUseless/article/details/108634876</a></p>
+
+        <p class="suffix-end">__END__</p>
+        <div class="suffix-box">
+            <div class="suffix-box-left">
+                <img src="https://s2.loli.net/2022/03/31/JpQ6lgGdXmtSZaC.png" alt="hero">
             </div>
+            <div class="suffix-box-right">
+                <span class="suffix-box-title">文章作者</span>：hero
+                <br>
+                <span class="suffix-box-title">文章出处</span>：<a href="/2022/05/02/MATLAB%E5%AD%A6%E4%B9%A0/%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/18_PID%E7%9F%AB%E6%AD%A3%E7%8E%AF%E8%8A%82%E8%AF%A6%E8%A7%A3/" target="_blank">PID矫正环节详解.md</a>
+                <br>
+                <span class="suffix-box-title">作者签名</span>：简单地活着, 肆意又精彩.
+                <br>
+                <span class="suffix-box-title">关于主题</span>：<a href="https://github.com/first19326/Hexo-LiveForCode" target="_blank">Hexo - Live For Code</a>
+                <br>
+                <span class="suffix-box-title">版权声明</span>：文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" title="BY-NC-SA" target="_blank">BY-NC-SA</a> 许可协议，转载请注明出处
+                <br>
+            </div>
+            <div style="clear: both;"></div>
         </div>
+    </div>
+    <div class="article-footer">
         
-    </div>   
-
-
-    <div class="pagination-bottom">
-        <div class="pagination">
+            <div class="category">
+                分类：
+                
+                    <a href="/category/00-MATLAB%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/">00_MATLAB补充文件</a>
+                
+            </div>
+        
+        
+            <div class="tag">
+                标签：
+                
+                    <a href="/tag/MATLAB%E5%AD%A6%E4%B9%A0/">MATLAB学习</a>
+                
+            </div>
+        
+        <div class="article-prev-next">
             
-                <a class="extend prev" rel="prev" href="/archive/">上一页</a><a class="page-number" href="/archive/">1</a><span class="page-number current">2</span><a class="page-number" href="/archive/page/3/">3</a><a class="page-number" href="/archive/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/archive/page/8/">8</a><a class="extend next" rel="next" href="/archive/page/3/">下一页</a>
+            
+                <a href="/2022/04/26/MATLAB%E5%AD%A6%E4%B9%A0/draft/" class="next-prefix">» </a> 下一篇：    <a href="/2022/04/26/MATLAB%E5%AD%A6%E4%B9%A0/draft/" title="发布于 2022-04-26 10:59">draft</a>
             
         </div>
     </div>
+    
+    <div class="article-comments">
+        <div class="comments-title">
+            评论列表
+        </div>
+        <div class="comments-content">
+        </div>
+    </div>
+
+</div>
 
     </div>
 </div>
