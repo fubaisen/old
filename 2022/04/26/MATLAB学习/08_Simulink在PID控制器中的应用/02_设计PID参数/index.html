@@ -58,7 +58,7 @@
         <div id="article">
     <div class="toc"></div>
     <div class="article-body">
-        <h1 id="一、使用试凑法设计PID参数"><a href="#一、使用试凑法设计PID参数" class="headerlink" title="一、使用试凑法设计PID参数"></a>一、使用<code>试凑法</code>设计PID参数</h1><h3 id="1、试凑法"><a href="#1、试凑法" class="headerlink" title="1、试凑法"></a>1、<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42249050/article/details/106077541">试凑法</a></h3><h4 id="（1）整定比例控制"><a href="#（1）整定比例控制" class="headerlink" title="（1）整定比例控制"></a>（1）整定比例控制</h4><p>将比例控制作用由小变到大，观察各次响应，直至得到反应快、超调小的响应曲线。</p>
+        <h1 id="一、使用试凑法设计PID参数"><a href="#一、使用试凑法设计PID参数" class="headerlink" title="一、使用试凑法设计PID参数"></a>一、使用<code>试凑法</code>设计PID参数</h1><h2 id="1、试凑法"><a href="#1、试凑法" class="headerlink" title="1、试凑法"></a>1、<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42249050/article/details/106077541">试凑法</a></h2><h4 id="（1）整定比例控制"><a href="#（1）整定比例控制" class="headerlink" title="（1）整定比例控制"></a>（1）整定比例控制</h4><p>将比例控制作用由小变到大，观察各次响应，直至得到反应快、超调小的响应曲线。</p>
 <h4 id="（2）整定积分环节"><a href="#（2）整定积分环节" class="headerlink" title="（2）整定积分环节"></a>（2）整定积分环节</h4><p>若在比例控制下稳态误差不能满足要求，需加入积分控制。先将步骤（1）中选择的比例系数减小为原来的50~80%，再将积分时间置一个较大值，观测响应曲线。然后减小积分时间，加大积分作用，并相应调整比例系数，反复试凑至得到较满意的响应，确定比例和积分的参数。</p>
 <h4 id="（3）整定微分环节"><a href="#（3）整定微分环节" class="headerlink" title="（3）整定微分环节"></a>（3）整定微分环节</h4><p>若经过步骤（2），Pl控制只能消除稳态误差，而动态过程不能令人满意，则应加入微分控制，构成PID控制。先置微分时间TD=0，逐渐加大TD，同时相应地改变比例系数和积分时间，反复试凑至获得满意的控制效果和PID控制参数。</p>
 <p>在试凑时，可参考表8-1的参数添加初始值，然后再进行微调，微调时遵循先比例、后积分、再微分的整定步骤。使用试凑法设计PID参数的过程如下：</p>
