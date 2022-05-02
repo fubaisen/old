@@ -6,7 +6,7 @@
     <meta name="referrer" content="origin">
     <meta http-equiv="Cache-Control" content="no-transform">
     <meta http-equiv="Cache-Control" content="no-siteapp">
-    <title>归档</title>
+    <title>PID几个相关问题</title>
     <link rel="shortcut icon" href="#"/>
 
     <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/LongCang.css">
@@ -18,97 +18,113 @@
     <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/Rosario.css">
     <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/font/UbuntuMono.css">
 
-    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/archive.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/post.css">
+    
+        <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/css/normal.css">
+    
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/first19326/cdn@master/static/js/jquery-3.4.1.min.js"></script>
+
 <meta name="generator" content="Hexo 5.4.1"></head>
 <body>
     <a id="cover"></a>
     <div id="header">
-    <div class="header" >
+    <div class="header">
         <div class="vertical">
             <div class="inner">
-                <h1 class="header-title"></h1>
-                <h2 class="header-description" id="hitokoto"></h2>
-                <h3 class="header-info" id="hitokotoAuthor"></h3>
-                <!--
-                <h1 class="header-subtitle"></h1>
-                <p class="header-subinfo"></p>
-                -->
+                <h1 class="header-subtitle">PID几个相关问题</h1>
+                <div class="header-subinfo">
+                    <p class="article-info-text">
+                        <span>
+                            <i class="iconfont icon-time"></i> 发表时间：2022-05-02
+                        </span>
+                        
+                            <span id="/2022/05/02/MATLAB学习/补充文件/19_PID几个相关问题/" class="leancloud_visitors" data-flag-title="PID几个相关问题">
+                                <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                            </span>
+                        
+                        <span>
+                            <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2022/05/02/MATLAB学习/补充文件/19_PID几个相关问题/"></span>
+                        </span>  
+                    </p>                 
+                </div>
             </div>
         </div>
-        <a class="scroll-down" href="javascript:;" target="_self" data-offset="-45">
-            <span class="hidden">Scroll Down</span>
-            <i class="scroll-down-icon iconfont icon-return"></i>
-        </a>
+        <canvas id="articleHeaderCanvas"></canvas>
     </div>
 </div>
     <div id="container">
     <div id="content">
-        
-    <div class="articles">
-        
-        
-            
-                
-                    
-                    <div class="archives-wrap">      
-                        <div class="archive-year-wrap">
-                            <a href="/archive/2021" class="archive-year">
-                                2021
-                            </a>
-                        </div>
-                        <div class="archives">
-            
-                            <div class="archive">
-                                <div class="article">
-                                    <a href="javascript:;">
-                                        <span>12/22</span>
-                                    </a>
-                                    <h2>
-                                        <a class="article-title" href="/2021/12/22/python%E9%9D%A2%E5%AF%B9%E8%BF%87%E7%A8%8B%E5%AD%A6%E4%B9%A0/2.Python%E7%A8%8B%E5%BA%8Fno.1/">2.Python程序no.1</a> 
-                                    </h2>
-                                </div>
-                            </div>     
-        
-            
-                            <div class="archive">
-                                <div class="article">
-                                    <a href="javascript:;">
-                                        <span>12/22</span>
-                                    </a>
-                                    <h2>
-                                        <a class="article-title" href="/2021/12/22/python%E9%9D%A2%E5%AF%B9%E8%BF%87%E7%A8%8B%E5%AD%A6%E4%B9%A0/1.python%E7%AE%80%E4%BB%8B/">1.python简介</a> 
-                                    </h2>
-                                </div>
-                            </div>     
-        
-            
-                            <div class="archive">
-                                <div class="article">
-                                    <a href="javascript:;">
-                                        <span>12/22</span>
-                                    </a>
-                                    <h2>
-                                        <a class="article-title" href="/2021/12/22/python%E9%9D%A2%E5%AF%B9%E8%BF%87%E7%A8%8B%E5%AD%A6%E4%B9%A0/0.python%E5%AD%A6%E4%B9%A0/">0.python学习</a> 
-                                    </h2>
-                                </div>
-                            </div>     
-        
-        
+        <div id="article">
+    <div class="toc"></div>
+    <div class="article-body">
+        <p><img src="https://s2.loli.net/2022/05/02/MOY7GV9Lrj5D6K3.png" alt="img"></p>
+<h2 id="如何理解PID控制中的容量滞后和纯滞后？两者有什么区别？"><a href="#如何理解PID控制中的容量滞后和纯滞后？两者有什么区别？" class="headerlink" title="如何理解PID控制中的容量滞后和纯滞后？两者有什么区别？"></a>如何理解PID控制中的容量滞后和纯滞后？两者有什么区别？</h2><ol>
+<li>前者表达的是一定的能量或者是阻力 后者表达的是时间概念， zhi从定义上说： 容量滞后一段是由于物料或能量的传递需要通过一定阻力而引起的，通俗的说，就是对象受到一定的作用后，能量从不稳定到再次稳定的过程； 传递滞后又叫纯滞后，它的产生一般是由于介质的输送需要一段时间而引起的。</li>
+<li>输出变量的变化落后于输入变量变化的时间称为纯滞后时间，纯滞后的产生一般是由于介质的输送或热的传递需要一段时间引起的。容量滞后通常又包括，测量滞后和传送滞后。测量滞后是检测元件在检测时需要建立一种平衡，如热电偶、热电阻、压力等响应较慢产生的一种滞后。而传送滞后则是在传感器、变送器、执行机构等设备产生的一种控制滞后，纯滞后是相对与测量滞后的。</li>
+</ol>
+<h2 id="显示器的坐标是什么？为什么发生器的信号不动呢？"><a href="#显示器的坐标是什么？为什么发生器的信号不动呢？" class="headerlink" title="显示器的坐标是什么？为什么发生器的信号不动呢？"></a>显示器的坐标是什么？为什么发生器的信号不动呢？</h2><h2 id="模糊控制规则"><a href="#模糊控制规则" class="headerlink" title="模糊控制规则"></a>模糊控制规则</h2><p>模糊控制规则是模糊控制器的核心，它的正确与否直接影响到控制器的性能，其数目的多寡也是衡量控制器性能的一个重要因素。</p>
+<p>模糊控制规则是模糊控制器中知识库的一部分，模糊控制规则建立在语言变量的基础上。语言变量取值为“大”、“中”、“小”等这样的模糊子集，各模糊子集以隶属函数表明基本论域上的精确值属于该模糊子集的程度。因此，为建立模糊控制规则，需要将基本论域上的精确值依据隶属函数归并到各模糊子集中，从而用语言变量值（大、中、小等）代替精确值。这个过程代表了人在控制过程中对观察到的变量和控制量的模糊划分。由于各变量取值范围各异，故首先将各基本论域分别以不同的对应关系，映射到一个标准化论域上。通常，对应关系取为量化因子。为便于处理，将标准论域等分离散化，然后对论域进行模糊划分，定义模糊子集，如NB、PZ、PS等。同一个模糊控制规则库，对基本论域的模糊划分不同，控制效果也不同</p>
+<p>其实if-then还是挺好想的</p>
+<p>模糊PID控制，即利用模糊逻辑并根据一定的模糊规则对PID的参数进行实时的优化，以克服传统PID参数无法实时调整PID参数的缺点。模糊PID控制包括模糊化，确定模糊规则，解模糊等组成部分。小车通过传感器采集赛道信息，确定当前距赛道中线的偏差E并根据当前偏差和上次偏差的变化ec，根据给定的模糊规则进行模糊推理，最后对模糊参数进行解模糊，输出PID控制参数。</p>
+<p><img src="https://s2.loli.net/2022/05/02/unL13chaoIlRK45.png" alt="img"></p>
+<hr>
+<p>版权声明：本文为CSDN博主「才大难为用」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。<br>原文链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/HeroIsUseless/article/details/108634876">https://blog.csdn.net/HeroIsUseless/article/details/108634876</a></p>
+
+        <p class="suffix-end">__END__</p>
+        <div class="suffix-box">
+            <div class="suffix-box-left">
+                <img src="https://s2.loli.net/2022/03/31/JpQ6lgGdXmtSZaC.png" alt="hero">
             </div>
+            <div class="suffix-box-right">
+                <span class="suffix-box-title">文章作者</span>：hero
+                <br>
+                <span class="suffix-box-title">文章出处</span>：<a href="/2022/05/02/MATLAB%E5%AD%A6%E4%B9%A0/%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/19_PID%E5%87%A0%E4%B8%AA%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/" target="_blank">PID几个相关问题</a>
+                <br>
+                <span class="suffix-box-title">作者签名</span>：简单地活着, 肆意又精彩.
+                <br>
+                <span class="suffix-box-title">关于主题</span>：<a href="https://github.com/first19326/Hexo-LiveForCode" target="_blank">Hexo - Live For Code</a>
+                <br>
+                <span class="suffix-box-title">版权声明</span>：文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" title="BY-NC-SA" target="_blank">BY-NC-SA</a> 许可协议，转载请注明出处
+                <br>
+            </div>
+            <div style="clear: both;"></div>
         </div>
+    </div>
+    <div class="article-footer">
         
-    </div>   
-
-
-    <div class="pagination-bottom">
-        <div class="pagination">
+            <div class="category">
+                分类：
+                
+                    <a href="/category/00-MATLAB%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/">00_MATLAB补充文件</a>
+                
+            </div>
+        
+        
+            <div class="tag">
+                标签：
+                
+                    <a href="/tag/MATLAB%E5%AD%A6%E4%B9%A0/">MATLAB学习</a>
+                
+            </div>
+        
+        <div class="article-prev-next">
             
-                <a class="extend prev" rel="prev" href="/archive/page/7/">上一页</a><a class="page-number" href="/archive/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archive/page/6/">6</a><a class="page-number" href="/archive/page/7/">7</a><span class="page-number current">8</span>
+            
+                <a href="/2022/05/02/MATLAB%E5%AD%A6%E4%B9%A0/%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/18_PID%E7%9F%AB%E6%AD%A3%E7%8E%AF%E8%8A%82%E8%AF%A6%E8%A7%A3/" class="next-prefix">» </a> 下一篇：    <a href="/2022/05/02/MATLAB%E5%AD%A6%E4%B9%A0/%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/18_PID%E7%9F%AB%E6%AD%A3%E7%8E%AF%E8%8A%82%E8%AF%A6%E8%A7%A3/" title="发布于 2022-05-02 02:15">PID矫正环节详解.md</a>
             
         </div>
     </div>
+    
+    <div class="article-comments">
+        <div class="comments-title">
+            评论列表
+        </div>
+        <div class="comments-content">
+        </div>
+    </div>
+
+</div>
 
     </div>
 </div>
