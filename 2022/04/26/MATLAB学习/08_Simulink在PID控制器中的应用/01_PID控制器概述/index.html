@@ -58,19 +58,17 @@
         <div id="article">
     <div class="toc"></div>
     <div class="article-body">
-        <h1 id="一、PID控制器概述"><a href="#一、PID控制器概述" class="headerlink" title="一、PID控制器概述"></a>一、PID控制器概述</h1><blockquote>
+        <h1 id="PID控制器概述"><a href="#PID控制器概述" class="headerlink" title="PID控制器概述"></a>PID控制器概述</h1><blockquote>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/HeroIsUseless/article/details/108634876">比例积分微分控制，简称PID控制，是最早发展起来的控制策略之一，由于其算法简单、鲁棒性好和可靠性高，被广泛应用于工业过程控制，至今仍有90%左右的控制回路具有PID结构。简单的说，根据给定值和实际输出值构成控制偏差，将偏差按比例、积分和微分通过线性组合构成控制量，对被控对象进行调整。常规PID控制器作为一种线性控制器。</a></p>
 <p>在工业过程控制中，按被控对象的实时数据采集的信息与给定值比较产生的误差的比例、积分和微分进行控制的控制系统，简称PID控制系统。PID控制具有原理简单，鲁棒性强和实用面广等优点，是一种技术成熟、应用最为广泛的控制系统</p>
 </blockquote>
-<p>1、控制系统包括  <code>控制器、执行器、传感器、变送器、输入、输出接口</code></p>
-<p>控制器的输出经过执行机构加到被控制对象上，控制系统的输出经传感器、变送器，再通过输入接口返回到控制器，组成闭环控制系统。不同的控制对象，其传感器、执行器不同，如：电加热系统控制使用温度传感器、锅炉水位控制使用液位传感器。一个简单的PID控制系统的组成  如图</p>
+<h2 id="1、控制系统包括-控制器、执行器、传感器、变送器、输入、输出接口"><a href="#1、控制系统包括-控制器、执行器、传感器、变送器、输入、输出接口" class="headerlink" title="1、控制系统包括  控制器、执行器、传感器、变送器、输入、输出接口"></a>1、控制系统包括  <code>控制器、执行器、传感器、变送器、输入、输出接口</code></h2><p>控制器的输出经过执行机构加到被控制对象上，控制系统的输出经传感器、变送器，再通过输入接口返回到控制器，组成闭环控制系统。不同的控制对象，其传感器、执行器不同，如：电加热系统控制使用温度传感器、锅炉水位控制使用液位传感器。一个简单的PID控制系统的组成  如图</p>
 <p><img src="https://s2.loli.net/2022/04/27/dhnKsa1p6mqN9Tc.jpg" alt="6c783578d7a68cb696ea3410aad324d"></p>
 <p><img src="https://s2.loli.net/2022/05/02/4c6xsVgrqwpYPXv.png" alt="img"></p>
 <p><img src="https://s2.loli.net/2022/04/29/t4RF5odKCSV7NxB.png" alt="image-20220427142551822"></p>
 <p>系统控制质量取决于被控制对象的动态特性。控制器目的是通过调整控制参，改善系统的动态和静态指标，实现最佳控制效果</p>
 <p><img src="https://s2.loli.net/2022/05/02/ftr1KDy92xOw6WM.png" alt="img"></p>
-<p>2、PID控制器的表示方法及仿真</p>
-<p><img src="https://s2.loli.net/2022/04/29/t5NzPneGD1TaEoC.png" alt="image-20220427142429205"></p>
+<h2 id="2、PID控制器的表示方法及仿真"><a href="#2、PID控制器的表示方法及仿真" class="headerlink" title="2、PID控制器的表示方法及仿真"></a>2、PID控制器的表示方法及仿真</h2><p><img src="https://s2.loli.net/2022/04/29/t5NzPneGD1TaEoC.png" alt="image-20220427142429205"></p>
 <blockquote>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/jinpeng_cumt/article/details/60867690">PID控制器各个矫正环节的作用如下：</a></p>
 <p>（1）比例环节：成比例的反映控制系统的偏差e(t)，偏差一旦产生，控制器立即产生作用，以减少偏差。</p>
@@ -103,8 +101,7 @@
 <p><a href="https://fubaisen.github.io/2022/05/02/MATLAB%E5%AD%A6%E4%B9%A0/%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/18_PID%E7%9F%AB%E6%AD%A3%E7%8E%AF%E8%8A%82%E8%AF%A6%E8%A7%A3">举例：</a></p>
 <p><a href="https://fubaisen.github.io/2022/05/02/MATLAB%E5%AD%A6%E4%B9%A0/%E8%A1%A5%E5%85%85%E6%96%87%E4%BB%B6/19_PID%E5%87%A0%E4%B8%AA%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98">传递函数、如何理解PID控制中的容量滞后和纯滞后？两者有什么区别？、模糊控制规则</a></p>
 </blockquote>
-<p>（1）PID控制器表示方法</p>
-<p><img src="https://s2.loli.net/2022/04/27/ModkibGqmRDKjS2.jpg" alt="fba63799c5aed66e4f65aca3ddc7b1d"></p>
+<h3 id="（1）PID控制器表示方法"><a href="#（1）PID控制器表示方法" class="headerlink" title="（1）PID控制器表示方法"></a>（1）PID控制器表示方法</h3><p><img src="https://s2.loli.net/2022/04/27/ModkibGqmRDKjS2.jpg" alt="fba63799c5aed66e4f65aca3ddc7b1d"></p>
 <p>对式 （8-1）PID的时域表达式进行拉普拉斯变换得：</p>
 <p><img src="https://s2.loli.net/2022/04/27/ZPkmf1MrFWBOLtG.jpg" alt="f7fb77f9d0528c773f784b84fc9f9c4"></p>
 <ul>
@@ -116,24 +113,19 @@
 <li>K i       为控制器积分时间系数</li>
 <li>K d       为控制器的微分时间系数</li>
 </ul>
-<p>（2）PID 控制器仿真表示</p>
-<p>PID控制器仿真框图如图所示</p>
+<h3 id="（2）PID-控制器仿真表示"><a href="#（2）PID-控制器仿真表示" class="headerlink" title="（2）PID 控制器仿真表示"></a>（2）PID 控制器仿真表示</h3><p>PID控制器仿真框图如图所示</p>
 <p><img src="https://s2.loli.net/2022/04/29/tyTvFKjcihaCYwL.jpg" alt="6737034b7585204f89547b55aa45f86"></p>
-<p>3、PID控制器的作用</p>
-<p>（1）不同比例系数控制仿真</p>
-<p>增大比例系数 K p 一般将加快系统的响应，并有利于减小稳态误差，但是过大的比例系数会使系统由比较大的超调量，并产生振荡，是稳定性变坏。例如，设被控制对像传递函数为<img src="https://s2.loli.net/2022/04/29/JfDEpxbQ59hUTZ2.jpg" alt="957d6bf6ec68200e294cc456c01ad4b" style="zoom: 33%;" /></p>
+<h2 id="3、PID控制器的作用"><a href="#3、PID控制器的作用" class="headerlink" title="3、PID控制器的作用"></a>3、PID控制器的作用</h2><h3 id="（1）不同比例系数控制仿真"><a href="#（1）不同比例系数控制仿真" class="headerlink" title="（1）不同比例系数控制仿真"></a>（1）不同比例系数控制仿真</h3><p>增大比例系数 K p 一般将加快系统的响应，并有利于减小稳态误差，但是过大的比例系数会使系统由比较大的超调量，并产生振荡，是稳定性变坏。例如，设被控制对像传递函数为<img src="https://s2.loli.net/2022/04/29/JfDEpxbQ59hUTZ2.jpg" alt="957d6bf6ec68200e294cc456c01ad4b" style="zoom: 33%;" /></p>
 <p>输入月结信号，选取 K p = 1.3 、2.3 、3.3 ，控制系统仿真框图及阶跃响应曲线，如图所示</p>
 <p><img src="https://s2.loli.net/2022/04/29/zVTomD8engjU7hR.jpg" alt="37e6e6517fd54b27db4de384fa72a55"></p>
 <p>结论：系统的超调量会随着K p 的增大而增大，K p 偏大时，系统震荡系数增多，幅度增大，且调节时间加长</p>
-<p>（2）不同积分系数控制仿真</p>
-<p>增大积分系数 K i 有利于减小超调量和稳态误差，但是系统稳态误差消除时间变长。例如，设被控制对象传递函数为</p>
+<h3 id="（2）不同积分系数控制仿真"><a href="#（2）不同积分系数控制仿真" class="headerlink" title="（2）不同积分系数控制仿真"></a>（2）不同积分系数控制仿真</h3><p>增大积分系数 K i 有利于减小超调量和稳态误差，但是系统稳态误差消除时间变长。例如，设被控制对象传递函数为</p>
 <img src="https://s2.loli.net/2022/04/29/gJcrtIz34K26fhU.jpg" alt="c15fa67ca51683c30d2d2aa26bdf385" style="zoom:33%;" />
 
 <p>输入月结信号，选取 T i = 1、5、15  ,控制系IT噢NG仿真框图及越阶响应曲线如图所示</p>
 <p><img src="https://s2.loli.net/2022/04/29/BNbSepRmFKrzCli.png" alt="image-20220426194014044"></p>
 <p>结论：系统的超调量会随着T i 的增大而减小，系统响应速度随着 T i的增大会略微变慢</p>
-<p>（3）不同积分系统控制仿真</p>
-<p>增大积分系数K D 有利于加快系统的响应速度，使系统超调量减小，稳定性加强，但系统对扰动的抑制能力减弱。对于式（8-4）表示的被控制对象，输入阶跃信号没选取 T d = 1、5、10 ,控制系统仿真框图及阶跃响应曲线如图所示</p>
+<h3 id="（3）不同积分系统控制仿真"><a href="#（3）不同积分系统控制仿真" class="headerlink" title="（3）不同积分系统控制仿真"></a>（3）不同积分系统控制仿真</h3><p>增大积分系数K D 有利于加快系统的响应速度，使系统超调量减小，稳定性加强，但系统对扰动的抑制能力减弱。对于式（8-4）表示的被控制对象，输入阶跃信号没选取 T d = 1、5、10 ,控制系统仿真框图及阶跃响应曲线如图所示</p>
 <p><img src="https://s2.loli.net/2022/04/29/tL5kRI1ZPMBKce7.jpg" alt="12c2c064956aa8cc1f6dee3d4b47a82"></p>
 
         <p class="suffix-end">__END__</p>
