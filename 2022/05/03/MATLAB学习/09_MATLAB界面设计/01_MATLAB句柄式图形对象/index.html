@@ -58,7 +58,124 @@
         <div id="article">
     <div class="toc"></div>
     <div class="article-body">
-        
+        <p>MATLABGUI为<strong>图形用户界面</strong>（GraphicalUserInterface，简称GUI，又称图形用户接口）是指采用图形方法显示的计算机操作用户界面，是MATLAB用户可视化交互式的东西，运用GUI生成的操作界面用户能够不用阅读繁冗的代码而进行操作。</p>
+<h1 id="一、句柄式图形对象"><a href="#一、句柄式图形对象" class="headerlink" title="一、句柄式图形对象"></a>一、句柄式图形对象</h1><p>在MATlAB中，每一个对象都有一个数字来标识。此标识称为句柄。每当创建一个对象时，MATLAB就为其创建一个唯一的句柄</p>
+<h2 id="1、句柄式图形的对象结构"><a href="#1、句柄式图形的对象结构" class="headerlink" title="1、句柄式图形的对象结构"></a>1、句柄式图形的对象结构</h2><p>图形对象从根对象root 开始构成层次关系，每一个窗口对象 figure可以有4种对象，即菜单对象 unimenu、控制对象 uicontol 、坐标对象 axes 和axes 和右键快捷菜单对象 uicontextmenu 。使用这些对象和句柄即可完成图形窗口操作。句柄式图形对象结构如图所示<img src="https://s2.loli.net/2022/05/03/vYPL4jMEWeSXq6U.jpg" alt="4ad8f18c48a612d17aa889ec82d1cd9"></p>
+<h2 id="2、句柄设置方法"><a href="#2、句柄设置方法" class="headerlink" title="2、句柄设置方法"></a>2、句柄设置方法</h2><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">handle = uicontrol(Parent,<span class="string">&#x27;PropertyName&#x27;</span>,ProperotyValue,...)</span><br><span class="line">handle = uicontrol  <span class="comment">% 默认的 Style 属性值，在当前图形窗口（figure）中穿件下压按钮对象</span></span><br><span class="line">uicontrol(uich)     <span class="comment">% 将焦点移动由 unich 所示知识对象上</span></span><br></pre></td></tr></table></figure>
+
+<p>其中：uicontrol 可以再用户界面窗体上创建各种组价an（如按钮、静态文本框、弹出式菜单等），并指定这些组件的回调函数。parent 为当前推行窗口，它可以是图形窗口的句柄，也可以是面板（uipanel）的句柄，还可以是按钮组（uibuttongroug）的句柄。PrepertyName 为属性名，PropertyValue 用于设置属性值，它可以为下列值之一：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>checkbox</td>
+<td>创建复选框，用来单选或多选</td>
+</tr>
+<tr>
+<td>exit</td>
+<td>创建编辑框，用于编辑文本数据</td>
+</tr>
+<tr>
+<td>frame</td>
+<td>创建框架对象。架构在图形窗口中是一个矩形的封闭区域，使用框架可以使得用户界面清晰、易懂。框架对象没有性赢得回调函数</td>
+</tr>
+<tr>
+<td>listbox</td>
+<td>创建列表框，用来显示一系列条目，允许用户选择一个或多个条目。Value 属性值包含所选条目的索引值</td>
+</tr>
+<tr>
+<td>Pop-up menus</td>
+<td>创建弹出式菜单</td>
+</tr>
+<tr>
+<td>Push buttons</td>
+<td>创建下压按钮</td>
+</tr>
+<tr>
+<td>Radio buttons</td>
+<td>创建单选按钮</td>
+</tr>
+<tr>
+<td>Sliders</td>
+<td>创建滑动条</td>
+</tr>
+<tr>
+<td>Static text labels</td>
+<td>创建静态文本标签</td>
+</tr>
+<tr>
+<td>Toggel buttons</td>
+<td>创建双位按钮</td>
+</tr>
+</tbody></table>
+<p>在命令窗口中输入 set （uicontrol ）可查看 uicontrol 的属性</p>
+<h1 id="二、创建图形句柄"><a href="#二、创建图形句柄" class="headerlink" title="二、创建图形句柄"></a>二、创建图形句柄</h1><h2 id="1、常用函数"><a href="#1、常用函数" class="headerlink" title="1、常用函数"></a>1、常用函数</h2><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>figure</td>
+<td>创建一个新的图形对象</td>
+</tr>
+<tr>
+<td>uimenu</td>
+<td>生成图形创口的菜单中层次菜单与下一级子菜单</td>
+</tr>
+<tr>
+<td>gcf</td>
+<td>获得当前窗口的句柄</td>
+</tr>
+<tr>
+<td>gca</td>
+<td>获得当前坐标轴的句柄</td>
+</tr>
+<tr>
+<td>gco</td>
+<td>获得包括正在执行调用的对象的句柄</td>
+</tr>
+<tr>
+<td>gcho</td>
+<td>获得包括正在执行调用的对象的句柄</td>
+</tr>
+<tr>
+<td>gcbf</td>
+<td>获得包括正在执行调用的对象的图形句柄</td>
+</tr>
+<tr>
+<td>delete</td>
+<td>删除句柄所对应的图形对象</td>
+</tr>
+<tr>
+<td>findbj</td>
+<td>查找具有某种属性的图形对象</td>
+</tr>
+</tbody></table>
+<h2 id="2、通用函数-get-和-set"><a href="#2、通用函数-get-和-set" class="headerlink" title="2、通用函数 get 和 set"></a>2、通用函数 get 和 set</h2><p>所有对象都有属性定义它们的特征，属性可包括对象的位置、颜色、类型、父对象、子对象及其他内容。为了获得和改变句柄图形对象的属性需要使用了两个通用函数 get 和 set </p>
+<h4 id="（1）get-函数返回某个对象属性的当前值"><a href="#（1）get-函数返回某个对象属性的当前值" class="headerlink" title="（1）get 函数返回某个对象属性的当前值"></a>（1）get 函数返回某个对象属性的当前值</h4><p>用法为 get  （对象句柄，’对象句柄’）、属性名可以为多个，但必须是该对象具有的属性。语法格式如下：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">p = get(handle,<span class="string">&#x27;Position&#x27;</span>)   <span class="comment">% 返回句柄handle图形窗口的位置向量</span></span><br><span class="line">c = get(handle,<span class="string">&#x27;color&#x27;</span>)      <span class="comment">% 返回句柄handle对象的颜色</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="（2）set-函数改变句柄图形对象属性"><a href="#（2）set-函数改变句柄图形对象属性" class="headerlink" title="（2）set 函数改变句柄图形对象属性"></a>（2）set 函数改变句柄图形对象属性</h4><p>用法为<code>set (对象属性，&#39;属性名1&#39;,&#39;属性值1&#39;，&#39;属性名2&#39;,&#39;属性值2&#39;,…)</code>  语法格式如下</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">set(handle,<span class="string">&#x27;Position&#x27;</span>,p_vect)  		<span class="comment">% 将句柄handle 的图形位置设为向量p_vect 所指定的值</span></span><br><span class="line">set(handle,<span class="string">&#x27;color&#x27;</span>,<span class="string">&#x27;r&#x27;</span>)  			<span class="comment">% 将句柄handle 对象颜色设置成红色</span></span><br><span class="line">set(handle,<span class="string">&#x27;olor&#x27;</span>,<span class="string">&#x27;r&#x27;</span>,<span class="string">&#x27;Linewith&#x27;</span>)   <span class="comment">% 将句柄 handle 对象的颜色设置成红色、现况为2个色素</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>例：创建弹出式菜单，根据选择不同项目执行不同操作，使用回调函数  bs_01.m 画出不同颜色球体</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; hpop=uicontrol(<span class="string">&#x27;Style&#x27;</span>,<span class="string">&#x27;listbox&#x27;</span>,<span class="string">&#x27;String&#x27;</span>,<span class="string">&#x27;画红色球体|画黄色球体|画粉色球体|画渐变色球体&#x27;</span>,<span class="string">&#x27;Position&#x27;</span>,[<span class="number">10</span> <span class="number">320</span> <span class="number">120</span> <span class="number">50</span>],<span class="string">&#x27;Callback&#x27;</span>,<span class="string">&#x27;bs_01&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>创建回调函数 bs_01.m</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">val = get(hpop,<span class="string">&#x27;value&#x27;</span>);</span><br><span class="line"><span class="keyword">if</span> val == <span class="number">1</span></span><br><span class="line">    sphere(<span class="number">30</span>);colormap([<span class="number">1</span> <span class="number">0</span> <span class="number">0</span>])</span><br><span class="line"><span class="keyword">elseif</span> val == <span class="number">2</span></span><br><span class="line">    sphere(<span class="number">30</span>);colormap([<span class="number">1</span> <span class="number">1</span> <span class="number">0</span>])</span><br><span class="line"><span class="keyword">elseif</span> val == <span class="number">3</span></span><br><span class="line">    sphere(<span class="number">30</span>);colormap(pink)</span><br><span class="line"><span class="keyword">elseif</span> val == <span class="number">4</span></span><br><span class="line">    sphere(<span class="number">30</span>);colormap(spring)</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<p>弹出式菜单及运行结果如图所示</p>
+<p><img src="https://s2.loli.net/2022/05/03/QBRnAw7quWzpLPg.png" alt="image-20220503153708041"></p>
+</li>
+</ul>
+
         <p class="suffix-end">__END__</p>
         <div class="suffix-box">
             <div class="suffix-box-left">
@@ -97,6 +214,9 @@
             </div>
         
         <div class="article-prev-next">
+            
+                <a href="/2022/05/03/MATLAB%E5%AD%A6%E4%B9%A0/09_MATLAB%E7%95%8C%E9%9D%A2%E8%AE%BE%E8%AE%A1/02_%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0/" class="prev-prefix">« </a> 上一篇：    <a href="/2022/05/03/MATLAB%E5%AD%A6%E4%B9%A0/09_MATLAB%E7%95%8C%E9%9D%A2%E8%AE%BE%E8%AE%A1/02_%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0/" title="发布于 2022-05-03 03:36">02_回调函数</a>
+                <br>
             
             
                 <a href="/2022/05/03/%E6%BA%90%E7%A0%81/matlab%E6%BA%90%E7%A0%81/" class="next-prefix">» </a> 下一篇：    <a href="/2022/05/03/%E6%BA%90%E7%A0%81/matlab%E6%BA%90%E7%A0%81/" title="发布于 2022-05-03 01:26">matab</a>
